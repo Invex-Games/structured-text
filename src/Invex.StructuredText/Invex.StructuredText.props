@@ -1,0 +1,6 @@
+<Project>
+    <ItemGroup>
+        <Using Include="Invex.StructuredText" Global="true"/>
+        <Using Include="Invex.StructuredText.Expressions" Global="true"/>
+    </ItemGroup>
+</Project>

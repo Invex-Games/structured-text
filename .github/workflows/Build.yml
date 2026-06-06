@@ -1,0 +1,156 @@
+name: Build
+
+on:
+  push:
+    branches: [ main, feature/**, patch/** ]
+  release:
+    types: [ released ]
+  workflow_dispatch:
+
+permissions: { }
+
+jobs:
+
+  SetupBuildInfo:
+    runs-on: ubuntu-latest
+    outputs:
+      build-name: ${{ steps.SetupBuildInfo.outputs.build-name }}
+      build-id: ${{ steps.SetupBuildInfo.outputs.build-id }}
+      build-version: ${{ steps.SetupBuildInfo.outputs.build-version }}
+      build-timestamp: ${{ steps.SetupBuildInfo.outputs.build-timestamp }}
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET 10.0.x
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: SetupBuildInfo
+        id: SetupBuildInfo
+        run: dotnet run --project _atom/_atom.csproj -- SetupBuildInfo --skip --headless
+
+  PackProjects:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET 10.0.x
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: PackProjects
+        id: PackProjects
+        run: dotnet run --project _atom/_atom.csproj -- PackProjects --skip --headless
+
+      - name: Store Invex.StructuredText
+        uses: actions/upload-artifact@v7
+        with:
+          name: Invex.StructuredText
+          path: '${{ github.workspace }}/.github/publish/Invex.StructuredText'
+
+      - name: Store Invex.StructuredText.AzureDevopsPipelines
+        uses: actions/upload-artifact@v7
+        with:
+          name: Invex.StructuredText.AzureDevopsPipelines
+          path: '${{ github.workspace }}/.github/publish/Invex.StructuredText.AzureDevopsPipelines'
+
+      - name: Store Invex.StructuredText.GithubActions
+        uses: actions/upload-artifact@v7
+        with:
+          name: Invex.StructuredText.GithubActions
+          path: '${{ github.workspace }}/.github/publish/Invex.StructuredText.GithubActions'
+
+  PushToNuget:
+    needs: [ PackProjects, SetupBuildInfo ]
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET 10.0.x
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Retrieve Invex.StructuredText
+        uses: actions/download-artifact@v8
+        with:
+          name: Invex.StructuredText
+          path: '${{ github.workspace }}/.github/artifacts/Invex.StructuredText'
+
+      - name: Retrieve Invex.StructuredText.AzureDevopsPipelines
+        uses: actions/download-artifact@v8
+        with:
+          name: Invex.StructuredText.AzureDevopsPipelines
+          path: '${{ github.workspace }}/.github/artifacts/Invex.StructuredText.AzureDevopsPipelines'
+
+      - name: Retrieve Invex.StructuredText.GithubActions
+        uses: actions/download-artifact@v8
+        with:
+          name: Invex.StructuredText.GithubActions
+          path: '${{ github.workspace }}/.github/artifacts/Invex.StructuredText.GithubActions'
+
+      - name: PushToNuget
+        id: PushToNuget
+        run: dotnet run --project _atom/_atom.csproj -- PushToNuget --skip --headless
+        env:
+          build-id: ${{ needs.SetupBuildInfo.outputs.build-id }}
+          nuget-push-api-key: ${{ secrets.NUGET_PUSH_API_KEY }}
+
+  PushToRelease:
+    permissions:
+      contents: write
+    needs: [ PackProjects, SetupBuildInfo ]
+    if: contains(needs.SetupBuildInfo.outputs.build-version, '-') == false
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET 10.0.x
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Retrieve Invex.StructuredText
+        uses: actions/download-artifact@v8
+        with:
+          name: Invex.StructuredText
+          path: '${{ github.workspace }}/.github/artifacts/Invex.StructuredText'
+
+      - name: Retrieve Invex.StructuredText.AzureDevopsPipelines
+        uses: actions/download-artifact@v8
+        with:
+          name: Invex.StructuredText.AzureDevopsPipelines
+          path: '${{ github.workspace }}/.github/artifacts/Invex.StructuredText.AzureDevopsPipelines'
+
+      - name: Retrieve Invex.StructuredText.GithubActions
+        uses: actions/download-artifact@v8
+        with:
+          name: Invex.StructuredText.GithubActions
+          path: '${{ github.workspace }}/.github/artifacts/Invex.StructuredText.GithubActions'
+
+      - name: PushToRelease
+        id: PushToRelease
+        run: dotnet run --project _atom/_atom.csproj -- PushToRelease --skip --headless
+        env:
+          build-version: ${{ needs.SetupBuildInfo.outputs.build-version }}
+          build-id: ${{ needs.SetupBuildInfo.outputs.build-id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+

@@ -1,0 +1,6 @@
+<Project>
+    <ItemGroup>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines" Global="true"/>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel" Global="true"/>
+    </ItemGroup>
+</Project>
