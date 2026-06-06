@@ -1,3 +1,5 @@
+global using System.Reflection;
+global using System.Text.Json;
 global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs;
 global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline;
 global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources;
@@ -7,5 +9,6 @@ global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Suppo
 global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers;
 global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables;
 global using Invex.StructuredText.Expressions;
+global using JetBrains.Annotations;
 global using NUnit.Framework;
 global using Shouldly;
