@@ -1,15 +1,12 @@
-﻿using DecSm.StructuredText.Expressions;
-using DecSm.StructuredText.GithubActions.DependabotConfigModel.Model;
-using DecSm.StructuredText.GithubActions.GithubActionModel;
-
-namespace Atom;
+﻿namespace Atom;
 
 [BuildDefinition]
 [GenerateEntryPoint]
 [GenerateSolutionModel]
 internal interface IBuild : IWorkflowBuildDefinition,
     IGithubWorkflows,
-    ISetupBuildInfo,
+    ICheckPrForBreakingChanges,
+    IApproveDependabotPr,
     IGitVersion,
     IDotnetPackHelper,
     IDotnetTestHelper,
@@ -144,6 +141,25 @@ internal interface IBuild : IWorkflowBuildDefinition,
                         BuildOptions.Steps.SetupDotnet.Dotnet90X(),
                     ],
                 },
+                new(nameof(CheckPrForBreakingChanges))
+                {
+                    Options =
+                    [
+                        BuildOptions.Target.SuppressArtifactPublishing,
+                        BuildOptions.Inject.Secret(nameof(GithubToken)),
+                        BuildOptions.Github.TokenPermissions.Set(new Permissions.Exact(new()
+                        {
+                            IdTokens = PermissionsLevel.Write,
+                            Contents = PermissionsLevel.Write,
+                            PullRequests = PermissionsLevel.Write,
+                            Checks = PermissionsLevel.Write,
+                        })),
+                        BuildOptions.Inject.Param(nameof(PullRequestNumber),
+                            TextExpressions.Github.GithubEvent["number"]),
+                        BuildOptions.Target.RunIfWorkflowCondition(
+                            TextExpressions.Github.GithubEventName.EqualToString("pull_request")),
+                    ],
+                },
             ],
             Types = [WorkflowTypes.Github.Action],
         },
@@ -191,6 +207,31 @@ internal interface IBuild : IWorkflowBuildDefinition,
                             .ParamOutput(this, nameof(SetupBuildInfo), nameof(BuildVersion))
                             .Contains("-")
                             .EqualTo(false)),
+                    ],
+                },
+            ],
+            Types = [WorkflowTypes.Github.Action],
+        },
+        new("Dependabot Enable auto-merge")
+        {
+            Triggers = [WorkflowTriggers.PullIntoMain],
+            Targets =
+            [
+                new(nameof(ApproveDependabotPr))
+                {
+                    Options =
+                    [
+                        BuildOptions.Inject.Secret(nameof(GithubToken)),
+                        BuildOptions.Inject.Param(nameof(PullRequestNumber),
+                            TextExpressions.Github.GithubEvent["number"]),
+                        BuildOptions.Target.RunIfWorkflowCondition(
+                            TextExpressions.Github.GithubActor.EqualToString("dependabot[bot]")),
+                        new GithubTokenPermissionsOption(new Permissions.Exact(new()
+                        {
+                            IdTokens = PermissionsLevel.Write,
+                            Contents = PermissionsLevel.Write,
+                            PullRequests = PermissionsLevel.Write,
+                        })),
                     ],
                 },
             ],
