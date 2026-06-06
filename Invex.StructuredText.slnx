@@ -1,6 +1,13 @@
 <Solution>
-  <Project Path="src/Invex.StructuredText.AzureDevopsPipelines/Invex.StructuredText.AzureDevopsPipelines.csproj" />
-  <Project Path="src/Invex.StructuredText.GithubActions/Invex.StructuredText.GithubActions.csproj" />
-  <Project Path="src/Invex.StructuredText/Invex.StructuredText.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/Invex.StructuredText.AzureDevopsPipelines/Invex.StructuredText.AzureDevopsPipelines.csproj" />
+    <Project Path="src/Invex.StructuredText.GithubActions/Invex.StructuredText.GithubActions.csproj" />
+    <Project Path="src/Invex.StructuredText/Invex.StructuredText.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Invex.StructuredText.AzureDevopsPipelines.Tests/Invex.StructuredText.AzureDevopsPipelines.Tests.csproj" />
+    <Project Path="tests/Invex.StructuredText.GithubActions.Tests/Invex.StructuredText.GithubActions.Tests.csproj" />
+    <Project Path="tests/Invex.StructuredText.Tests/Invex.StructuredText.Tests.csproj" />
+  </Folder>
   <Project Path="_atom/_atom.csproj" />
 </Solution>

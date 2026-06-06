@@ -12,10 +12,13 @@ internal interface IBuild : IWorkflowBuildDefinition,
     ISetupBuildInfo,
     IGitVersion,
     IDotnetPackHelper,
+    IDotnetTestHelper,
     INugetHelper,
-    IGithubReleaseHelper,
-    IDotnetToolInstallHelper
+    IGithubReleaseHelper
 {
+    [ParamDefinition("test-framework", "Test framework to use for unit tests")]
+    string TestFramework => GetParam(() => TestFramework, "net10.0");
+
     [ParamDefinition("nuget-push-feed", "The Nuget feed to push to.")]
     string NugetFeed => GetParam(() => NugetFeed, "https://api.nuget.org/v3/index.json");
 
@@ -27,6 +30,20 @@ internal interface IBuild : IWorkflowBuildDefinition,
         Projects.Invex_StructuredText.Name,
         Projects.Invex_StructuredText_AzureDevopsPipelines.Name,
         Projects.Invex_StructuredText_GithubActions.Name,
+    ];
+
+    static readonly string[] ProjectsToTest =
+    [
+        Projects.Invex_StructuredText_Tests.Name,
+        Projects.Invex_StructuredText_AzureDevopsPipelines_Tests.Name,
+        Projects.Invex_StructuredText_GithubActions_Tests.Name,
+    ];
+
+    static readonly string[] TestFrameworkNames =
+    [
+        WorkflowLabels.Dotnet.Framework.Net_8_0,
+        WorkflowLabels.Dotnet.Framework.Net_9_0,
+        WorkflowLabels.Dotnet.Framework.Net_10_0,
     ];
 
     IReadOnlyList<IBuildOption> IBuildDefinition.Options =>
@@ -46,6 +63,31 @@ internal interface IBuild : IWorkflowBuildDefinition,
                     await DotnetPackAndStage(packageProject, cancellationToken: cancellationToken);
             });
 
+    Target TestProjects =>
+        t => t
+            .DescribedAs("Tests the projects")
+            .RequiresParam(nameof(TestFramework))
+            .ProducesArtifacts(ProjectsToTest)
+            .Executes(async cancellationToken =>
+            {
+                var exitCode = 0;
+
+                // ReSharper disable once LoopCanBeConvertedToQuery
+                foreach (var project in ProjectsToTest)
+                    exitCode += await DotnetTestAndStage(project,
+                        new()
+                        {
+                            TestOptions = new()
+                            {
+                                Framework = TestFramework,
+                            },
+                        },
+                        cancellationToken);
+
+                if (exitCode != 0)
+                    throw new StepFailedException("One or more unit tests failed");
+            });
+
     Target PushToNuget =>
         t => t
             .DescribedAs("Pushes the packages to Nuget")
@@ -53,6 +95,7 @@ internal interface IBuild : IWorkflowBuildDefinition,
             .RequiresParam(nameof(NugetApiKey))
             .ConsumesVariable(nameof(SetupBuildInfo), nameof(BuildId))
             .ConsumesArtifacts(nameof(PackProjects), ProjectsToPack)
+            .DependsOn(nameof(TestProjects))
             .Executes(async cancellationToken =>
             {
                 foreach (var project in ProjectsToPack)
@@ -66,6 +109,7 @@ internal interface IBuild : IWorkflowBuildDefinition,
             .ConsumesVariable(nameof(SetupBuildInfo), nameof(BuildVersion))
             .ConsumesVariable(nameof(SetupBuildInfo), nameof(BuildId))
             .ConsumesArtifacts(nameof(PackProjects), ProjectsToPack)
+            .DependsOn(nameof(TestProjects))
             .Executes(async () =>
             {
                 foreach (var artifact in ProjectsToPack)
@@ -83,6 +127,22 @@ internal interface IBuild : IWorkflowBuildDefinition,
                 new(nameof(PackProjects))
                 {
                     Options = [BuildOptions.Target.SuppressArtifactPublishing],
+                },
+                new(nameof(TestProjects))
+                {
+                    MatrixDimensions =
+                    [
+                        new(nameof(TestFramework))
+                        {
+                            Values = TestFrameworkNames,
+                        },
+                    ],
+                    Options =
+                    [
+                        BuildOptions.Target.SuppressArtifactPublishing,
+                        BuildOptions.Steps.SetupDotnet.Dotnet80X(),
+                        BuildOptions.Steps.SetupDotnet.Dotnet90X(),
+                    ],
                 },
             ],
             Types = [WorkflowTypes.Github.Action],
@@ -102,6 +162,17 @@ internal interface IBuild : IWorkflowBuildDefinition,
             [
                 new(nameof(SetupBuildInfo)),
                 new(nameof(PackProjects)),
+                new(nameof(TestProjects))
+                {
+                    MatrixDimensions =
+                    [
+                        new(nameof(TestFramework))
+                        {
+                            Values = TestFrameworkNames,
+                        },
+                    ],
+                    Options = [BuildOptions.Steps.SetupDotnet.Dotnet80X(), BuildOptions.Steps.SetupDotnet.Dotnet90X()],
+                },
                 new(nameof(PushToNuget))
                 {
                     Options = [BuildOptions.Inject.Secret(nameof(NugetApiKey))],

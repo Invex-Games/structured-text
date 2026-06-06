@@ -70,8 +70,60 @@ jobs:
           name: Invex.StructuredText.GithubActions
           path: '${{ github.workspace }}/.github/publish/Invex.StructuredText.GithubActions'
 
+  TestProjects:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test-framework: [ net8.0, net9.0, net10.0 ]
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET 10.0.x
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Setup .NET 8.0.x
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Setup .NET 9.0.x
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 9.0.x
+
+      - name: TestProjects
+        id: TestProjects
+        run: dotnet run --project _atom/_atom.csproj -- TestProjects --skip --headless
+        env:
+          test-framework: ${{ matrix.test-framework }}
+          build-slice: ${{ matrix.test-framework }}
+
+      - name: Store Invex.StructuredText.Tests
+        uses: actions/upload-artifact@v7
+        with:
+          name: 'Invex.StructuredText.Tests-${{ matrix.test-framework }}'
+          path: '${{ github.workspace }}/.github/publish/Invex.StructuredText.Tests'
+
+      - name: Store Invex.StructuredText.AzureDevopsPipelines.Tests
+        uses: actions/upload-artifact@v7
+        with:
+          name: 'Invex.StructuredText.AzureDevopsPipelines.Tests-${{ matrix.test-framework }}'
+          path: '${{ github.workspace }}/.github/publish/Invex.StructuredText.AzureDevopsPipelines.Tests'
+
+      - name: Store Invex.StructuredText.GithubActions.Tests
+        uses: actions/upload-artifact@v7
+        with:
+          name: 'Invex.StructuredText.GithubActions.Tests-${{ matrix.test-framework }}'
+          path: '${{ github.workspace }}/.github/publish/Invex.StructuredText.GithubActions.Tests'
+
   PushToNuget:
-    needs: [ PackProjects, SetupBuildInfo ]
+    needs: [ TestProjects, PackProjects, SetupBuildInfo ]
     runs-on: ubuntu-latest
     steps:
 
@@ -113,7 +165,7 @@ jobs:
   PushToRelease:
     permissions:
       contents: write
-    needs: [ PackProjects, SetupBuildInfo ]
+    needs: [ TestProjects, PackProjects, SetupBuildInfo ]
     if: contains(needs.SetupBuildInfo.outputs.build-version, '-') == false
     runs-on: ubuntu-latest
     steps:

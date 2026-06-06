@@ -1,0 +1,11 @@
+global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs;
+global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline;
+global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources;
+global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Stages;
+global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps;
+global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting;
+global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers;
+global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables;
+global using Invex.StructuredText.Expressions;
+global using NUnit.Framework;
+global using Shouldly;
