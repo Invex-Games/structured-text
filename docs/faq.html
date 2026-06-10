@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>FAQ | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="FAQ | Invex.StructuredText ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/blob/main/docs/faq.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="faq">FAQ</h1>
+
+<h2 id="general">General</h2>
+<h3 id="what-does-this-library-actually-do">What does this library actually do?</h3>
+<p>It turns strongly-typed C# object graphs into YAML text for GitHub Actions workflows, Dependabot configs, and Azure
+DevOps Pipelines. You build models, a writer renders them, and you save the resulting string to a file.</p>
+<h3 id="does-it-parse-existing-yaml-files">Does it parse existing YAML files?</h3>
+<p>No. The library is <strong>write-only</strong> by design — it generates YAML from C# models. If you have existing hand-written
+workflows, port them to the model once and generate from then on.</p>
+<h3 id="does-it-run-my-pipelines">Does it run my pipelines?</h3>
+<p>No. It only produces the configuration files. GitHub/Azure DevOps execute them as usual once committed.</p>
+<h3 id="which-platforms-and-frameworks-are-supported">Which platforms and frameworks are supported?</h3>
+<p>.NET 8.0, 9.0, and 10.0. Generators are typically run as small console apps on any OS.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="why-are-some-properties-required-and-nullable-at-the-same-time">Why are some properties <code>required</code> and nullable at the same time?</h3>
+<p>Model records deliberately force you to make a decision for schema-significant properties (e.g. <code>On.Push.Branches</code>).
+<code>required ... { get; init; }</code> with a nullable type means &quot;you must say <em>something</em>, even if that something is <code>null</code>&quot;.
+This keeps generated YAML intentional rather than accidentally omitting filters.</p>
+<h3 id="why-both-rawexpression-and-stringexpression">Why both <code>RawExpression</code> and <code>StringExpression</code>?</h3>
+<p><code>RawExpression</code> is verbatim text — used for plain YAML values and references like <code>github.ref</code>. <code>StringExpression</code> is
+a quoted string <em>literal inside an expression</em> — <code>'release'</code> in <code>contains(github.ref, 'release')</code>. See
+<a href="expressions.html">Expressions</a>.</p>
+<h3 id="how-do-i-write----into-a-value">How do I write <code>${{ ... }}</code> into a value?</h3>
+<p>Wrap the expression with <code>.Evaluate()</code>:</p>
+<pre><code class="lang-csharp">Env = new Dictionary&lt;string, TextExpression&gt;
+{
+    [&quot;SHA&quot;] = new RawExpression(&quot;github.sha&quot;).Evaluate(), // ${{ github.sha }}
+};
+</code></pre>
+<p>Condition properties (<code>If</code>, <code>Condition</code>) are already in expression context — no <code>Evaluate()</code> needed there.</p>
+<p>If you really just want literal text, plain strings pass through untouched: <code>Token = &quot;${{ secrets.TOKEN }}&quot;</code> works for
+Dependabot configs, which are string-based.</p>
+<h3 id="can-i-reuse-one-writer-for-several-files">Can I reuse one writer for several files?</h3>
+<p>Writers accumulate output. Either create a fresh writer per file or call <code>writer.TextWriter.Reset()</code> between
+documents.</p>
+<h3 id="how-do-i-share-common-stepsjobs-between-workflows">How do I share common steps/jobs between workflows?</h3>
+<p>That's the main payoff of generating from C#: use ordinary functions, constants, and composition.</p>
+<pre><code class="lang-csharp">static Step CheckoutStep() =&gt;
+    new Step.UsesStep { Uses = new RawExpression(&quot;actions/checkout@v4&quot;) };
+
+static Job WithDefaults(Job job) =&gt;
+    job with { TimeoutMinutes = 30 };
+</code></pre>
+<h3 id="the-union-types--how-do-i-pick-a-variant">The union types — how do I pick a variant?</h3>
+<p>Construct the nested record: <code>new On.Push { ... }</code>, <code>new Step.RunStep { ... }</code>,
+<code>new DevopsPipeline.DevopsPipelineWithStages { ... }</code>, <code>new Pool.PoolSpec { ... }</code>. The base type (<code>On</code>, <code>Step</code>, …) is
+what model properties accept.</p>
+<h3 id="is-the-output-deterministic">Is the output deterministic?</h3>
+<p>Yes — same model, same text. That makes generated files diff-friendly, and lets you verify in CI that committed
+workflow files match the generator (regenerate and <code>git diff --exit-code</code>).</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="invalidoperationexception-no-writer-found-to-handle-expression-"><code>InvalidOperationException: No writer found to handle expression ...</code></h3>
+<p>You used an expression node the target platform's formatter doesn't support (for example, a <code>DevopsMacroExpression</code> in
+a GitHub Actions workflow, or a custom <code>TextExpression</code> subclass). Use the expression types appropriate to the target,
+or extend the formatter.</p>
+<h3 id="my-condition-rendered-as-plain-text-instead-of-being-evaluated">My condition rendered as plain text instead of being evaluated</h3>
+<p>Plain values are written verbatim. For value-position properties (env vars, names, inputs), wrap the expression in
+<code>.Evaluate()</code> to get <code>${{ ... }}</code>. Condition-position properties are evaluated automatically.</p>
+<h3 id="where-is-the-api-reference">Where is the API reference?</h3>
+<p>See the <a href="../api/index.html">API Reference</a>, generated from the XML documentation comments in the source.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/main/docs/faq.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

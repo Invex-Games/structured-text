@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ConcatExpression | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ConcatExpression | Invex.StructuredText ">
+      
+      <meta name="description" content="Concatenates the rendered text of Values with no separator. Handled directly by , so it works on every platform.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/new/main/apiSpec/new?filename=Invex_StructuredText_Expressions_ConcatExpression.md&amp;value=---%0Auid%3A%20Invex.StructuredText.Expressions.ConcatExpression%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.Expressions.ConcatExpression">
+
+
+
+  <h1 id="Invex_StructuredText_Expressions_ConcatExpression" data-uid="Invex.StructuredText.Expressions.ConcatExpression" class="text-break">
+Class ConcatExpression  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText/Expressions/TextExpression.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Invex.html">Invex</a>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.Expressions.html">Expressions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Concatenates the rendered text of <code class="paramref">Values</code> with no separator.
+Handled directly by <a class="xref" href="Invex.StructuredText.Expressions.TextExpressionFormatter.html">TextExpressionFormatter</a>, so it works on every platform.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+public sealed record ConcatExpression : TextExpression, IEquatable&lt;TextExpression&gt;, ITextExpression&lt;string&gt;, IEquatable&lt;ConcatExpression&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></div>
+      <div><span class="xref">ConcatExpression</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>&gt;</div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.ITextExpression-1.html">ITextExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.Expressions.ConcatExpression.html">ConcatExpression</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Item_System_Int32_">TextExpression.this[int]</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Item_System_String_">TextExpression.this[string]</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Evaluate">TextExpression.Evaluate()</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Cast__1">TextExpression.Cast&lt;TTo&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Contains_Invex_StructuredText_Expressions_TextExpression_">TextExpression.Contains(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Contains_System_String_">TextExpression.Contains(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_ContainedIn_Invex_StructuredText_Expressions_TextExpression_">TextExpression.ContainedIn(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_ContainedIn_System_String_">TextExpression.ContainedIn(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Coalesce_Invex_StructuredText_Expressions_TextExpression___">TextExpression.Coalesce(params TextExpression[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Coalesce_System_String___">TextExpression.Coalesce(params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_StartsWith_Invex_StructuredText_Expressions_TextExpression_">TextExpression.StartsWith(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_StartsWith_System_String_">TextExpression.StartsWith(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_IsStartOf_Invex_StructuredText_Expressions_TextExpression_">TextExpression.IsStartOf(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_IsStartOf_System_String_">TextExpression.IsStartOf(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_EndsWith_Invex_StructuredText_Expressions_TextExpression_">TextExpression.EndsWith(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_EndsWith_System_String_">TextExpression.EndsWith(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_IsEndOf_Invex_StructuredText_Expressions_TextExpression_">TextExpression.IsEndOf(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_IsEndOfString_System_String_">TextExpression.IsEndOfString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Format_Invex_StructuredText_Expressions_TextExpression___">TextExpression.Format(params TextExpression[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_FormatString_System_String___">TextExpression.FormatString(params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Join_Invex_StructuredText_Expressions_TextExpression_">TextExpression.Join(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_JoinString_System_String_">TextExpression.JoinString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_ToJson">TextExpression.ToJson()</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_HashFiles">TextExpression.HashFiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Not">TextExpression.Not()</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_And_Invex_StructuredText_Expressions_TextExpression___">TextExpression.And(params TextExpression[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Or_Invex_StructuredText_Expressions_TextExpression___">TextExpression.Or(params TextExpression[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_EqualTo_Invex_StructuredText_Expressions_TextExpression_">TextExpression.EqualTo(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_EqualTo_System_String_">TextExpression.EqualTo(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_EqualToString_System_String_">TextExpression.EqualToString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_NotEqualTo_Invex_StructuredText_Expressions_TextExpression_">TextExpression.NotEqualTo(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_NotEqualTo_System_String_">TextExpression.NotEqualTo(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_NotEqualToString_System_String_">TextExpression.NotEqualToString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_LessThan_Invex_StructuredText_Expressions_TextExpression_">TextExpression.LessThan(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_LessThan_System_String_">TextExpression.LessThan(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_LessThanString_System_String_">TextExpression.LessThanString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_GreaterThan_Invex_StructuredText_Expressions_TextExpression_">TextExpression.GreaterThan(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_GreaterThan_System_String_">TextExpression.GreaterThan(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_GreaterThanString_System_String_">TextExpression.GreaterThanString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_LessThanOrEqualTo_Invex_StructuredText_Expressions_TextExpression_">TextExpression.LessThanOrEqualTo(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_LessThanOrEqualTo_System_String_">TextExpression.LessThanOrEqualTo(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_LessThanOrEqualToString_System_String_">TextExpression.LessThanOrEqualToString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_GreaterThanOrEqualTo_Invex_StructuredText_Expressions_TextExpression_">TextExpression.GreaterThanOrEqualTo(TextExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_GreaterThanOrEqualTo_System_String_">TextExpression.GreaterThanOrEqualTo(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_GreaterThanOrEqualToString_System_String_">TextExpression.GreaterThanOrEqualToString(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_ConcatExpression__ctor_" data-uid="Invex.StructuredText.Expressions.ConcatExpression.#ctor*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ConcatExpression__ctor_System_Collections_Generic_IEnumerable_Invex_StructuredText_Expressions_TextExpression__" data-uid="Invex.StructuredText.Expressions.ConcatExpression.#ctor(System.Collections.Generic.IEnumerable{Invex.StructuredText.Expressions.TextExpression})">
+  ConcatExpression(IEnumerable&lt;TextExpression&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText/Expressions/TextExpression.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenates the rendered text of <code class="paramref">Values</code> with no separator.
+Handled directly by <a class="xref" href="Invex.StructuredText.Expressions.TextExpressionFormatter.html">TextExpressionFormatter</a>, so it works on every platform.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConcatExpression(IEnumerable&lt;TextExpression&gt; Values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>&gt;</dt>
+    <dd><p>The expressions to concatenate, in order.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_ConcatExpression_Values_" data-uid="Invex.StructuredText.Expressions.ConcatExpression.Values*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ConcatExpression_Values" data-uid="Invex.StructuredText.Expressions.ConcatExpression.Values">
+  Values
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText/Expressions/TextExpression.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expressions to concatenate, in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;TextExpression&gt; Values { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText/Expressions/TextExpression.cs/#L132" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

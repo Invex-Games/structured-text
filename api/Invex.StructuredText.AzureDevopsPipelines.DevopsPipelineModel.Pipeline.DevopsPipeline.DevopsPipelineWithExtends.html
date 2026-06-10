@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DevopsPipeline.DevopsPipelineWithExtends | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DevopsPipeline.DevopsPipelineWithExtends | Invex.StructuredText ">
+      
+      <meta name="description" content="Pipeline that extends a template.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends">
+
+
+
+  <h1 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends" class="text-break">
+Class DevopsPipeline.DevopsPipelineWithExtends  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Invex.html">Invex</a>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.html">AzureDevopsPipelines</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.html">DevopsPipelineModel</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.html">Pipeline</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.AzureDevopsPipelines.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Pipeline that extends a template.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+public sealed record DevopsPipeline.DevopsPipelineWithExtends : DevopsPipeline, IEquatable&lt;DevopsPipeline&gt;, IEquatable&lt;DevopsPipeline.DevopsPipelineWithExtends&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a></div>
+      <div><span class="xref">DevopsPipeline.DevopsPipelineWithExtends</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_AppendCommitMessageToRunName_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.AppendCommitMessageToRunName*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_AppendCommitMessageToRunName" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.AppendCommitMessageToRunName">
+  AppendCommitMessageToRunName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Append the commit message to the build number. The default is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;bool&gt;? AppendCommitMessageToRunName { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Extends_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Extends*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Extends" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Extends">
+  Extends
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extends a template.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required Extends Extends { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Extends.html">Extends</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_LockBehavior_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.LockBehavior*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_LockBehavior" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.LockBehavior">
+  LockBehavior
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+Valid values: &quot;sequential&quot; | &quot;runLatest&quot;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;string&gt;? LockBehavior { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Name_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Name*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Name" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pipeline run number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;string&gt;? Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Parameters_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Parameters*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Parameters" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Parameters">
+  Parameters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pipeline template parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Parameter&gt;? Parameters { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Parameter.html">Parameter</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_PipelineResources_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.PipelineResources*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_PipelineResources" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.PipelineResources">
+  PipelineResources
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Containers and repositories used in the build.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Resources? PipelineResources { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.Resources.html">Resources</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Pool_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Pool*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Pool" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Pool">
+  Pool
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pool where jobs in this pipeline will run unless otherwise specified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pool? Pool { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Pool.html">Pool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Pr_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Pr*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Pr" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Pr">
+  Pr
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pull request triggers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pr? Pr { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers.Pr.html">Pr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Schedules_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Schedules*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Schedules" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Schedules">
+  Schedules
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scheduled triggers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Schedule&gt;? Schedules { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Schedule.html">Schedule</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Trigger_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Trigger*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Trigger" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Trigger">
+  Trigger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Continuous integration triggers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Trigger? Trigger { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers.Trigger.html">Trigger</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Variables_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Variables*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Variables" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Variables">
+  Variables
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.0.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Pipeline/DevopsPipeline.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Variables for this pipeline.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variables? Variables { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables.Variables.html">Variables</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Match_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithStages__System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends__System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithJobs__System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithSteps__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Match(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages},System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends},System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs},System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps})">
+  Match(Action&lt;DevopsPipelineWithStages&gt;, Action&lt;DevopsPipelineWithExtends&gt;, Action&lt;DevopsPipelineWithJobs&gt;, Action&lt;DevopsPipelineWithSteps&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Match(Action&lt;DevopsPipeline.DevopsPipelineWithStages&gt; devopsPipelineWithStages, Action&lt;DevopsPipeline.DevopsPipelineWithExtends&gt; devopsPipelineWithExtends, Action&lt;DevopsPipeline.DevopsPipelineWithJobs&gt; devopsPipelineWithJobs, Action&lt;DevopsPipeline.DevopsPipelineWithSteps&gt; devopsPipelineWithSteps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages.html">DevopsPipelineWithStages</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithExtends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithJobs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs.html">DevopsPipelineWithJobs</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps.html">DevopsPipelineWithSteps</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithExtends_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithExtends*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithExtends_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends__System_Action_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithExtends(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends},System.Action)">
+  MatchDevopsPipelineWithExtends(Action&lt;DevopsPipelineWithExtends&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDevopsPipelineWithExtends(Action&lt;DevopsPipeline.DevopsPipelineWithExtends&gt; devopsPipelineWithExtends, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithExtends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithExtends_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithExtends*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithExtends__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends___0__System_Func___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithExtends``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends,``0},System.Func{``0})">
+  MatchDevopsPipelineWithExtends&lt;TMatchOutput&gt;(Func&lt;DevopsPipelineWithExtends, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDevopsPipelineWithExtends&lt;TMatchOutput&gt;(Func&lt;DevopsPipeline.DevopsPipelineWithExtends, TMatchOutput&gt; devopsPipelineWithExtends, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithExtends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithExtends_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithExtends*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithExtends__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends__System_Action___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithExtends``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends},System.Action{``0})">
+  MatchDevopsPipelineWithExtends&lt;TState&gt;(TState, Action&lt;TState, DevopsPipelineWithExtends&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDevopsPipelineWithExtends&lt;TState&gt;(TState state, Action&lt;TState, DevopsPipeline.DevopsPipelineWithExtends&gt; devopsPipelineWithExtends, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithExtends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithExtends_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithExtends*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithExtends__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends___1__System_Func___0___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithExtends``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends,``1},System.Func{``0,``1})">
+  MatchDevopsPipelineWithExtends&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, DevopsPipelineWithExtends, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDevopsPipelineWithExtends&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, DevopsPipeline.DevopsPipelineWithExtends, TMatchOutput&gt; devopsPipelineWithExtends, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithExtends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithJobs_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithJobs*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithJobs_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithJobs__System_Action_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithJobs(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs},System.Action)">
+  MatchDevopsPipelineWithJobs(Action&lt;DevopsPipelineWithJobs&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDevopsPipelineWithJobs(Action&lt;DevopsPipeline.DevopsPipelineWithJobs&gt; devopsPipelineWithJobs, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithJobs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs.html">DevopsPipelineWithJobs</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithJobs_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithJobs*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithJobs__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithJobs___0__System_Func___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithJobs``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs,``0},System.Func{``0})">
+  MatchDevopsPipelineWithJobs&lt;TMatchOutput&gt;(Func&lt;DevopsPipelineWithJobs, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDevopsPipelineWithJobs&lt;TMatchOutput&gt;(Func&lt;DevopsPipeline.DevopsPipelineWithJobs, TMatchOutput&gt; devopsPipelineWithJobs, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithJobs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs.html">DevopsPipelineWithJobs</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithJobs_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithJobs*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithJobs__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithJobs__System_Action___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithJobs``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs},System.Action{``0})">
+  MatchDevopsPipelineWithJobs&lt;TState&gt;(TState, Action&lt;TState, DevopsPipelineWithJobs&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDevopsPipelineWithJobs&lt;TState&gt;(TState state, Action&lt;TState, DevopsPipeline.DevopsPipelineWithJobs&gt; devopsPipelineWithJobs, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithJobs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs.html">DevopsPipelineWithJobs</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithJobs_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithJobs*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithJobs__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithJobs___1__System_Func___0___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithJobs``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs,``1},System.Func{``0,``1})">
+  MatchDevopsPipelineWithJobs&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, DevopsPipelineWithJobs, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDevopsPipelineWithJobs&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, DevopsPipeline.DevopsPipelineWithJobs, TMatchOutput&gt; devopsPipelineWithJobs, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithJobs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs.html">DevopsPipelineWithJobs</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithStages_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithStages*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithStages_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithStages__System_Action_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithStages(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages},System.Action)">
+  MatchDevopsPipelineWithStages(Action&lt;DevopsPipelineWithStages&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDevopsPipelineWithStages(Action&lt;DevopsPipeline.DevopsPipelineWithStages&gt; devopsPipelineWithStages, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages.html">DevopsPipelineWithStages</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithStages_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithStages*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithStages__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithStages___0__System_Func___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithStages``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages,``0},System.Func{``0})">
+  MatchDevopsPipelineWithStages&lt;TMatchOutput&gt;(Func&lt;DevopsPipelineWithStages, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDevopsPipelineWithStages&lt;TMatchOutput&gt;(Func&lt;DevopsPipeline.DevopsPipelineWithStages, TMatchOutput&gt; devopsPipelineWithStages, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages.html">DevopsPipelineWithStages</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithStages_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithStages*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithStages__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithStages__System_Action___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithStages``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages},System.Action{``0})">
+  MatchDevopsPipelineWithStages&lt;TState&gt;(TState, Action&lt;TState, DevopsPipelineWithStages&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDevopsPipelineWithStages&lt;TState&gt;(TState state, Action&lt;TState, DevopsPipeline.DevopsPipelineWithStages&gt; devopsPipelineWithStages, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages.html">DevopsPipelineWithStages</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithStages_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithStages*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithStages__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithStages___1__System_Func___0___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithStages``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages,``1},System.Func{``0,``1})">
+  MatchDevopsPipelineWithStages&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, DevopsPipelineWithStages, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDevopsPipelineWithStages&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, DevopsPipeline.DevopsPipelineWithStages, TMatchOutput&gt; devopsPipelineWithStages, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages.html">DevopsPipelineWithStages</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithSteps_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithSteps*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithSteps_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithSteps__System_Action_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithSteps(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps},System.Action)">
+  MatchDevopsPipelineWithSteps(Action&lt;DevopsPipelineWithSteps&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDevopsPipelineWithSteps(Action&lt;DevopsPipeline.DevopsPipelineWithSteps&gt; devopsPipelineWithSteps, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps.html">DevopsPipelineWithSteps</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithSteps_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithSteps*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithSteps__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithSteps___0__System_Func___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithSteps``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps,``0},System.Func{``0})">
+  MatchDevopsPipelineWithSteps&lt;TMatchOutput&gt;(Func&lt;DevopsPipelineWithSteps, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDevopsPipelineWithSteps&lt;TMatchOutput&gt;(Func&lt;DevopsPipeline.DevopsPipelineWithSteps, TMatchOutput&gt; devopsPipelineWithSteps, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps.html">DevopsPipelineWithSteps</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithSteps_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithSteps*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithSteps__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithSteps__System_Action___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithSteps``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps},System.Action{``0})">
+  MatchDevopsPipelineWithSteps&lt;TState&gt;(TState, Action&lt;TState, DevopsPipelineWithSteps&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDevopsPipelineWithSteps&lt;TState&gt;(TState state, Action&lt;TState, DevopsPipeline.DevopsPipelineWithSteps&gt; devopsPipelineWithSteps, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps.html">DevopsPipelineWithSteps</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithSteps_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithSteps*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_MatchDevopsPipelineWithSteps__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithSteps___1__System_Func___0___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.MatchDevopsPipelineWithSteps``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps,``1},System.Func{``0,``1})">
+  MatchDevopsPipelineWithSteps&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, DevopsPipelineWithSteps, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDevopsPipelineWithSteps&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, DevopsPipeline.DevopsPipelineWithSteps, TMatchOutput&gt; devopsPipelineWithSteps, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps.html">DevopsPipelineWithSteps</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Match__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithStages___0__System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends___0__System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithJobs___0__System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithSteps___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Match``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages,``0},System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends,``0},System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs,``0},System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps,``0})">
+  Match&lt;TMatchOutput&gt;(Func&lt;DevopsPipelineWithStages, TMatchOutput&gt;, Func&lt;DevopsPipelineWithExtends, TMatchOutput&gt;, Func&lt;DevopsPipelineWithJobs, TMatchOutput&gt;, Func&lt;DevopsPipelineWithSteps, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput Match&lt;TMatchOutput&gt;(Func&lt;DevopsPipeline.DevopsPipelineWithStages, TMatchOutput&gt; devopsPipelineWithStages, Func&lt;DevopsPipeline.DevopsPipelineWithExtends, TMatchOutput&gt; devopsPipelineWithExtends, Func&lt;DevopsPipeline.DevopsPipelineWithJobs, TMatchOutput&gt; devopsPipelineWithJobs, Func&lt;DevopsPipeline.DevopsPipelineWithSteps, TMatchOutput&gt; devopsPipelineWithSteps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>devopsPipelineWithStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages.html">DevopsPipelineWithStages</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithExtends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithJobs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs.html">DevopsPipelineWithJobs</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps.html">DevopsPipelineWithSteps</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Match__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithStages__System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends__System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithJobs__System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithSteps__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Match``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages},System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends},System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs},System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps})">
+  Match&lt;TState&gt;(TState, Action&lt;TState, DevopsPipelineWithStages&gt;, Action&lt;TState, DevopsPipelineWithExtends&gt;, Action&lt;TState, DevopsPipelineWithJobs&gt;, Action&lt;TState, DevopsPipelineWithSteps&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Match&lt;TState&gt;(TState state, Action&lt;TState, DevopsPipeline.DevopsPipelineWithStages&gt; devopsPipelineWithStages, Action&lt;TState, DevopsPipeline.DevopsPipelineWithExtends&gt; devopsPipelineWithExtends, Action&lt;TState, DevopsPipeline.DevopsPipelineWithJobs&gt; devopsPipelineWithJobs, Action&lt;TState, DevopsPipeline.DevopsPipelineWithSteps&gt; devopsPipelineWithSteps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages.html">DevopsPipelineWithStages</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithExtends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithJobs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs.html">DevopsPipelineWithJobs</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps.html">DevopsPipelineWithSteps</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_Match__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithStages___1__System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends___1__System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithJobs___1__System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithSteps___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.Match``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages,``1},System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends,``1},System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs,``1},System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps,``1})">
+  Match&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, DevopsPipelineWithStages, TMatchOutput&gt;, Func&lt;TState, DevopsPipelineWithExtends, TMatchOutput&gt;, Func&lt;TState, DevopsPipelineWithJobs, TMatchOutput&gt;, Func&lt;TState, DevopsPipelineWithSteps, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput Match&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, DevopsPipeline.DevopsPipelineWithStages, TMatchOutput&gt; devopsPipelineWithStages, Func&lt;TState, DevopsPipeline.DevopsPipelineWithExtends, TMatchOutput&gt; devopsPipelineWithExtends, Func&lt;TState, DevopsPipeline.DevopsPipelineWithJobs, TMatchOutput&gt; devopsPipelineWithJobs, Func&lt;TState, DevopsPipeline.DevopsPipelineWithSteps, TMatchOutput&gt; devopsPipelineWithSteps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages.html">DevopsPipelineWithStages</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithExtends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithJobs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs.html">DevopsPipelineWithJobs</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>devopsPipelineWithSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps.html">DevopsPipelineWithSteps</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_UnwrapDevopsPipelineWithExtends_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.UnwrapDevopsPipelineWithExtends*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_UnwrapDevopsPipelineWithExtends" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.UnwrapDevopsPipelineWithExtends">
+  UnwrapDevopsPipelineWithExtends()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override DevopsPipeline.DevopsPipelineWithExtends UnwrapDevopsPipelineWithExtends()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.html">DevopsPipelineWithExtends</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_UnwrapDevopsPipelineWithJobs_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.UnwrapDevopsPipelineWithJobs*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_UnwrapDevopsPipelineWithJobs" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.UnwrapDevopsPipelineWithJobs">
+  UnwrapDevopsPipelineWithJobs()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override DevopsPipeline.DevopsPipelineWithJobs UnwrapDevopsPipelineWithJobs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithJobs.html">DevopsPipelineWithJobs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_UnwrapDevopsPipelineWithStages_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.UnwrapDevopsPipelineWithStages*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_UnwrapDevopsPipelineWithStages" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.UnwrapDevopsPipelineWithStages">
+  UnwrapDevopsPipelineWithStages()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override DevopsPipeline.DevopsPipelineWithStages UnwrapDevopsPipelineWithStages()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithStages.html">DevopsPipelineWithStages</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_UnwrapDevopsPipelineWithSteps_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.UnwrapDevopsPipelineWithSteps*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Pipeline_DevopsPipeline_DevopsPipelineWithExtends_UnwrapDevopsPipelineWithSteps" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithExtends.UnwrapDevopsPipelineWithSteps">
+  UnwrapDevopsPipelineWithSteps()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override DevopsPipeline.DevopsPipelineWithSteps UnwrapDevopsPipelineWithSteps()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.DevopsPipelineWithSteps.html">DevopsPipelineWithSteps</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
