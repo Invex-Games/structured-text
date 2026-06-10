@@ -1,0 +1,23 @@
+- name: Introduction
+  href: introduction.md
+- name: Getting Started
+  href: getting-started.md
+- name: Core Concepts
+  items:
+    - name: StructuredTextWriter
+      href: structured-text-writer.md
+    - name: Expressions
+      href: expressions.md
+- name: GitHub Actions
+  items:
+    - name: Workflows
+      href: github-actions.md
+    - name: Dependabot
+      href: dependabot.md
+- name: Azure DevOps Pipelines
+  href: azure-devops-pipelines.md
+- name: Architecture
+  href: architecture.md
+- name: FAQ
+  href: faq.md
+
