@@ -1,10 +1,17 @@
 namespace Invex.StructuredText.Expressions;
 
+/// <summary>
+///     Utility helpers for working with sequences and trees of <see cref="TextExpression" />.
+/// </summary>
 [PublicAPI]
 public static class TextExpressionUtils
 {
     extension(IEnumerable<TextExpression> expressions)
     {
+        /// <summary>
+        ///     Interleaves <paramref name="separator" /> between consecutive elements of the sequence.
+        /// </summary>
+        /// <param name="separator">The expression to insert between elements.</param>
         public IEnumerable<TextExpression> Join(TextExpression separator)
         {
             var list = expressions.ToList();
@@ -19,6 +26,15 @@ public static class TextExpressionUtils
         }
     }
 
+    /// <summary>
+    ///     Recursively flattens an expression tree into its leaf expressions (literals, raw text,
+    ///     and workflow-run references), in left-to-right order. Composite nodes such as
+    ///     <see cref="AndExpression" /> or <see cref="FormatExpression" /> are traversed into their operands;
+    ///     <see cref="CastExpression{TTo}" /> wrappers are unwrapped transparently.
+    /// </summary>
+    /// <param name="expression">The root of the tree to flatten.</param>
+    /// <returns>The leaf expressions of the tree.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown for unrecognized expression types.</exception>
     public static IEnumerable<TextExpression> Flatten(TextExpression expression) =>
         expression switch
         {

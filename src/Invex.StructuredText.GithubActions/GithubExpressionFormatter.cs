@@ -1,8 +1,20 @@
 namespace Invex.StructuredText.GithubActions;
 
+/// <summary>
+///     Renders <see cref="TextExpression" /> trees using GitHub Actions expression syntax:
+///     <see cref="EvaluateExpression" /> becomes <c>${{ ... }}</c>, logic operators use
+///     <c>&amp;&amp;</c> / <c>||</c> / <c>!</c>, comparisons use <c>==</c> / <c>!=</c> / <c>&lt;</c> / …,
+///     and functions render as <c>contains(...)</c>, <c>format(...)</c>, <c>hashFiles(...)</c>, etc.
+///     Step and job references render against the <c>steps.*</c> and <c>needs.*</c> contexts.
+/// </summary>
 [PublicAPI]
 public sealed class GithubExpressionFormatter : TextExpressionFormatter
 {
+    /// <summary>
+    ///     Rewrites a single expression node into its GitHub Actions textual form.
+    /// </summary>
+    /// <param name="expression">The node to rewrite.</param>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown for unsupported expression types.</exception>
     protected override TextExpression? Resolve(TextExpression expression) =>
         expression switch
         {

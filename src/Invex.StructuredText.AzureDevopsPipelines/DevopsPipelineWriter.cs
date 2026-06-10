@@ -1,12 +1,37 @@
 namespace Invex.StructuredText.AzureDevopsPipelines;
 
+/// <summary>
+///     Serializes a <see cref="DevopsPipeline" /> model to Azure Pipelines YAML.
+///     Expressions embedded in the model are rendered with <see cref="DevopsExpressionFormatter" />.
+/// </summary>
+/// <remarks>
+///     The writer accumulates output in <see cref="TextWriter" />; call
+///     <see cref="StructuredTextWriter.ToString" /> to retrieve the YAML.
+///     Use a fresh writer (or <see cref="StructuredTextWriter.Reset" />) for each pipeline file.
+/// </remarks>
+/// <example>
+///     <code>
+///         var writer = new DevopsPipelineWriter();
+///         writer.Write(pipeline);
+///         File.WriteAllText("azure-pipelines.yml", writer.TextWriter.ToString());
+///     </code>
+/// </example>
 [PublicAPI]
 public sealed class DevopsPipelineWriter
 {
     private readonly DevopsExpressionFormatter _expressionFormatter = new();
 
+    /// <summary>
+    ///     The underlying text writer that accumulates the generated YAML.
+    /// </summary>
     public StructuredTextWriter TextWriter { get; init; } = new();
 
+    /// <summary>
+    ///     Writes the complete pipeline YAML for <paramref name="devopsPipeline" />, dispatching to the
+    ///     appropriate shape (<c>stages</c>, <c>extends</c>, <c>jobs</c>, or <c>steps</c>) based on the
+    ///     union variant supplied.
+    /// </summary>
+    /// <param name="devopsPipeline">The pipeline model to serialize.</param>
     public void Write(DevopsPipeline devopsPipeline) =>
         devopsPipeline.Match(WritePipelineWithStages,
             WritePipelineWithExtends,

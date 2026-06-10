@@ -1,12 +1,36 @@
 namespace Invex.StructuredText.GithubActions;
 
+/// <summary>
+///     Serializes a <see cref="GithubAction" /> model to GitHub Actions workflow YAML.
+///     Expressions embedded in the model are rendered with <see cref="GithubExpressionFormatter" />.
+/// </summary>
+/// <remarks>
+///     The writer accumulates output in <see cref="TextWriter" />; call
+///     <see cref="StructuredTextWriter.ToString" /> to retrieve the YAML.
+///     Use a fresh writer (or <see cref="StructuredTextWriter.Reset" />) for each workflow file.
+/// </remarks>
+/// <example>
+///     <code>
+///         var writer = new GithubActionWriter();
+///         writer.Write(workflow);
+///         File.WriteAllText(".github/workflows/ci.yml", writer.TextWriter.ToString());
+///     </code>
+/// </example>
 [PublicAPI]
 public sealed class GithubActionWriter
 {
     private readonly GithubExpressionFormatter _expressionFormatter = new();
 
+    /// <summary>
+    ///     The underlying text writer that accumulates the generated YAML.
+    /// </summary>
     public StructuredTextWriter TextWriter { get; init; } = new();
 
+    /// <summary>
+    ///     Writes the complete workflow YAML for <paramref name="githubAction" /> —
+    ///     name, run-name, triggers, permissions, env, concurrency, and all jobs with their steps.
+    /// </summary>
+    /// <param name="githubAction">The workflow model to serialize.</param>
     public void Write(GithubAction githubAction)
     {
         if (githubAction.Name is { Length: > 0 } name)
