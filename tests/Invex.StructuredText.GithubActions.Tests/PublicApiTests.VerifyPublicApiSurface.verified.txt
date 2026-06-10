@@ -1,0 +1,3111 @@
+﻿[
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.BranchNameSeparator,
+    Members: [
+      {
+        Name: Hyphen
+      },
+      {
+        Name: Slash
+      },
+      {
+        Name: Underscore
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.CommitMessageInclude,
+    Members: [
+      {
+        Name: Scope
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotAllow,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: DependencyName
+      },
+      {
+        Name: DependencyType
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotCommitMessage,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Include
+      },
+      {
+        Name: Prefix
+      },
+      {
+        Name: PrefixDevelopment
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotConfig,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: EnableBetaEcosystems
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: MultiEcosystemGroups
+      },
+      {
+        Name: Registries
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Updates
+      },
+      {
+        Name: Version
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotCooldown,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: DefaultDays
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Exclude
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Include
+      },
+      {
+        Name: SemverMajorDays
+      },
+      {
+        Name: SemverMinorDays
+      },
+      {
+        Name: SemverPatchDays
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotGroup,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: AppliesTo
+      },
+      {
+        Name: DependencyType
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: ExcludePatterns
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: GroupBy
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchFromExcludePatterns
+      },
+      {
+        Name: MatchFromExcludePatterns
+      },
+      {
+        Name: MatchFromExcludePatterns
+      },
+      {
+        Name: MatchFromExcludePatterns
+      },
+      {
+        Name: MatchFromGroupBy
+      },
+      {
+        Name: MatchFromGroupBy
+      },
+      {
+        Name: MatchFromGroupBy
+      },
+      {
+        Name: MatchFromGroupBy
+      },
+      {
+        Name: MatchFromPatterns
+      },
+      {
+        Name: MatchFromPatterns
+      },
+      {
+        Name: MatchFromPatterns
+      },
+      {
+        Name: MatchFromPatterns
+      },
+      {
+        Name: MatchFromType
+      },
+      {
+        Name: MatchFromType
+      },
+      {
+        Name: MatchFromType
+      },
+      {
+        Name: MatchFromType
+      },
+      {
+        Name: MatchFromUpdateTypes
+      },
+      {
+        Name: MatchFromUpdateTypes
+      },
+      {
+        Name: MatchFromUpdateTypes
+      },
+      {
+        Name: MatchFromUpdateTypes
+      },
+      {
+        Name: Patterns
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapFromExcludePatterns
+      },
+      {
+        Name: UnwrapFromGroupBy
+      },
+      {
+        Name: UnwrapFromPatterns
+      },
+      {
+        Name: UnwrapFromType
+      },
+      {
+        Name: UnwrapFromUpdateTypes
+      },
+      {
+        Name: UpdateTypes
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotGroup0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchFromExcludePatternsAsync
+      },
+      {
+        Name: MatchFromExcludePatternsAsync
+      },
+      {
+        Name: MatchFromExcludePatternsAsync
+      },
+      {
+        Name: MatchFromExcludePatternsAsync
+      },
+      {
+        Name: MatchFromGroupByAsync
+      },
+      {
+        Name: MatchFromGroupByAsync
+      },
+      {
+        Name: MatchFromGroupByAsync
+      },
+      {
+        Name: MatchFromGroupByAsync
+      },
+      {
+        Name: MatchFromPatternsAsync
+      },
+      {
+        Name: MatchFromPatternsAsync
+      },
+      {
+        Name: MatchFromPatternsAsync
+      },
+      {
+        Name: MatchFromPatternsAsync
+      },
+      {
+        Name: MatchFromTypeAsync
+      },
+      {
+        Name: MatchFromTypeAsync
+      },
+      {
+        Name: MatchFromTypeAsync
+      },
+      {
+        Name: MatchFromTypeAsync
+      },
+      {
+        Name: MatchFromUpdateTypesAsync
+      },
+      {
+        Name: MatchFromUpdateTypesAsync
+      },
+      {
+        Name: MatchFromUpdateTypesAsync
+      },
+      {
+        Name: MatchFromUpdateTypesAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotIgnore,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: DependencyName
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UpdateTypes
+      },
+      {
+        Name: Versions
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotMultiEcosystemGroup,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Assignees
+      },
+      {
+        Name: CommitMessage
+      },
+      {
+        Name: DependencyType
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: ExcludePatterns
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Labels
+      },
+      {
+        Name: Milestone
+      },
+      {
+        Name: OpenPullRequestsLimit
+      },
+      {
+        Name: PullRequestBranchName
+      },
+      {
+        Name: Schedule
+      },
+      {
+        Name: TargetBranch
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UpdateTypes
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotPullRequestBranchName,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Separator
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotRegistries,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchAll
+      },
+      {
+        Name: MatchAll
+      },
+      {
+        Name: MatchAll
+      },
+      {
+        Name: MatchAll
+      },
+      {
+        Name: MatchNamed
+      },
+      {
+        Name: MatchNamed
+      },
+      {
+        Name: MatchNamed
+      },
+      {
+        Name: MatchNamed
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapAll
+      },
+      {
+        Name: UnwrapNamed
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotRegistries0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAllAsync
+      },
+      {
+        Name: MatchAllAsync
+      },
+      {
+        Name: MatchAllAsync
+      },
+      {
+        Name: MatchAllAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchNamedAsync
+      },
+      {
+        Name: MatchNamedAsync
+      },
+      {
+        Name: MatchNamedAsync
+      },
+      {
+        Name: MatchNamedAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotRegistry,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: AccountId
+      },
+      {
+        Name: Audience
+      },
+      {
+        Name: AuthKey
+      },
+      {
+        Name: AwsRegion
+      },
+      {
+        Name: ClientId
+      },
+      {
+        Name: Domain
+      },
+      {
+        Name: DomainOwner
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: IdentityMappingName
+      },
+      {
+        Name: JfrogOidcProviderName
+      },
+      {
+        Name: Key
+      },
+      {
+        Name: Organization
+      },
+      {
+        Name: Password
+      },
+      {
+        Name: PublicKeyFingerprint
+      },
+      {
+        Name: Registry
+      },
+      {
+        Name: ReplacesBase
+      },
+      {
+        Name: Repo
+      },
+      {
+        Name: RoleName
+      },
+      {
+        Name: TenantId
+      },
+      {
+        Name: Token
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Type
+      },
+      {
+        Name: Url
+      },
+      {
+        Name: Username
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotSchedule,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Cronjob
+      },
+      {
+        Name: Day
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Interval
+      },
+      {
+        Name: Time
+      },
+      {
+        Name: Timezone
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotUpdate,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Allow
+      },
+      {
+        Name: Assignees
+      },
+      {
+        Name: CommitMessage
+      },
+      {
+        Name: Cooldown
+      },
+      {
+        Name: Directories
+      },
+      {
+        Name: Directory
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: ExcludePaths
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Groups
+      },
+      {
+        Name: Ignore
+      },
+      {
+        Name: InsecureExternalCodeExecution
+      },
+      {
+        Name: Labels
+      },
+      {
+        Name: Milestone
+      },
+      {
+        Name: MultiEcosystemGroup
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: OpenPullRequestsLimit
+      },
+      {
+        Name: PackageEcosystem
+      },
+      {
+        Name: Patterns
+      },
+      {
+        Name: PullRequestBranchName
+      },
+      {
+        Name: RebaseStrategy
+      },
+      {
+        Name: Registries
+      },
+      {
+        Name: Schedule
+      },
+      {
+        Name: TargetBranch
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Vendor
+      },
+      {
+        Name: VersioningStrategy
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotVersions,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchMultiple
+      },
+      {
+        Name: MatchMultiple
+      },
+      {
+        Name: MatchMultiple
+      },
+      {
+        Name: MatchMultiple
+      },
+      {
+        Name: MatchSingle
+      },
+      {
+        Name: MatchSingle
+      },
+      {
+        Name: MatchSingle
+      },
+      {
+        Name: MatchSingle
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapMultiple
+      },
+      {
+        Name: UnwrapSingle
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotVersions0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchMultipleAsync
+      },
+      {
+        Name: MatchMultipleAsync
+      },
+      {
+        Name: MatchMultipleAsync
+      },
+      {
+        Name: MatchMultipleAsync
+      },
+      {
+        Name: MatchSingleAsync
+      },
+      {
+        Name: MatchSingleAsync
+      },
+      {
+        Name: MatchSingleAsync
+      },
+      {
+        Name: MatchSingleAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependencyType,
+    Members: [
+      {
+        Name: All
+      },
+      {
+        Name: Development
+      },
+      {
+        Name: Direct
+      },
+      {
+        Name: Indirect
+      },
+      {
+        Name: Production
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.GroupAppliesTo,
+    Members: [
+      {
+        Name: SecurityUpdates
+      },
+      {
+        Name: value__
+      },
+      {
+        Name: VersionUpdates
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.GroupBy,
+    Members: [
+      {
+        Name: DependencyName
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.GroupDependencyType,
+    Members: [
+      {
+        Name: Development
+      },
+      {
+        Name: Production
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.GroupUpdateType,
+    Members: [
+      {
+        Name: Major
+      },
+      {
+        Name: Minor
+      },
+      {
+        Name: Patch
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.InsecureExternalCodeExecution,
+    Members: [
+      {
+        Name: Allow
+      },
+      {
+        Name: Deny
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.PackageEcosystem,
+    Members: [
+      {
+        Name: Bazel
+      },
+      {
+        Name: Bun
+      },
+      {
+        Name: Bundler
+      },
+      {
+        Name: Cargo
+      },
+      {
+        Name: Composer
+      },
+      {
+        Name: Conda
+      },
+      {
+        Name: Devcontainers
+      },
+      {
+        Name: Docker
+      },
+      {
+        Name: DockerCompose
+      },
+      {
+        Name: DotnetSdk
+      },
+      {
+        Name: Elm
+      },
+      {
+        Name: GithubActions
+      },
+      {
+        Name: Gitsubmodule
+      },
+      {
+        Name: Gomod
+      },
+      {
+        Name: Gradle
+      },
+      {
+        Name: Helm
+      },
+      {
+        Name: Julia
+      },
+      {
+        Name: Maven
+      },
+      {
+        Name: Mix
+      },
+      {
+        Name: Nix
+      },
+      {
+        Name: Npm
+      },
+      {
+        Name: Nuget
+      },
+      {
+        Name: Opentofu
+      },
+      {
+        Name: Pip
+      },
+      {
+        Name: PreCommit
+      },
+      {
+        Name: Pub
+      },
+      {
+        Name: RustToolchain
+      },
+      {
+        Name: Swift
+      },
+      {
+        Name: Terraform
+      },
+      {
+        Name: Uv
+      },
+      {
+        Name: value__
+      },
+      {
+        Name: Vcpkg
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.RebaseStrategy,
+    Members: [
+      {
+        Name: Auto
+      },
+      {
+        Name: Disabled
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.RegistryType,
+    Members: [
+      {
+        Name: CargoRegistry
+      },
+      {
+        Name: ComposerRepository
+      },
+      {
+        Name: DockerRegistry
+      },
+      {
+        Name: Git
+      },
+      {
+        Name: GoproxyServer
+      },
+      {
+        Name: HelmRegistry
+      },
+      {
+        Name: HexOrganization
+      },
+      {
+        Name: HexRepository
+      },
+      {
+        Name: MavenRepository
+      },
+      {
+        Name: NpmRegistry
+      },
+      {
+        Name: NugetFeed
+      },
+      {
+        Name: PubRepository
+      },
+      {
+        Name: PythonIndex
+      },
+      {
+        Name: RubygemsServer
+      },
+      {
+        Name: TerraformRegistry
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.ScheduleDay,
+    Members: [
+      {
+        Name: Friday
+      },
+      {
+        Name: Monday
+      },
+      {
+        Name: Saturday
+      },
+      {
+        Name: Sunday
+      },
+      {
+        Name: Thursday
+      },
+      {
+        Name: Tuesday
+      },
+      {
+        Name: value__
+      },
+      {
+        Name: Wednesday
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.ScheduleInterval,
+    Members: [
+      {
+        Name: Cron
+      },
+      {
+        Name: Daily
+      },
+      {
+        Name: Monthly
+      },
+      {
+        Name: Quarterly
+      },
+      {
+        Name: Semiannually
+      },
+      {
+        Name: value__
+      },
+      {
+        Name: Weekly
+      },
+      {
+        Name: Yearly
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.SemverUpdateType,
+    Members: [
+      {
+        Name: value__
+      },
+      {
+        Name: VersionUpdateSemverMajor
+      },
+      {
+        Name: VersionUpdateSemverMinor
+      },
+      {
+        Name: VersionUpdateSemverPatch
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.VersioningStrategy,
+    Members: [
+      {
+        Name: Auto
+      },
+      {
+        Name: Increase
+      },
+      {
+        Name: IncreaseIfNecessary
+      },
+      {
+        Name: LockfileOnly
+      },
+      {
+        Name: value__
+      },
+      {
+        Name: Widen
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigWriter,
+    Members: [
+      {
+        Name: TextWriter
+      },
+      {
+        Name: WriteConfig
+      },
+      {
+        Name: WriteRegistry
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Concurrency,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: CancelInProgress
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Group
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Container,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Credentials
+      },
+      {
+        Name: Env
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Image
+      },
+      {
+        Name: Options
+      },
+      {
+        Name: Ports
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Volumes
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Credentials,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Password
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Username
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Environment,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UrlValue
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.GithubAction,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Concurrency
+      },
+      {
+        Name: Env
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Jobs
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: On
+      },
+      {
+        Name: Permissions
+      },
+      {
+        Name: RunName
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Job,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Concurrency
+      },
+      {
+        Name: Container
+      },
+      {
+        Name: ContinueOnError
+      },
+      {
+        Name: Env
+      },
+      {
+        Name: Environment
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: If
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: Needs
+      },
+      {
+        Name: Outputs
+      },
+      {
+        Name: Permissions
+      },
+      {
+        Name: RunsOn
+      },
+      {
+        Name: Services
+      },
+      {
+        Name: Snapshot
+      },
+      {
+        Name: Steps
+      },
+      {
+        Name: Strategy
+      },
+      {
+        Name: TimeoutMinutes
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Matrix,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Exclude
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Include
+      },
+      {
+        Name: Map
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.On,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchBranchProtectionRule
+      },
+      {
+        Name: MatchBranchProtectionRule
+      },
+      {
+        Name: MatchBranchProtectionRule
+      },
+      {
+        Name: MatchBranchProtectionRule
+      },
+      {
+        Name: MatchCheckRun
+      },
+      {
+        Name: MatchCheckRun
+      },
+      {
+        Name: MatchCheckRun
+      },
+      {
+        Name: MatchCheckRun
+      },
+      {
+        Name: MatchCheckSuite
+      },
+      {
+        Name: MatchCheckSuite
+      },
+      {
+        Name: MatchCheckSuite
+      },
+      {
+        Name: MatchCheckSuite
+      },
+      {
+        Name: MatchCreate
+      },
+      {
+        Name: MatchCreate
+      },
+      {
+        Name: MatchCreate
+      },
+      {
+        Name: MatchCreate
+      },
+      {
+        Name: MatchDelete
+      },
+      {
+        Name: MatchDelete
+      },
+      {
+        Name: MatchDelete
+      },
+      {
+        Name: MatchDelete
+      },
+      {
+        Name: MatchDeployment
+      },
+      {
+        Name: MatchDeployment
+      },
+      {
+        Name: MatchDeployment
+      },
+      {
+        Name: MatchDeployment
+      },
+      {
+        Name: MatchDeploymentStatus
+      },
+      {
+        Name: MatchDeploymentStatus
+      },
+      {
+        Name: MatchDeploymentStatus
+      },
+      {
+        Name: MatchDeploymentStatus
+      },
+      {
+        Name: MatchDiscussion
+      },
+      {
+        Name: MatchDiscussion
+      },
+      {
+        Name: MatchDiscussion
+      },
+      {
+        Name: MatchDiscussion
+      },
+      {
+        Name: MatchDiscussionComment
+      },
+      {
+        Name: MatchDiscussionComment
+      },
+      {
+        Name: MatchDiscussionComment
+      },
+      {
+        Name: MatchDiscussionComment
+      },
+      {
+        Name: MatchFork
+      },
+      {
+        Name: MatchFork
+      },
+      {
+        Name: MatchFork
+      },
+      {
+        Name: MatchFork
+      },
+      {
+        Name: MatchGollum
+      },
+      {
+        Name: MatchGollum
+      },
+      {
+        Name: MatchGollum
+      },
+      {
+        Name: MatchGollum
+      },
+      {
+        Name: MatchImageVersion
+      },
+      {
+        Name: MatchImageVersion
+      },
+      {
+        Name: MatchImageVersion
+      },
+      {
+        Name: MatchImageVersion
+      },
+      {
+        Name: MatchIssueComment
+      },
+      {
+        Name: MatchIssueComment
+      },
+      {
+        Name: MatchIssueComment
+      },
+      {
+        Name: MatchIssueComment
+      },
+      {
+        Name: MatchIssues
+      },
+      {
+        Name: MatchIssues
+      },
+      {
+        Name: MatchIssues
+      },
+      {
+        Name: MatchIssues
+      },
+      {
+        Name: MatchLabel
+      },
+      {
+        Name: MatchLabel
+      },
+      {
+        Name: MatchLabel
+      },
+      {
+        Name: MatchLabel
+      },
+      {
+        Name: MatchMergeGroup
+      },
+      {
+        Name: MatchMergeGroup
+      },
+      {
+        Name: MatchMergeGroup
+      },
+      {
+        Name: MatchMergeGroup
+      },
+      {
+        Name: MatchMilestone
+      },
+      {
+        Name: MatchMilestone
+      },
+      {
+        Name: MatchMilestone
+      },
+      {
+        Name: MatchMilestone
+      },
+      {
+        Name: MatchPageBuild
+      },
+      {
+        Name: MatchPageBuild
+      },
+      {
+        Name: MatchPageBuild
+      },
+      {
+        Name: MatchPageBuild
+      },
+      {
+        Name: MatchProject
+      },
+      {
+        Name: MatchProject
+      },
+      {
+        Name: MatchProject
+      },
+      {
+        Name: MatchProject
+      },
+      {
+        Name: MatchProjectCard
+      },
+      {
+        Name: MatchProjectCard
+      },
+      {
+        Name: MatchProjectCard
+      },
+      {
+        Name: MatchProjectCard
+      },
+      {
+        Name: MatchProjectColumn
+      },
+      {
+        Name: MatchProjectColumn
+      },
+      {
+        Name: MatchProjectColumn
+      },
+      {
+        Name: MatchProjectColumn
+      },
+      {
+        Name: MatchPublic
+      },
+      {
+        Name: MatchPublic
+      },
+      {
+        Name: MatchPublic
+      },
+      {
+        Name: MatchPublic
+      },
+      {
+        Name: MatchPullRequest
+      },
+      {
+        Name: MatchPullRequest
+      },
+      {
+        Name: MatchPullRequest
+      },
+      {
+        Name: MatchPullRequest
+      },
+      {
+        Name: MatchPullRequestReview
+      },
+      {
+        Name: MatchPullRequestReview
+      },
+      {
+        Name: MatchPullRequestReview
+      },
+      {
+        Name: MatchPullRequestReview
+      },
+      {
+        Name: MatchPullRequestReviewComment
+      },
+      {
+        Name: MatchPullRequestReviewComment
+      },
+      {
+        Name: MatchPullRequestReviewComment
+      },
+      {
+        Name: MatchPullRequestReviewComment
+      },
+      {
+        Name: MatchPullRequestTarget
+      },
+      {
+        Name: MatchPullRequestTarget
+      },
+      {
+        Name: MatchPullRequestTarget
+      },
+      {
+        Name: MatchPullRequestTarget
+      },
+      {
+        Name: MatchPush
+      },
+      {
+        Name: MatchPush
+      },
+      {
+        Name: MatchPush
+      },
+      {
+        Name: MatchPush
+      },
+      {
+        Name: MatchRegistryPackage
+      },
+      {
+        Name: MatchRegistryPackage
+      },
+      {
+        Name: MatchRegistryPackage
+      },
+      {
+        Name: MatchRegistryPackage
+      },
+      {
+        Name: MatchRelease
+      },
+      {
+        Name: MatchRelease
+      },
+      {
+        Name: MatchRelease
+      },
+      {
+        Name: MatchRelease
+      },
+      {
+        Name: MatchRepositoryDispatch
+      },
+      {
+        Name: MatchRepositoryDispatch
+      },
+      {
+        Name: MatchRepositoryDispatch
+      },
+      {
+        Name: MatchRepositoryDispatch
+      },
+      {
+        Name: MatchSchedule
+      },
+      {
+        Name: MatchSchedule
+      },
+      {
+        Name: MatchSchedule
+      },
+      {
+        Name: MatchSchedule
+      },
+      {
+        Name: MatchStatus
+      },
+      {
+        Name: MatchStatus
+      },
+      {
+        Name: MatchStatus
+      },
+      {
+        Name: MatchStatus
+      },
+      {
+        Name: MatchWatch
+      },
+      {
+        Name: MatchWatch
+      },
+      {
+        Name: MatchWatch
+      },
+      {
+        Name: MatchWatch
+      },
+      {
+        Name: MatchWorkflowCall
+      },
+      {
+        Name: MatchWorkflowCall
+      },
+      {
+        Name: MatchWorkflowCall
+      },
+      {
+        Name: MatchWorkflowCall
+      },
+      {
+        Name: MatchWorkflowDispatch
+      },
+      {
+        Name: MatchWorkflowDispatch
+      },
+      {
+        Name: MatchWorkflowDispatch
+      },
+      {
+        Name: MatchWorkflowDispatch
+      },
+      {
+        Name: MatchWorkflowRun
+      },
+      {
+        Name: MatchWorkflowRun
+      },
+      {
+        Name: MatchWorkflowRun
+      },
+      {
+        Name: MatchWorkflowRun
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapBranchProtectionRule
+      },
+      {
+        Name: UnwrapCheckRun
+      },
+      {
+        Name: UnwrapCheckSuite
+      },
+      {
+        Name: UnwrapCreate
+      },
+      {
+        Name: UnwrapDelete
+      },
+      {
+        Name: UnwrapDeployment
+      },
+      {
+        Name: UnwrapDeploymentStatus
+      },
+      {
+        Name: UnwrapDiscussion
+      },
+      {
+        Name: UnwrapDiscussionComment
+      },
+      {
+        Name: UnwrapFork
+      },
+      {
+        Name: UnwrapGollum
+      },
+      {
+        Name: UnwrapImageVersion
+      },
+      {
+        Name: UnwrapIssueComment
+      },
+      {
+        Name: UnwrapIssues
+      },
+      {
+        Name: UnwrapLabel
+      },
+      {
+        Name: UnwrapMergeGroup
+      },
+      {
+        Name: UnwrapMilestone
+      },
+      {
+        Name: UnwrapPageBuild
+      },
+      {
+        Name: UnwrapProject
+      },
+      {
+        Name: UnwrapProjectCard
+      },
+      {
+        Name: UnwrapProjectColumn
+      },
+      {
+        Name: UnwrapPublic
+      },
+      {
+        Name: UnwrapPullRequest
+      },
+      {
+        Name: UnwrapPullRequestReview
+      },
+      {
+        Name: UnwrapPullRequestReviewComment
+      },
+      {
+        Name: UnwrapPullRequestTarget
+      },
+      {
+        Name: UnwrapPush
+      },
+      {
+        Name: UnwrapRegistryPackage
+      },
+      {
+        Name: UnwrapRelease
+      },
+      {
+        Name: UnwrapRepositoryDispatch
+      },
+      {
+        Name: UnwrapSchedule
+      },
+      {
+        Name: UnwrapStatus
+      },
+      {
+        Name: UnwrapWatch
+      },
+      {
+        Name: UnwrapWorkflowCall
+      },
+      {
+        Name: UnwrapWorkflowDispatch
+      },
+      {
+        Name: UnwrapWorkflowRun
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.On0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchBranchProtectionRuleAsync
+      },
+      {
+        Name: MatchBranchProtectionRuleAsync
+      },
+      {
+        Name: MatchBranchProtectionRuleAsync
+      },
+      {
+        Name: MatchBranchProtectionRuleAsync
+      },
+      {
+        Name: MatchCheckRunAsync
+      },
+      {
+        Name: MatchCheckRunAsync
+      },
+      {
+        Name: MatchCheckRunAsync
+      },
+      {
+        Name: MatchCheckRunAsync
+      },
+      {
+        Name: MatchCheckSuiteAsync
+      },
+      {
+        Name: MatchCheckSuiteAsync
+      },
+      {
+        Name: MatchCheckSuiteAsync
+      },
+      {
+        Name: MatchCheckSuiteAsync
+      },
+      {
+        Name: MatchCreateAsync
+      },
+      {
+        Name: MatchCreateAsync
+      },
+      {
+        Name: MatchCreateAsync
+      },
+      {
+        Name: MatchCreateAsync
+      },
+      {
+        Name: MatchDeleteAsync
+      },
+      {
+        Name: MatchDeleteAsync
+      },
+      {
+        Name: MatchDeleteAsync
+      },
+      {
+        Name: MatchDeleteAsync
+      },
+      {
+        Name: MatchDeploymentAsync
+      },
+      {
+        Name: MatchDeploymentAsync
+      },
+      {
+        Name: MatchDeploymentAsync
+      },
+      {
+        Name: MatchDeploymentAsync
+      },
+      {
+        Name: MatchDeploymentStatusAsync
+      },
+      {
+        Name: MatchDeploymentStatusAsync
+      },
+      {
+        Name: MatchDeploymentStatusAsync
+      },
+      {
+        Name: MatchDeploymentStatusAsync
+      },
+      {
+        Name: MatchDiscussionAsync
+      },
+      {
+        Name: MatchDiscussionAsync
+      },
+      {
+        Name: MatchDiscussionAsync
+      },
+      {
+        Name: MatchDiscussionAsync
+      },
+      {
+        Name: MatchDiscussionCommentAsync
+      },
+      {
+        Name: MatchDiscussionCommentAsync
+      },
+      {
+        Name: MatchDiscussionCommentAsync
+      },
+      {
+        Name: MatchDiscussionCommentAsync
+      },
+      {
+        Name: MatchForkAsync
+      },
+      {
+        Name: MatchForkAsync
+      },
+      {
+        Name: MatchForkAsync
+      },
+      {
+        Name: MatchForkAsync
+      },
+      {
+        Name: MatchGollumAsync
+      },
+      {
+        Name: MatchGollumAsync
+      },
+      {
+        Name: MatchGollumAsync
+      },
+      {
+        Name: MatchGollumAsync
+      },
+      {
+        Name: MatchImageVersionAsync
+      },
+      {
+        Name: MatchImageVersionAsync
+      },
+      {
+        Name: MatchImageVersionAsync
+      },
+      {
+        Name: MatchImageVersionAsync
+      },
+      {
+        Name: MatchIssueCommentAsync
+      },
+      {
+        Name: MatchIssueCommentAsync
+      },
+      {
+        Name: MatchIssueCommentAsync
+      },
+      {
+        Name: MatchIssueCommentAsync
+      },
+      {
+        Name: MatchIssuesAsync
+      },
+      {
+        Name: MatchIssuesAsync
+      },
+      {
+        Name: MatchIssuesAsync
+      },
+      {
+        Name: MatchIssuesAsync
+      },
+      {
+        Name: MatchLabelAsync
+      },
+      {
+        Name: MatchLabelAsync
+      },
+      {
+        Name: MatchLabelAsync
+      },
+      {
+        Name: MatchLabelAsync
+      },
+      {
+        Name: MatchMergeGroupAsync
+      },
+      {
+        Name: MatchMergeGroupAsync
+      },
+      {
+        Name: MatchMergeGroupAsync
+      },
+      {
+        Name: MatchMergeGroupAsync
+      },
+      {
+        Name: MatchMilestoneAsync
+      },
+      {
+        Name: MatchMilestoneAsync
+      },
+      {
+        Name: MatchMilestoneAsync
+      },
+      {
+        Name: MatchMilestoneAsync
+      },
+      {
+        Name: MatchPageBuildAsync
+      },
+      {
+        Name: MatchPageBuildAsync
+      },
+      {
+        Name: MatchPageBuildAsync
+      },
+      {
+        Name: MatchPageBuildAsync
+      },
+      {
+        Name: MatchProjectAsync
+      },
+      {
+        Name: MatchProjectAsync
+      },
+      {
+        Name: MatchProjectAsync
+      },
+      {
+        Name: MatchProjectAsync
+      },
+      {
+        Name: MatchProjectCardAsync
+      },
+      {
+        Name: MatchProjectCardAsync
+      },
+      {
+        Name: MatchProjectCardAsync
+      },
+      {
+        Name: MatchProjectCardAsync
+      },
+      {
+        Name: MatchProjectColumnAsync
+      },
+      {
+        Name: MatchProjectColumnAsync
+      },
+      {
+        Name: MatchProjectColumnAsync
+      },
+      {
+        Name: MatchProjectColumnAsync
+      },
+      {
+        Name: MatchPublicAsync
+      },
+      {
+        Name: MatchPublicAsync
+      },
+      {
+        Name: MatchPublicAsync
+      },
+      {
+        Name: MatchPublicAsync
+      },
+      {
+        Name: MatchPullRequestAsync
+      },
+      {
+        Name: MatchPullRequestAsync
+      },
+      {
+        Name: MatchPullRequestAsync
+      },
+      {
+        Name: MatchPullRequestAsync
+      },
+      {
+        Name: MatchPullRequestReviewAsync
+      },
+      {
+        Name: MatchPullRequestReviewAsync
+      },
+      {
+        Name: MatchPullRequestReviewAsync
+      },
+      {
+        Name: MatchPullRequestReviewAsync
+      },
+      {
+        Name: MatchPullRequestReviewCommentAsync
+      },
+      {
+        Name: MatchPullRequestReviewCommentAsync
+      },
+      {
+        Name: MatchPullRequestReviewCommentAsync
+      },
+      {
+        Name: MatchPullRequestReviewCommentAsync
+      },
+      {
+        Name: MatchPullRequestTargetAsync
+      },
+      {
+        Name: MatchPullRequestTargetAsync
+      },
+      {
+        Name: MatchPullRequestTargetAsync
+      },
+      {
+        Name: MatchPullRequestTargetAsync
+      },
+      {
+        Name: MatchPushAsync
+      },
+      {
+        Name: MatchPushAsync
+      },
+      {
+        Name: MatchPushAsync
+      },
+      {
+        Name: MatchPushAsync
+      },
+      {
+        Name: MatchRegistryPackageAsync
+      },
+      {
+        Name: MatchRegistryPackageAsync
+      },
+      {
+        Name: MatchRegistryPackageAsync
+      },
+      {
+        Name: MatchRegistryPackageAsync
+      },
+      {
+        Name: MatchReleaseAsync
+      },
+      {
+        Name: MatchReleaseAsync
+      },
+      {
+        Name: MatchReleaseAsync
+      },
+      {
+        Name: MatchReleaseAsync
+      },
+      {
+        Name: MatchRepositoryDispatchAsync
+      },
+      {
+        Name: MatchRepositoryDispatchAsync
+      },
+      {
+        Name: MatchRepositoryDispatchAsync
+      },
+      {
+        Name: MatchRepositoryDispatchAsync
+      },
+      {
+        Name: MatchScheduleAsync
+      },
+      {
+        Name: MatchScheduleAsync
+      },
+      {
+        Name: MatchScheduleAsync
+      },
+      {
+        Name: MatchScheduleAsync
+      },
+      {
+        Name: MatchStatusAsync
+      },
+      {
+        Name: MatchStatusAsync
+      },
+      {
+        Name: MatchStatusAsync
+      },
+      {
+        Name: MatchStatusAsync
+      },
+      {
+        Name: MatchWatchAsync
+      },
+      {
+        Name: MatchWatchAsync
+      },
+      {
+        Name: MatchWatchAsync
+      },
+      {
+        Name: MatchWatchAsync
+      },
+      {
+        Name: MatchWorkflowCallAsync
+      },
+      {
+        Name: MatchWorkflowCallAsync
+      },
+      {
+        Name: MatchWorkflowCallAsync
+      },
+      {
+        Name: MatchWorkflowCallAsync
+      },
+      {
+        Name: MatchWorkflowDispatchAsync
+      },
+      {
+        Name: MatchWorkflowDispatchAsync
+      },
+      {
+        Name: MatchWorkflowDispatchAsync
+      },
+      {
+        Name: MatchWorkflowDispatchAsync
+      },
+      {
+        Name: MatchWorkflowRunAsync
+      },
+      {
+        Name: MatchWorkflowRunAsync
+      },
+      {
+        Name: MatchWorkflowRunAsync
+      },
+      {
+        Name: MatchWorkflowRunAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Permissions,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchAll
+      },
+      {
+        Name: MatchAll
+      },
+      {
+        Name: MatchAll
+      },
+      {
+        Name: MatchAll
+      },
+      {
+        Name: MatchExact
+      },
+      {
+        Name: MatchExact
+      },
+      {
+        Name: MatchExact
+      },
+      {
+        Name: MatchExact
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapAll
+      },
+      {
+        Name: UnwrapExact
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Permissions0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAllAsync
+      },
+      {
+        Name: MatchAllAsync
+      },
+      {
+        Name: MatchAllAsync
+      },
+      {
+        Name: MatchAllAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchExactAsync
+      },
+      {
+        Name: MatchExactAsync
+      },
+      {
+        Name: MatchExactAsync
+      },
+      {
+        Name: MatchExactAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.PermissionsEvent,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Actions
+      },
+      {
+        Name: Attestations
+      },
+      {
+        Name: Checks
+      },
+      {
+        Name: Contents
+      },
+      {
+        Name: Deployments
+      },
+      {
+        Name: Discussions
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: IdTokens
+      },
+      {
+        Name: IsAll
+      },
+      {
+        Name: Issues
+      },
+      {
+        Name: Packages
+      },
+      {
+        Name: Pages
+      },
+      {
+        Name: PullRequests
+      },
+      {
+        Name: RepositoryProjects
+      },
+      {
+        Name: SecurityEvents
+      },
+      {
+        Name: Statuses
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.PermissionsLevel,
+    Members: [
+      {
+        Name: None
+      },
+      {
+        Name: Read
+      },
+      {
+        Name: value__
+      },
+      {
+        Name: Write
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.RunsOn,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Group
+      },
+      {
+        Name: Labels
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Snapshot,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: ImageName
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Version
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Step,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: ContinueOnError
+      },
+      {
+        Name: Env
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Id
+      },
+      {
+        Name: If
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchRunStep
+      },
+      {
+        Name: MatchRunStep
+      },
+      {
+        Name: MatchRunStep
+      },
+      {
+        Name: MatchRunStep
+      },
+      {
+        Name: MatchUsesStep
+      },
+      {
+        Name: MatchUsesStep
+      },
+      {
+        Name: MatchUsesStep
+      },
+      {
+        Name: MatchUsesStep
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: TimeoutMinutes
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapRunStep
+      },
+      {
+        Name: UnwrapUsesStep
+      },
+      {
+        Name: With
+      },
+      {
+        Name: WorkingDirectory
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Step0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchRunStepAsync
+      },
+      {
+        Name: MatchRunStepAsync
+      },
+      {
+        Name: MatchRunStepAsync
+      },
+      {
+        Name: MatchRunStepAsync
+      },
+      {
+        Name: MatchUsesStepAsync
+      },
+      {
+        Name: MatchUsesStepAsync
+      },
+      {
+        Name: MatchUsesStepAsync
+      },
+      {
+        Name: MatchUsesStepAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.Strategy,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: FailFast
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Matrix
+      },
+      {
+        Name: MaxParallel
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Default
+      },
+      {
+        Name: Description
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchBoolean
+      },
+      {
+        Name: MatchBoolean
+      },
+      {
+        Name: MatchBoolean
+      },
+      {
+        Name: MatchBoolean
+      },
+      {
+        Name: MatchChoice
+      },
+      {
+        Name: MatchChoice
+      },
+      {
+        Name: MatchChoice
+      },
+      {
+        Name: MatchChoice
+      },
+      {
+        Name: MatchNumber
+      },
+      {
+        Name: MatchNumber
+      },
+      {
+        Name: MatchNumber
+      },
+      {
+        Name: MatchNumber
+      },
+      {
+        Name: MatchString
+      },
+      {
+        Name: MatchString
+      },
+      {
+        Name: MatchString
+      },
+      {
+        Name: MatchString
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: Required
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Type
+      },
+      {
+        Name: UnwrapBoolean
+      },
+      {
+        Name: UnwrapChoice
+      },
+      {
+        Name: UnwrapNumber
+      },
+      {
+        Name: UnwrapString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchBooleanAsync
+      },
+      {
+        Name: MatchBooleanAsync
+      },
+      {
+        Name: MatchBooleanAsync
+      },
+      {
+        Name: MatchBooleanAsync
+      },
+      {
+        Name: MatchChoiceAsync
+      },
+      {
+        Name: MatchChoiceAsync
+      },
+      {
+        Name: MatchChoiceAsync
+      },
+      {
+        Name: MatchChoiceAsync
+      },
+      {
+        Name: MatchNumberAsync
+      },
+      {
+        Name: MatchNumberAsync
+      },
+      {
+        Name: MatchNumberAsync
+      },
+      {
+        Name: MatchNumberAsync
+      },
+      {
+        Name: MatchStringAsync
+      },
+      {
+        Name: MatchStringAsync
+      },
+      {
+        Name: MatchStringAsync
+      },
+      {
+        Name: MatchStringAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubActionWriter,
+    Members: [
+      {
+        Name: TextWriter
+      },
+      {
+        Name: Write
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubExpressionFormatter
+  }
+]

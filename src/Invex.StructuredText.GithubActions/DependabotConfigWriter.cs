@@ -1,10 +1,33 @@
 namespace Invex.StructuredText.GithubActions;
 
+/// <summary>
+///     Serializes a <see cref="DependabotConfig" /> model to Dependabot v2 configuration YAML
+///     (<c>.github/dependabot.yml</c>).
+/// </summary>
+/// <remarks>
+///     The writer accumulates output in <see cref="TextWriter" />; call
+///     <see cref="StructuredTextWriter.ToString" /> to retrieve the YAML.
+/// </remarks>
+/// <example>
+///     <code>
+///         var writer = new DependabotConfigWriter();
+///         writer.WriteConfig(config);
+///         File.WriteAllText(".github/dependabot.yml", writer.TextWriter.ToString());
+///     </code>
+/// </example>
 [PublicAPI]
 public sealed class DependabotConfigWriter
 {
+    /// <summary>
+    ///     The underlying text writer that accumulates the generated YAML.
+    /// </summary>
     public StructuredTextWriter TextWriter { get; init; } = new();
 
+    /// <summary>
+    ///     Writes the complete Dependabot configuration —
+    ///     version, beta-ecosystems flag, registries, multi-ecosystem groups, and all update entries.
+    /// </summary>
+    /// <param name="config">The configuration model to serialize.</param>
     public void WriteConfig(DependabotConfig config)
     {
         TextWriter.WriteLine($"version: {config.Version}");
@@ -39,6 +62,11 @@ public sealed class DependabotConfigWriter
                 WriteUpdate(update);
     }
 
+    /// <summary>
+    ///     Writes a single named registry entry under the current section.
+    /// </summary>
+    /// <param name="name">The registry key (its YAML name).</param>
+    /// <param name="registry">The registry configuration to serialize.</param>
     public void WriteRegistry(string name, DependabotRegistry registry)
     {
         using var _ = TextWriter.WriteSection($"{name}:");

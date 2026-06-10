@@ -1,8 +1,22 @@
 namespace Invex.StructuredText.AzureDevopsPipelines;
 
+/// <summary>
+///     Renders <see cref="TextExpression" /> trees using Azure DevOps expression syntax:
+///     logic and comparison operators render as functions (<c>and(...)</c>, <c>or(...)</c>, <c>not(...)</c>,
+///     <c>eq(...)</c>, <c>ne(...)</c>, <c>lt(...)</c>, …), <see cref="EvaluateExpression" /> becomes a
+///     compile-time template expression <c>${{ ... }}</c>, <see cref="DevopsRuntimeExpression" /> becomes a
+///     runtime expression <c>$[ ... ]</c>, and <see cref="DevopsMacroExpression" /> becomes a macro
+///     expansion <c>$(variable)</c>. Step and job references render against the <c>steps.*</c> and
+///     <c>dependencies.*</c> contexts.
+/// </summary>
 [PublicAPI]
 public sealed class DevopsExpressionFormatter : TextExpressionFormatter
 {
+    /// <summary>
+    ///     Rewrites a single expression node into its Azure DevOps textual form.
+    /// </summary>
+    /// <param name="expression">The node to rewrite.</param>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown for unsupported expression types.</exception>
     protected override TextExpression? Resolve(TextExpression expression) =>
         expression switch
         {

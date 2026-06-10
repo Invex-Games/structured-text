@@ -1,0 +1,2474 @@
+﻿[
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionFormatter
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsMacroExpression,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Variable
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchEnvironmentName
+      },
+      {
+        Name: MatchEnvironmentName
+      },
+      {
+        Name: MatchEnvironmentName
+      },
+      {
+        Name: MatchEnvironmentName
+      },
+      {
+        Name: MatchEnvironmentSpec
+      },
+      {
+        Name: MatchEnvironmentSpec
+      },
+      {
+        Name: MatchEnvironmentSpec
+      },
+      {
+        Name: MatchEnvironmentSpec
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapEnvironmentName
+      },
+      {
+        Name: UnwrapEnvironmentSpec
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchEnvironmentNameAsync
+      },
+      {
+        Name: MatchEnvironmentNameAsync
+      },
+      {
+        Name: MatchEnvironmentNameAsync
+      },
+      {
+        Name: MatchEnvironmentNameAsync
+      },
+      {
+        Name: MatchEnvironmentSpecAsync
+      },
+      {
+        Name: MatchEnvironmentSpecAsync
+      },
+      {
+        Name: MatchEnvironmentSpecAsync
+      },
+      {
+        Name: MatchEnvironmentSpecAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentHook,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Pool
+      },
+      {
+        Name: Steps
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentStrategy,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchCanary
+      },
+      {
+        Name: MatchCanary
+      },
+      {
+        Name: MatchCanary
+      },
+      {
+        Name: MatchCanary
+      },
+      {
+        Name: MatchRolling
+      },
+      {
+        Name: MatchRolling
+      },
+      {
+        Name: MatchRolling
+      },
+      {
+        Name: MatchRolling
+      },
+      {
+        Name: MatchRunOnce
+      },
+      {
+        Name: MatchRunOnce
+      },
+      {
+        Name: MatchRunOnce
+      },
+      {
+        Name: MatchRunOnce
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapCanary
+      },
+      {
+        Name: UnwrapRolling
+      },
+      {
+        Name: UnwrapRunOnce
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentStrategy0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchCanaryAsync
+      },
+      {
+        Name: MatchCanaryAsync
+      },
+      {
+        Name: MatchCanaryAsync
+      },
+      {
+        Name: MatchCanaryAsync
+      },
+      {
+        Name: MatchRollingAsync
+      },
+      {
+        Name: MatchRollingAsync
+      },
+      {
+        Name: MatchRollingAsync
+      },
+      {
+        Name: MatchRollingAsync
+      },
+      {
+        Name: MatchRunOnceAsync
+      },
+      {
+        Name: MatchRunOnceAsync
+      },
+      {
+        Name: MatchRunOnceAsync
+      },
+      {
+        Name: MatchRunOnceAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.ExplicitResources,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Pools
+      },
+      {
+        Name: Repositories
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchDeployment
+      },
+      {
+        Name: MatchDeployment
+      },
+      {
+        Name: MatchDeployment
+      },
+      {
+        Name: MatchDeployment
+      },
+      {
+        Name: MatchRegularJob
+      },
+      {
+        Name: MatchRegularJob
+      },
+      {
+        Name: MatchRegularJob
+      },
+      {
+        Name: MatchRegularJob
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapDeployment
+      },
+      {
+        Name: UnwrapRegularJob
+      },
+      {
+        Name: UnwrapTemplate
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchDeploymentAsync
+      },
+      {
+        Name: MatchDeploymentAsync
+      },
+      {
+        Name: MatchDeploymentAsync
+      },
+      {
+        Name: MatchDeploymentAsync
+      },
+      {
+        Name: MatchRegularJobAsync
+      },
+      {
+        Name: MatchRegularJobAsync
+      },
+      {
+        Name: MatchRegularJobAsync
+      },
+      {
+        Name: MatchRegularJobAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.JobContainer,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchContainerName
+      },
+      {
+        Name: MatchContainerName
+      },
+      {
+        Name: MatchContainerName
+      },
+      {
+        Name: MatchContainerName
+      },
+      {
+        Name: MatchContainerSpec
+      },
+      {
+        Name: MatchContainerSpec
+      },
+      {
+        Name: MatchContainerSpec
+      },
+      {
+        Name: MatchContainerSpec
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapContainerName
+      },
+      {
+        Name: UnwrapContainerSpec
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.JobContainer0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchContainerNameAsync
+      },
+      {
+        Name: MatchContainerNameAsync
+      },
+      {
+        Name: MatchContainerNameAsync
+      },
+      {
+        Name: MatchContainerNameAsync
+      },
+      {
+        Name: MatchContainerSpecAsync
+      },
+      {
+        Name: MatchContainerSpecAsync
+      },
+      {
+        Name: MatchContainerSpecAsync
+      },
+      {
+        Name: MatchContainerSpecAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.JobStrategy,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Matrix
+      },
+      {
+        Name: MaxParallel
+      },
+      {
+        Name: Parallel
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchDevopsPipelineWithExtends
+      },
+      {
+        Name: MatchDevopsPipelineWithExtends
+      },
+      {
+        Name: MatchDevopsPipelineWithExtends
+      },
+      {
+        Name: MatchDevopsPipelineWithExtends
+      },
+      {
+        Name: MatchDevopsPipelineWithJobs
+      },
+      {
+        Name: MatchDevopsPipelineWithJobs
+      },
+      {
+        Name: MatchDevopsPipelineWithJobs
+      },
+      {
+        Name: MatchDevopsPipelineWithJobs
+      },
+      {
+        Name: MatchDevopsPipelineWithStages
+      },
+      {
+        Name: MatchDevopsPipelineWithStages
+      },
+      {
+        Name: MatchDevopsPipelineWithStages
+      },
+      {
+        Name: MatchDevopsPipelineWithStages
+      },
+      {
+        Name: MatchDevopsPipelineWithSteps
+      },
+      {
+        Name: MatchDevopsPipelineWithSteps
+      },
+      {
+        Name: MatchDevopsPipelineWithSteps
+      },
+      {
+        Name: MatchDevopsPipelineWithSteps
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapDevopsPipelineWithExtends
+      },
+      {
+        Name: UnwrapDevopsPipelineWithJobs
+      },
+      {
+        Name: UnwrapDevopsPipelineWithStages
+      },
+      {
+        Name: UnwrapDevopsPipelineWithSteps
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithExtendsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithExtendsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithExtendsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithExtendsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithJobsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithJobsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithJobsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithJobsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithStagesAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithStagesAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithStagesAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithStagesAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithStepsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithStepsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithStepsAsync
+      },
+      {
+        Name: MatchDevopsPipelineWithStepsAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.BuildResource,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Branch
+      },
+      {
+        Name: Build
+      },
+      {
+        Name: Connection
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Source
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Trigger
+      },
+      {
+        Name: Type
+      },
+      {
+        Name: Version
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.ContainerResource,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Container
+      },
+      {
+        Name: Endpoint
+      },
+      {
+        Name: Env
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Image
+      },
+      {
+        Name: Options
+      },
+      {
+        Name: Ports
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Trigger
+      },
+      {
+        Name: Volumes
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.ContainerResourceTrigger,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Enabled
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Tags
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.PackageResource,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Connection
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: Package
+      },
+      {
+        Name: Tag
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Type
+      },
+      {
+        Name: Version
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.PipelineResource,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Branch
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Pipeline
+      },
+      {
+        Name: Project
+      },
+      {
+        Name: Source
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Trigger
+      },
+      {
+        Name: Version
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.PipelineResourceTrigger,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Branches
+      },
+      {
+        Name: Enabled
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Stages
+      },
+      {
+        Name: Tags
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.RepositoryResource,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Endpoint
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: Ref
+      },
+      {
+        Name: Repository
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Trigger
+      },
+      {
+        Name: Type
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.Resources,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Builds
+      },
+      {
+        Name: Containers
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Packages
+      },
+      {
+        Name: Pipelines
+      },
+      {
+        Name: Repositories
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Webhooks
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.WebhookFilter,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Path
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Value
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.WebhookResource,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Connection
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Filters
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Type
+      },
+      {
+        Name: Webhook
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Stages.Stage,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchStageDefinition
+      },
+      {
+        Name: MatchStageDefinition
+      },
+      {
+        Name: MatchStageDefinition
+      },
+      {
+        Name: MatchStageDefinition
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapStageDefinition
+      },
+      {
+        Name: UnwrapTemplate
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Stages.Stage0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchStageDefinitionAsync
+      },
+      {
+        Name: MatchStageDefinitionAsync
+      },
+      {
+        Name: MatchStageDefinitionAsync
+      },
+      {
+        Name: MatchStageDefinitionAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps.SettableVariables,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Allowed
+      },
+      {
+        Name: AllowedVariables
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps.Step,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchBash
+      },
+      {
+        Name: MatchBash
+      },
+      {
+        Name: MatchBash
+      },
+      {
+        Name: MatchBash
+      },
+      {
+        Name: MatchCheckout
+      },
+      {
+        Name: MatchCheckout
+      },
+      {
+        Name: MatchCheckout
+      },
+      {
+        Name: MatchCheckout
+      },
+      {
+        Name: MatchDownload
+      },
+      {
+        Name: MatchDownload
+      },
+      {
+        Name: MatchDownload
+      },
+      {
+        Name: MatchDownload
+      },
+      {
+        Name: MatchDownloadBuild
+      },
+      {
+        Name: MatchDownloadBuild
+      },
+      {
+        Name: MatchDownloadBuild
+      },
+      {
+        Name: MatchDownloadBuild
+      },
+      {
+        Name: MatchGetPackage
+      },
+      {
+        Name: MatchGetPackage
+      },
+      {
+        Name: MatchGetPackage
+      },
+      {
+        Name: MatchGetPackage
+      },
+      {
+        Name: MatchPowerShell
+      },
+      {
+        Name: MatchPowerShell
+      },
+      {
+        Name: MatchPowerShell
+      },
+      {
+        Name: MatchPowerShell
+      },
+      {
+        Name: MatchPublish
+      },
+      {
+        Name: MatchPublish
+      },
+      {
+        Name: MatchPublish
+      },
+      {
+        Name: MatchPublish
+      },
+      {
+        Name: MatchPwsh
+      },
+      {
+        Name: MatchPwsh
+      },
+      {
+        Name: MatchPwsh
+      },
+      {
+        Name: MatchPwsh
+      },
+      {
+        Name: MatchReviewApp
+      },
+      {
+        Name: MatchReviewApp
+      },
+      {
+        Name: MatchReviewApp
+      },
+      {
+        Name: MatchReviewApp
+      },
+      {
+        Name: MatchScript
+      },
+      {
+        Name: MatchScript
+      },
+      {
+        Name: MatchScript
+      },
+      {
+        Name: MatchScript
+      },
+      {
+        Name: MatchTask
+      },
+      {
+        Name: MatchTask
+      },
+      {
+        Name: MatchTask
+      },
+      {
+        Name: MatchTask
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapBash
+      },
+      {
+        Name: UnwrapCheckout
+      },
+      {
+        Name: UnwrapDownload
+      },
+      {
+        Name: UnwrapDownloadBuild
+      },
+      {
+        Name: UnwrapGetPackage
+      },
+      {
+        Name: UnwrapPowerShell
+      },
+      {
+        Name: UnwrapPublish
+      },
+      {
+        Name: UnwrapPwsh
+      },
+      {
+        Name: UnwrapReviewApp
+      },
+      {
+        Name: UnwrapScript
+      },
+      {
+        Name: UnwrapTask
+      },
+      {
+        Name: UnwrapTemplate
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps.Step0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchBashAsync
+      },
+      {
+        Name: MatchBashAsync
+      },
+      {
+        Name: MatchBashAsync
+      },
+      {
+        Name: MatchBashAsync
+      },
+      {
+        Name: MatchCheckoutAsync
+      },
+      {
+        Name: MatchCheckoutAsync
+      },
+      {
+        Name: MatchCheckoutAsync
+      },
+      {
+        Name: MatchCheckoutAsync
+      },
+      {
+        Name: MatchDownloadAsync
+      },
+      {
+        Name: MatchDownloadAsync
+      },
+      {
+        Name: MatchDownloadAsync
+      },
+      {
+        Name: MatchDownloadAsync
+      },
+      {
+        Name: MatchDownloadBuildAsync
+      },
+      {
+        Name: MatchDownloadBuildAsync
+      },
+      {
+        Name: MatchDownloadBuildAsync
+      },
+      {
+        Name: MatchDownloadBuildAsync
+      },
+      {
+        Name: MatchGetPackageAsync
+      },
+      {
+        Name: MatchGetPackageAsync
+      },
+      {
+        Name: MatchGetPackageAsync
+      },
+      {
+        Name: MatchGetPackageAsync
+      },
+      {
+        Name: MatchPowerShellAsync
+      },
+      {
+        Name: MatchPowerShellAsync
+      },
+      {
+        Name: MatchPowerShellAsync
+      },
+      {
+        Name: MatchPowerShellAsync
+      },
+      {
+        Name: MatchPublishAsync
+      },
+      {
+        Name: MatchPublishAsync
+      },
+      {
+        Name: MatchPublishAsync
+      },
+      {
+        Name: MatchPublishAsync
+      },
+      {
+        Name: MatchPwshAsync
+      },
+      {
+        Name: MatchPwshAsync
+      },
+      {
+        Name: MatchPwshAsync
+      },
+      {
+        Name: MatchPwshAsync
+      },
+      {
+        Name: MatchReviewAppAsync
+      },
+      {
+        Name: MatchReviewAppAsync
+      },
+      {
+        Name: MatchReviewAppAsync
+      },
+      {
+        Name: MatchReviewAppAsync
+      },
+      {
+        Name: MatchScriptAsync
+      },
+      {
+        Name: MatchScriptAsync
+      },
+      {
+        Name: MatchScriptAsync
+      },
+      {
+        Name: MatchScriptAsync
+      },
+      {
+        Name: MatchTaskAsync
+      },
+      {
+        Name: MatchTaskAsync
+      },
+      {
+        Name: MatchTaskAsync
+      },
+      {
+        Name: MatchTaskAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps.StepTarget,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchTargetName
+      },
+      {
+        Name: MatchTargetName
+      },
+      {
+        Name: MatchTargetName
+      },
+      {
+        Name: MatchTargetName
+      },
+      {
+        Name: MatchTargetSpec
+      },
+      {
+        Name: MatchTargetSpec
+      },
+      {
+        Name: MatchTargetSpec
+      },
+      {
+        Name: MatchTargetSpec
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapTargetName
+      },
+      {
+        Name: UnwrapTargetSpec
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps.StepTarget0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchTargetNameAsync
+      },
+      {
+        Name: MatchTargetNameAsync
+      },
+      {
+        Name: MatchTargetNameAsync
+      },
+      {
+        Name: MatchTargetNameAsync
+      },
+      {
+        Name: MatchTargetSpecAsync
+      },
+      {
+        Name: MatchTargetSpecAsync
+      },
+      {
+        Name: MatchTargetSpecAsync
+      },
+      {
+        Name: MatchTargetSpecAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Extends,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Parameters
+      },
+      {
+        Name: Template
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.IncludeExcludeFilters,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Exclude
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Include
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Parameter,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Default
+      },
+      {
+        Name: DisplayName
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: Type
+      },
+      {
+        Name: Values
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Pool,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchPoolName
+      },
+      {
+        Name: MatchPoolName
+      },
+      {
+        Name: MatchPoolName
+      },
+      {
+        Name: MatchPoolName
+      },
+      {
+        Name: MatchPoolSpec
+      },
+      {
+        Name: MatchPoolSpec
+      },
+      {
+        Name: MatchPoolSpec
+      },
+      {
+        Name: MatchPoolSpec
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapPoolName
+      },
+      {
+        Name: UnwrapPoolSpec
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Pool0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchPoolNameAsync
+      },
+      {
+        Name: MatchPoolNameAsync
+      },
+      {
+        Name: MatchPoolNameAsync
+      },
+      {
+        Name: MatchPoolNameAsync
+      },
+      {
+        Name: MatchPoolSpecAsync
+      },
+      {
+        Name: MatchPoolSpecAsync
+      },
+      {
+        Name: MatchPoolSpecAsync
+      },
+      {
+        Name: MatchPoolSpecAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Schedule,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Always
+      },
+      {
+        Name: Branches
+      },
+      {
+        Name: Cron
+      },
+      {
+        Name: DisplayName
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Workspace,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Clean
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers.Pr,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchBranchList
+      },
+      {
+        Name: MatchBranchList
+      },
+      {
+        Name: MatchBranchList
+      },
+      {
+        Name: MatchBranchList
+      },
+      {
+        Name: MatchFull
+      },
+      {
+        Name: MatchFull
+      },
+      {
+        Name: MatchFull
+      },
+      {
+        Name: MatchFull
+      },
+      {
+        Name: MatchNone
+      },
+      {
+        Name: MatchNone
+      },
+      {
+        Name: MatchNone
+      },
+      {
+        Name: MatchNone
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapBranchList
+      },
+      {
+        Name: UnwrapFull
+      },
+      {
+        Name: UnwrapNone
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers.Pr0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchBranchListAsync
+      },
+      {
+        Name: MatchBranchListAsync
+      },
+      {
+        Name: MatchBranchListAsync
+      },
+      {
+        Name: MatchBranchListAsync
+      },
+      {
+        Name: MatchFullAsync
+      },
+      {
+        Name: MatchFullAsync
+      },
+      {
+        Name: MatchFullAsync
+      },
+      {
+        Name: MatchFullAsync
+      },
+      {
+        Name: MatchNoneAsync
+      },
+      {
+        Name: MatchNoneAsync
+      },
+      {
+        Name: MatchNoneAsync
+      },
+      {
+        Name: MatchNoneAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers.Trigger,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchBranchList
+      },
+      {
+        Name: MatchBranchList
+      },
+      {
+        Name: MatchBranchList
+      },
+      {
+        Name: MatchBranchList
+      },
+      {
+        Name: MatchFull
+      },
+      {
+        Name: MatchFull
+      },
+      {
+        Name: MatchFull
+      },
+      {
+        Name: MatchFull
+      },
+      {
+        Name: MatchNone
+      },
+      {
+        Name: MatchNone
+      },
+      {
+        Name: MatchNone
+      },
+      {
+        Name: MatchNone
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapBranchList
+      },
+      {
+        Name: UnwrapFull
+      },
+      {
+        Name: UnwrapNone
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers.Trigger0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchBranchListAsync
+      },
+      {
+        Name: MatchBranchListAsync
+      },
+      {
+        Name: MatchBranchListAsync
+      },
+      {
+        Name: MatchBranchListAsync
+      },
+      {
+        Name: MatchFullAsync
+      },
+      {
+        Name: MatchFullAsync
+      },
+      {
+        Name: MatchFullAsync
+      },
+      {
+        Name: MatchFullAsync
+      },
+      {
+        Name: MatchNoneAsync
+      },
+      {
+        Name: MatchNoneAsync
+      },
+      {
+        Name: MatchNoneAsync
+      },
+      {
+        Name: MatchNoneAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables.Variable,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchGroup
+      },
+      {
+        Name: MatchGroup
+      },
+      {
+        Name: MatchGroup
+      },
+      {
+        Name: MatchGroup
+      },
+      {
+        Name: MatchName
+      },
+      {
+        Name: MatchName
+      },
+      {
+        Name: MatchName
+      },
+      {
+        Name: MatchName
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: MatchTemplate
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapGroup
+      },
+      {
+        Name: UnwrapName
+      },
+      {
+        Name: UnwrapTemplate
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables.Variable0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchGroupAsync
+      },
+      {
+        Name: MatchGroupAsync
+      },
+      {
+        Name: MatchGroupAsync
+      },
+      {
+        Name: MatchGroupAsync
+      },
+      {
+        Name: MatchNameAsync
+      },
+      {
+        Name: MatchNameAsync
+      },
+      {
+        Name: MatchNameAsync
+      },
+      {
+        Name: MatchNameAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      },
+      {
+        Name: MatchTemplateAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables.Variables,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: Match
+      },
+      {
+        Name: MatchDictionary
+      },
+      {
+        Name: MatchDictionary
+      },
+      {
+        Name: MatchDictionary
+      },
+      {
+        Name: MatchDictionary
+      },
+      {
+        Name: MatchVariableList
+      },
+      {
+        Name: MatchVariableList
+      },
+      {
+        Name: MatchVariableList
+      },
+      {
+        Name: MatchVariableList
+      },
+      {
+        Name: ToString
+      },
+      {
+        Name: UnwrapDictionary
+      },
+      {
+        Name: UnwrapVariableList
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables.Variables0MatchExtensions,
+    Members: [
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchAsync
+      },
+      {
+        Name: MatchDictionaryAsync
+      },
+      {
+        Name: MatchDictionaryAsync
+      },
+      {
+        Name: MatchDictionaryAsync
+      },
+      {
+        Name: MatchDictionaryAsync
+      },
+      {
+        Name: MatchVariableListAsync
+      },
+      {
+        Name: MatchVariableListAsync
+      },
+      {
+        Name: MatchVariableListAsync
+      },
+      {
+        Name: MatchVariableListAsync
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter,
+    Members: [
+      {
+        Name: TextWriter
+      },
+      {
+        Name: Write
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsRuntimeExpression,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Expression
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: ToString
+      }
+    ]
+  }
+]

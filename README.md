@@ -48,6 +48,21 @@ dotnet add package Invex.StructuredText.AzureDevopsPipelines
 
 Both platform packages depend on `Invex.StructuredText` core, so it will be installed automatically.
 
+## Documentation
+
+Comprehensive guides live in the [`docs/`](docs/introduction.md) directory:
+
+- [Introduction](docs/introduction.md) — what this library is and why it exists
+- [Getting Started](docs/getting-started.md) — install and generate your first file
+- [Expressions](docs/expressions.md) — the unified expression system
+- [GitHub Actions](docs/github-actions.md) — workflow generation in depth
+- [Dependabot](docs/dependabot.md) — `dependabot.yml` generation
+- [Azure DevOps Pipelines](docs/azure-devops-pipelines.md) — pipelines, stages, jobs, deployment strategies
+- [Architecture](docs/architecture.md) — how the pieces fit together
+- [FAQ](docs/faq.md)
+
+An auto-generated [API reference](api/index.md) is built with docfx from the XML documentation comments.
+
 ## Quick Start
 
 ### GitHub Actions
@@ -56,23 +71,34 @@ Both platform packages depend on `Invex.StructuredText` core, so it will be inst
 var workflow = new GithubAction
 {
     Name = "CI",
-    On = [new On.Push { Branches = ["main"] }],
+    On =
+    [
+        new On.Push
+        {
+            Branches = ["main"],
+            BranchesIgnore = null,
+            Tags = null,
+            TagsIgnore = null,
+            Paths = null,
+            PathsIgnore = null,
+        },
+    ],
     Jobs =
     [
         new Job
         {
-            Name = "build",
-            RunsOn = new RunsOn { Labels = ["ubuntu-latest"] },
+            Name = new RawExpression("build"),
+            RunsOn = new() { Labels = [new RawExpression("ubuntu-latest")] },
             Steps =
             [
                 new Step.UsesStep
                 {
-                    Name = "Checkout",
-                    Uses = "actions/checkout@v4",
+                    Name = new RawExpression("Checkout"),
+                    Uses = new RawExpression("actions/checkout@v4"),
                 },
                 new Step.RunStep
                 {
-                    Name = "Build",
+                    Name = new RawExpression("Build"),
                     Run = ["dotnet build --configuration Release"],
                 },
             ],
@@ -89,10 +115,14 @@ var yaml = writer.TextWriter.ToString();
 ### Azure DevOps Pipelines
 
 ```csharp
-var pipeline = DevopsPipeline.NewDevopsPipelineWithSteps(
-    Steps: [Step.NewScript(ScriptContent: "echo Hello, world!")],
-    Trigger: Trigger.NewBranchList(Branches: ["main"])
-);
+var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
+{
+    Trigger = new Trigger.BranchList { Branches = ["main"] },
+    Steps =
+    [
+        new Step.Script { ScriptContent = new RawExpression("echo Hello, world!") },
+    ],
+};
 
 var writer = new DevopsPipelineWriter();
 writer.Write(pipeline);
@@ -108,7 +138,11 @@ syntax).
 
 ```csharp
 // Reference step outputs
-var output = new StepOutputExpression("build-step", "artifact-path");
+var output = new StepOutputExpression
+{
+    StepName = "build-step",
+    OutputName = "artifact-path",
+};
 
 // Use conditions
 var condition = output.Contains("release").Evaluate();
