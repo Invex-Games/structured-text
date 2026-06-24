@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DeploymentEnvironment.EnvironmentSpec | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DeploymentEnvironment.EnvironmentSpec | Invex.StructuredText ">
+      
+      <meta name="description" content="Full environment specification.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec">
+
+
+
+  <h1 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec" class="text-break">
+Class DeploymentEnvironment.EnvironmentSpec  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Invex.html">Invex</a>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.html">AzureDevopsPipelines</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.html">DevopsPipelineModel</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.html">Jobs</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.AzureDevopsPipelines.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Full environment specification.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+public sealed record DeploymentEnvironment.EnvironmentSpec : DeploymentEnvironment, IEquatable&lt;DeploymentEnvironment&gt;, IEquatable&lt;DeploymentEnvironment.EnvironmentSpec&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a></div>
+      <div><span class="xref">DeploymentEnvironment.EnvironmentSpec</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Name_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Name*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Name" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/JobSupportingTypes.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Name of the environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required WorkflowExpression&lt;string&gt; Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_ResourceId_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.ResourceId*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_ResourceId" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.ResourceId">
+  ResourceId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/JobSupportingTypes.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource ID within the environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;string&gt;? ResourceId { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_ResourceName_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.ResourceName*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_ResourceName" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.ResourceName">
+  ResourceName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/JobSupportingTypes.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource name within the environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;string&gt;? ResourceName { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_ResourceType_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.ResourceType*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_ResourceType" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.ResourceType">
+  ResourceType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/JobSupportingTypes.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource type within the environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;string&gt;? ResourceType { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Tags_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Tags*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Tags" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Tags">
+  Tags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/JobSupportingTypes.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tags for the environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpressionCollection&lt;string&gt;? Tags { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpressionCollection-1.html">WorkflowExpressionCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Match_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentName__System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Match(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName},System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec})">
+  Match(Action&lt;EnvironmentName&gt;, Action&lt;EnvironmentSpec&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Match(Action&lt;DeploymentEnvironment.EnvironmentName&gt; environmentName, Action&lt;DeploymentEnvironment.EnvironmentSpec&gt; environmentSpec)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>environmentName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName.html">EnvironmentName</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>environmentSpec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentName_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentName*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentName_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentName__System_Action_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentName(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName},System.Action)">
+  MatchEnvironmentName(Action&lt;EnvironmentName&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchEnvironmentName(Action&lt;DeploymentEnvironment.EnvironmentName&gt; environmentName, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>environmentName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName.html">EnvironmentName</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentName_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentName*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentName__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentName___0__System_Func___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentName``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName,``0},System.Func{``0})">
+  MatchEnvironmentName&lt;TMatchOutput&gt;(Func&lt;EnvironmentName, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchEnvironmentName&lt;TMatchOutput&gt;(Func&lt;DeploymentEnvironment.EnvironmentName, TMatchOutput&gt; environmentName, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>environmentName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName.html">EnvironmentName</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentName_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentName*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentName__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentName__System_Action___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentName``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName},System.Action{``0})">
+  MatchEnvironmentName&lt;TState&gt;(TState, Action&lt;TState, EnvironmentName&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchEnvironmentName&lt;TState&gt;(TState state, Action&lt;TState, DeploymentEnvironment.EnvironmentName&gt; environmentName, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>environmentName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName.html">EnvironmentName</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentName_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentName*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentName__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentName___1__System_Func___0___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentName``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName,``1},System.Func{``0,``1})">
+  MatchEnvironmentName&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, EnvironmentName, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchEnvironmentName&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, DeploymentEnvironment.EnvironmentName, TMatchOutput&gt; environmentName, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>environmentName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName.html">EnvironmentName</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentSpec_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentSpec*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentSpec_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec__System_Action_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentSpec(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec},System.Action)">
+  MatchEnvironmentSpec(Action&lt;EnvironmentSpec&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchEnvironmentSpec(Action&lt;DeploymentEnvironment.EnvironmentSpec&gt; environmentSpec, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>environmentSpec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentSpec_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentSpec*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentSpec__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec___0__System_Func___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentSpec``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec,``0},System.Func{``0})">
+  MatchEnvironmentSpec&lt;TMatchOutput&gt;(Func&lt;EnvironmentSpec, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchEnvironmentSpec&lt;TMatchOutput&gt;(Func&lt;DeploymentEnvironment.EnvironmentSpec, TMatchOutput&gt; environmentSpec, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>environmentSpec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentSpec_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentSpec*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentSpec__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec__System_Action___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentSpec``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec},System.Action{``0})">
+  MatchEnvironmentSpec&lt;TState&gt;(TState, Action&lt;TState, EnvironmentSpec&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchEnvironmentSpec&lt;TState&gt;(TState state, Action&lt;TState, DeploymentEnvironment.EnvironmentSpec&gt; environmentSpec, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>environmentSpec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentSpec_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentSpec*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_MatchEnvironmentSpec__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec___1__System_Func___0___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.MatchEnvironmentSpec``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec,``1},System.Func{``0,``1})">
+  MatchEnvironmentSpec&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, EnvironmentSpec, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchEnvironmentSpec&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, DeploymentEnvironment.EnvironmentSpec, TMatchOutput&gt; environmentSpec, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>environmentSpec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Match__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentName___0__System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Match``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName,``0},System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec,``0})">
+  Match&lt;TMatchOutput&gt;(Func&lt;EnvironmentName, TMatchOutput&gt;, Func&lt;EnvironmentSpec, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput Match&lt;TMatchOutput&gt;(Func&lt;DeploymentEnvironment.EnvironmentName, TMatchOutput&gt; environmentName, Func&lt;DeploymentEnvironment.EnvironmentSpec, TMatchOutput&gt; environmentSpec)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>environmentName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName.html">EnvironmentName</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>environmentSpec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Match__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentName__System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Match``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName},System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec})">
+  Match&lt;TState&gt;(TState, Action&lt;TState, EnvironmentName&gt;, Action&lt;TState, EnvironmentSpec&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Match&lt;TState&gt;(TState state, Action&lt;TState, DeploymentEnvironment.EnvironmentName&gt; environmentName, Action&lt;TState, DeploymentEnvironment.EnvironmentSpec&gt; environmentSpec)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>environmentName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName.html">EnvironmentName</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>environmentSpec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_Match__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentName___1__System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.Match``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName,``1},System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec,``1})">
+  Match&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, EnvironmentName, TMatchOutput&gt;, Func&lt;TState, EnvironmentSpec, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput Match&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, DeploymentEnvironment.EnvironmentName, TMatchOutput&gt; environmentName, Func&lt;TState, DeploymentEnvironment.EnvironmentSpec, TMatchOutput&gt; environmentSpec)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>environmentName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName.html">EnvironmentName</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>environmentSpec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_UnwrapEnvironmentName_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.UnwrapEnvironmentName*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_UnwrapEnvironmentName" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.UnwrapEnvironmentName">
+  UnwrapEnvironmentName()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override DeploymentEnvironment.EnvironmentName UnwrapEnvironmentName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentName.html">EnvironmentName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_UnwrapEnvironmentSpec_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.UnwrapEnvironmentSpec*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_DeploymentEnvironment_EnvironmentSpec_UnwrapEnvironmentSpec" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.UnwrapEnvironmentSpec">
+  UnwrapEnvironmentSpec()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override DeploymentEnvironment.EnvironmentSpec UnwrapEnvironmentSpec()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.EnvironmentSpec.html">EnvironmentSpec</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

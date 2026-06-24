@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Job | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Job | Invex.StructuredText ">
+      
+      <meta name="description" content="A job within a workflow: a set of steps that execute on the same runner.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/new/main/apiSpec/new?filename=Invex_StructuredText_GithubActions_GithubActionModel_Job.md&amp;value=---%0Auid%3A%20Invex.StructuredText.GithubActions.GithubActionModel.Job%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job">
+
+
+
+  <h1 id="Invex_StructuredText_GithubActions_GithubActionModel_Job" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job" class="text-break">
+Class Job  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Invex.html">Invex</a>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.GithubActions.html">GithubActions</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.html">GithubActionModel</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.GithubActions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A job within a workflow: a set of steps that execute on the same runner.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+public sealed record Job : IEquatable&lt;Job&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Job</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Job.html">Job</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Concurrency_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Concurrency*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Concurrency" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Concurrency">
+  Concurrency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concurrency settings for this job, limiting parallel runs that share the same group.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Concurrency? Concurrency { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Concurrency.html">Concurrency</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Container_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Container*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Container" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Container">
+  Container
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The container the job's steps run in (<code>container</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Container? Container { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Container.html">Container</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_ContinueOnError_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.ContinueOnError*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_ContinueOnError" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.ContinueOnError">
+  ContinueOnError
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the workflow run passes when this job fails (<code>continue-on-error</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextExpression? ContinueOnError { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Env_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Env*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Env" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Env">
+  Env
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Environment variables available to all steps in the job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, TextExpression&gt;? Env { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Environment_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Environment*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Environment" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Environment">
+  Environment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The deployment environment the job targets (<code>environment</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Environment? Environment { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Environment.html">Environment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_If_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.If*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_If" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.If">
+  If
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A condition that must evaluate to true for the job to run (<code>if</code>).
+Written in expression context, so no <code>Evaluate()</code> wrapper is needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextExpression? If { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Name_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Name*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Name" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The id of the job, used as the YAML key under <code>jobs:</code> and referenced by
+<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Job.html#Invex_StructuredText_GithubActions_GithubActionModel_Job_Needs">Needs</a> of other jobs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required TextExpression Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Needs_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Needs*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Needs" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Needs">
+  Needs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ids of jobs that must complete successfully before this job runs (<code>needs</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextExpressionCollection Needs { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpressionCollection.html">TextExpressionCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Outputs_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Outputs*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Outputs" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Outputs">
+  Outputs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Values made available to downstream jobs that depend on this job (<code>outputs</code>).
+Typically populated from step outputs via <a class="xref" href="Invex.StructuredText.Expressions.StepOutputExpression.html">StepOutputExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, TextExpression&gt;? Outputs { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Permissions_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Permissions*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Permissions" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Permissions">
+  Permissions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>GITHUB_TOKEN</code> permissions for this job, overriding the workflow-level default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Permissions? Permissions { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Permissions.html">Permissions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_RunsOn_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.RunsOn*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_RunsOn" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.RunsOn">
+  RunsOn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The runner(s) the job executes on (<code>runs-on</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required RunsOn RunsOn { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.RunsOn.html">RunsOn</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Services_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Services*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Services" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Services">
+  Services
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Service containers to host alongside the job (<code>services</code>), keyed by service name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, Container&gt;? Services { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Container.html">Container</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Snapshot_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Snapshot*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Snapshot" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Snapshot">
+  Snapshot
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runner image snapshot settings for the job (<code>snapshot</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Snapshot? Snapshot { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Snapshot.html">Snapshot</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Steps_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Steps*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Steps" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Steps">
+  Steps
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ordered steps that make up the job. At least one step is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required IReadOnlyList&lt;Step&gt; Steps { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Strategy_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Strategy*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_Strategy" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.Strategy">
+  Strategy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The matrix strategy used to run multiple variations of the job (<code>strategy</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Strategy? Strategy { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Strategy.html">Strategy</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Job_TimeoutMinutes_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.TimeoutMinutes*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Job_TimeoutMinutes" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Job.TimeoutMinutes">
+  TimeoutMinutes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum number of minutes the job may run before GitHub cancels it (<code>timeout-minutes</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextExpression? TimeoutMinutes { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Job.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

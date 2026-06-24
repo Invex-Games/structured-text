@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WorkflowDispatchInput | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WorkflowDispatchInput | Invex.StructuredText ">
+      
+      <meta name="description" content="A typed input for the workflow_dispatch trigger. This is a discriminated union; construct , , , or  for the desired input type.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput">
+
+
+
+  <h1 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput" class="text-break">
+Class WorkflowDispatchInput  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Invex.html">Invex</a>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.GithubActions.html">GithubActions</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.html">GithubActionModel</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.GithubActions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A typed input for the <code>workflow_dispatch</code> trigger. This is a discriminated union;
+construct <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">WorkflowDispatchInput.String</a>, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">WorkflowDispatchInput.Number</a>, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">WorkflowDispatchInput.Boolean</a>, or
+<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">WorkflowDispatchInput.Choice</a> for the desired input type.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+[Union]
+public abstract record WorkflowDispatchInput : IEquatable&lt;WorkflowDispatchInput&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">WorkflowDispatchInput</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a></div>
+      <div><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a></div>
+      <div><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a></div>
+      <div><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Default_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Default*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Default" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/On.cs/#L689"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default value used when the input is not provided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required string? Default { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Description_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Description*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Description" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/On.cs/#L679"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A description shown in the dispatch UI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required string? Description { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Name_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Name*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Name" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/On.cs/#L674"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The input name, used as the YAML key under <code>inputs:</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required string Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Required_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Required*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Required" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Required">
+  Required
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/On.cs/#L684"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the input must be provided when dispatching.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required bool? Required { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Type_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Type*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Type" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText.GithubActions/GithubActionModel/On.cs/#L694"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The YAML <code>type</code> value of the input, supplied by each variant.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Match_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Match*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Match_System_Action_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_String__System_Action_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Number__System_Action_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Boolean__System_Action_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Choice__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Match(System.Action{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String},System.Action{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number},System.Action{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean},System.Action{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice})">
+  Match(Action&lt;String&gt;, Action&lt;Number&gt;, Action&lt;Boolean&gt;, Action&lt;Choice&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Match(Action&lt;WorkflowDispatchInput.String&gt; @string, Action&lt;WorkflowDispatchInput.Number&gt; number, Action&lt;WorkflowDispatchInput.Boolean&gt; boolean, Action&lt;WorkflowDispatchInput.Choice&gt; choice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>boolean</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>choice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchBoolean_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchBoolean*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchBoolean_System_Action_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Boolean__System_Action_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchBoolean(System.Action{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean},System.Action)">
+  MatchBoolean(Action&lt;Boolean&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchBoolean(Action&lt;WorkflowDispatchInput.Boolean&gt; boolean, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>boolean</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchBoolean_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchBoolean*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchBoolean__1_System_Func_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Boolean___0__System_Func___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchBoolean``1(System.Func{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean,``0},System.Func{``0})">
+  MatchBoolean&lt;TMatchOutput&gt;(Func&lt;Boolean, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchBoolean&lt;TMatchOutput&gt;(Func&lt;WorkflowDispatchInput.Boolean, TMatchOutput&gt; boolean, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>boolean</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchBoolean_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchBoolean*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchBoolean__1___0_System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Boolean__System_Action___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchBoolean``1(``0,System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean},System.Action{``0})">
+  MatchBoolean&lt;TState&gt;(TState, Action&lt;TState, Boolean&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchBoolean&lt;TState&gt;(TState state, Action&lt;TState, WorkflowDispatchInput.Boolean&gt; boolean, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>boolean</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchBoolean_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchBoolean*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchBoolean__2___0_System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Boolean___1__System_Func___0___1__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchBoolean``2(``0,System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean,``1},System.Func{``0,``1})">
+  MatchBoolean&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, Boolean, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchBoolean&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, WorkflowDispatchInput.Boolean, TMatchOutput&gt; boolean, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>boolean</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchChoice_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchChoice*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchChoice_System_Action_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Choice__System_Action_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchChoice(System.Action{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice},System.Action)">
+  MatchChoice(Action&lt;Choice&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchChoice(Action&lt;WorkflowDispatchInput.Choice&gt; choice, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>choice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchChoice_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchChoice*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchChoice__1_System_Func_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Choice___0__System_Func___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchChoice``1(System.Func{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice,``0},System.Func{``0})">
+  MatchChoice&lt;TMatchOutput&gt;(Func&lt;Choice, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchChoice&lt;TMatchOutput&gt;(Func&lt;WorkflowDispatchInput.Choice, TMatchOutput&gt; choice, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>choice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchChoice_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchChoice*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchChoice__1___0_System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Choice__System_Action___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchChoice``1(``0,System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice},System.Action{``0})">
+  MatchChoice&lt;TState&gt;(TState, Action&lt;TState, Choice&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchChoice&lt;TState&gt;(TState state, Action&lt;TState, WorkflowDispatchInput.Choice&gt; choice, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>choice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchChoice_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchChoice*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchChoice__2___0_System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Choice___1__System_Func___0___1__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchChoice``2(``0,System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice,``1},System.Func{``0,``1})">
+  MatchChoice&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, Choice, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchChoice&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, WorkflowDispatchInput.Choice, TMatchOutput&gt; choice, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>choice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchNumber_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchNumber*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchNumber_System_Action_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Number__System_Action_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchNumber(System.Action{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number},System.Action)">
+  MatchNumber(Action&lt;Number&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchNumber(Action&lt;WorkflowDispatchInput.Number&gt; number, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchNumber_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchNumber*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchNumber__1_System_Func_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Number___0__System_Func___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchNumber``1(System.Func{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number,``0},System.Func{``0})">
+  MatchNumber&lt;TMatchOutput&gt;(Func&lt;Number, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchNumber&lt;TMatchOutput&gt;(Func&lt;WorkflowDispatchInput.Number, TMatchOutput&gt; number, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchNumber_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchNumber*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchNumber__1___0_System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Number__System_Action___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchNumber``1(``0,System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number},System.Action{``0})">
+  MatchNumber&lt;TState&gt;(TState, Action&lt;TState, Number&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchNumber&lt;TState&gt;(TState state, Action&lt;TState, WorkflowDispatchInput.Number&gt; number, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchNumber_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchNumber*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchNumber__2___0_System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Number___1__System_Func___0___1__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchNumber``2(``0,System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number,``1},System.Func{``0,``1})">
+  MatchNumber&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, Number, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchNumber&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, WorkflowDispatchInput.Number, TMatchOutput&gt; number, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchString_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchString*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchString_System_Action_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_String__System_Action_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchString(System.Action{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String},System.Action)">
+  MatchString(Action&lt;String&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchString(Action&lt;WorkflowDispatchInput.String&gt; @string, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchString_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchString*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchString__1_System_Func_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_String___0__System_Func___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchString``1(System.Func{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String,``0},System.Func{``0})">
+  MatchString&lt;TMatchOutput&gt;(Func&lt;String, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchString&lt;TMatchOutput&gt;(Func&lt;WorkflowDispatchInput.String, TMatchOutput&gt; @string, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchString_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchString*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchString__1___0_System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_String__System_Action___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchString``1(``0,System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String},System.Action{``0})">
+  MatchString&lt;TState&gt;(TState, Action&lt;TState, String&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchString&lt;TState&gt;(TState state, Action&lt;TState, WorkflowDispatchInput.String&gt; @string, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchString_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchString*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_MatchString__2___0_System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_String___1__System_Func___0___1__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.MatchString``2(``0,System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String,``1},System.Func{``0,``1})">
+  MatchString&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, String, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchString&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, WorkflowDispatchInput.String, TMatchOutput&gt; @string, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Match_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Match*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Match__1_System_Func_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_String___0__System_Func_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Number___0__System_Func_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Boolean___0__System_Func_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Choice___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Match``1(System.Func{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String,``0},System.Func{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number,``0},System.Func{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean,``0},System.Func{Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice,``0})">
+  Match&lt;TMatchOutput&gt;(Func&lt;String, TMatchOutput&gt;, Func&lt;Number, TMatchOutput&gt;, Func&lt;Boolean, TMatchOutput&gt;, Func&lt;Choice, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput Match&lt;TMatchOutput&gt;(Func&lt;WorkflowDispatchInput.String, TMatchOutput&gt; @string, Func&lt;WorkflowDispatchInput.Number, TMatchOutput&gt; number, Func&lt;WorkflowDispatchInput.Boolean, TMatchOutput&gt; boolean, Func&lt;WorkflowDispatchInput.Choice, TMatchOutput&gt; choice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>boolean</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>choice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Match_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Match*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Match__1___0_System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_String__System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Number__System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Boolean__System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Choice__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Match``1(``0,System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String},System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number},System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean},System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice})">
+  Match&lt;TState&gt;(TState, Action&lt;TState, String&gt;, Action&lt;TState, Number&gt;, Action&lt;TState, Boolean&gt;, Action&lt;TState, Choice&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Match&lt;TState&gt;(TState state, Action&lt;TState, WorkflowDispatchInput.String&gt; @string, Action&lt;TState, WorkflowDispatchInput.Number&gt; number, Action&lt;TState, WorkflowDispatchInput.Boolean&gt; boolean, Action&lt;TState, WorkflowDispatchInput.Choice&gt; choice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>boolean</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>choice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Match_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Match*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Match__2___0_System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_String___1__System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Number___1__System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Boolean___1__System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_Choice___1__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Match``2(``0,System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String,``1},System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number,``1},System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean,``1},System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice,``1})">
+  Match&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, String, TMatchOutput&gt;, Func&lt;TState, Number, TMatchOutput&gt;, Func&lt;TState, Boolean, TMatchOutput&gt;, Func&lt;TState, Choice, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput Match&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, WorkflowDispatchInput.String, TMatchOutput&gt; @string, Func&lt;TState, WorkflowDispatchInput.Number, TMatchOutput&gt; number, Func&lt;TState, WorkflowDispatchInput.Boolean, TMatchOutput&gt; boolean, Func&lt;TState, WorkflowDispatchInput.Choice, TMatchOutput&gt; choice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>boolean</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>choice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_UnwrapBoolean_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.UnwrapBoolean*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_UnwrapBoolean" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.UnwrapBoolean">
+  UnwrapBoolean()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract WorkflowDispatchInput.Boolean UnwrapBoolean()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">Boolean</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_UnwrapChoice_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.UnwrapChoice*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_UnwrapChoice" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.UnwrapChoice">
+  UnwrapChoice()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract WorkflowDispatchInput.Choice UnwrapChoice()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">Choice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_UnwrapNumber_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.UnwrapNumber*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_UnwrapNumber" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.UnwrapNumber">
+  UnwrapNumber()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract WorkflowDispatchInput.Number UnwrapNumber()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">Number</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_UnwrapString_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.UnwrapString*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_WorkflowDispatchInput_UnwrapString" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.UnwrapString">
+  UnwrapString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract WorkflowDispatchInput.String UnwrapString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">String</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

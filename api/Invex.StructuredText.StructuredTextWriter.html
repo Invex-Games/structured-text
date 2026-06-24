@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class StructuredTextWriter | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StructuredTextWriter | Invex.StructuredText ">
+      
+      <meta name="description" content="An indentation-aware text writer for producing structured text such as YAML. Indentation is managed through disposable scopes returned by , so the nesting of the generating code mirrors the nesting of the generated output.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/new/main/apiSpec/new?filename=Invex_StructuredText_StructuredTextWriter.md&amp;value=---%0Auid%3A%20Invex.StructuredText.StructuredTextWriter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.StructuredTextWriter">
+
+
+
+  <h1 id="Invex_StructuredText_StructuredTextWriter" data-uid="Invex.StructuredText.StructuredTextWriter" class="text-break">
+Class StructuredTextWriter  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Invex.html">Invex</a>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An indentation-aware text writer for producing structured text such as YAML.
+Indentation is managed through disposable scopes returned by <a class="xref" href="Invex.StructuredText.StructuredTextWriter.html#Invex_StructuredText_StructuredTextWriter_WriteSection_System_String_">WriteSection(string?)</a>,
+so the nesting of the generating code mirrors the nesting of the generated output.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+public sealed class StructuredTextWriter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">StructuredTextWriter</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+  <h2 id="Invex_StructuredText_StructuredTextWriter_examples">Examples</h2>
+  <pre><code class="lang-csharp">var writer = new StructuredTextWriter();
+
+using (writer.WriteSection("jobs:"))
+using (writer.WriteSection("build:"))
+    writer.WriteLine("runs-on: ubuntu-latest");
+
+var yaml = writer.ToString();</code></pre>
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter__ctor_" data-uid="Invex.StructuredText.StructuredTextWriter.#ctor*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter__ctor_System_Int32_" data-uid="Invex.StructuredText.StructuredTextWriter.#ctor(System.Int32)">
+  StructuredTextWriter(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An indentation-aware text writer for producing structured text such as YAML.
+Indentation is managed through disposable scopes returned by <a class="xref" href="Invex.StructuredText.StructuredTextWriter.html#Invex_StructuredText_StructuredTextWriter_WriteSection_System_String_">WriteSection(string?)</a>,
+so the nesting of the generating code mirrors the nesting of the generated output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StructuredTextWriter(int indentSize = 2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indentSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of spaces written per indent level. Defaults to 2.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Invex_StructuredText_StructuredTextWriter__ctor_System_Int32__examples">Examples</h4>
+  <pre><code class="lang-csharp">var writer = new StructuredTextWriter();
+
+using (writer.WriteSection("jobs:"))
+using (writer.WriteSection("build:"))
+    writer.WriteLine("runs-on: ubuntu-latest");
+
+var yaml = writer.ToString();</code></pre>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter_Indent_" data-uid="Invex.StructuredText.StructuredTextWriter.Indent*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter_Indent" data-uid="Invex.StructuredText.StructuredTextWriter.Indent">
+  Indent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current indent level (number of nested sections), not the number of spaces.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Indent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter_IndentSize_" data-uid="Invex.StructuredText.StructuredTextWriter.IndentSize*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter_IndentSize" data-uid="Invex.StructuredText.StructuredTextWriter.IndentSize">
+  IndentSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of spaces written per indent level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndentSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter_StringBuilder_" data-uid="Invex.StructuredText.StructuredTextWriter.StringBuilder*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter_StringBuilder" data-uid="Invex.StructuredText.StructuredTextWriter.StringBuilder">
+  StringBuilder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The underlying buffer that accumulates the written text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringBuilder StringBuilder { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter_Version_" data-uid="Invex.StructuredText.StructuredTextWriter.Version*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter_Version" data-uid="Invex.StructuredText.StructuredTextWriter.Version">
+  Version
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A counter incremented by every <a class="xref" href="Invex.StructuredText.StructuredTextWriter.html#Invex_StructuredText_StructuredTextWriter_Reset_System_Int32_">Reset(int)</a>.
+Section scopes created before a reset compare against this value and become no-ops on dispose,
+so stale scopes cannot corrupt the indentation of content written after the reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Version { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter_Reset_" data-uid="Invex.StructuredText.StructuredTextWriter.Reset*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter_Reset_System_Int32_" data-uid="Invex.StructuredText.StructuredTextWriter.Reset(System.Int32)">
+  Reset(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears the buffer, resets the indent level to zero, and invalidates any open section scopes
+by incrementing <a class="xref" href="Invex.StructuredText.StructuredTextWriter.html#Invex_StructuredText_StructuredTextWriter_Version">Version</a>. Use this to reuse one writer for multiple documents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset(int indentSize = 2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indentSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The indent size to use from this point on. Defaults to 2.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter_ToString_" data-uid="Invex.StructuredText.StructuredTextWriter.ToString*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter_ToString" data-uid="Invex.StructuredText.StructuredTextWriter.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the accumulated text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter_Write_" data-uid="Invex.StructuredText.StructuredTextWriter.Write*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter_Write_System_String_System_Boolean_" data-uid="Invex.StructuredText.StructuredTextWriter.Write(System.String,System.Boolean)">
+  Write(string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends <code class="paramref">text</code> without a trailing newline.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Write(string? text = null, bool indent = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text to append. When <code>null</code>, nothing is written.</p>
+</dd>
+    <dt><code>indent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to prefix the text with the current indentation.
+Pass <code>false</code> when continuing a line that has already been started.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter_WriteLine_" data-uid="Invex.StructuredText.StructuredTextWriter.WriteLine*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter_WriteLine_System_String_" data-uid="Invex.StructuredText.StructuredTextWriter.WriteLine(System.String)">
+  WriteLine(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends <code class="paramref">text</code> as a full line at the current indent level,
+or a blank line when <code class="paramref">text</code> is <code>null</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void WriteLine(string? text = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text to append, or <code>null</code> to write an empty line.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_StructuredTextWriter_WriteSection_" data-uid="Invex.StructuredText.StructuredTextWriter.WriteSection*"></a>
+
+  <h3 id="Invex_StructuredText_StructuredTextWriter_WriteSection_System_String_" data-uid="Invex.StructuredText.StructuredTextWriter.WriteSection(System.String)">
+  WriteSection(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Optionally writes a header line, then increases the indent level by one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable WriteSection(string? text = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>An optional header line (e.g. <code>&quot;steps:&quot;</code>) written at the current indent level
+before the indent is increased. When <code>null</code> or empty, only the indent changes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd><p>A scope that restores the previous indent level when disposed.
+Dispose it (typically via <code>using</code>) to close the section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Invex_StructuredText_StructuredTextWriter_WriteSection_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <a class="xref" href="Invex.StructuredText.StructuredTextWriter.html#Invex_StructuredText_StructuredTextWriter_Reset_System_Int32_">Reset(int)</a> is called while a scope is still open, disposing that scope
+does nothing — the scope is tied to the <a class="xref" href="Invex.StructuredText.StructuredTextWriter.html#Invex_StructuredText_StructuredTextWriter_Version">Version</a> it was created under.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/StructuredTextWriter.cs/#L20" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,2482 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TextExpression | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TextExpression | Invex.StructuredText ">
+      
+      <meta name="description" content="The base type of the platform-agnostic expression tree. Expressions are immutable records composed via fluent methods and operators, then rendered to platform-specific text by a .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/new/main/apiSpec/new?filename=Invex_StructuredText_Expressions_TextExpression.md&amp;value=---%0Auid%3A%20Invex.StructuredText.Expressions.TextExpression%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.Expressions.TextExpression">
+
+
+
+  <h1 id="Invex_StructuredText_Expressions_TextExpression" data-uid="Invex.StructuredText.Expressions.TextExpression" class="text-break">
+Class TextExpression  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Invex.html">Invex</a>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.Expressions.html">Expressions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base type of the platform-agnostic expression tree.
+Expressions are immutable records composed via fluent methods and operators, then rendered to
+platform-specific text by a <a class="xref" href="Invex.StructuredText.Expressions.TextExpressionFormatter.html">TextExpressionFormatter</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+public abstract record TextExpression : IEquatable&lt;TextExpression&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TextExpression</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsMacroExpression.html">DevopsMacroExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsRuntimeExpression.html">DevopsRuntimeExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.AndExpression.html">AndExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.BooleanExpression.html">BooleanExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.CastExpression-1.html">CastExpression</a>&lt;TTo&gt;</div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.CoalesceExpression.html">CoalesceExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.ConcatExpression.html">ConcatExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.ContainsExpression.html">ContainsExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.EndsWithExpression.html">EndsWithExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.EqualExpression.html">EqualExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.EvaluateExpression.html">EvaluateExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.FormatExpression.html">FormatExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanExpression.html">GreaterThanExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanOrEqualToExpression.html">GreaterThanOrEqualToExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.HashFilesExpression.html">HashFilesExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.IndexAccessExpression.html">IndexAccessExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.JoinExpression.html">JoinExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.LessThanExpression.html">LessThanExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.LessThanOrEqualToExpression.html">LessThanOrEqualToExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.NotEqualExpression.html">NotEqualExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.NotExpression.html">NotExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.NullExpression.html">NullExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.NumberExpression.html">NumberExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.OrExpression.html">OrExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.PropertyAccessExpression.html">PropertyAccessExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.RawExpression.html">RawExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.StartsWithExpression.html">StartsWithExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.StepOutcomeExpression.html">StepOutcomeExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.StepOutcomeTypeExpression.html">StepOutcomeTypeExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.StepOutputExpression.html">StepOutputExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.StringExpression.html">StringExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.TargetOutcomeExpression.html">TargetOutcomeExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.TargetOutcomeTypeExpression.html">TargetOutcomeTypeExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.TargetOutputExpression.html">TargetOutputExpression</a></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.ToJsonExpression.html">ToJsonExpression</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Invex_StructuredText_Expressions_TextExpression_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Construction is ergonomic thanks to implicit conversions from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>,
+and numeric types, plus fluent builders for functions (<a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Contains_System_String_">Contains(string)</a>, …) and
+logic operators (<a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_EqualTo_Invex_StructuredText_Expressions_TextExpression_">EqualTo(TextExpression)</a>, <code>&amp;</code>, <code>|</code>, <code>!</code>, …).</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Item_" data-uid="Invex.StructuredText.Expressions.TextExpression.Item*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Item_System_Int32_" data-uid="Invex.StructuredText.Expressions.TextExpression.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an index access on this expression, e.g. <code>source[0]</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexAccessExpression this[int index] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index to access.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.IndexAccessExpression.html">IndexAccessExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Item_" data-uid="Invex.StructuredText.Expressions.TextExpression.Item*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Item_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.Item(System.String)">
+  this[string]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a property access on this expression, e.g. <code>source.property</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyAccessExpression this[string property] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The property name to access.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.PropertyAccessExpression.html">PropertyAccessExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_And_" data-uid="Invex.StructuredText.Expressions.TextExpression.And*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_And_Invex_StructuredText_Expressions_TextExpression___" data-uid="Invex.StructuredText.Expressions.TextExpression.And(Invex.StructuredText.Expressions.TextExpression[])">
+  And(params TextExpression[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines this expression with <code class="paramref">expressions</code> using logical AND.
+The platform formatter decides the rendered syntax (e.g. <code>&amp;&amp;</code> or <code>and(...)</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AndExpression And(params TextExpression[] expressions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expressions</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.AndExpression.html">AndExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Cast_" data-uid="Invex.StructuredText.Expressions.TextExpression.Cast*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Cast__1" data-uid="Invex.StructuredText.Expressions.TextExpression.Cast``1">
+  Cast&lt;TTo&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reinterprets this expression as having a different result type.
+The underlying expression is unchanged; only the compile-time type marker is affected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CastExpression&lt;TTo&gt; Cast&lt;TTo&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.CastExpression-1.html">CastExpression</a>&lt;TTo&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTo</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Coalesce_" data-uid="Invex.StructuredText.Expressions.TextExpression.Coalesce*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Coalesce_Invex_StructuredText_Expressions_TextExpression___" data-uid="Invex.StructuredText.Expressions.TextExpression.Coalesce(Invex.StructuredText.Expressions.TextExpression[])">
+  Coalesce(params TextExpression[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the first non-empty value of this expression and <code class="paramref">source</code>,
+rendered as <code>coalesce(this, ...)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CoalesceExpression Coalesce(params TextExpression[] source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.CoalesceExpression.html">CoalesceExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Coalesce_" data-uid="Invex.StructuredText.Expressions.TextExpression.Coalesce*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Coalesce_System_String___" data-uid="Invex.StructuredText.Expressions.TextExpression.Coalesce(System.String[])">
+  Coalesce(params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the first non-empty value of this expression and the string literals in <code class="paramref">source</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CoalesceExpression Coalesce(params string[] source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.CoalesceExpression.html">CoalesceExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_ContainedIn_" data-uid="Invex.StructuredText.Expressions.TextExpression.ContainedIn*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_ContainedIn_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.ContainedIn(Invex.StructuredText.Expressions.TextExpression)">
+  ContainedIn(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is contained in <code class="paramref">collection</code> (reversed
+<a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_Contains_Invex_StructuredText_Expressions_TextExpression_">Contains(TextExpression)</a>), rendered as <code>contains(collection, this)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainsExpression ContainedIn(TextExpression collection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.ContainsExpression.html">ContainsExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_ContainedIn_" data-uid="Invex.StructuredText.Expressions.TextExpression.ContainedIn*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_ContainedIn_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.ContainedIn(System.String)">
+  ContainedIn(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is contained in the string literal <code class="paramref">collection</code>,
+rendered as <code>contains('collection', this)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainsExpression ContainedIn(string collection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.ContainsExpression.html">ContainsExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Contains_" data-uid="Invex.StructuredText.Expressions.TextExpression.Contains*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Contains_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.Contains(Invex.StructuredText.Expressions.TextExpression)">
+  Contains(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression contains <code class="paramref">pattern</code>, rendered as <code>contains(this, pattern)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainsExpression Contains(TextExpression pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.ContainsExpression.html">ContainsExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Contains_" data-uid="Invex.StructuredText.Expressions.TextExpression.Contains*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Contains_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.Contains(System.String)">
+  Contains(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression contains the string literal <code class="paramref">pattern</code>,
+rendered as <code>contains(this, 'pattern')</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainsExpression Contains(string pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.ContainsExpression.html">ContainsExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_EndsWith_" data-uid="Invex.StructuredText.Expressions.TextExpression.EndsWith*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_EndsWith_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.EndsWith(Invex.StructuredText.Expressions.TextExpression)">
+  EndsWith(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression ends with <code class="paramref">pattern</code>,
+rendered as <code>endsWith(this, pattern)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EndsWithExpression EndsWith(TextExpression pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.EndsWithExpression.html">EndsWithExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_EndsWith_" data-uid="Invex.StructuredText.Expressions.TextExpression.EndsWith*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_EndsWith_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.EndsWith(System.String)">
+  EndsWith(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression ends with the string literal <code class="paramref">pattern</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EndsWithExpression EndsWith(string pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.EndsWithExpression.html">EndsWithExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_EqualTo_" data-uid="Invex.StructuredText.Expressions.TextExpression.EqualTo*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_EqualTo_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.EqualTo(Invex.StructuredText.Expressions.TextExpression)">
+  EqualTo(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests this expression for equality with <code class="paramref">right</code>.
+The platform formatter decides the rendered syntax (e.g. <code>==</code> or <code>eq(...)</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualExpression EqualTo(TextExpression right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.EqualExpression.html">EqualExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_EqualTo_" data-uid="Invex.StructuredText.Expressions.TextExpression.EqualTo*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_EqualTo_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.EqualTo(System.String)">
+  EqualTo(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests this expression for equality with the verbatim text <code class="paramref">right</code>.
+Use <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_EqualToString_System_String_">EqualToString(string)</a> to compare with a quoted string literal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualExpression EqualTo(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.EqualExpression.html">EqualExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_EqualToString_" data-uid="Invex.StructuredText.Expressions.TextExpression.EqualToString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_EqualToString_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.EqualToString(System.String)">
+  EqualToString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests this expression for equality with the string literal <code class="paramref">right</code>,
+e.g. <code>this == 'value'</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EqualExpression EqualToString(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.EqualExpression.html">EqualExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Evaluate_" data-uid="Invex.StructuredText.Expressions.TextExpression.Evaluate*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Evaluate" data-uid="Invex.StructuredText.Expressions.TextExpression.Evaluate">
+  Evaluate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Marks this expression for evaluation in the target platform's expression context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EvaluateExpression Evaluate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.EvaluateExpression.html">EvaluateExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Format_" data-uid="Invex.StructuredText.Expressions.TextExpression.Format*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Format_Invex_StructuredText_Expressions_TextExpression___" data-uid="Invex.StructuredText.Expressions.TextExpression.Format(Invex.StructuredText.Expressions.TextExpression[])">
+  Format(params TextExpression[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uses this expression as a format string with <code class="paramref">arguments</code> as replacement values,
+rendered as <code>format(this, args...)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FormatExpression Format(params TextExpression[] arguments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arguments</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.FormatExpression.html">FormatExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_FormatString_" data-uid="Invex.StructuredText.Expressions.TextExpression.FormatString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_FormatString_System_String___" data-uid="Invex.StructuredText.Expressions.TextExpression.FormatString(System.String[])">
+  FormatString(params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uses this expression as a format string with string-literal <code class="paramref">arguments</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FormatExpression FormatString(params string[] arguments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.FormatExpression.html">FormatExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_GreaterThan_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThan*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_GreaterThan_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThan(Invex.StructuredText.Expressions.TextExpression)">
+  GreaterThan(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is greater than <code class="paramref">right</code>.
+The platform formatter decides the rendered syntax (e.g. <code>&gt;</code> or <code>gt(...)</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GreaterThanExpression GreaterThan(TextExpression right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanExpression.html">GreaterThanExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_GreaterThan_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThan*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_GreaterThan_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThan(System.String)">
+  GreaterThan(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is greater than the verbatim text <code class="paramref">right</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GreaterThanExpression GreaterThan(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanExpression.html">GreaterThanExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_GreaterThanOrEqualTo_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThanOrEqualTo*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_GreaterThanOrEqualTo_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThanOrEqualTo(Invex.StructuredText.Expressions.TextExpression)">
+  GreaterThanOrEqualTo(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is greater than or equal to <code class="paramref">right</code>.
+The platform formatter decides the rendered syntax (e.g. <code>&gt;=</code> or <code>ge(...)</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GreaterThanOrEqualToExpression GreaterThanOrEqualTo(TextExpression right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanOrEqualToExpression.html">GreaterThanOrEqualToExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_GreaterThanOrEqualTo_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThanOrEqualTo*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_GreaterThanOrEqualTo_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThanOrEqualTo(System.String)">
+  GreaterThanOrEqualTo(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is greater than or equal to the verbatim text <code class="paramref">right</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GreaterThanOrEqualToExpression GreaterThanOrEqualTo(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanOrEqualToExpression.html">GreaterThanOrEqualToExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_GreaterThanOrEqualToString_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThanOrEqualToString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_GreaterThanOrEqualToString_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThanOrEqualToString(System.String)">
+  GreaterThanOrEqualToString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is greater than or equal to the string literal <code class="paramref">right</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GreaterThanOrEqualToExpression GreaterThanOrEqualToString(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanOrEqualToExpression.html">GreaterThanOrEqualToExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_GreaterThanString_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThanString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_GreaterThanString_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.GreaterThanString(System.String)">
+  GreaterThanString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is greater than the string literal <code class="paramref">right</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GreaterThanExpression GreaterThanString(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanExpression.html">GreaterThanExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_HashFiles_" data-uid="Invex.StructuredText.Expressions.TextExpression.HashFiles*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_HashFiles" data-uid="Invex.StructuredText.Expressions.TextExpression.HashFiles">
+  HashFiles()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hashes the files matched by this (glob pattern) expression, rendered as <code>hashFiles(this)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HashFilesExpression HashFiles()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.HashFilesExpression.html">HashFilesExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_IsEndOf_" data-uid="Invex.StructuredText.Expressions.TextExpression.IsEndOf*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_IsEndOf_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.IsEndOf(Invex.StructuredText.Expressions.TextExpression)">
+  IsEndOf(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is the end of <code class="paramref">pattern</code> (reversed
+<a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_EndsWith_Invex_StructuredText_Expressions_TextExpression_">EndsWith(TextExpression)</a>), rendered as <code>endsWith(pattern, this)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EndsWithExpression IsEndOf(TextExpression pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.EndsWithExpression.html">EndsWithExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_IsEndOfString_" data-uid="Invex.StructuredText.Expressions.TextExpression.IsEndOfString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_IsEndOfString_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.IsEndOfString(System.String)">
+  IsEndOfString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is the end of the string literal <code class="paramref">pattern</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EndsWithExpression IsEndOfString(string pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.EndsWithExpression.html">EndsWithExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_IsStartOf_" data-uid="Invex.StructuredText.Expressions.TextExpression.IsStartOf*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_IsStartOf_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.IsStartOf(Invex.StructuredText.Expressions.TextExpression)">
+  IsStartOf(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is the start of <code class="paramref">pattern</code> (reversed
+<a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_StartsWith_Invex_StructuredText_Expressions_TextExpression_">StartsWith(TextExpression)</a>), rendered as <code>startsWith(pattern, this)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StartsWithExpression IsStartOf(TextExpression pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StartsWithExpression.html">StartsWithExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_IsStartOf_" data-uid="Invex.StructuredText.Expressions.TextExpression.IsStartOf*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_IsStartOf_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.IsStartOf(System.String)">
+  IsStartOf(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is the start of the string literal <code class="paramref">pattern</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StartsWithExpression IsStartOf(string pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StartsWithExpression.html">StartsWithExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Join_" data-uid="Invex.StructuredText.Expressions.TextExpression.Join*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Join_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.Join(Invex.StructuredText.Expressions.TextExpression)">
+  Join(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Joins the elements of this (array-valued) expression with <code class="paramref">separator</code>,
+rendered as <code>join(this, separator)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JoinExpression Join(TextExpression separator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>separator</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JoinExpression.html">JoinExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_JoinString_" data-uid="Invex.StructuredText.Expressions.TextExpression.JoinString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_JoinString_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.JoinString(System.String)">
+  JoinString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Joins the elements of this (array-valued) expression with the string literal <code class="paramref">separator</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JoinExpression JoinString(string separator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>separator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JoinExpression.html">JoinExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_LessThan_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThan*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_LessThan_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThan(Invex.StructuredText.Expressions.TextExpression)">
+  LessThan(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is less than <code class="paramref">right</code>.
+The platform formatter decides the rendered syntax (e.g. <code>&lt;</code> or <code>lt(...)</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LessThanExpression LessThan(TextExpression right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.LessThanExpression.html">LessThanExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_LessThan_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThan*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_LessThan_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThan(System.String)">
+  LessThan(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is less than the verbatim text <code class="paramref">right</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LessThanExpression LessThan(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.LessThanExpression.html">LessThanExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_LessThanOrEqualTo_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThanOrEqualTo*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_LessThanOrEqualTo_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThanOrEqualTo(Invex.StructuredText.Expressions.TextExpression)">
+  LessThanOrEqualTo(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is less than or equal to <code class="paramref">right</code>.
+The platform formatter decides the rendered syntax (e.g. <code>&lt;=</code> or <code>le(...)</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LessThanOrEqualToExpression LessThanOrEqualTo(TextExpression right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.LessThanOrEqualToExpression.html">LessThanOrEqualToExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_LessThanOrEqualTo_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThanOrEqualTo*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_LessThanOrEqualTo_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThanOrEqualTo(System.String)">
+  LessThanOrEqualTo(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is less than or equal to the verbatim text <code class="paramref">right</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LessThanOrEqualToExpression LessThanOrEqualTo(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.LessThanOrEqualToExpression.html">LessThanOrEqualToExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_LessThanOrEqualToString_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThanOrEqualToString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_LessThanOrEqualToString_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThanOrEqualToString(System.String)">
+  LessThanOrEqualToString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is less than or equal to the string literal <code class="paramref">right</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LessThanOrEqualToExpression LessThanOrEqualToString(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.LessThanOrEqualToExpression.html">LessThanOrEqualToExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_LessThanString_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThanString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_LessThanString_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.LessThanString(System.String)">
+  LessThanString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression is less than the string literal <code class="paramref">right</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LessThanExpression LessThanString(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.LessThanExpression.html">LessThanExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Not_" data-uid="Invex.StructuredText.Expressions.TextExpression.Not*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Not" data-uid="Invex.StructuredText.Expressions.TextExpression.Not">
+  Not()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Logically negates this expression.
+The platform formatter decides the rendered syntax (e.g. prefix <code>!</code> or function <code>not(...)</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NotExpression Not()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.NotExpression.html">NotExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_NotEqualTo_" data-uid="Invex.StructuredText.Expressions.TextExpression.NotEqualTo*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_NotEqualTo_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.NotEqualTo(Invex.StructuredText.Expressions.TextExpression)">
+  NotEqualTo(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests this expression for inequality with <code class="paramref">right</code>.
+The platform formatter decides the rendered syntax (e.g. <code>!=</code> or <code>ne(...)</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NotEqualExpression NotEqualTo(TextExpression right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.NotEqualExpression.html">NotEqualExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_NotEqualTo_" data-uid="Invex.StructuredText.Expressions.TextExpression.NotEqualTo*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_NotEqualTo_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.NotEqualTo(System.String)">
+  NotEqualTo(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests this expression for inequality with the verbatim text <code class="paramref">right</code>.
+Use <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html#Invex_StructuredText_Expressions_TextExpression_NotEqualToString_System_String_">NotEqualToString(string)</a> to compare with a quoted string literal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NotEqualExpression NotEqualTo(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.NotEqualExpression.html">NotEqualExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_NotEqualToString_" data-uid="Invex.StructuredText.Expressions.TextExpression.NotEqualToString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_NotEqualToString_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.NotEqualToString(System.String)">
+  NotEqualToString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests this expression for inequality with the string literal <code class="paramref">right</code>,
+e.g. <code>this != 'value'</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NotEqualExpression NotEqualToString(string right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.NotEqualExpression.html">NotEqualExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_Or_" data-uid="Invex.StructuredText.Expressions.TextExpression.Or*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_Or_Invex_StructuredText_Expressions_TextExpression___" data-uid="Invex.StructuredText.Expressions.TextExpression.Or(Invex.StructuredText.Expressions.TextExpression[])">
+  Or(params TextExpression[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines this expression with <code class="paramref">expressions</code> using logical OR.
+The platform formatter decides the rendered syntax (e.g. <code>||</code> or <code>or(...)</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrExpression Or(params TextExpression[] expressions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expressions</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.OrExpression.html">OrExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_StartsWith_" data-uid="Invex.StructuredText.Expressions.TextExpression.StartsWith*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_StartsWith_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.StartsWith(Invex.StructuredText.Expressions.TextExpression)">
+  StartsWith(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression starts with <code class="paramref">pattern</code>,
+rendered as <code>startsWith(this, pattern)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StartsWithExpression StartsWith(TextExpression pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StartsWithExpression.html">StartsWithExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_StartsWith_" data-uid="Invex.StructuredText.Expressions.TextExpression.StartsWith*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_StartsWith_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.StartsWith(System.String)">
+  StartsWith(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether this expression starts with the string literal <code class="paramref">pattern</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StartsWithExpression StartsWith(string pattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StartsWithExpression.html">StartsWithExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_ToJson_" data-uid="Invex.StructuredText.Expressions.TextExpression.ToJson*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_ToJson" data-uid="Invex.StructuredText.Expressions.TextExpression.ToJson">
+  ToJson()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts this expression to its JSON representation,
+rendered as the platform's JSON serialization function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ToJsonExpression ToJson()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.ToJsonExpression.html">ToJsonExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Addition_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Addition*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Addition_Invex_StructuredText_Expressions_TextExpression_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Addition(Invex.StructuredText.Expressions.TextExpression,Invex.StructuredText.Expressions.TextExpression)">
+  operator +(TextExpression, TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uses <code class="paramref">source</code> as a format string with <code class="paramref">argument</code> as a replacement value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FormatExpression operator +(TextExpression source, TextExpression argument)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+    <dt><code>argument</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.FormatExpression.html">FormatExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Addition_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Addition*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Addition_Invex_StructuredText_Expressions_TextExpression_Invex_StructuredText_Expressions_TextExpression___" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Addition(Invex.StructuredText.Expressions.TextExpression,Invex.StructuredText.Expressions.TextExpression[])">
+  operator +(TextExpression, TextExpression[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uses <code class="paramref">source</code> as a format string with <code class="paramref">arguments</code> as replacement values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FormatExpression operator +(TextExpression source, TextExpression[] arguments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+    <dt><code>arguments</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.FormatExpression.html">FormatExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Addition_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Addition*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Addition_Invex_StructuredText_Expressions_TextExpression_System_String_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Addition(Invex.StructuredText.Expressions.TextExpression,System.String)">
+  operator +(TextExpression, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uses <code class="paramref">source</code> as a format string with the string literal <code class="paramref">argument</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FormatExpression operator +(TextExpression source, string argument)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+    <dt><code>argument</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.FormatExpression.html">FormatExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Addition_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Addition*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Addition_Invex_StructuredText_Expressions_TextExpression_System_String___" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Addition(Invex.StructuredText.Expressions.TextExpression,System.String[])">
+  operator +(TextExpression, string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Functions.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uses <code class="paramref">source</code> as a format string with string-literal <code class="paramref">arguments</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FormatExpression operator +(TextExpression source, string[] arguments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+    <dt><code>arguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.FormatExpression.html">FormatExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_BitwiseAnd_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_BitwiseAnd*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_BitwiseAnd_Invex_StructuredText_Expressions_TextExpression_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_BitwiseAnd(Invex.StructuredText.Expressions.TextExpression,Invex.StructuredText.Expressions.TextExpression)">
+  operator &amp;(TextExpression, TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines <code class="paramref">left</code> and <code class="paramref">right</code> using logical AND.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AndExpression operator &amp;(TextExpression left, TextExpression right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.AndExpression.html">AndExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_BitwiseOr_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_BitwiseOr*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_BitwiseOr_Invex_StructuredText_Expressions_TextExpression_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_BitwiseOr(Invex.StructuredText.Expressions.TextExpression,Invex.StructuredText.Expressions.TextExpression)">
+  operator |(TextExpression, TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines <code class="paramref">left</code> and <code class="paramref">right</code> using logical OR.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OrExpression operator |(TextExpression left, TextExpression right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.OrExpression.html">OrExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_System_Boolean__Invex_StructuredText_Expressions_TextExpression" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit(System.Boolean)~Invex.StructuredText.Expressions.TextExpression">
+  implicit operator TextExpression(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> to a <a class="xref" href="Invex.StructuredText.Expressions.BooleanExpression.html">BooleanExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator TextExpression(bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_System_Byte__Invex_StructuredText_Expressions_TextExpression" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit(System.Byte)~Invex.StructuredText.Expressions.TextExpression">
+  implicit operator TextExpression(byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> to a <a class="xref" href="Invex.StructuredText.Expressions.NumberExpression.html">NumberExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator TextExpression(byte value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_System_Double__Invex_StructuredText_Expressions_TextExpression" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit(System.Double)~Invex.StructuredText.Expressions.TextExpression">
+  implicit operator TextExpression(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> to a <a class="xref" href="Invex.StructuredText.Expressions.NumberExpression.html">NumberExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator TextExpression(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_System_Int16__Invex_StructuredText_Expressions_TextExpression" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit(System.Int16)~Invex.StructuredText.Expressions.TextExpression">
+  implicit operator TextExpression(short)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a> to a <a class="xref" href="Invex.StructuredText.Expressions.NumberExpression.html">NumberExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator TextExpression(short value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_System_Int32__Invex_StructuredText_Expressions_TextExpression" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit(System.Int32)~Invex.StructuredText.Expressions.TextExpression">
+  implicit operator TextExpression(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> to a <a class="xref" href="Invex.StructuredText.Expressions.NumberExpression.html">NumberExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator TextExpression(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_System_Int64__Invex_StructuredText_Expressions_TextExpression" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit(System.Int64)~Invex.StructuredText.Expressions.TextExpression">
+  implicit operator TextExpression(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a> to a <a class="xref" href="Invex.StructuredText.Expressions.NumberExpression.html">NumberExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator TextExpression(long value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_System_Single__Invex_StructuredText_Expressions_TextExpression" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit(System.Single)~Invex.StructuredText.Expressions.TextExpression">
+  implicit operator TextExpression(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> to a <a class="xref" href="Invex.StructuredText.Expressions.NumberExpression.html">NumberExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator TextExpression(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_Implicit_System_String__Invex_StructuredText_Expressions_TextExpression" data-uid="Invex.StructuredText.Expressions.TextExpression.op_Implicit(System.String)~Invex.StructuredText.Expressions.TextExpression">
+  implicit operator TextExpression(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> to a <a class="xref" href="Invex.StructuredText.Expressions.RawExpression.html">RawExpression</a> (verbatim text, not a quoted literal).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator TextExpression(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_TextExpression_op_LogicalNot_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_LogicalNot*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_TextExpression_op_LogicalNot_Invex_StructuredText_Expressions_TextExpression_" data-uid="Invex.StructuredText.Expressions.TextExpression.op_LogicalNot(Invex.StructuredText.Expressions.TextExpression)">
+  operator !(TextExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.LogicOperators.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Logically negates <code class="paramref">source</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NotExpression operator !(TextExpression source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.NotExpression.html">NotExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/v1.1.0/src/Invex.StructuredText/Expressions/TextExpression.Values.cs/#L3" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
