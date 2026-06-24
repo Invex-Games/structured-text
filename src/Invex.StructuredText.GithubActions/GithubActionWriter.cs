@@ -811,7 +811,7 @@ public sealed class GithubActionWriter
 
     private void WriteProperty(string key, string value)
     {
-        var lines = value.Split('\r', '\n', StringSplitOptions.RemoveEmptyEntries);
+        var lines = value.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries);
 
         switch (lines.Length)
         {
