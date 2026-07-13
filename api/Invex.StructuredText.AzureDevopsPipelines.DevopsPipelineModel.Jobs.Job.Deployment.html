@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Job.Deployment | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Job.Deployment | Invex.StructuredText ">
+      
+      <meta name="description" content="A deployment job is a special type of job for deployment scenarios.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment">
+
+
+
+  <h1 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment" class="text-break">
+Class Job.Deployment  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Invex.html">Invex</a>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.html">AzureDevopsPipelines</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.html">DevopsPipelineModel</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.html">Jobs</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.AzureDevopsPipelines.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A deployment job is a special type of job for deployment scenarios.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+public sealed record Job.Deployment : Job, IEquatable&lt;Job&gt;, IEquatable&lt;Job.Deployment&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a></div>
+      <div><span class="xref">Job.Deployment</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_CancelTimeoutInMinutes_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.CancelTimeoutInMinutes*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_CancelTimeoutInMinutes" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.CancelTimeoutInMinutes">
+  CancelTimeoutInMinutes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Time to wait for the job to cancel before forcibly terminating it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;double&gt;? CancelTimeoutInMinutes { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Condition_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Condition*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Condition" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Condition">
+  Condition
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Evaluate this condition expression to determine whether to run this deployment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;bool&gt;? Condition { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Container_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Container*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Container" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Container">
+  Container
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Container resource name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JobContainer? Container { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.JobContainer.html">JobContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_ContinueOnError_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.ContinueOnError*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_ContinueOnError" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.ContinueOnError">
+  ContinueOnError
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Continue running even on failure?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;bool&gt;? ContinueOnError { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_DependsOn_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.DependsOn*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_DependsOn" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.DependsOn">
+  DependsOn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Any jobs which must complete before this one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpressionCollection&lt;string&gt;? DependsOn { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpressionCollection-1.html">WorkflowExpressionCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_DeploymentId_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.DeploymentId*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_DeploymentId" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.DeploymentId">
+  DeploymentId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ID of the deployment job.
+Valid names may only contain alphanumeric characters and '_' and may not start with a number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required WorkflowExpression&lt;string&gt; DeploymentId { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_DisplayName_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.DisplayName*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_DisplayName" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.DisplayName">
+  DisplayName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Human-readable name for the deployment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;string&gt;? DisplayName { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Environment_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Environment*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Environment" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Environment">
+  Environment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Target environment for the deployment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required DeploymentEnvironment Environment { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html">DeploymentEnvironment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Pool_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Pool*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Pool" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Pool">
+  Pool
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pool where this deployment job will run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pool? Pool { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Pool.html">Pool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Services_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Services*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Services" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Services">
+  Services
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Container resources to run as a service container.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, TextExpression&gt;? Services { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Strategy_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Strategy*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Strategy" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Strategy">
+  Strategy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deployment strategy (runOnce, rolling, or canary).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required DeploymentStrategy Strategy { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentStrategy.html">DeploymentStrategy</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_TemplateContext_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.TemplateContext*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_TemplateContext" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.TemplateContext">
+  TemplateContext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deployment related information passed from a pipeline when extending a template.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, TextExpression&gt;? TemplateContext { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_TimeoutInMinutes_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.TimeoutInMinutes*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_TimeoutInMinutes" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.TimeoutInMinutes">
+  TimeoutInMinutes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Time to wait for this job to complete before the server kills it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkflowExpression&lt;double&gt;? TimeoutInMinutes { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Uses_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Uses*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Uses" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Uses">
+  Uses
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Any resources required by this job that are not already referenced.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExplicitResources? Uses { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.ExplicitResources.html">ExplicitResources</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Variables_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Variables*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Variables" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Variables">
+  Variables
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deployment-specific variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variables? Variables { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables.Variables.html">Variables</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Workspace_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Workspace*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Workspace" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Workspace">
+  Workspace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.AzureDevopsPipelines/DevopsPipelineModel/Jobs/Job.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Workspace options on the agent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Workspace? Workspace { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Workspace.html">Workspace</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Match_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_RegularJob__System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment__System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Template__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Match(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob},System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment},System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template})">
+  Match(Action&lt;RegularJob&gt;, Action&lt;Deployment&gt;, Action&lt;Template&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Match(Action&lt;Job.RegularJob&gt; regularJob, Action&lt;Job.Deployment&gt; deployment, Action&lt;Job.Template&gt; template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>regularJob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob.html">RegularJob</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>deployment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template.html">Template</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchDeployment_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchDeployment*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchDeployment_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment__System_Action_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchDeployment(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment},System.Action)">
+  MatchDeployment(Action&lt;Deployment&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDeployment(Action&lt;Job.Deployment&gt; deployment, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>deployment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchDeployment_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchDeployment*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchDeployment__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment___0__System_Func___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchDeployment``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment,``0},System.Func{``0})">
+  MatchDeployment&lt;TMatchOutput&gt;(Func&lt;Deployment, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDeployment&lt;TMatchOutput&gt;(Func&lt;Job.Deployment, TMatchOutput&gt; deployment, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>deployment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchDeployment_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchDeployment*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchDeployment__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment__System_Action___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchDeployment``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment},System.Action{``0})">
+  MatchDeployment&lt;TState&gt;(TState, Action&lt;TState, Deployment&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchDeployment&lt;TState&gt;(TState state, Action&lt;TState, Job.Deployment&gt; deployment, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>deployment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchDeployment_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchDeployment*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchDeployment__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment___1__System_Func___0___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchDeployment``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment,``1},System.Func{``0,``1})">
+  MatchDeployment&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, Deployment, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchDeployment&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, Job.Deployment, TMatchOutput&gt; deployment, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>deployment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchRegularJob_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchRegularJob*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchRegularJob_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_RegularJob__System_Action_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchRegularJob(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob},System.Action)">
+  MatchRegularJob(Action&lt;RegularJob&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchRegularJob(Action&lt;Job.RegularJob&gt; regularJob, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>regularJob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob.html">RegularJob</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchRegularJob_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchRegularJob*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchRegularJob__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_RegularJob___0__System_Func___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchRegularJob``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob,``0},System.Func{``0})">
+  MatchRegularJob&lt;TMatchOutput&gt;(Func&lt;RegularJob, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchRegularJob&lt;TMatchOutput&gt;(Func&lt;Job.RegularJob, TMatchOutput&gt; regularJob, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>regularJob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob.html">RegularJob</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchRegularJob_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchRegularJob*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchRegularJob__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_RegularJob__System_Action___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchRegularJob``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob},System.Action{``0})">
+  MatchRegularJob&lt;TState&gt;(TState, Action&lt;TState, RegularJob&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchRegularJob&lt;TState&gt;(TState state, Action&lt;TState, Job.RegularJob&gt; regularJob, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>regularJob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob.html">RegularJob</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchRegularJob_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchRegularJob*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchRegularJob__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_RegularJob___1__System_Func___0___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchRegularJob``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob,``1},System.Func{``0,``1})">
+  MatchRegularJob&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, RegularJob, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchRegularJob&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, Job.RegularJob, TMatchOutput&gt; regularJob, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>regularJob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob.html">RegularJob</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchTemplate_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchTemplate*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchTemplate_System_Action_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Template__System_Action_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchTemplate(System.Action{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template},System.Action)">
+  MatchTemplate(Action&lt;Template&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchTemplate(Action&lt;Job.Template&gt; template, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template.html">Template</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchTemplate_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchTemplate*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchTemplate__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Template___0__System_Func___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchTemplate``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template,``0},System.Func{``0})">
+  MatchTemplate&lt;TMatchOutput&gt;(Func&lt;Template, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchTemplate&lt;TMatchOutput&gt;(Func&lt;Job.Template, TMatchOutput&gt; template, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template.html">Template</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchTemplate_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchTemplate*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchTemplate__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Template__System_Action___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchTemplate``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template},System.Action{``0})">
+  MatchTemplate&lt;TState&gt;(TState, Action&lt;TState, Template&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MatchTemplate&lt;TState&gt;(TState state, Action&lt;TState, Job.Template&gt; template, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template.html">Template</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchTemplate_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchTemplate*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_MatchTemplate__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Template___1__System_Func___0___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.MatchTemplate``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template,``1},System.Func{``0,``1})">
+  MatchTemplate&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, Template, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput MatchTemplate&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, Job.Template, TMatchOutput&gt; template, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template.html">Template</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Match__1_System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_RegularJob___0__System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment___0__System_Func_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Template___0__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Match``1(System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob,``0},System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment,``0},System.Func{Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template,``0})">
+  Match&lt;TMatchOutput&gt;(Func&lt;RegularJob, TMatchOutput&gt;, Func&lt;Deployment, TMatchOutput&gt;, Func&lt;Template, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput Match&lt;TMatchOutput&gt;(Func&lt;Job.RegularJob, TMatchOutput&gt; regularJob, Func&lt;Job.Deployment, TMatchOutput&gt; deployment, Func&lt;Job.Template, TMatchOutput&gt; template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>regularJob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob.html">RegularJob</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>deployment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template.html">Template</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Match__1___0_System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_RegularJob__System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment__System_Action___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Template__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Match``1(``0,System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob},System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment},System.Action{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template})">
+  Match&lt;TState&gt;(TState, Action&lt;TState, RegularJob&gt;, Action&lt;TState, Deployment&gt;, Action&lt;TState, Template&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Match&lt;TState&gt;(TState state, Action&lt;TState, Job.RegularJob&gt; regularJob, Action&lt;TState, Job.Deployment&gt; deployment, Action&lt;TState, Job.Template&gt; template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>regularJob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob.html">RegularJob</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>deployment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template.html">Template</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Match_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Match*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_Match__2___0_System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_RegularJob___1__System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment___1__System_Func___0_Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Template___1__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.Match``2(``0,System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob,``1},System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment,``1},System.Func{``0,Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template,``1})">
+  Match&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, RegularJob, TMatchOutput&gt;, Func&lt;TState, Deployment, TMatchOutput&gt;, Func&lt;TState, Template, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMatchOutput Match&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, Job.RegularJob, TMatchOutput&gt; regularJob, Func&lt;TState, Job.Deployment, TMatchOutput&gt; deployment, Func&lt;TState, Job.Template, TMatchOutput&gt; template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>regularJob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob.html">RegularJob</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>deployment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template.html">Template</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_UnwrapDeployment_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.UnwrapDeployment*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_UnwrapDeployment" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.UnwrapDeployment">
+  UnwrapDeployment()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Job.Deployment UnwrapDeployment()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.html">Deployment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_UnwrapRegularJob_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.UnwrapRegularJob*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_UnwrapRegularJob" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.UnwrapRegularJob">
+  UnwrapRegularJob()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Job.RegularJob UnwrapRegularJob()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.RegularJob.html">RegularJob</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_UnwrapTemplate_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.UnwrapTemplate*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsPipelineModel_Jobs_Job_Deployment_UnwrapTemplate" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Deployment.UnwrapTemplate">
+  UnwrapTemplate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Job.Template UnwrapTemplate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html">Job</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.Template.html">Template</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

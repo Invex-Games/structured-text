@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Step | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Step | Invex.StructuredText ">
+      
+      <meta name="description" content="A single step within a job. This is a discriminated union: construct a  to run an action or a  to run shell commands. The properties on this base record are shared by both variants.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step">
+
+
+
+  <h1 id="Invex_StructuredText_GithubActions_GithubActionModel_Step" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step" class="text-break">
+Class Step  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Invex.html">Invex</a>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.GithubActions.html">GithubActions</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.html">GithubActionModel</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.GithubActions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A single step within a job. This is a discriminated union:
+construct a <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">Step.UsesStep</a> to run an action or a <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">Step.RunStep</a> to run shell commands.
+The properties on this base record are shared by both variants.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+[Union]
+public abstract record Step : IEquatable&lt;Step&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Step</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a></div>
+      <div><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_ContinueOnError_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.ContinueOnError*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_ContinueOnError" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.ContinueOnError">
+  ContinueOnError
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Step.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the job passes when this step fails (<code>continue-on-error</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextExpression? ContinueOnError { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Env_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Env*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Env" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Env">
+  Env
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Step.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Environment variables available to the step (<code>env</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, TextExpression&gt;? Env { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Id_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Id*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Id" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Step.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A unique identifier for the step (<code>id</code>), used to reference its outputs and outcome
+via <a class="xref" href="Invex.StructuredText.Expressions.StepOutputExpression.html">StepOutputExpression</a> / <a class="xref" href="Invex.StructuredText.Expressions.StepOutcomeExpression.html">StepOutcomeExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Id { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_If_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.If*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_If" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.If">
+  If
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Step.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A condition that must evaluate to true for the step to run (<code>if</code>).
+Written in expression context, so no <code>Evaluate()</code> wrapper is needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextExpression? If { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Name_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Name*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Name" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Step.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The display name of the step (<code>name</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextExpression? Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_TimeoutMinutes_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.TimeoutMinutes*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_TimeoutMinutes" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.TimeoutMinutes">
+  TimeoutMinutes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Step.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum number of minutes the step may run before being terminated (<code>timeout-minutes</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextExpression? TimeoutMinutes { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_With_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.With*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_With" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.With">
+  With
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Step.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Input parameters for the step (<code>with</code>), keyed by input name.
+Multi-element collections are written as multi-line values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, TextExpressionCollection&gt;? With { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="Invex.StructuredText.Expressions.TextExpressionCollection.html">TextExpressionCollection</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_WorkingDirectory_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.WorkingDirectory*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_WorkingDirectory" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.WorkingDirectory">
+  WorkingDirectory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Invex-Games/structured-text/blob/v1.3.0/src/Invex.StructuredText.GithubActions/GithubActionModel/Step.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The working directory the step runs in (<code>working-directory</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextExpression? WorkingDirectory { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Match_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Match*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Match_System_Action_Invex_StructuredText_GithubActions_GithubActionModel_Step_UsesStep__System_Action_Invex_StructuredText_GithubActions_GithubActionModel_Step_RunStep__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Match(System.Action{Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep},System.Action{Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep})">
+  Match(Action&lt;UsesStep&gt;, Action&lt;RunStep&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Match(Action&lt;Step.UsesStep&gt; usesStep, Action&lt;Step.RunStep&gt; runStep)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>usesStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>runStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchRunStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchRunStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchRunStep_System_Action_Invex_StructuredText_GithubActions_GithubActionModel_Step_RunStep__System_Action_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchRunStep(System.Action{Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep},System.Action)">
+  MatchRunStep(Action&lt;RunStep&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchRunStep(Action&lt;Step.RunStep&gt; runStep, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>runStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchRunStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchRunStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchRunStep__1_System_Func_Invex_StructuredText_GithubActions_GithubActionModel_Step_RunStep___0__System_Func___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchRunStep``1(System.Func{Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep,``0},System.Func{``0})">
+  MatchRunStep&lt;TMatchOutput&gt;(Func&lt;RunStep, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchRunStep&lt;TMatchOutput&gt;(Func&lt;Step.RunStep, TMatchOutput&gt; runStep, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>runStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchRunStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchRunStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchRunStep__1___0_System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_Step_RunStep__System_Action___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchRunStep``1(``0,System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep},System.Action{``0})">
+  MatchRunStep&lt;TState&gt;(TState, Action&lt;TState, RunStep&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchRunStep&lt;TState&gt;(TState state, Action&lt;TState, Step.RunStep&gt; runStep, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>runStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchRunStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchRunStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchRunStep__2___0_System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_Step_RunStep___1__System_Func___0___1__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchRunStep``2(``0,System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep,``1},System.Func{``0,``1})">
+  MatchRunStep&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, RunStep, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchRunStep&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, Step.RunStep, TMatchOutput&gt; runStep, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>runStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchUsesStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchUsesStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchUsesStep_System_Action_Invex_StructuredText_GithubActions_GithubActionModel_Step_UsesStep__System_Action_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchUsesStep(System.Action{Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep},System.Action)">
+  MatchUsesStep(Action&lt;UsesStep&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchUsesStep(Action&lt;Step.UsesStep&gt; usesStep, Action @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>usesStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchUsesStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchUsesStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchUsesStep__1_System_Func_Invex_StructuredText_GithubActions_GithubActionModel_Step_UsesStep___0__System_Func___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchUsesStep``1(System.Func{Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep,``0},System.Func{``0})">
+  MatchUsesStep&lt;TMatchOutput&gt;(Func&lt;UsesStep, TMatchOutput&gt;, Func&lt;TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchUsesStep&lt;TMatchOutput&gt;(Func&lt;Step.UsesStep, TMatchOutput&gt; usesStep, Func&lt;TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>usesStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchUsesStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchUsesStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchUsesStep__1___0_System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_Step_UsesStep__System_Action___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchUsesStep``1(``0,System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep},System.Action{``0})">
+  MatchUsesStep&lt;TState&gt;(TState, Action&lt;TState, UsesStep&gt;, Action&lt;TState&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void MatchUsesStep&lt;TState&gt;(TState state, Action&lt;TState, Step.UsesStep&gt; usesStep, Action&lt;TState&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>usesStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchUsesStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchUsesStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_MatchUsesStep__2___0_System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_Step_UsesStep___1__System_Func___0___1__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.MatchUsesStep``2(``0,System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep,``1},System.Func{``0,``1})">
+  MatchUsesStep&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, UsesStep, TMatchOutput&gt;, Func&lt;TState, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput MatchUsesStep&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, Step.UsesStep, TMatchOutput&gt; usesStep, Func&lt;TState, TMatchOutput&gt; @else)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>usesStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>else</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TState, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Match_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Match*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Match__1_System_Func_Invex_StructuredText_GithubActions_GithubActionModel_Step_UsesStep___0__System_Func_Invex_StructuredText_GithubActions_GithubActionModel_Step_RunStep___0__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Match``1(System.Func{Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep,``0},System.Func{Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep,``0})">
+  Match&lt;TMatchOutput&gt;(Func&lt;UsesStep, TMatchOutput&gt;, Func&lt;RunStep, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput Match&lt;TMatchOutput&gt;(Func&lt;Step.UsesStep, TMatchOutput&gt; usesStep, Func&lt;Step.RunStep, TMatchOutput&gt; runStep)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>usesStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>runStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Match_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Match*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Match__1___0_System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_Step_UsesStep__System_Action___0_Invex_StructuredText_GithubActions_GithubActionModel_Step_RunStep__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Match``1(``0,System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep},System.Action{``0,Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep})">
+  Match&lt;TState&gt;(TState, Action&lt;TState, UsesStep&gt;, Action&lt;TState, RunStep&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Match&lt;TState&gt;(TState state, Action&lt;TState, Step.UsesStep&gt; usesStep, Action&lt;TState, Step.RunStep&gt; runStep)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>usesStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>runStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Match_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Match*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_Match__2___0_System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_Step_UsesStep___1__System_Func___0_Invex_StructuredText_GithubActions_GithubActionModel_Step_RunStep___1__" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.Match``2(``0,System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep,``1},System.Func{``0,Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep,``1})">
+  Match&lt;TState, TMatchOutput&gt;(TState, Func&lt;TState, UsesStep, TMatchOutput&gt;, Func&lt;TState, RunStep, TMatchOutput&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TMatchOutput Match&lt;TState, TMatchOutput&gt;(TState state, Func&lt;TState, Step.UsesStep, TMatchOutput&gt; usesStep, Func&lt;TState, Step.RunStep, TMatchOutput&gt; runStep)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <span class="xref">TState</span></dt>
+    <dd></dd>
+    <dt><code>usesStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+    <dt><code>runStep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TState, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a>, TMatchOutput&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TMatchOutput</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TState</code></dt>
+    <dd></dd>
+    <dt><code>TMatchOutput</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_UnwrapRunStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.UnwrapRunStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_UnwrapRunStep" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.UnwrapRunStep">
+  UnwrapRunStep()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Step.RunStep UnwrapRunStep()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">RunStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubActionModel_Step_UnwrapUsesStep_" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.UnwrapUsesStep*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubActionModel_Step_UnwrapUsesStep" data-uid="Invex.StructuredText.GithubActions.GithubActionModel.Step.UnwrapUsesStep">
+  UnwrapUsesStep()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Step.UsesStep UnwrapUsesStep()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a>.<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">UsesStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
