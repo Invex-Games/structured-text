@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Expressions | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Expressions | Invex.StructuredText ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/blob/main/docs/expressions.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="expressions">Expressions</h1>
+
+<p>The expression system (namespace <code>Invex.StructuredText.Expressions</code>) is the most distinctive feature of this library.
+Instead of embedding platform-specific expression strings (<code>${{ github.ref }}</code>, <code>$(Build.SourceBranch)</code>, …) directly in
+your models, you build <strong>platform-agnostic expression trees</strong> out of <code>TextExpression</code> records. A platform-specific
+formatter then renders the tree into the correct syntax for the target file.</p>
+<p>The same expression can produce:</p>
+<ul>
+<li><code>${{ contains(github.ref, 'release') }}</code> for GitHub Actions, via <code>GithubExpressionFormatter</code></li>
+<li><code>contains(variables['Build.SourceBranch'], 'release')</code> for Azure DevOps, via <code>DevopsExpressionFormatter</code></li>
+</ul>
+<h2 id="the-building-blocks">The building blocks</h2>
+<h3 id="value-expressions">Value expressions</h3>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Meaning</th>
+<th>GitHub rendering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RawExpression(&quot;text&quot;)</code></td>
+<td>Verbatim text, written exactly as-is</td>
+<td><code>text</code></td>
+</tr>
+<tr>
+<td><code>StringExpression(&quot;text&quot;)</code></td>
+<td>A string <em>literal</em> inside an expression</td>
+<td><code>'text'</code></td>
+</tr>
+<tr>
+<td><code>NumberExpression(3.14)</code></td>
+<td>A numeric literal</td>
+<td><code>3.14</code></td>
+</tr>
+<tr>
+<td><code>BooleanExpression(true)</code></td>
+<td>A boolean literal</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>NullExpression()</code></td>
+<td>Null / empty</td>
+<td><em>(empty)</em></td>
+</tr>
+</tbody>
+</table>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p><code>RawExpression</code> vs <code>StringExpression</code> is the key distinction: <code>Raw</code> is uninterpreted text (use it for plain YAML
+values and context references like <code>github.ref</code>); <code>String</code> is a quoted string literal <em>within</em> an expression.</p>
+</div>
+<p>Implicit conversions make most of this invisible. <code>TextExpression</code> converts implicitly from <code>string</code> (to
+<code>RawExpression</code>), <code>bool</code>, and all numeric types:</p>
+<pre><code class="lang-csharp">TextExpression name = &quot;build&quot;;       // RawExpression(&quot;build&quot;)
+TextExpression count = 3;            // NumberExpression(3)
+TextExpression flag = true;          // BooleanExpression(true)
+</code></pre>
+<p>The static <code>TextExpressions</code> class offers explicit factories: <code>TextExpressions.Raw(...)</code>, <code>TextExpressions.From(...)</code>
+(string → <code>StringExpression</code>, bool/number → typed literal), <code>TextExpressions.True</code>, <code>TextExpressions.False</code>,
+<code>TextExpressions.Null</code>.</p>
+<h3 id="evaluate--entering-expression-context">Evaluate — entering “expression context”</h3>
+<p>Most YAML values are plain text; expressions must be explicitly wrapped to be evaluated. <code>Evaluate()</code> produces an
+<code>EvaluateExpression</code>, which GitHub renders as <code>${{ ... }}</code>:</p>
+<pre><code class="lang-csharp">TextExpression runNumber = new RawExpression(&quot;github.run_number&quot;).Evaluate();
+// GitHub: ${{ github.run_number }}
+</code></pre>
+<p>Condition-like properties (<code>If</code> on jobs/steps, <code>Condition</code> on Azure DevOps steps) are already in expression context, so
+you usually don't need <code>Evaluate()</code> there.</p>
+<h3 id="property-and-index-access">Property and index access</h3>
+<pre><code class="lang-csharp">TextExpression github = &quot;github&quot;;
+
+var refName = github[&quot;ref_name&quot;];          // github.ref_name (PropertyAccessExpression)
+var firstLabel = github[&quot;event&quot;][&quot;labels&quot;][0]; // github.event.labels[0] (IndexAccessExpression)
+var matrixOs = new RawExpression(&quot;matrix&quot;)[new StringExpression(&quot;os&quot;)]; // matrix['os']
+</code></pre>
+<h2 id="logic-operators">Logic operators</h2>
+<p>All comparison and logic combinators are available as fluent methods <em>and</em> C# operators:</p>
+<pre><code class="lang-csharp">TextExpression branch = new RawExpression(&quot;github.ref&quot;);
+
+var isMain = branch.EqualToString(&quot;refs/heads/main&quot;);   // github.ref == 'refs/heads/main'
+var notMain = branch.NotEqualToString(&quot;refs/heads/main&quot;);
+
+var both = isMain &amp; new RawExpression(&quot;success()&quot;);     // ... &amp;&amp; success()
+var either = isMain | notMain;                          // ... || ...
+var negated = !isMain;                                  // !(...)
+
+var ordered = new NumberExpression(5).GreaterThan(3);   // 5 &gt; 3
+</code></pre>
+<p>Available combinators: <code>And</code> / <code>&amp;</code>, <code>Or</code> / <code>|</code>, <code>Not</code> / <code>!</code>, <code>EqualTo</code>, <code>NotEqualTo</code>, <code>LessThan</code>, <code>GreaterThan</code>,
+<code>LessThanOrEqualTo</code>, <code>GreaterThanOrEqualTo</code> (each with <code>…String</code> variants that quote the right-hand side as a string
+literal).</p>
+<h2 id="functions">Functions</h2>
+<pre><code class="lang-csharp">TextExpression branch = new RawExpression(&quot;github.ref&quot;);
+
+branch.Contains(&quot;release&quot;);        // contains(github.ref, 'release')
+branch.StartsWith(&quot;refs/tags/&quot;);   // startsWith(github.ref, 'refs/tags/')
+branch.EndsWith(&quot;-rc&quot;);            // endsWith(github.ref, '-rc')
+branch.Coalesce(&quot;fallback&quot;);       // coalesce(github.ref, 'fallback')
+branch.Join(&quot;, &quot;);                 // join(github.ref, ', ')
+branch.ToJson();                   // toJSON(github.ref)
+
+new RawExpression(&quot;'**/*.csproj'&quot;).HashFiles(); // hashFiles(...) (GitHub-only)
+</code></pre>
+<p>Reversed-argument helpers are provided where it reads better: <code>ContainedIn</code>, <code>IsStartOf</code>, <code>IsEndOf</code>.</p>
+<h2 id="string-interpolation-with-format">String interpolation with <code>Format</code></h2>
+<p><code>TextExpressions.Format</code> accepts an interpolated string whose holes can be other expressions. Literal parts become a
+format string; holes become arguments:</p>
+<pre><code class="lang-csharp">var version = new RawExpression(&quot;github.run_number&quot;).Evaluate();
+
+var releaseName = TextExpressions.Format($&quot;Release-{version}&quot;);
+// GitHub: format('Release-{0}', ${{ github.run_number }})
+</code></pre>
+<p>You can also concatenate with <code>+</code>, or use <code>ConcatExpression</code> for raw concatenation:</p>
+<pre><code class="lang-csharp">var combined = TextExpressions.Concat([new RawExpression(&quot;v&quot;), version]);
+</code></pre>
+<h2 id="workflow-run-expressions">Workflow-run expressions</h2>
+<p>These records reference outputs and outcomes of other steps/jobs, and each platform formatter renders them with the
+appropriate context path:</p>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>StepOutputExpression</code></td>
+<td>Output of a step (<code>steps.&lt;id&gt;.outputs.&lt;name&gt;</code>)</td>
+</tr>
+<tr>
+<td><code>StepOutcomeExpression</code></td>
+<td>Outcome of a step (<code>steps.&lt;id&gt;.outcome</code>)</td>
+</tr>
+<tr>
+<td><code>StepOutcomeTypeExpression</code></td>
+<td>An outcome literal: success/failure/cancelled/skipped</td>
+</tr>
+<tr>
+<td><code>TargetOutputExpression</code></td>
+<td>Output of a job/stage (<code>needs.&lt;job&gt;.outputs.&lt;name&gt;</code>)</td>
+</tr>
+<tr>
+<td><code>TargetOutcomeExpression</code></td>
+<td>Outcome of a job/stage</td>
+</tr>
+<tr>
+<td><code>TargetOutcomeTypeExpression</code></td>
+<td>An outcome literal for jobs/stages</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-csharp">var artifact = new StepOutputExpression
+{
+    StepName = &quot;build&quot;,
+    OutputName = &quot;artifact-path&quot;,
+};
+
+var buildSucceeded = new StepOutcomeExpression { StepName = &quot;build&quot; }
+    .EqualTo(new StepOutcomeTypeExpression { Type = StepOutcomeTypeExpression.OutcomeType.Success });
+</code></pre>
+<h2 id="typed-wrappers-workflowexpressiont-and-collections">Typed wrappers: <code>WorkflowExpression&lt;T&gt;</code> and collections</h2>
+<p>Many model properties are declared as <code>WorkflowExpression&lt;T&gt;</code> rather than plain <code>TextExpression</code>. This is a
+zero-overhead struct wrapper whose type parameter <strong>documents the expected result type</strong> (<code>string</code>, <code>bool</code>,
+<code>double</code>, …). It converts implicitly to and from <code>TextExpression</code>, so you can assign expressions or strings directly:</p>
+<pre><code class="lang-csharp">// DisplayName is WorkflowExpression&lt;string&gt;
+DisplayName = new RawExpression(&quot;Build everything&quot;),
+
+// Condition is WorkflowExpression&lt;bool&gt;
+Condition = new RawExpression(&quot;succeeded()&quot;),
+</code></pre>
+<p>Similarly:</p>
+<ul>
+<li><code>TextExpressionCollection</code> — a list of expressions with implicit conversions from <code>string</code>, <code>string[]</code>,
+<code>List&lt;string&gt;</code>, <code>TextExpression</code>, <code>TextExpression[]</code>, and <code>List&lt;TextExpression&gt;</code>. This is why you can write
+<code>Run = [&quot;dotnet build&quot;]</code> or <code>Branches = [&quot;main&quot;]</code>.</li>
+<li><code>WorkflowExpressionCollection&lt;T&gt;</code> — the typed equivalent.</li>
+<li><code>Cast&lt;TTo&gt;()</code> — reinterprets an expression's compile-time result type without changing the tree.</li>
+</ul>
+<h2 id="platform-specific-expressions">Platform-specific expressions</h2>
+<h3 id="github-actions-githubexpressionformatter">GitHub Actions (<code>GithubExpressionFormatter</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EvaluateExpression</code></td>
+<td><code>${{ inner }}</code></td>
+</tr>
+<tr>
+<td><code>AndExpression(a, b)</code></td>
+<td><code>a &amp;&amp; b</code></td>
+</tr>
+<tr>
+<td><code>ContainsExpression</code></td>
+<td><code>contains(a, b)</code></td>
+</tr>
+<tr>
+<td><code>FormatExpression</code></td>
+<td><code>format('...', args)</code></td>
+</tr>
+<tr>
+<td><code>HashFilesExpression</code></td>
+<td><code>hashFiles(...)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="azure-devops-devopsexpressionformatter">Azure DevOps (<code>DevopsExpressionFormatter</code>)</h3>
+<p>Azure DevOps has multiple expression syntaxes, and the package provides explicit wrappers for them:</p>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DevopsMacroExpression(variable)</code></td>
+<td><code>$(variableName)</code></td>
+</tr>
+<tr>
+<td><code>DevopsRuntimeExpression(expr)</code></td>
+<td><code>$[ expression ]</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-csharp">using Invex.StructuredText.AzureDevopsPipelines;
+
+var buildId = new DevopsMacroExpression(new RawExpression(&quot;Build.BuildId&quot;));
+// renders as: $(Build.BuildId)
+
+var runtimeCondition = new DevopsRuntimeExpression(
+    new RawExpression(&quot;variables.isMain&quot;).EqualToString(&quot;true&quot;));
+// renders as: $[ eq(variables.isMain, 'true') ]
+</code></pre>
+<h2 id="writing-your-own-formatter">Writing your own formatter</h2>
+<p>To target a new platform, derive from <code>TextExpressionFormatter</code> and implement
+<code>protected override TextExpression? Resolve(TextExpression expression)</code>. The base class handles <code>RawExpression</code>,
+<code>ConcatExpression</code>, and <code>CastExpression&lt;T&gt;</code> unwrapping; your <code>Resolve</code> method rewrites every other expression node into
+simpler nodes (ultimately <code>RawExpression</code>s). Returning <code>null</code> for an unrecognized node produces a clear
+<code>InvalidOperationException</code> naming the unhandled expression.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/main/docs/expressions.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

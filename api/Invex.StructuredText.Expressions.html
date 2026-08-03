@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace Invex.StructuredText.Expressions | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace Invex.StructuredText.Expressions | Invex.StructuredText ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.Expressions">
+
+  <h1 id="Invex_StructuredText_Expressions" data-uid="Invex.StructuredText.Expressions" class="text-break">Namespace Invex.StructuredText.Expressions</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.AndExpression.html">AndExpression</a></dt>
+      <dd><p>Logical AND over <code class="paramref">Source</code>.
+The platform formatter decides the rendered syntax (e.g. <code>a &amp;&amp; b</code> or <code>and(a, b)</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.BooleanExpression.html">BooleanExpression</a></dt>
+      <dd><p>A boolean literal, rendered as <code>true</code> or <code>false</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.CastExpression-1.html">CastExpression&lt;TTo&gt;</a></dt>
+      <dd><p>Wraps an expression to reinterpret its result type at compile time.
+The formatter should treat this transparently — it simply delegates to the inner expression.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.CoalesceExpression.html">CoalesceExpression</a></dt>
+      <dd><p>Returns the first non-empty value of <code class="paramref">Source</code>,
+rendered as <code>coalesce(...)</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.ConcatExpression.html">ConcatExpression</a></dt>
+      <dd><p>Concatenates the rendered text of <code class="paramref">Values</code> with no separator.
+Handled directly by <a class="xref" href="Invex.StructuredText.Expressions.TextExpressionFormatter.html">TextExpressionFormatter</a>, so it works on every platform.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.ContainsExpression.html">ContainsExpression</a></dt>
+      <dd><p>Tests whether <code class="paramref">Source</code> contains <code class="paramref">Pattern</code>,
+rendered as <code>contains(source, pattern)</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.EndsWithExpression.html">EndsWithExpression</a></dt>
+      <dd><p>Tests whether <code class="paramref">Source</code> ends with <code class="paramref">Pattern</code>,
+rendered as <code>endsWith(source, pattern)</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.EqualExpression.html">EqualExpression</a></dt>
+      <dd><p>Equality comparison. The platform formatter decides the rendered syntax (e.g. <code>left == right</code> or <code>eq(left, right)</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.EvaluateExpression.html">EvaluateExpression</a></dt>
+      <dd><p>Marks <code class="paramref">Expression</code> for evaluation in the target platform's expression context.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.FormatExpression.html">FormatExpression</a></dt>
+      <dd><p>Replaces placeholders (<code>{0}</code>, <code>{1}</code>, …) in <code class="paramref">Source</code> with
+<code class="paramref">Arguments</code>,
+rendered as <code>format(source, args...)</code>.
+Usually built via <code>TextExpressions.Format($&quot;...&quot;)</code> string interpolation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanExpression.html">GreaterThanExpression</a></dt>
+      <dd><p>Greater-than comparison. The platform formatter decides the rendered syntax (e.g. <code>left &gt; right</code> or <code>gt(left, right)</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.GreaterThanOrEqualToExpression.html">GreaterThanOrEqualToExpression</a></dt>
+      <dd><p>Greater-than-or-equal comparison. The platform formatter decides the rendered syntax (e.g. <code>left &gt;= right</code> or <code>ge(left, right)</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.HashFilesExpression.html">HashFilesExpression</a></dt>
+      <dd><p>Returns a hash of the files matched by the glob pattern(s) in <code class="paramref">Source</code>,
+rendered as <code>hashFiles(source)</code>. Commonly used for cache keys.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.IndexAccessExpression.html">IndexAccessExpression</a></dt>
+      <dd><p>Accesses an element of <code class="paramref">Array</code> by <code class="paramref">Index</code>, rendered as <code>array[index]</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.JoinExpression.html">JoinExpression</a></dt>
+      <dd><p>Joins the elements of the array-valued <code class="paramref">Source</code> with
+<code class="paramref">OptionalSeparator</code> (comma when omitted),
+rendered as <code>join(source, separator)</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.LessThanExpression.html">LessThanExpression</a></dt>
+      <dd><p>Less-than comparison. The platform formatter decides the rendered syntax (e.g. <code>left &lt; right</code> or <code>lt(left, right)</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.LessThanOrEqualToExpression.html">LessThanOrEqualToExpression</a></dt>
+      <dd><p>Less-than-or-equal comparison. The platform formatter decides the rendered syntax (e.g. <code>left &lt;= right</code> or <code>le(left, right)</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.NotEqualExpression.html">NotEqualExpression</a></dt>
+      <dd><p>Inequality comparison. The platform formatter decides the rendered syntax (e.g. <code>left != right</code> or <code>ne(left, right)</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.NotExpression.html">NotExpression</a></dt>
+      <dd><p>Logical negation of <code class="paramref">Source</code>.
+The platform formatter decides the rendered syntax (e.g. prefix <code>!</code> or <code>not(source)</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.NullExpression.html">NullExpression</a></dt>
+      <dd><p>The null literal, rendered as empty text.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.NumberExpression.html">NumberExpression</a></dt>
+      <dd><p>A numeric literal, rendered using the invariant culture.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.OrExpression.html">OrExpression</a></dt>
+      <dd><p>Logical OR over <code class="paramref">Source</code>.
+The platform formatter decides the rendered syntax (e.g. <code>a || b</code> or <code>or(a, b)</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.PropertyAccessExpression.html">PropertyAccessExpression</a></dt>
+      <dd><p>Accesses <code class="paramref">Property</code> of <code class="paramref">Object</code>, rendered as <code>object.property</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.RawExpression.html">RawExpression</a></dt>
+      <dd><p>Verbatim, uninterpreted text. The formatter writes <a class="xref" href="Invex.StructuredText.Expressions.RawExpression.html#Invex_StructuredText_Expressions_RawExpression_Value">Value</a> exactly as-is.
+Use this for plain YAML values and context path references;
+use <a class="xref" href="Invex.StructuredText.Expressions.StringExpression.html">StringExpression</a> for quoted string literals inside expressions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.StartsWithExpression.html">StartsWithExpression</a></dt>
+      <dd><p>Tests whether <code class="paramref">Source</code> starts with <code class="paramref">Pattern</code>,
+rendered as <code>startsWith(source, pattern)</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.StepOutcomeExpression.html">StepOutcomeExpression</a></dt>
+      <dd><p>References the outcome of a step in the current job,
+rendered as <code>steps.&lt;step&gt;.outcome</code>.
+Compare against a <a class="xref" href="Invex.StructuredText.Expressions.StepOutcomeTypeExpression.html">StepOutcomeTypeExpression</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.StepOutcomeTypeExpression.html">StepOutcomeTypeExpression</a></dt>
+      <dd><p>A step outcome literal for comparison with <a class="xref" href="Invex.StructuredText.Expressions.StepOutcomeExpression.html">StepOutcomeExpression</a>.
+The platform formatter renders the appropriate outcome string for the target platform.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.StepOutputExpression.html">StepOutputExpression</a></dt>
+      <dd><p>References an output of a step in the current job.
+The platform formatter renders the appropriate context path for the target platform.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpression.html">StringExpression</a></dt>
+      <dd><p>A string literal inside an expression, rendered with quotes (e.g. <code>'value'</code>).
+Use <a class="xref" href="Invex.StructuredText.Expressions.RawExpression.html">RawExpression</a> for verbatim, unquoted text.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TargetOutcomeExpression.html">TargetOutcomeExpression</a></dt>
+      <dd><p>References the outcome (result/status) of another job or stage.
+The platform formatter renders the appropriate context path for the target platform.
+Compare against a <a class="xref" href="Invex.StructuredText.Expressions.TargetOutcomeTypeExpression.html">TargetOutcomeTypeExpression</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TargetOutcomeTypeExpression.html">TargetOutcomeTypeExpression</a></dt>
+      <dd><p>A job/stage outcome literal for comparison with <a class="xref" href="Invex.StructuredText.Expressions.TargetOutcomeExpression.html">TargetOutcomeExpression</a>.
+The platform formatter renders the appropriate outcome string for the target platform.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TargetOutputExpression.html">TargetOutputExpression</a></dt>
+      <dd><p>References an output of another job or stage.
+The platform formatter renders the appropriate context path for the target platform.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a></dt>
+      <dd><p>The base type of the platform-agnostic expression tree.
+Expressions are immutable records composed via fluent methods and operators, then rendered to
+platform-specific text by a <a class="xref" href="Invex.StructuredText.Expressions.TextExpressionFormatter.html">TextExpressionFormatter</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpressionCollection.html">TextExpressionCollection</a></dt>
+      <dd><p>An ordered collection of <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a> instances.
+Implicit conversions from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <code>string[]</code>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List&lt;T&gt;</a>, and
+single expressions allow model properties to be assigned naturally,
+e.g. <code>Run = [&quot;dotnet build&quot;]</code> or <code>Branches = [&quot;main&quot;]</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpressionFormatter.html">TextExpressionFormatter</a></dt>
+      <dd><p>Base class for platform-specific expression formatters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpressionUtils.html">TextExpressionUtils</a></dt>
+      <dd><p>Utility helpers for working with sequences and trees of <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpressions.html">TextExpressions</a></dt>
+      <dd><p>The entry point for creating <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a> instances.
+Factory members (<code>Raw</code>, <code>From</code>, <code>Format</code>, <code>Concat</code>, <code>True</code>, <code>False</code>,
+<code>Null</code>, …) are attached to this class via extension members in
+<a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpressionExtensions.html">WorkflowExpressionExtensions</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.ToJsonExpression.html">ToJsonExpression</a></dt>
+      <dd><p>Converts <code class="paramref">Source</code> to its JSON representation,
+rendered as the platform's JSON serialization function.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpressionCollection-1.html">WorkflowExpressionCollection&lt;T&gt;</a></dt>
+      <dd><p>A typed workflow expression collection that documents the expected element result type.
+The type parameter serves as a compile-time hint for what each expression resolves to.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpressionExtensions.html">WorkflowExpressionExtensions</a></dt>
+      <dd><p>Extension members that augment <a class="xref" href="Invex.StructuredText.Expressions.TextExpressions.html">TextExpressions</a> and <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a>
+with factory helpers for building expression trees.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TextExpressionInterpolatedStringHandler.html">TextExpressionInterpolatedStringHandler</a></dt>
+      <dd><p>An interpolated string handler that creates a <a class="xref" href="Invex.StructuredText.Expressions.FormatExpression.html">FormatExpression</a> from an interpolated string.
+Literal parts are combined into a format string with placeholders, and <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a> holes
+become arguments.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.WorkflowExpression-1.html">WorkflowExpression&lt;T&gt;</a></dt>
+      <dd><p>A typed workflow expression that documents the expected result type of the expression.
+The type parameter serves as a compile-time hint for what the expression resolves to.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.ITextExpressionFormatter.html">ITextExpressionFormatter</a></dt>
+      <dd><p>Renders a <a class="xref" href="Invex.StructuredText.Expressions.TextExpression.html">TextExpression</a> tree into platform-specific text.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.ITextExpression-1.html">ITextExpression&lt;TResult&gt;</a></dt>
+      <dd><p>Marker interface that documents the result type an expression is expected to resolve to.
+The type parameter is a compile-time hint only; it has no effect on formatting.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.StepOutcomeTypeExpression.OutcomeType.html">StepOutcomeTypeExpression.OutcomeType</a></dt>
+      <dd><p>The possible outcomes of a step.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.Expressions.TargetOutcomeTypeExpression.OutcomeType.html">TargetOutcomeTypeExpression.OutcomeType</a></dt>
+      <dd><p>The possible outcomes of a job or stage.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
