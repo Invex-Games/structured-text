@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting Started | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting Started | Invex.StructuredText ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/blob/main/docs/getting-started.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>.NET 8.0, .NET 9.0, or .NET 10.0</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>Install the package for the platform you want to target. Each platform package automatically brings in the
+<code>Invex.StructuredText</code> core library.</p>
+<pre><code class="lang-shell"># GitHub Actions workflows + Dependabot configs
+dotnet add package Invex.StructuredText.GithubActions
+
+# Azure DevOps Pipelines
+dotnet add package Invex.StructuredText.AzureDevopsPipelines
+
+# Just the core writer + expression system
+dotnet add package Invex.StructuredText
+</code></pre>
+<h2 id="the-general-pattern">The general pattern</h2>
+<p>Every generator in this library follows the same three-step pattern:</p>
+<ol>
+<li><strong>Build a model</strong> — construct an object graph (<code>GithubAction</code>, <code>DependabotConfig</code>, or <code>DevopsPipeline</code>) using
+records with <code>init</code> properties and collection expressions.</li>
+<li><strong>Write it</strong> — pass the model to the corresponding writer (<code>GithubActionWriter</code>, <code>DependabotConfigWriter</code>, or
+<code>DevopsPipelineWriter</code>).</li>
+<li><strong>Get the text</strong> — call <code>writer.TextWriter.ToString()</code> and save it wherever you need.</li>
+</ol>
+<pre><code class="lang-csharp">var writer = new GithubActionWriter();
+writer.Write(myWorkflow);
+
+var yaml = writer.TextWriter.ToString();
+File.WriteAllText(&quot;.github/workflows/ci.yml&quot;, yaml);
+</code></pre>
+<h2 id="your-first-github-actions-workflow">Your first GitHub Actions workflow</h2>
+<pre><code class="lang-csharp">using Invex.StructuredText.Expressions;
+using Invex.StructuredText.GithubActions;
+using Invex.StructuredText.GithubActions.GithubActionModel;
+
+var workflow = new GithubAction
+{
+    Name = &quot;CI&quot;,
+    On =
+    [
+        new On.Push
+        {
+            Branches = [&quot;main&quot;],
+            BranchesIgnore = null,
+            Tags = null,
+            TagsIgnore = null,
+            Paths = null,
+            PathsIgnore = null,
+        },
+    ],
+    Jobs =
+    [
+        new Job
+        {
+            Name = new RawExpression(&quot;build&quot;),
+            RunsOn = new() { Labels = [new RawExpression(&quot;ubuntu-latest&quot;)] },
+            Steps =
+            [
+                new Step.UsesStep
+                {
+                    Name = new RawExpression(&quot;Checkout&quot;),
+                    Uses = new RawExpression(&quot;actions/checkout@v4&quot;),
+                },
+                new Step.RunStep
+                {
+                    Name = new RawExpression(&quot;Build&quot;),
+                    Run = [new RawExpression(&quot;dotnet build --configuration Release&quot;)],
+                },
+            ],
+        },
+    ],
+};
+
+var writer = new GithubActionWriter();
+writer.Write(workflow);
+
+Console.WriteLine(writer.TextWriter.ToString());
+</code></pre>
+<p>Output:</p>
+<pre><code class="lang-yaml">name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: dotnet build --configuration Release
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Many string-valued properties accept <code>TextExpression</code> and have implicit conversions from <code>string</code>, so you can often
+write <code>Branches = [&quot;main&quot;]</code> instead of building <code>RawExpression</code> instances by hand. See
+<a href="expressions.html">Expressions</a> for details.</p>
+</div>
+<h2 id="your-first-azure-devops-pipeline">Your first Azure DevOps pipeline</h2>
+<pre><code class="lang-csharp">using Invex.StructuredText.AzureDevopsPipelines;
+using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline;
+using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps;
+using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers;
+using Invex.StructuredText.Expressions;
+
+var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
+{
+    Trigger = new Trigger.BranchList { Branches = [&quot;main&quot;] },
+    Steps =
+    [
+        new Step.Script
+        {
+            ScriptContent = new RawExpression(&quot;echo Hello, world!&quot;),
+            DisplayName = new RawExpression(&quot;Say hello&quot;),
+        },
+    ],
+};
+
+var writer = new DevopsPipelineWriter();
+writer.Write(pipeline);
+
+Console.WriteLine(writer.TextWriter.ToString());
+</code></pre>
+<p>Output:</p>
+<pre><code class="lang-yaml">trigger:
+  branches:
+    include:
+      - main
+
+steps:
+
+  - script: echo Hello, world!
+    displayName: Say hello
+</code></pre>
+<h2 id="your-first-dependabot-config">Your first Dependabot config</h2>
+<pre><code class="lang-csharp">using Invex.StructuredText.GithubActions;
+using Invex.StructuredText.GithubActions.DependabotConfigModel.Model;
+
+var config = new DependabotConfig
+{
+    Updates =
+    [
+        new DependabotUpdate
+        {
+            PackageEcosystem = &quot;nuget&quot;,
+            Directory = &quot;/&quot;,
+            Schedule = new() { Interval = ScheduleInterval.Weekly },
+        },
+    ],
+};
+
+var writer = new DependabotConfigWriter();
+writer.WriteConfig(config);
+
+File.WriteAllText(&quot;.github/dependabot.yml&quot;, writer.TextWriter.ToString());
+</code></pre>
+<h2 id="a-common-workflow-generate-and-commit">A common workflow: generate-and-commit</h2>
+<p>A typical setup is a small console project in your repository (e.g. <code>_build/</code> or <code>_atom/</code>) that regenerates all
+workflow files. Run it locally or in CI, then commit the output. Because generation is deterministic, the diff shows
+exactly what changed.</p>
+<pre><code class="lang-csharp">// Program.cs in a build-tool project
+var writer = new GithubActionWriter();
+writer.Write(BuildCiWorkflow());
+File.WriteAllText(&quot;../.github/workflows/ci.yml&quot;, writer.TextWriter.ToString());
+
+writer = new GithubActionWriter(); // fresh writer per file
+writer.Write(BuildReleaseWorkflow());
+File.WriteAllText(&quot;../.github/workflows/release.yml&quot;, writer.TextWriter.ToString());
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Writers accumulate text in an internal <code>StructuredTextWriter</code>. Use a fresh writer per output file, or call
+<code>writer.TextWriter.Reset()</code> between writes.</p>
+</div>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="expressions.html">Expressions</a> — conditions, interpolation, and platform-specific syntax</li>
+<li><a href="github-actions.html">GitHub Actions</a> — the full workflow model</li>
+<li><a href="azure-devops-pipelines.html">Azure DevOps Pipelines</a> — stages, jobs, deployment strategies, resources</li>
+<li><a href="dependabot.html">Dependabot</a> — registries, groups, schedules</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/main/docs/getting-started.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

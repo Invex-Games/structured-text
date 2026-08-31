@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace Invex.StructuredText.GithubActions.GithubActionModel | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace Invex.StructuredText.GithubActions.GithubActionModel | Invex.StructuredText ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.GithubActions.GithubActionModel">
+
+  <h1 id="Invex_StructuredText_GithubActions_GithubActionModel" data-uid="Invex.StructuredText.GithubActions.GithubActionModel" class="text-break">Namespace Invex.StructuredText.GithubActions.GithubActionModel</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Concurrency.html">Concurrency</a></dt>
+      <dd><p>Concurrency settings (<code>concurrency</code>) that ensure only one run (or queued run) sharing the same
+group executes at a time, at either workflow or job level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Container.html">Container</a></dt>
+      <dd><p>A Docker container that a job runs in (<code>container</code>) or that hosts a service (<code>services</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Credentials.html">Credentials</a></dt>
+      <dd><p>Credentials for a private container registry (<code>credentials</code>), passed to <code>docker login</code>.
+Typically reference secrets, e.g. <code>${{ secrets.REGISTRY_PASSWORD }}</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Environment.html">Environment</a></dt>
+      <dd><p>The deployment environment a job targets (<code>environment</code>).
+Environments can carry protection rules and secrets configured in the repository settings.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.GithubAction.html">GithubAction</a></dt>
+      <dd><p>The root model of a GitHub Actions workflow file (<code>.github/workflows/*.yml</code>).
+Serialize it with <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionWriter.html">GithubActionWriter</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Job.html">Job</a></dt>
+      <dd><p>A job within a workflow: a set of steps that execute on the same runner.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Matrix.html">Matrix</a></dt>
+      <dd><p>A matrix of variable combinations to run a job with (<code>strategy.matrix</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.html">On</a></dt>
+      <dd><p>A workflow trigger event (<code>on</code>). This is a discriminated union over the GitHub webhook events;
+construct the variant for the event you want, e.g. <code>new On.Push { ... }</code> or
+<code>new On.Schedule([&quot;0 6 * * 1&quot;])</code>. Enum member names intentionally match the
+lowercase/snake_case activity-type strings used in workflow YAML.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.BranchProtectionRule.html">On.BranchProtectionRule</a></dt>
+      <dd><p>Triggers when a branch protection rule changes (<code>branch_protection_rule</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.CheckRun.html">On.CheckRun</a></dt>
+      <dd><p>Triggers on check run activity (<code>check_run</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.CheckSuite.html">On.CheckSuite</a></dt>
+      <dd><p>Triggers on check suite activity (<code>check_suite</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Create.html">On.Create</a></dt>
+      <dd><p>Triggers when a branch or tag is created (<code>create</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Delete.html">On.Delete</a></dt>
+      <dd><p>Triggers when a branch or tag is deleted (<code>delete</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Deployment.html">On.Deployment</a></dt>
+      <dd><p>Triggers when a deployment is created (<code>deployment</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.DeploymentStatus.html">On.DeploymentStatus</a></dt>
+      <dd><p>Triggers when a deployment status is provided (<code>deployment_status</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Discussion.html">On.Discussion</a></dt>
+      <dd><p>Triggers on discussion activity (<code>discussion</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.DiscussionComment.html">On.DiscussionComment</a></dt>
+      <dd><p>Triggers on discussion comment activity (<code>discussion_comment</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Fork.html">On.Fork</a></dt>
+      <dd><p>Triggers when the repository is forked (<code>fork</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Gollum.html">On.Gollum</a></dt>
+      <dd><p>Triggers when the wiki is updated (<code>gollum</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.ImageVersion.html">On.ImageVersion</a></dt>
+      <dd><p>Triggers on runner image version events (<code>image_version</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.IssueComment.html">On.IssueComment</a></dt>
+      <dd><p>Triggers on issue/pull-request comment activity (<code>issue_comment</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Issues.html">On.Issues</a></dt>
+      <dd><p>Triggers on issue activity (<code>issues</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Label.html">On.Label</a></dt>
+      <dd><p>Triggers on label activity (<code>label</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.MergeGroup.html">On.MergeGroup</a></dt>
+      <dd><p>Triggers when a pull request is added to a merge queue (<code>merge_group</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Milestone.html">On.Milestone</a></dt>
+      <dd><p>Triggers on milestone activity (<code>milestone</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.PageBuild.html">On.PageBuild</a></dt>
+      <dd><p>Triggers when someone pushes to the GitHub Pages publishing branch (<code>page_build</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Project.html">On.Project</a></dt>
+      <dd><p>Triggers on classic project activity (<code>project</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.ProjectCard.html">On.ProjectCard</a></dt>
+      <dd><p>Triggers on classic project card activity (<code>project_card</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.ProjectColumn.html">On.ProjectColumn</a></dt>
+      <dd><p>Triggers on classic project column activity (<code>project_column</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Public.html">On.Public</a></dt>
+      <dd><p>Triggers when the repository changes from private to public (<code>public</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.PullRequest.html">On.PullRequest</a></dt>
+      <dd><p>Triggers on pull request activity (<code>pull_request</code>), with optional branch/tag/path filters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.PullRequestReview.html">On.PullRequestReview</a></dt>
+      <dd><p>Triggers on pull request review activity (<code>pull_request_review</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.PullRequestReviewComment.html">On.PullRequestReviewComment</a></dt>
+      <dd><p>Triggers on pull request review comment activity (<code>pull_request_review_comment</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.PullRequestTarget.html">On.PullRequestTarget</a></dt>
+      <dd><p>Triggers on pull request activity, running in the context of the base of the pull request
+(<code>pull_request_target</code>). Use with care — the workflow has access to repository secrets.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Push.html">On.Push</a></dt>
+      <dd><p>Triggers when commits or tags are pushed (<code>push</code>), with optional branch/tag/path filters.
+All filter properties are required so that omissions are explicit; pass <code>null</code> for filters
+you do not want.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.RegistryPackage.html">On.RegistryPackage</a></dt>
+      <dd><p>Triggers on registry package activity (<code>registry_package</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Release.html">On.Release</a></dt>
+      <dd><p>Triggers on release activity (<code>release</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.RepositoryDispatch.html">On.RepositoryDispatch</a></dt>
+      <dd><p>Triggers on a custom webhook event sent via the GitHub API (<code>repository_dispatch</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Schedule.html">On.Schedule</a></dt>
+      <dd><p>Triggers on a schedule (<code>schedule</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Status.html">On.Status</a></dt>
+      <dd><p>Triggers when the status of a commit changes (<code>status</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Watch.html">On.Watch</a></dt>
+      <dd><p>Triggers when the repository is starred (<code>watch</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.WorkflowCall.html">On.WorkflowCall</a></dt>
+      <dd><p>Allows the workflow to be called from another workflow (<code>workflow_call</code>),
+making it a reusable workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.WorkflowDispatch.html">On.WorkflowDispatch</a></dt>
+      <dd><p>Allows the workflow to be run manually from the GitHub UI or API (<code>workflow_dispatch</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.WorkflowRun.html">On.WorkflowRun</a></dt>
+      <dd><p>Triggers when another workflow runs (<code>workflow_run</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On0MatchExtensions.html">On0MatchExtensions</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Permissions.html">Permissions</a></dt>
+      <dd><p><code>GITHUB_TOKEN</code> permissions at workflow or job level (<code>permissions</code>).
+This is a discriminated union: use <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Permissions.All.html">Permissions.All</a> to grant one level to every scope
+(<code>read-all</code> / <code>write-all</code>), or <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Permissions.Exact.html">Permissions.Exact</a> to specify levels per scope.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Permissions.All.html">Permissions.All</a></dt>
+      <dd><p>Grants the same <code class="paramref">Level</code> to every permission scope,
+rendered as <code>read-all</code> or <code>write-all</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Permissions.Exact.html">Permissions.Exact</a></dt>
+      <dd><p>Grants explicit levels for individual permission scopes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Permissions0MatchExtensions.html">Permissions0MatchExtensions</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.PermissionsEvent.html">PermissionsEvent</a></dt>
+      <dd><p>Per-scope <code>GITHUB_TOKEN</code> permission levels. Scopes left <code>null</code> are omitted from the YAML
+and fall back to GitHub's defaults.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.RunsOn.html">RunsOn</a></dt>
+      <dd><p>The runner selection for a job (<code>runs-on</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Snapshot.html">Snapshot</a></dt>
+      <dd><p>Runner image snapshot settings for a job (<code>snapshot</code>),
+used to capture the runner state as a custom image after the job completes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html">Step</a></dt>
+      <dd><p>A single step within a job. This is a discriminated union:
+construct a <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">Step.UsesStep</a> to run an action or a <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">Step.RunStep</a> to run shell commands.
+The properties on this base record are shared by both variants.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.RunStep.html">Step.RunStep</a></dt>
+      <dd><p>A step that runs shell commands (<code>run</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.UsesStep.html">Step.UsesStep</a></dt>
+      <dd><p>A step that runs a reusable action (<code>uses</code>), e.g. <code>actions/checkout@v4</code>.
+Provide inputs via <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html#Invex_StructuredText_GithubActions_GithubActionModel_Step_With">With</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step0MatchExtensions.html">Step0MatchExtensions</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Strategy.html">Strategy</a></dt>
+      <dd><p>The execution strategy for a job (<code>strategy</code>), defining a matrix of variations to run.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html">WorkflowDispatchInput</a></dt>
+      <dd><p>A typed input for the <code>workflow_dispatch</code> trigger. This is a discriminated union;
+construct <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">WorkflowDispatchInput.String</a>, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">WorkflowDispatchInput.Number</a>, <a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">WorkflowDispatchInput.Boolean</a>, or
+<a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">WorkflowDispatchInput.Choice</a> for the desired input type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Boolean.html">WorkflowDispatchInput.Boolean</a></dt>
+      <dd><p>A true/false input (<code>type: boolean</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Choice.html">WorkflowDispatchInput.Choice</a></dt>
+      <dd><p>A dropdown input restricted to a set of options (<code>type: choice</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.Number.html">WorkflowDispatchInput.Number</a></dt>
+      <dd><p>A numeric input (<code>type: number</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.String.html">WorkflowDispatchInput.String</a></dt>
+      <dd><p>A free-text input (<code>type: string</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput0MatchExtensions.html">WorkflowDispatchInput0MatchExtensions</a></dt>
+      <dd></dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.BranchProtectionRule.BranchProtectionType.html">On.BranchProtectionRule.BranchProtectionType</a></dt>
+      <dd><p>Activity types for the <code>branch_protection_rule</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.CheckRun.CheckRunType.html">On.CheckRun.CheckRunType</a></dt>
+      <dd><p>Activity types for the <code>check_run</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.CheckSuite.CheckSuiteType.html">On.CheckSuite.CheckSuiteType</a></dt>
+      <dd><p>Activity types for the <code>check_suite</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Discussion.DiscussionType.html">On.Discussion.DiscussionType</a></dt>
+      <dd><p>Activity types for the <code>discussion</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.DiscussionComment.DiscussionCommentType.html">On.DiscussionComment.DiscussionCommentType</a></dt>
+      <dd><p>Activity types for the <code>discussion_comment</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.IssueComment.IssueCommentType.html">On.IssueComment.IssueCommentType</a></dt>
+      <dd><p>Activity types for the <code>issue_comment</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Issues.IssuesType.html">On.Issues.IssuesType</a></dt>
+      <dd><p>Activity types for the <code>issues</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Label.LabelType.html">On.Label.LabelType</a></dt>
+      <dd><p>Activity types for the <code>label</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.MergeGroup.MergeGroupType.html">On.MergeGroup.MergeGroupType</a></dt>
+      <dd><p>Activity types for the <code>merge_group</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Milestone.MilestoneType.html">On.Milestone.MilestoneType</a></dt>
+      <dd><p>Activity types for the <code>milestone</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Project.ProjectType.html">On.Project.ProjectType</a></dt>
+      <dd><p>Activity types for the <code>project</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.ProjectCard.ProjectCardType.html">On.ProjectCard.ProjectCardType</a></dt>
+      <dd><p>Activity types for the <code>project_card</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.ProjectColumn.ProjectColumnType.html">On.ProjectColumn.ProjectColumnType</a></dt>
+      <dd><p>Activity types for the <code>project_column</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.PullRequest.PullRequestType.html">On.PullRequest.PullRequestType</a></dt>
+      <dd><p>Activity types for the <code>pull_request</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.PullRequestReview.PullRequestReviewType.html">On.PullRequestReview.PullRequestReviewType</a></dt>
+      <dd><p>Activity types for the <code>pull_request_review</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.PullRequestReviewComment.PullRequestReviewCommentType.html">On.PullRequestReviewComment.PullRequestReviewCommentType</a></dt>
+      <dd><p>Activity types for the <code>pull_request_review_comment</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.PullRequestTarget.PullRequestTargetType.html">On.PullRequestTarget.PullRequestTargetType</a></dt>
+      <dd><p>Activity types for the <code>pull_request_target</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.RegistryPackage.RegistryPackageType.html">On.RegistryPackage.RegistryPackageType</a></dt>
+      <dd><p>Activity types for the <code>registry_package</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Release.ReleaseType.html">On.Release.ReleaseType</a></dt>
+      <dd><p>Activity types for the <code>release</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.Watch.WatchType.html">On.Watch.WatchType</a></dt>
+      <dd><p>Activity types for the <code>watch</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.WorkflowRun.WorkflowDispatchTypes.html">On.WorkflowRun.WorkflowDispatchTypes</a></dt>
+      <dd><p>Activity types for the <code>workflow_run</code> event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.PermissionsLevel.html">PermissionsLevel</a></dt>
+      <dd><p>The access level granted to a <code>GITHUB_TOKEN</code> permission scope.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

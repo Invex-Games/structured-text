@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Invex.StructuredText | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Invex.StructuredText | Invex.StructuredText ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/blob/main/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="invexstructuredtext">Invex.StructuredText</h1>
+
+<p><a href="https://www.nuget.org/packages/Invex.StructuredText"><img src="https://img.shields.io/nuget/v/Invex.StructuredText.svg" alt="NuGet"></a>
+<a href="LICENSE.txt"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a></p>
+<p>A strongly-typed C# library for generating structured YAML text files, specifically GitHub Actions workflows, Dependabot
+configurations, and Azure DevOps Pipelines, using a fluent, type-safe API with a powerful expression system.</p>
+<h2 id="features">Features</h2>
+<h3 id="type-safe-workflow-authoring">Type-safe workflow authoring</h3>
+<p>Define CI/CD pipelines as C# objects with full IntelliSense and compile-time validation</p>
+<h3 id="unified-expression-system">Unified expression system</h3>
+<p>Build complex expressions (conditions, string interpolation, functions) that compile to platform-specific syntax</p>
+<h3 id="github-actions">GitHub Actions</h3>
+<p>Full support for workflow YAML generation including triggers, jobs, steps, matrix strategies,
+permissions, concurrency, containers, and more</p>
+<h3 id="dependabot">Dependabot</h3>
+<p>Generate <code>dependabot.yml</code> configurations with registries, update rules, groups, and schedules</p>
+<h3 id="azure-devops-pipelines">Azure DevOps Pipelines</h3>
+<p>Comprehensive pipeline generation with stages, jobs, deployment strategies (runOnce,
+rolling, canary), resources, templates, and parameters</p>
+<h2 id="packages">Packages</h2>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.nuget.org/packages/Invex.StructuredText"><code>Invex.StructuredText</code></a></td>
+<td>Core library with <code>StructuredTextWriter</code> and the expression system</td>
+</tr>
+<tr>
+<td><a href="https://www.nuget.org/packages/Invex.StructuredText.GithubActions"><code>Invex.StructuredText.GithubActions</code></a></td>
+<td>GitHub Actions workflow and Dependabot config generation</td>
+</tr>
+<tr>
+<td><a href="https://www.nuget.org/packages/Invex.StructuredText.AzureDevopsPipelines"><code>Invex.StructuredText.AzureDevopsPipelines</code></a></td>
+<td>Azure DevOps Pipelines YAML generation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-shell">dotnet add package Invex.StructuredText.GithubActions
+# or
+dotnet add package Invex.StructuredText.AzureDevopsPipelines
+</code></pre>
+<p>Both platform packages depend on <code>Invex.StructuredText</code> core, so it will be installed automatically.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Comprehensive guides live in the <a href="docs/introduction.html"><code>docs/</code></a> directory:</p>
+<ul>
+<li><a href="docs/introduction.html">Introduction</a> — what this library is and why it exists</li>
+<li><a href="docs/getting-started.html">Getting Started</a> — install and generate your first file</li>
+<li><a href="docs/expressions.html">Expressions</a> — the unified expression system</li>
+<li><a href="docs/github-actions.html">GitHub Actions</a> — workflow generation in depth</li>
+<li><a href="docs/dependabot.html">Dependabot</a> — <code>dependabot.yml</code> generation</li>
+<li><a href="docs/azure-devops-pipelines.html">Azure DevOps Pipelines</a> — pipelines, stages, jobs, deployment strategies</li>
+<li><a href="docs/architecture.html">Architecture</a> — how the pieces fit together</li>
+<li><a href="docs/faq.html">FAQ</a></li>
+</ul>
+<p>An auto-generated <a href="api/index.html">API reference</a> is built with docfx from the XML documentation comments.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="github-actions-1">GitHub Actions</h3>
+<pre><code class="lang-csharp">var workflow = new GithubAction
+{
+    Name = &quot;CI&quot;,
+    On =
+    [
+        new On.Push
+        {
+            Branches = [&quot;main&quot;],
+            BranchesIgnore = null,
+            Tags = null,
+            TagsIgnore = null,
+            Paths = null,
+            PathsIgnore = null,
+        },
+    ],
+    Jobs =
+    [
+        new Job
+        {
+            Name = new RawExpression(&quot;build&quot;),
+            RunsOn = new() { Labels = [new RawExpression(&quot;ubuntu-latest&quot;)] },
+            Steps =
+            [
+                new Step.UsesStep
+                {
+                    Name = new RawExpression(&quot;Checkout&quot;),
+                    Uses = new RawExpression(&quot;actions/checkout@v4&quot;),
+                },
+                new Step.RunStep
+                {
+                    Name = new RawExpression(&quot;Build&quot;),
+                    Run = [&quot;dotnet build --configuration Release&quot;],
+                },
+            ],
+        },
+    ],
+};
+
+var writer = new GithubActionWriter();
+writer.Write(workflow);
+
+var yaml = writer.TextWriter.ToString();
+</code></pre>
+<h3 id="azure-devops-pipelines-1">Azure DevOps Pipelines</h3>
+<pre><code class="lang-csharp">var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
+{
+    Trigger = new Trigger.BranchList { Branches = [&quot;main&quot;] },
+    Steps =
+    [
+        new Step.Script { ScriptContent = new RawExpression(&quot;echo Hello, world!&quot;) },
+    ],
+};
+
+var writer = new DevopsPipelineWriter();
+writer.Write(pipeline);
+
+var yaml = writer.TextWriter.ToString();
+</code></pre>
+<h3 id="expressions">Expressions</h3>
+<p>The expression system provides a fluent API for building platform-specific expressions that are formatted differently
+depending on the target (GitHub Actions uses <code>${{ }}</code> syntax, Azure DevOps uses its own macro/runtime expression
+syntax).</p>
+<pre><code class="lang-csharp">// Reference step outputs
+var output = new StepOutputExpression
+{
+    StepName = &quot;build-step&quot;,
+    OutputName = &quot;artifact-path&quot;,
+};
+
+// Use conditions
+var condition = output.Contains(&quot;release&quot;).Evaluate();
+
+// String interpolation with format expressions
+var formatted = TextExpressions.Format($&quot;Release-{output}&quot;);
+
+// Logic operators
+var combined = output.Contains(&quot;main&quot;) &amp; new BooleanExpression(true);
+</code></pre>
+<h2 id="architecture">Architecture</h2>
+<h3 id="core-invexstructuredtext">Core (<code>Invex.StructuredText</code>)</h3>
+<ul>
+<li><strong><code>StructuredTextWriter</code></strong>: A low-level indentation-aware text writer that handles YAML-style output with automatic
+indent management via <code>IDisposable</code> scopes</li>
+<li><strong>Expression System</strong>: A rich set of record types (<code>TextExpression</code> hierarchy) representing values, functions, logic
+operators, and workflow-specific constructs (step outputs, job outcomes, etc.)</li>
+<li><strong><code>TextExpressionFormatter</code></strong>: Base class for platform-specific expression formatters</li>
+</ul>
+<h3 id="github-actions-invexstructuredtextgithubactions">GitHub Actions (<code>Invex.StructuredText.GithubActions</code>)</h3>
+<ul>
+<li><strong><code>GithubActionWriter</code></strong>: Serializes a <code>GithubAction</code> model to valid workflow YAML</li>
+<li><strong><code>DependabotConfigWriter</code></strong>: Serializes a <code>DependabotConfig</code> model to valid <code>dependabot.yml</code></li>
+<li><strong><code>GithubExpressionFormatter</code></strong>: Formats expressions using GitHub's <code>${{ }}</code> syntax</li>
+<li><strong>Model types</strong>: Strongly-typed records for all GitHub Actions concepts (triggers, jobs, steps, matrix, permissions,
+etc.)</li>
+</ul>
+<h3 id="azure-devops-pipelines-invexstructuredtextazuredevopspipelines">Azure DevOps Pipelines (<code>Invex.StructuredText.AzureDevopsPipelines</code>)</h3>
+<ul>
+<li><strong><code>DevopsPipelineWriter</code></strong>: Serializes a <code>DevopsPipeline</code> model to valid pipeline YAML</li>
+<li><strong><code>DevopsExpressionFormatter</code></strong>: Formats expressions using Azure DevOps syntax</li>
+<li><strong>Model types</strong>: Strongly-typed records/unions for pipelines, stages, jobs, steps, resources, triggers, variables,
+deployment strategies, and more</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>.NET 8.0, .NET 9.0, or .NET 10.0</li>
+</ul>
+<h2 id="license">License</h2>
+<p>This project is licensed under the <a href="LICENSE.txt">MIT License</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/main/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
