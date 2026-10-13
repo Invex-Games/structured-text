@@ -49,8 +49,6 @@ internal interface IBuild : IWorkflowBuildDefinition,
 
     static readonly string[] TestFrameworkNames =
     [
-        WorkflowLabels.Dotnet.Framework.Net_8_0,
-        WorkflowLabels.Dotnet.Framework.Net_9_0,
         WorkflowLabels.Dotnet.Framework.Net_10_0,
     ];
 
@@ -227,8 +225,6 @@ internal interface IBuild : IWorkflowBuildDefinition,
                     Options =
                     [
                         BuildOptions.Target.SuppressArtifactPublishing,
-                        BuildOptions.Steps.SetupDotnet.Dotnet80X(),
-                        BuildOptions.Steps.SetupDotnet.Dotnet90X(),
                     ],
                 },
                 new(nameof(CheckPrForBreakingChanges))
@@ -284,7 +280,6 @@ internal interface IBuild : IWorkflowBuildDefinition,
                             Values = TestFrameworkNames,
                         },
                     ],
-                    Options = [BuildOptions.Steps.SetupDotnet.Dotnet80X(), BuildOptions.Steps.SetupDotnet.Dotnet90X()],
                 },
                 new(nameof(PushToNuget))
                 {

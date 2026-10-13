@@ -181,7 +181,7 @@ var combined = output.Contains("main") & new BooleanExpression(true);
 
 ## Requirements
 
-- .NET 8.0, .NET 9.0, or .NET 10.0
+- .NET 10.0
 
 ## License
 

@@ -104,7 +104,7 @@ The libraries use:
 - `[PublicAPI]` annotations (JetBrains.Annotations) on all public surface
 - Public API surface snapshot tests (`PublicApiSurfaceTests` with verified `.txt` baselines in each test project), so
   any accidental API change shows up as a test diff
-- Multi-targeting for .NET 8 / 9 / 10
+- Targets .NET 10
 
 ## Extending the library
 
