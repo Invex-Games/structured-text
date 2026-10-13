@@ -3,7 +3,8 @@
 The expression system (namespace `Invex.StructuredText.Expressions`) is the most distinctive feature of this library.
 Instead of embedding platform-specific expression strings (`${{ github.ref }}`, `$(Build.SourceBranch)`, …) directly in
 your models, you build **platform-agnostic expression trees** out of `TextExpression` records. A platform-specific
-formatter then renders the tree into the correct syntax for the target file.
+formatter then renders the tree into the correct syntax for the target file. You need this page whenever a value in
+your model is a condition, a reference to another step's output, or text built from other values.
 
 The same expression can produce:
 
@@ -205,3 +206,10 @@ To target a new platform, derive from `TextExpressionFormatter` and implement
 simpler nodes (ultimately `RawExpression`s). Returning `null` for an unrecognized node produces a clear
 `InvalidOperationException` naming the unhandled expression.
 
+## See also
+
+- [GitHub Actions Workflows](github-actions.md#referencing-outputs-between-steps-and-jobs): expressions in workflow models
+- [Azure DevOps Pipelines](azure-devops-pipelines.md#expressions-in-azure-devops): Azure DevOps expression syntax
+- [Architecture](architecture.md#textexpressionformatter): how formatters rewrite expression trees
+- <xref:Invex.StructuredText.Expressions.TextExpression>, <xref:Invex.StructuredText.Expressions.TextExpressions>,
+  <xref:Invex.StructuredText.Expressions.TextExpressionFormatter>

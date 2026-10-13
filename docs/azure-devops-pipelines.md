@@ -1,7 +1,9 @@
 # Azure DevOps Pipelines
 
 The `Invex.StructuredText.AzureDevopsPipelines` package generates Azure Pipelines YAML from a strongly-typed model
-rooted at `DevopsPipeline` (namespace `Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.*`).
+rooted at `DevopsPipeline` (namespace `Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.*`). Read this
+page when you generate Azure Pipelines: pipeline shapes, triggers, steps, pools, variables, deployment jobs, and
+Azure DevOps expression syntax.
 
 ```csharp
 var writer = new DevopsPipelineWriter();
@@ -331,9 +333,11 @@ See [Expressions](expressions.md) for the full system.
 
 ## See also
 
-- [Getting Started](getting-started.md)
-- [Expressions](expressions.md)
+- [Getting Started](getting-started.md) — your first pipeline
+- [Expressions](expressions.md) — platform-agnostic expressions and the Azure DevOps wrappers
 - The model closely follows the
   [Azure Pipelines YAML schema](https://learn.microsoft.com/azure/devops/pipelines/yaml-schema/) — property names and
   XML docs mirror the official documentation.
-
+- <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline>,
+  <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter>,
+  <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionFormatter>

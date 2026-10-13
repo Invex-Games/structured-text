@@ -3,7 +3,8 @@
 The `Invex.StructuredText.GithubActions` package also generates
 [Dependabot v2](https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)
 configuration files from the `DependabotConfig` model
-(namespace `Invex.StructuredText.GithubActions.DependabotConfigModel.Model`).
+(namespace `Invex.StructuredText.GithubActions.DependabotConfigModel.Model`). Use it when you want `dependabot.yml`
+generated alongside your workflows, with the same type checking.
 
 ```csharp
 var writer = new DependabotConfigWriter();
@@ -181,7 +182,9 @@ OpenPullRequestsLimit = 10,
 
 ## See also
 
-- [GitHub Actions](github-actions.md) — workflow generation from the same package
+- [GitHub Actions Workflows](github-actions.md) — workflow generation from the same package
 - The model closely mirrors the official
   [dependabot-2.0 JSON schema](https://json.schemastore.org/dependabot-2.0.json); the schema file is included in the
   source tree for reference.
+- <xref:Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotConfig>,
+  <xref:Invex.StructuredText.GithubActions.DependabotConfigWriter>

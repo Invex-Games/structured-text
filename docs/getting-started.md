@@ -1,5 +1,8 @@
 # Getting Started
 
+This page shows how to install the packages and generate your first GitHub Actions workflow, Azure DevOps pipeline,
+and Dependabot config. Start here if you have not used the library before.
+
 ## Requirements
 
 - .NET 8.0, .NET 9.0, or .NET 10.0
@@ -113,7 +116,7 @@ jobs:
 
 > [!TIP]
 > Many string-valued properties accept `TextExpression` and have implicit conversions from `string`, so you can often
-> write `Branches = ["main"]` instead of building `RawExpression` instances by hand. See
+> write `Run = ["dotnet build"]` instead of building `RawExpression` instances by hand. See
 > [Expressions](expressions.md) for details.
 
 ## Your first Azure DevOps pipeline
@@ -209,5 +212,7 @@ File.WriteAllText("../.github/workflows/release.yml", writer.TextWriter.ToString
 - [Expressions](expressions.md) — conditions, interpolation, and platform-specific syntax
 - [GitHub Actions](github-actions.md) — the full workflow model
 - [Azure DevOps Pipelines](azure-devops-pipelines.md) — stages, jobs, deployment strategies, resources
-- [Dependabot](dependabot.md) — registries, groups, schedules
-
+- [Dependabot Configuration](dependabot.md) — registries, groups, schedules
+- [FAQ](faq.md) — common questions and troubleshooting
+- API: <xref:Invex.StructuredText.GithubActions.GithubActionWriter>, <xref:Invex.StructuredText.GithubActions.DependabotConfigWriter>,
+  <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter>
