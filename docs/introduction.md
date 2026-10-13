@@ -1,8 +1,9 @@
 # Introduction
 
 **Invex.StructuredText** is a family of strongly-typed C# libraries for generating structured YAML text files —
-specifically **GitHub Actions workflows**, **Dependabot configurations**, and **Azure DevOps Pipelines** — using a
-fluent, type-safe API with a unified expression system.
+specifically **GitHub Actions workflows**, **Dependabot configurations**, and **Azure DevOps Pipelines**. This page
+explains why you would generate CI/CD YAML from C#, when the library is (and is not) a good fit, and the concepts the
+rest of the documentation builds on.
 
 ## Why generate YAML from C#?
 
@@ -24,6 +25,49 @@ Invex.StructuredText solves these problems by letting you define your pipelines 
   macro/runtime expression syntax
 - Deterministic, cleanly formatted YAML output that is easy to diff and review
 
+## When to use it
+
+Invex.StructuredText is a good fit when:
+
+- **You maintain several workflows or pipelines** that share jobs, steps, or conventions, and want to reuse them with
+  ordinary C# functions and constants.
+- **You maintain many repositories** and want their CI configuration generated from one shared definition.
+- **You already have a C# build tool** (for example an `_atom/` or `_build/` console project) that can regenerate the
+  files and check them in.
+- **Expressions are getting complicated**, and you want conditions and output references checked by the compiler
+  instead of discovered at run time.
+
+It is not the right tool when:
+
+- **You need to read or modify existing YAML.** The library is write-only; it does not parse workflow files.
+- **You have one small workflow.** Writing the YAML by hand is simpler than adding a generator project.
+- **You target another CI system.** Only GitHub Actions, Dependabot, and Azure DevOps Pipelines have models, although
+  the core writer and expression system can be used to build your own (see [Architecture](architecture.md)).
+
+## Key concepts at a glance
+
+| Concept | What it is |
+| --- | --- |
+| Model | An object graph of records rooted at <xref:Invex.StructuredText.GithubActions.GithubActionModel.GithubAction>, <xref:Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotConfig>, or <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline>. |
+| Union variant | Schema "one of" shapes (a step is `run:` *or* `uses:`) are discriminated unions; construct the nested variant you need, such as `new Step.RunStep { ... }`. |
+| Writer | <xref:Invex.StructuredText.GithubActions.GithubActionWriter>, <xref:Invex.StructuredText.GithubActions.DependabotConfigWriter>, or <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter> walks a model and emits YAML. |
+| `StructuredTextWriter` | The indentation-aware buffer every writer writes into; read the result with `writer.TextWriter.ToString()`. See [StructuredTextWriter](structured-text-writer.md). |
+| Expression | A <xref:Invex.StructuredText.Expressions.TextExpression> tree (values, functions, logic, step and job outputs) that a platform formatter renders to that platform's syntax. See [Expressions](expressions.md). |
+| `RawExpression` vs `StringExpression` | Verbatim text versus a quoted string literal inside an expression; plain `string` values convert to `RawExpression`. |
+
+## Design principles
+
+- **Model the schema, not a DSL.** Model records mirror the official YAML schemas and their property names map
+  mechanically to YAML keys, so platform documentation applies directly.
+- **Invalid shapes do not compile.** Discriminated unions rule out combinations the schema forbids, and `required`
+  properties force a decision on schema-significant values, even when that decision is `null`.
+- **Write once, render per platform.** Expressions are platform-agnostic trees; only the formatter knows the target
+  syntax.
+- **Deterministic and write-only.** The same model always produces the same text, so you can regenerate in CI and fail
+  on `git diff --exit-code`.
+- **Small, composable layers.** Platform packages are built on a core writer and expression system that you can reuse
+  for your own generators.
+
 ## The packages
 
 | Package                                      | What it provides                                                                                        |
@@ -34,54 +78,11 @@ Invex.StructuredText solves these problems by letting you define your pipelines 
 
 Both platform packages depend on the core package, so installing either one gives you everything you need.
 
-## A taste
-
-```csharp
-using Invex.StructuredText.GithubActions;
-using Invex.StructuredText.GithubActions.GithubActionModel;
-
-var workflow = new GithubAction
-{
-    Name = "CI",
-    On =
-    [
-        new On.Push
-        {
-            Branches = ["main"],
-            BranchesIgnore = null,
-            Tags = null,
-            TagsIgnore = null,
-            Paths = null,
-            PathsIgnore = null,
-        },
-    ],
-    Jobs =
-    [
-        new Job
-        {
-            Name = new RawExpression("build"),
-            RunsOn = new() { Labels = [new RawExpression("ubuntu-latest")] },
-            Steps =
-            [
-                new Step.UsesStep { Uses = new RawExpression("actions/checkout@v4") },
-                new Step.RunStep { Run = [new RawExpression("dotnet build -c Release")] },
-            ],
-        },
-    ],
-};
-
-var writer = new GithubActionWriter();
-writer.Write(workflow);
-
-File.WriteAllText(".github/workflows/ci.yml", writer.TextWriter.ToString());
-```
-
-## Where to go next
+## Next steps
 
 - [Getting Started](getting-started.md) — install the packages and generate your first file
 - [Expressions](expressions.md) — learn the unified expression system
-- [GitHub Actions](github-actions.md) — workflow generation in depth
-- [Dependabot](dependabot.md) — `dependabot.yml` generation
+- [GitHub Actions Workflows](github-actions.md) — workflow generation in depth
+- [Dependabot Configuration](dependabot.md) — `dependabot.yml` generation
 - [Azure DevOps Pipelines](azure-devops-pipelines.md) — pipeline generation in depth
 - [Architecture](architecture.md) — how the pieces fit together
-
