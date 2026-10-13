@@ -5,16 +5,15 @@
       "src": [
         {
           "files": [
-            "src/Invex.StructuredText/Invex.StructuredText.csproj",
-            "src/Invex.StructuredText.GithubActions/Invex.StructuredText.GithubActions.csproj",
-            "src/Invex.StructuredText.AzureDevopsPipelines/Invex.StructuredText.AzureDevopsPipelines.csproj"
+            "src/**/*.csproj"
           ]
         }
       ],
       "dest": "api",
       "properties": {
         "TargetFramework": "net10.0"
-      }
+      },
+      "filter": "docs/filterConfig.yml"
     }
   ],
   "build": {
@@ -22,12 +21,12 @@
       {
         "files": [
           "toc.yml",
-          "index.md",
-          "README.md"
+          "index.md"
         ]
       },
       {
         "files": [
+          "api/toc.yml",
           "api/**.yml",
           "api/index.md"
         ]
@@ -42,20 +41,19 @@
     "resource": [
       {
         "files": [
-          "images/**"
+          "images/**",
+          "LICENSE.txt"
         ]
       }
     ],
     "output": "_site",
-    "globalMetadataFiles": [],
-    "fileMetadataFiles": [],
     "globalMetadata": {
       "_appTitle": "Invex.StructuredText",
       "_appName": "Invex.StructuredText",
-      "_appFooter": "Invex.StructuredText: Strongly-typed YAML generation for GitHub Actions, Dependabot, and Azure DevOps Pipelines.",
+      "_appLogoPath": "images/icon.png",
+      "_appFooter": "Invex.StructuredText · MIT License · Invex Games",
       "_enableSearch": true,
       "_disableContribution": false,
-      "_disableToc": false,
       "_gitContribute": {
         "repo": "https://github.com/Invex-Games/structured-text",
         "branch": "main"
@@ -65,10 +63,8 @@
       "default",
       "modern"
     ],
-    "postProcessors": [],
-    "keepFileLink": false,
-    "disableGitFeatures": false
+    "theme": [
+      "docfx-theme"
+    ]
   }
 }
-
-
