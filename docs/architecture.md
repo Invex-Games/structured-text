@@ -83,6 +83,23 @@ Each platform package contains:
 - **An expression formatter** — `GithubExpressionFormatter` or `DevopsExpressionFormatter`, implementing `Resolve` for
   the platform's syntax.
 
+### GitHub Actions (`Invex.StructuredText.GithubActions`)
+
+- **`GithubActionWriter`** — serializes a `GithubAction` model to workflow YAML.
+- **`DependabotConfigWriter`** — serializes a `DependabotConfig` model to `dependabot.yml`.
+- **`GithubExpressionFormatter`** — formats expressions using GitHub's `${{ }}` syntax.
+- **Model types** — strongly-typed records for all GitHub Actions concepts (triggers, jobs, steps, matrix, permissions,
+  etc.) in `GithubActionModel`, and for Dependabot in `DependabotConfigModel.Model`.
+
+### Azure DevOps Pipelines (`Invex.StructuredText.AzureDevopsPipelines`)
+
+- **`DevopsPipelineWriter`** — serializes a `DevopsPipeline` model to pipeline YAML.
+- **`DevopsExpressionFormatter`** — formats expressions using Azure DevOps syntax.
+- **`DevopsMacroExpression` / `DevopsRuntimeExpression`** — wrappers for the `$(...)` macro and `$[ ... ]` runtime
+  expression syntaxes.
+- **Model types** — strongly-typed records and unions for pipelines, stages, jobs, steps, resources, triggers,
+  variables, deployment strategies, and more, under `DevopsPipelineModel.*`.
+
 ### Discriminated unions
 
 YAML schemas are full of "one of" shapes (a step is `run:` *or* `uses:`; a pool is a name *or* a spec). These are
@@ -114,3 +131,10 @@ The libraries use:
 | New expression node                  | Derive a record from `TextExpression`; handle it in each formatter's `Resolve`            |
 | Platform-specific expression syntax  | Follow the pattern of `DevopsMacroExpression` / `DevopsRuntimeExpression`: define the record in the platform package and resolve it in that platform's formatter |
 
+## See also
+
+- [StructuredTextWriter](structured-text-writer.md): the writer every generator is built on
+- [Expressions](expressions.md#writing-your-own-formatter): writing your own formatter
+- [FAQ](faq.md): common questions about the model design
+- <xref:Invex.StructuredText.StructuredTextWriter>, <xref:Invex.StructuredText.Expressions.TextExpression>,
+  <xref:Invex.StructuredText.Expressions.TextExpressionFormatter>

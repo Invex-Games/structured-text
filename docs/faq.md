@@ -1,5 +1,8 @@
 # FAQ
 
+Answers to common questions about what the library does, how to use the models and expressions, and how to fix
+frequent problems. Check here when something behaves differently from what you expected.
+
 ## General
 
 ### What does this library actually do?
@@ -95,3 +98,9 @@ Plain values are written verbatim. For value-position properties (env vars, name
 
 See the [API Reference](../api/index.md), generated from the XML documentation comments in the source.
 
+## See also
+
+- [Expressions](expressions.md): `RawExpression`, `StringExpression`, and `Evaluate()`
+- [Getting Started](getting-started.md): the build, write, save pattern
+- [Architecture](architecture.md): why the models are shaped the way they are
+- <xref:Invex.StructuredText.Expressions.TextExpressionFormatter>
