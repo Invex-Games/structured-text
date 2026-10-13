@@ -1,7 +1,8 @@
 # GitHub Actions Workflows
 
 The `Invex.StructuredText.GithubActions` package generates GitHub Actions workflow YAML from a strongly-typed model
-rooted at `GithubAction` (namespace `Invex.StructuredText.GithubActions.GithubActionModel`).
+rooted at `GithubAction` (namespace `Invex.StructuredText.GithubActions.GithubActionModel`). Read this page when you
+want to go beyond the first example: triggers, jobs, steps, matrices, permissions, and passing outputs between jobs.
 
 ```csharp
 var writer = new GithubActionWriter();
@@ -320,6 +321,7 @@ File.WriteAllText(".github/workflows/ci.yml", writer.TextWriter.ToString());
 ## See also
 
 - [Expressions](expressions.md) — the expression system used throughout the model
-- [Dependabot](dependabot.md) — generating `dependabot.yml` with the same package
-
-
+- [Dependabot Configuration](dependabot.md) — generating `dependabot.yml` with the same package
+- [StructuredTextWriter](structured-text-writer.md) — the writer behind `GithubActionWriter.TextWriter`
+- <xref:Invex.StructuredText.GithubActions.GithubActionModel.GithubAction>, <xref:Invex.StructuredText.GithubActions.GithubActionWriter>,
+  <xref:Invex.StructuredText.GithubActions.GithubExpressionFormatter>

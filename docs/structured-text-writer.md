@@ -95,3 +95,8 @@ var writer = new GithubActionWriter
 };
 ```
 
+## See also
+
+- [Architecture](architecture.md): how the writers and formatters fit together
+- [Getting Started](getting-started.md#a-common-workflow-generate-and-commit): reusing writers across files
+- <xref:Invex.StructuredText.StructuredTextWriter>
