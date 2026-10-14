@@ -244,7 +244,7 @@ internal sealed class GithubActionWriterStepTests
         var output = WriteStep(new Step.RunStep { Run = ["echo a\recho b"] });
 
         output.ShouldContain("run: |");
-        output.ShouldNotContain("\r");
+        output.Replace(Environment.NewLine, "\n").ShouldNotContain("\r");
         output.Split(Environment.NewLine).ShouldNotContain("echo b");
     }
 
@@ -399,4 +399,36 @@ internal sealed class GithubActionWriterStepTests
     [Test]
     public void WriteStep_RunStep_UnindentedFirstLine_HasNoIndentationIndicator() =>
         WriteStep(new Step.RunStep { Run = ["echo first", "  echo second"] }).ShouldNotContain("|2");
+
+    [Test]
+    public void WriteStep_RunStep_IndentedFirstLineWithFourSpaceIndent_IndicatorMatchesContentOffset()
+    {
+        var writer = new GithubActionWriter { TextWriter = new StructuredTextWriter(4) };
+        writer.Write(GithubActionWriterHelper.MinimalAction() with
+        {
+            Jobs = [GithubActionWriterHelper.MinimalJob() with { Steps = [new Step.RunStep { Run = ["  echo first", "echo second"] }] }],
+        });
+
+        var lines = writer.TextWriter.ToString().Split(Environment.NewLine);
+        var header = lines.Single(x => x.TrimStart().StartsWith("- run:", StringComparison.Ordinal));
+        var second = lines.Single(x => x.EndsWith("echo second", StringComparison.Ordinal));
+        header.TrimEnd().ShouldEndWith("|6");
+        (second.Length - second.TrimStart().Length).ShouldBe(header.IndexOf("run", StringComparison.Ordinal) + 6);
+    }
+
+    [Test]
+    public void WriteEnv_IndentedFirstLineWithFourSpaceIndent_IndicatorMatchesContentOffset()
+    {
+        var writer = new GithubActionWriter { TextWriter = new StructuredTextWriter(4) };
+        writer.Write(GithubActionWriterHelper.MinimalAction() with
+        {
+            Env = new Dictionary<string, Template> { ["X"] = "  first\nsecond" },
+        });
+
+        var lines = writer.TextWriter.ToString().Split(Environment.NewLine);
+        var header = lines.Single(x => x.TrimStart().StartsWith("X:", StringComparison.Ordinal));
+        var second = lines.Single(x => x.EndsWith("second", StringComparison.Ordinal));
+        header.ShouldEndWith("X: |4");
+        (second.Length - second.TrimStart().Length).ShouldBe(header.IndexOf('X') + 4);
+    }
 }

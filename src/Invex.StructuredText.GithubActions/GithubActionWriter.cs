@@ -772,7 +772,9 @@ public sealed class GithubActionWriter
 
                 default:
                     var blockLines = valueArray.SelectMany(SplitLines).ToArray();
-                    section = TextWriter.WriteSection($"- {valueName}: {LiteralBlockHeader(blockLines)}");
+                    // Content sits two indent levels in from the dash, and the key two characters ("- ") after it.
+                    section = TextWriter.WriteSection(
+                        $"- {valueName}: {LiteralBlockHeader(blockLines, 2 * TextWriter.IndentSize - 2)}");
 
                     // Literal block lines are written as-is: quoting them would change the script.
                     using (TextWriter.WriteSection(string.Empty))
@@ -808,7 +810,7 @@ public sealed class GithubActionWriter
 
             default:
             {
-                using (TextWriter.WriteSection($"{key}: {LiteralBlockHeader(lines)}"))
+                using (TextWriter.WriteSection($"{key}: {LiteralBlockHeader(lines, TextWriter.IndentSize)}"))
                     foreach (var line in lines)
                         TextWriter.WriteLine(line); // Don't format lines here
 
@@ -832,10 +834,10 @@ public sealed class GithubActionWriter
     }
 
     // YAML takes a literal block's indentation from its first non-empty line, so a script whose first line is itself
-    // indented needs an explicit indentation indicator. Block content is always written two spaces in from its key.
-    private static string LiteralBlockHeader(string[] lines) =>
+    // indented needs an explicit indentation indicator: how far the content sits in from its key.
+    private static string LiteralBlockHeader(string[] lines, int contentOffset) =>
         lines.FirstOrDefault(x => x.Length > 0) is [' ', ..]
-            ? "|2"
+            ? $"|{contentOffset}"
             : "|";
 
     // Splits on line breaks, keeping blank lines inside the text (they matter in scripts and here-documents) but
