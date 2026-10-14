@@ -39,6 +39,18 @@ updates:
       interval: weekly
 ```
 
+`PackageEcosystem` takes the `package-ecosystem` YAML value as a string. To pick it from the `PackageEcosystem` enum
+instead, use the `ToYamlValue()` extension method:
+
+```csharp
+new DependabotUpdate
+{
+    PackageEcosystem = PackageEcosystem.GithubActions.ToYamlValue(), // "github-actions"
+    Directory = "/",
+    Schedule = new() { Interval = ScheduleInterval.Weekly },
+}
+```
+
 `Version` defaults to `2` (the only valid value), so you never need to set it.
 
 ## The model at a glance

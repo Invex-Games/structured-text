@@ -77,7 +77,9 @@ public sealed record DependabotUpdate
     public int? OpenPullRequestsLimit { get; init; }
 
     /// <summary>
-    ///     Package manager to use.
+    ///     Package manager to use, as its <c>package-ecosystem</c> YAML value. Use
+    ///     <see cref="PackageEcosystemExtensions.ToYamlValue" /> to get the value from a
+    ///     <see cref="Model.PackageEcosystem" /> member.
     /// </summary>
     public required string PackageEcosystem { get; init; }
 
