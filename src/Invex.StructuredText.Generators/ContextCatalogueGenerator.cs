@@ -10,7 +10,7 @@ namespace Invex.StructuredText.Generators;
 /// <summary>
 ///     Turns a <c>*.contexts</c> data file into a typed context catalogue.
 ///     Each line is <c>path | type | summary</c>, where type is <c>string</c>, <c>bool</c>, <c>number</c> or <c>json</c>.
-///     The file name (e.g. <c>github.contexts</c>) names the root class (<c>GitHub</c>) and the root context
+///     The file name (e.g. <c>github.contexts</c>) names the root class (<c>GitHubContexts</c>) and the root context
 ///     whose members appear directly on that class.
 /// </summary>
 [Generator]
@@ -31,7 +31,7 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
             var (file, ns) = input;
             var fileName = Path.GetFileName(file.Path);
             var rootContext = fileName.Substring(0, fileName.IndexOf('.'));
-            var className = rootContext == "github" ? "GitHub" : Pascal(rootContext);
+            var className = rootContext == "github" ? "GitHubContexts" : Pascal(rootContext) + "Contexts";
             var root = new Node(rootContext, rootContext);
             var lineNumber = 0;
 

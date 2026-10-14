@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.GithubActions.Tests;
+﻿namespace Invex.StructuredText.GithubActions.Tests;
 
 [TestFixture]
 public class GithubExpressionPrinterTests
@@ -10,48 +10,58 @@ public class GithubExpressionPrinterTests
         GithubExpressionPrinter.Instance.Render(template);
 
     [Test]
+    public void PrintCondition_LeadingNot_WrapsInDelimiters() =>
+        GithubExpressionPrinter.Instance.PrintCondition(!GitHubContexts.Ref.Contains("-"))
+            .ShouldBe("${{ !contains(github.ref, '-') }}");
+
+    [Test]
+    public void PrintCondition_NoLeadingNot_StaysBare() =>
+        GithubExpressionPrinter.Instance.PrintCondition(GitHubContexts.Ref.Contains("-"))
+            .ShouldBe("contains(github.ref, '-')");
+
+    [Test]
     public void StringLiteral_EscapesSingleQuotes() =>
-        Print(GitHub.Ref.Eq("it's")).ShouldBe("github.ref == 'it''s'");
+        Print(GitHubContexts.Ref.Eq("it's")).ShouldBe("github.ref == 'it''s'");
 
     [Test]
     public void AndOr_UseCSharpOperators() =>
-        Print(GitHub.EventName.Eq("pull_request") && !GitHub.Actor.Eq("dependabot[bot]"))
+        Print(GitHubContexts.EventName.Eq("pull_request") && !GitHubContexts.Actor.Eq("dependabot[bot]"))
             .ShouldBe("github.event_name == 'pull_request' && !(github.actor == 'dependabot[bot]')");
 
     [Test]
     public void OrInsideAnd_IsParenthesised() =>
-        Print((GitHub.EventName.Eq("push") || GitHub.Ref.StartsWith("refs/tags/")) && Status.Success())
+        Print((GitHubContexts.EventName.Eq("push") || GitHubContexts.Ref.StartsWith("refs/tags/")) && Status.Success())
             .ShouldBe("(github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')) && success()");
 
     [Test]
     public void AndInsideOr_IsNotParenthesised() =>
-        Print(GitHub.EventName.Eq("push") && GitHub.RefProtected || Status.Always())
+        Print(GitHubContexts.EventName.Eq("push") && GitHubContexts.RefProtected || Status.Always())
             .ShouldBe("github.event_name == 'push' && github.ref_protected || always()");
 
     [Test]
     public void ChainedAnd_IsFlattened() =>
-        Print(Fn.All(GitHub.RefProtected, GitHub.Event.PullRequest.Draft, Status.Success()))
+        Print(Fn.All(GitHubContexts.RefProtected, GitHubContexts.Event.PullRequest.Draft, Status.Success()))
             .ShouldBe("github.ref_protected && github.event.pull_request.draft && success()");
 
     [Test]
     public void DoubleNegation_Cancels() =>
-        Print(!!GitHub.RefProtected).ShouldBe("github.ref_protected");
+        Print(!!GitHubContexts.RefProtected).ShouldBe("github.ref_protected");
 
     [Test]
     public void NumberComparison() =>
-        Print(GitHub.Event.PullRequest.Number.Gt(3)).ShouldBe("github.event.pull_request.number > 3");
+        Print(GitHubContexts.Event.PullRequest.Number.Gt(3)).ShouldBe("github.event.pull_request.number > 3");
 
     [Test]
     public void JsonIndexer_ExtendsContextPath() =>
-        Print(GitHub.Event["number"]).ShouldBe("github.event.number");
+        Print(GitHubContexts.Event["number"]).ShouldBe("github.event.number");
 
     [Test]
     public void JsonIndexer_OnDynamicContext() =>
-        Print(GitHub.Secrets["NUGET_API_KEY"]).ShouldBe("secrets.NUGET_API_KEY");
+        Print(GitHubContexts.Secrets["NUGET_API_KEY"]).ShouldBe("secrets.NUGET_API_KEY");
 
     [Test]
     public void ContextFunctions() =>
-        Print(GitHub.Context.ToJson()).ShouldBe("toJSON(github)");
+        Print(GitHubContexts.Context.ToJson()).ShouldBe("toJSON(github)");
 
     [Test]
     public void Reference_JobOutput() =>
@@ -82,7 +92,7 @@ public class GithubExpressionPrinterTests
 
     [Test]
     public void Template_Interpolation_WrapsEachExpression() =>
-        Render($"{GitHub.Workflow}-{GitHub.Ref}").ShouldBe("${{ github.workflow }}-${{ github.ref }}");
+        Render($"{GitHubContexts.Workflow}-{GitHubContexts.Ref}").ShouldBe("${{ github.workflow }}-${{ github.ref }}");
 
     [Test]
     public void Template_FromString_IsLiteral() =>
@@ -111,7 +121,7 @@ public class GithubExpressionPrinterTests
 
     [Test]
     public void DescendantsAndSelf_FindsReferences() =>
-        (GitHub.EventName.Eq("push") && Ref.JobOutput("a", "b").Eq("c"))
+        (GitHubContexts.EventName.Eq("push") && Ref.JobOutput("a", "b").Eq("c"))
         .DescendantsAndSelf()
         .OfType<JobOutputRef>()
         .Single()
@@ -120,6 +130,6 @@ public class GithubExpressionPrinterTests
 
     [Test]
     public void ToString_UsesNeutralSyntax() =>
-        (GitHub.Ref.Eq("main") && Ref.Secret("X").Eq("y")).ToString()
+        (GitHubContexts.Ref.Eq("main") && Ref.Secret("X").Eq("y")).ToString()
         .ShouldBe("github.ref == 'main' && secret(X) == 'y'");
 }

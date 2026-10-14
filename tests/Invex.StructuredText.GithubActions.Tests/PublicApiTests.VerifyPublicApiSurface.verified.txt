@@ -3114,6 +3114,478 @@
     ]
   },
   {
-    Name: Invex.StructuredText.GithubActions.GithubExpressionFormatter
+    Name: Invex.StructuredText.GithubActions.GitHubContexts,
+    Members: [
+      {
+        Name: Action
+      },
+      {
+        Name: ActionPath
+      },
+      {
+        Name: ActionRef
+      },
+      {
+        Name: ActionRepository
+      },
+      {
+        Name: ActionStatus
+      },
+      {
+        Name: Actor
+      },
+      {
+        Name: ActorId
+      },
+      {
+        Name: ApiUrl
+      },
+      {
+        Name: BaseRef
+      },
+      {
+        Name: Context
+      },
+      {
+        Name: Env
+      },
+      {
+        Name: Event
+      },
+      {
+        Name: EventName
+      },
+      {
+        Name: EventPath
+      },
+      {
+        Name: GraphqlUrl
+      },
+      {
+        Name: HeadRef
+      },
+      {
+        Name: Inputs
+      },
+      {
+        Name: Job
+      },
+      {
+        Name: Jobs
+      },
+      {
+        Name: Matrix
+      },
+      {
+        Name: Needs
+      },
+      {
+        Name: Path
+      },
+      {
+        Name: Ref
+      },
+      {
+        Name: RefName
+      },
+      {
+        Name: RefProtected
+      },
+      {
+        Name: RefType
+      },
+      {
+        Name: Repository
+      },
+      {
+        Name: RepositoryId
+      },
+      {
+        Name: RepositoryOwner
+      },
+      {
+        Name: RepositoryOwnerId
+      },
+      {
+        Name: RepositoryUrl
+      },
+      {
+        Name: RetentionDays
+      },
+      {
+        Name: RunAttempt
+      },
+      {
+        Name: RunId
+      },
+      {
+        Name: Runner
+      },
+      {
+        Name: RunNumber
+      },
+      {
+        Name: Secrets
+      },
+      {
+        Name: SecretSource
+      },
+      {
+        Name: ServerUrl
+      },
+      {
+        Name: Sha
+      },
+      {
+        Name: Steps
+      },
+      {
+        Name: Strategy
+      },
+      {
+        Name: Token
+      },
+      {
+        Name: TriggeringActor
+      },
+      {
+        Name: Vars
+      },
+      {
+        Name: Workflow
+      },
+      {
+        Name: WorkflowRef
+      },
+      {
+        Name: WorkflowSha
+      },
+      {
+        Name: Workspace
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsEventContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Number
+      },
+      {
+        Name: Path
+      },
+      {
+        Name: PullRequest
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsEventPullRequestBaseContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Path
+      },
+      {
+        Name: Ref
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsEventPullRequestContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Base
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Draft
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Head
+      },
+      {
+        Name: Number
+      },
+      {
+        Name: Path
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsEventPullRequestHeadContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Path
+      },
+      {
+        Name: Ref
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsJobContainerContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Id
+      },
+      {
+        Name: Network
+      },
+      {
+        Name: Path
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsJobContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: CheckRunId
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Container
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Path
+      },
+      {
+        Name: Services
+      },
+      {
+        Name: Status
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsRunnerContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Arch
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Debug
+      },
+      {
+        Name: Environment
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Name
+      },
+      {
+        Name: Os
+      },
+      {
+        Name: Path
+      },
+      {
+        Name: Temp
+      },
+      {
+        Name: ToolCache
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsSecretsContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: GithubToken
+      },
+      {
+        Name: Path
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsStrategyContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: FailFast
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: JobIndex
+      },
+      {
+        Name: JobTotal
+      },
+      {
+        Name: MaxParallel
+      },
+      {
+        Name: Path
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GithubExpressionPrinter,
+    Members: [
+      {
+        Name: Instance
+      },
+      {
+        Name: PrintCondition
+      }
+    ]
   }
 ]

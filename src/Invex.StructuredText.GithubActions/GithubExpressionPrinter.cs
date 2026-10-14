@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.GithubActions;
+﻿namespace Invex.StructuredText.GithubActions;
 
 /// <summary>
 ///     Renders typed expressions (<see cref="Expr" />) and <see cref="Template" />s to GitHub Actions expression
@@ -19,6 +19,19 @@ public sealed class GithubExpressionPrinter : ExpressionPrinter
     ///     A shared instance. The printer is stateless.
     /// </summary>
     public static GithubExpressionPrinter Instance { get; } = new();
+
+    /// <summary>
+    ///     Renders an <c>if:</c> condition. The bare expression is used where possible; a condition starting with
+    ///     <c>!</c> is wrapped in <c>${{ }}</c> because YAML would otherwise read the <c>!</c> as a tag.
+    /// </summary>
+    /// <param name="condition">The condition.</param>
+    /// <returns>The rendered condition, or <see langword="null" /> when <paramref name="condition" /> is
+    ///     <see langword="null" />.</returns>
+    [return: NotNullIfNotNull(nameof(condition))]
+    public string? PrintCondition(BoolExpr? condition) =>
+        PrintOrNull(condition) is { } printed && printed.StartsWith('!')
+            ? WrapEmbedded(printed)
+            : PrintOrNull(condition);
 
     /// <inheritdoc />
     protected override string WrapEmbedded(string printedExpression) =>

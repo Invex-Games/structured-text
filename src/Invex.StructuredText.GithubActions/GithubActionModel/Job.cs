@@ -20,7 +20,7 @@ public sealed record Job
     /// <summary>
     ///     Ids of jobs that must complete successfully before this job runs (<c>needs</c>).
     /// </summary>
-    public IReadOnlyList<Template> Needs { get; init; } = [];
+    public IReadOnlyList<string> Needs { get; init; } = [];
 
     /// <summary>
     ///     A condition that must evaluate to true for the job to run (<c>if</c>).

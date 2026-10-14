@@ -513,9 +513,9 @@ public sealed class GithubActionWriter
             WritePermissions(permissions);
 
         if (job.Needs is { Count: > 0 } needs)
-            WriteProperty("needs", needs.Select(x => _printer.Render(x)));
+            WriteProperty("needs", needs);
 
-        if (_printer.PrintOrNull(job.If) is { Length: > 0 } condition)
+        if (_printer.PrintCondition(job.If) is { Length: > 0 } condition)
             WriteProperty("if", condition);
 
         if (job.RunsOn is { Group: null, Labels.Count: 1 })
@@ -689,7 +689,7 @@ public sealed class GithubActionWriter
         if (step.Id is { Length: > 0 } id)
             WriteSectionOrProperty("id", id);
 
-        if (_printer.PrintOrNull(step.If) is { Length: > 0 } condition)
+        if (_printer.PrintCondition(step.If) is { Length: > 0 } condition)
             WriteSectionOrProperty("if", condition);
 
         switch (step)
