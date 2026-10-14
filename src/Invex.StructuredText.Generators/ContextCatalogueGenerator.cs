@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,6 +18,9 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
 {
     private static readonly DiagnosticDescriptor InvalidLine = new("STG001", "Invalid context line",
         "Line {0} of {1} isn't 'path | type | summary': {2}", "Invex.StructuredText", DiagnosticSeverity.Error, true);
+
+    private static readonly DiagnosticDescriptor DuplicateName = new("STG002", "Duplicate context member name",
+        "{0} in {1} would generate the member name {2} twice", "Invex.StructuredText", DiagnosticSeverity.Error, true);
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -68,7 +71,10 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
 
                 for (var i = start; i < segments.Length; i++)
                 {
-                    var key = segments[i];
+                    // Top-level members are keyed by full path, so github.env and the env context stay distinct.
+                    var key = node == root
+                        ? string.Join(".", segments.Take(i + 1))
+                        : segments[i];
 
                     if (!node.Children.TryGetValue(key, out var child))
                         node.Children[key] = child = new(key, string.Join(".", segments.Take(i + 1)));
@@ -100,8 +106,28 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
 
             var records = new List<(string Name, Node Node)>();
 
+            // A root-context member whose name matches another context (github.env vs env, github.job vs job) is
+            // prefixed with the root's name: GitHubEnv, GitHubJob. Env and Job are the contexts themselves.
+            var rootPrefix = className.Substring(0, className.Length - "Contexts".Length);
+            var topLevelNames = root.Children.Values.Where(x => !x.Key.Contains('.')).Select(x => Pascal(x.Key)).ToList();
+            var emitted = new HashSet<string>(StringComparer.Ordinal) { "Context" };
+
             foreach (var child in root.Children.Values)
-                EmitMember(sb, "    ", Pascal(child.Key), child, className, isStatic: true, records);
+            {
+                var name = Pascal(child.Key.Substring(child.Key.LastIndexOf('.') + 1));
+
+                if (child.Key.Contains('.') && topLevelNames.Contains(name))
+                    name = rootPrefix + name;
+
+                if (!emitted.Add(name))
+                {
+                    spc.ReportDiagnostic(Diagnostic.Create(DuplicateName, Location.None, child.Path, fileName, name));
+
+                    continue;
+                }
+
+                EmitMember(sb, "    ", name, child, className, isStatic: true, records);
+            }
 
             sb.AppendLine("}");
 

@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.Expressions;
+﻿namespace Invex.StructuredText.Expressions;
 
 /// <summary>
 ///     The base type of the typed expression tree. Every node derives from one of the four result-typed roots:
@@ -251,11 +251,12 @@ public abstract record NumberExpr : Expr
 public abstract record JsonExpr : Expr
 {
     /// <summary>
-    ///     Accesses a property of this object.
+    ///     Accesses a property of this object. The name is a single key: it may contain dots or spaces, and the
+    ///     printer uses <c>['name']</c> syntax where <c>.name</c> isn't valid.
     /// </summary>
     /// <param name="property">The property name.</param>
     public JsonExpr this[string property] =>
-        this is IContextPath context
+        this is IContextPath context && ExpressionPrinter.IsDotAccessible(property)
             ? new JsonContext($"{context.Path}.{property}")
             : new MemberAccessExpr(this, property);
 

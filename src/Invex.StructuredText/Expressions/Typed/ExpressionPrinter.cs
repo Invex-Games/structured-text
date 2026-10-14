@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.Expressions;
+﻿namespace Invex.StructuredText.Expressions;
 
 /// <summary>
 ///     Renders typed expression trees (<see cref="Expr" />) and <see cref="Template" />s to platform syntax.
@@ -166,6 +166,33 @@ public abstract class ExpressionPrinter
         throw new NotSupportedException($"{GetType().Name} can't render {expression.GetType().Name}: {expression}");
 
     /// <summary>
+    ///     Precedence given to raw text that isn't a plain dotted path. It is the lowest, so raw text is
+    ///     parenthesized whenever it is nested inside an operator, and written verbatim when it stands alone.
+    /// </summary>
+    protected const int RawPrecedence = 0;
+
+    /// <summary>
+    ///     <see langword="true" /> when <paramref name="name" /> can be written with property dereference
+    ///     (<c>.name</c>): letters, digits, <c>_</c> and <c>-</c>, not starting with a digit or <c>-</c>.
+    /// </summary>
+    /// <param name="name">The property name.</param>
+    /// <returns>Whether dot syntax is valid for the name.</returns>
+    public static bool IsDotAccessible(string name) =>
+        name.Length > 0 &&
+        (char.IsAsciiLetter(name[0]) || name[0] is '_') &&
+        name.All(c => char.IsAsciiLetterOrDigit(c) || c is '_' or '-');
+
+    /// <summary>
+    ///     Renders a property access suffix: <c>.name</c> where valid, otherwise <c>['name']</c> with quotes escaped.
+    /// </summary>
+    /// <param name="name">The property name.</param>
+    /// <returns>The suffix to append to the target.</returns>
+    protected virtual string PrintMember(string name) =>
+        IsDotAccessible(name)
+            ? $".{name}"
+            : $"[{QuoteString(name)}]";
+
+    /// <summary>
     ///     Renders <paramref name="expression" />, adding parentheses when its precedence is below
     ///     <paramref name="minimumPrecedence" />.
     /// </summary>
@@ -190,12 +217,14 @@ public abstract class ExpressionPrinter
                 ? "true"
                 : "false", AtomPrecedence),
             NullLiteral => ("null", AtomPrecedence),
-            IRawExpr x => (x.Text, AtomPrecedence),
+            IRawExpr x => (x.Text, IsPlainPath(x.Text)
+                ? AtomPrecedence
+                : RawPrecedence),
             IContextPath x => (x.Path, AtomPrecedence),
             StringCast x => PrintNode(x.Operand),
             BoolCast x => PrintNode(x.Operand),
             NumberCast x => PrintNode(x.Operand),
-            MemberAccessExpr x => ($"{Print(x.Target, AtomPrecedence)}.{x.Property}", AtomPrecedence),
+            MemberAccessExpr x => ($"{Print(x.Target, AtomPrecedence)}{PrintMember(x.Property)}", AtomPrecedence),
             IndexAccessExpr x => ($"{Print(x.Target, AtomPrecedence)}[{Print(x.Index)}]", AtomPrecedence),
             ComparisonExpr x => PrintComparison(x),
             LogicalExpr x => PrintLogical(x),
@@ -207,6 +236,10 @@ public abstract class ExpressionPrinter
             ResultLiteral x => (PrintResult(x.Result), AtomPrecedence),
             _ => PrintOther(expression),
         };
+
+    // A dotted path such as github.event.forced is an atom; any other raw text might contain operators.
+    private static bool IsPlainPath(string text) =>
+        text.Length > 0 && text.Split('.').All(IsDotAccessible);
 
     private string PrintCall(string name, IReadOnlyList<Expr> arguments) =>
         $"{FunctionName(name)}({string.Join(", ", arguments.Select(x => Print(x)))})";

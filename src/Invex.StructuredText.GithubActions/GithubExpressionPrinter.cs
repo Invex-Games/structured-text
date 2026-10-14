@@ -29,7 +29,7 @@ public sealed class GithubExpressionPrinter : ExpressionPrinter
     ///     <see langword="null" />.</returns>
     [return: NotNullIfNotNull(nameof(condition))]
     public string? PrintCondition(BoolExpr? condition) =>
-        PrintOrNull(condition) is { } printed && printed.StartsWith('!')
+        PrintOrNull(condition) is { } printed && printed.TrimStart().StartsWith('!')
             ? WrapEmbedded(printed)
             : PrintOrNull(condition);
 
@@ -41,13 +41,13 @@ public sealed class GithubExpressionPrinter : ExpressionPrinter
     protected override string PrintReference(ReferenceExpr reference) =>
         reference switch
         {
-            SecretRef x => $"secrets{Member(x.Name)}",
-            VariableRef x => $"vars{Member(x.Name)}",
-            InputRef x => $"inputs{Member(x.Name)}",
-            MatrixRef x => $"matrix{Member(x.Name)}",
-            JobOutputRef x => $"needs{Member(x.Job)}.outputs{Member(x.Output)}",
-            StepOutputRef x => $"steps{Member(x.Step)}.outputs{Member(x.Output)}",
-            JobResultRef x => $"needs{Member(x.Job)}.result",
+            SecretRef x => $"secrets{PrintMember(x.Name)}",
+            VariableRef x => $"vars{PrintMember(x.Name)}",
+            InputRef x => $"inputs{PrintMember(x.Name)}",
+            MatrixRef x => $"matrix{PrintMember(x.Name)}",
+            JobOutputRef x => $"needs{PrintMember(x.Job)}.outputs{PrintMember(x.Output)}",
+            StepOutputRef x => $"steps{PrintMember(x.Step)}.outputs{PrintMember(x.Output)}",
+            JobResultRef x => $"needs{PrintMember(x.Job)}.result",
             _ => throw new NotSupportedException($"{nameof(GithubExpressionPrinter)} can't render {reference.GetType().Name}."),
         };
 
@@ -61,13 +61,4 @@ public sealed class GithubExpressionPrinter : ExpressionPrinter
             RunResult.Skipped => "'skipped'",
             _ => throw new ArgumentOutOfRangeException(nameof(result)),
         };
-
-    // Property dereference (`.name`) is allowed for names made of letters, digits, '_' and '-' that don't start with
-    // a digit or '-'; anything else uses index syntax (`['name']`).
-    private static string Member(string name) =>
-        name.Length > 0 &&
-        (char.IsAsciiLetter(name[0]) || name[0] is '_') &&
-        name.All(c => char.IsAsciiLetterOrDigit(c) || c is '_' or '-')
-            ? $".{name}"
-            : $"['{name.Replace("'", "''", StringComparison.Ordinal)}']";
 }

@@ -15,6 +15,54 @@ public class GithubExpressionPrinterTests
             .ShouldBe("${{ !contains(github.ref, '-') }}");
 
     [Test]
+    public void PrintCondition_LeadingWhitespaceThenNot_WrapsInDelimiters() =>
+        GithubExpressionPrinter.Instance.PrintCondition(BoolExpr.Raw(" !contains(github.ref, '-')"))
+            .ShouldBe("${{  !contains(github.ref, '-') }}");
+
+    [Test]
+    public void Catalogue_RootMembersDoNotCollideWithContexts()
+    {
+        Print(GitHubContexts.Env["NAME"]).ShouldBe("env.NAME");
+        Print(GitHubContexts.GitHubEnv).ShouldBe("github.env");
+        Print(GitHubContexts.Job.ToJson()).ShouldBe("toJSON(job)");
+        Print(GitHubContexts.GitHubJob).ShouldBe("github.job");
+    }
+
+    [Test]
+    public void Indexer_KeyThatIsNotAnIdentifier_UsesBracketSyntax()
+    {
+        Print(GitHubContexts.Matrix["1st dim"]).ShouldBe("matrix['1st dim']");
+        Print(GitHubContexts.Matrix["a.b"]).ShouldBe("matrix['a.b']");
+        Print(GitHubContexts.Matrix["it's"]).ShouldBe("matrix['it''s']");
+        Print(GitHubContexts.Matrix["build-slice"]).ShouldBe("matrix.build-slice");
+    }
+
+    [Test]
+    public void Indexer_OnParsedJson_UsesBracketSyntaxWhereNeeded()
+    {
+        Print(Fn.FromJson("{\"a.b\":1}")["a.b"]).ShouldBe("fromJSON('{\"a.b\":1}')['a.b']");
+        Print(Fn.FromJson(Ref.Variable("CONFIG"))["region"]).ShouldBe("fromJSON(vars.CONFIG).region");
+    }
+
+    [Test]
+    public void Raw_ComparisonUnderNot_IsParenthesized() =>
+        Print(!BoolExpr.Raw("github.ref == 'main'")).ShouldBe("!(github.ref == 'main')");
+
+    [Test]
+    public void Raw_OrUnderAnd_IsParenthesized() =>
+        Print(BoolExpr.Raw("a == 'x' || b == 'y'") && Status.Success())
+            .ShouldBe("(a == 'x' || b == 'y') && success()");
+
+    [Test]
+    public void Raw_PlainPath_StaysBare() =>
+        Print(!BoolExpr.Raw("github.event.forced") && Status.Success())
+            .ShouldBe("!github.event.forced && success()");
+
+    [Test]
+    public void Raw_Standalone_IsWrittenVerbatim() =>
+        Print(BoolExpr.Raw("a || b")).ShouldBe("a || b");
+
+    [Test]
     public void PrintCondition_NoLeadingNot_StaysBare() =>
         GithubExpressionPrinter.Instance.PrintCondition(GitHubContexts.Ref.Contains("-"))
             .ShouldBe("contains(github.ref, '-')");
@@ -115,9 +163,9 @@ public class GithubExpressionPrinterTests
             .ShouldBe("${{ matrix.os }}-x-${{ matrix.arch }}");
 
     [Test]
-    public void Raw_IsVerbatim() =>
+    public void Raw_ComparisonUnderAnd_IsParenthesized() =>
         Print(BoolExpr.Raw("github.event_name == 'push'") && Status.Success())
-            .ShouldBe("github.event_name == 'push' && success()");
+            .ShouldBe("(github.event_name == 'push') && success()");
 
     [Test]
     public void DescendantsAndSelf_FindsReferences() =>

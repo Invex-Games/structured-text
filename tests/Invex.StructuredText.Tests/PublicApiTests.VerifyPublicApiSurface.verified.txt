@@ -508,6 +508,9 @@
     Name: Invex.StructuredText.Expressions.ExpressionPrinter,
     Members: [
       {
+        Name: IsDotAccessible
+      },
+      {
         Name: Print
       },
       {

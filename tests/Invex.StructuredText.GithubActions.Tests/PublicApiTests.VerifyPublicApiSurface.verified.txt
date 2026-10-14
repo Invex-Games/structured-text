@@ -3159,6 +3159,12 @@
         Name: EventPath
       },
       {
+        Name: GitHubEnv
+      },
+      {
+        Name: GitHubJob
+      },
+      {
         Name: GraphqlUrl
       },
       {
