@@ -52,12 +52,24 @@ public static class CiWorkflowSample
                     },
                     Steps =
                     [
-                        new Step.UsesStep { Name = "Checkout", Uses = "actions/checkout@v6" },
+                        new Step.UsesStep
+                        {
+                            Name = "Checkout",
+                            Uses = "actions/checkout@v6",
+                            // GitVersion needs the full history.
+                            With = new Dictionary<string, Template> { ["fetch-depth"] = 0 },
+                        },
                         new Step.RunStep
                         {
                             Id = "version",
                             Name = "Compute version",
-                            Run = ["echo \"semver=$(dotnet gitversion /showvariable SemVer)\" >> \"$GITHUB_OUTPUT\""],
+                            // Assign first so a GitVersion failure fails the step (bash runs with -e).
+                            Run =
+                            [
+                                "dotnet tool install --global GitVersion.Tool",
+                                "semver=$(dotnet-gitversion /showvariable SemVer)",
+                                "echo \"semver=$semver\" >> \"$GITHUB_OUTPUT\"",
+                            ],
                         },
                     ],
                 },

@@ -95,10 +95,15 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Compute version
         id: version
-        run: echo "semver=$(dotnet gitversion /showvariable SemVer)" >> "$GITHUB_OUTPUT"
+        run: |
+          dotnet tool install --global GitVersion.Tool
+          semver=$(dotnet-gitversion /showvariable SemVer)
+          echo "semver=$semver" >> "$GITHUB_OUTPUT"
 
   test:
     needs: [ setup ]
