@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.GithubActions.GithubActionModel;
+﻿namespace Invex.StructuredText.GithubActions.GithubActionModel;
 
 /// <summary>
 ///     Runner image snapshot settings for a job (<c>snapshot</c>),
@@ -10,10 +10,10 @@ public sealed record Snapshot
     /// <summary>
     ///     The name of the image to create from the snapshot.
     /// </summary>
-    public required TextExpression ImageName { get; init; }
+    public required Template ImageName { get; init; }
 
     /// <summary>
     ///     The version to tag the snapshot image with.
     /// </summary>
-    public TextExpression? Version { get; init; }
+    public Template? Version { get; init; }
 }

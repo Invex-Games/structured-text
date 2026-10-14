@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.GithubActions.Tests;
+﻿namespace Invex.StructuredText.GithubActions.Tests;
 
 [TestFixture]
 internal sealed class GithubActionWriterJobTests
@@ -24,7 +24,7 @@ internal sealed class GithubActionWriterJobTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            Needs = [new RawExpression("other-job")],
+            Needs = ["other-job"],
         };
 
         var output = WriteJob(job);
@@ -36,7 +36,7 @@ internal sealed class GithubActionWriterJobTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            Needs = [new RawExpression("job1"), new RawExpression("job2")],
+            Needs = ["job1", "job2"],
         };
 
         var output = WriteJob(job);
@@ -57,7 +57,7 @@ internal sealed class GithubActionWriterJobTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            If = new RawExpression("github.event_name == 'push'"),
+            If = BoolExpr.Raw("github.event_name == 'push'"),
         };
 
         var output = WriteJob(job);
@@ -85,7 +85,7 @@ internal sealed class GithubActionWriterJobTests
         {
             RunsOn = new()
             {
-                Labels = [new RawExpression("self-hosted"), new RawExpression("linux")],
+                Labels = ["self-hosted", "linux"],
             },
         };
 
@@ -104,7 +104,7 @@ internal sealed class GithubActionWriterJobTests
             RunsOn = new()
             {
                 Labels = [],
-                Group = new RawExpression("my-runner-group"),
+                Group = "my-runner-group",
             },
         };
 
@@ -120,8 +120,8 @@ internal sealed class GithubActionWriterJobTests
         {
             Snapshot = new()
             {
-                ImageName = new RawExpression("my-image"),
-                Version = new RawExpression("1.0.0"),
+                ImageName = "my-image",
+                Version = "1.0.0",
             },
         };
 
@@ -138,7 +138,7 @@ internal sealed class GithubActionWriterJobTests
         {
             Snapshot = new()
             {
-                ImageName = new RawExpression("my-image"),
+                ImageName = "my-image",
             },
         };
 
@@ -153,8 +153,8 @@ internal sealed class GithubActionWriterJobTests
         {
             Environment = new()
             {
-                Name = new RawExpression("production"),
-                UrlValue = new RawExpression("https://example.com"),
+                Name = "production",
+                UrlValue = "https://example.com",
             },
         };
 
@@ -171,7 +171,7 @@ internal sealed class GithubActionWriterJobTests
         {
             Environment = new()
             {
-                Name = new RawExpression("staging"),
+                Name = "staging",
             },
         };
 
@@ -186,8 +186,8 @@ internal sealed class GithubActionWriterJobTests
         {
             Concurrency = new()
             {
-                Group = new RawExpression("${{ github.workflow }}-${{ github.ref }}"),
-                CancelInProgress = new BooleanExpression(true),
+                Group = "${{ github.workflow }}-${{ github.ref }}",
+                CancelInProgress = true,
             },
         };
 
@@ -201,9 +201,9 @@ internal sealed class GithubActionWriterJobTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            Outputs = new Dictionary<string, TextExpression>
+            Outputs = new Dictionary<string, Template>
             {
-                ["artifact-path"] = new RawExpression("${{ steps.build.outputs.path }}"),
+                ["artifact-path"] = "${{ steps.build.outputs.path }}",
             },
         };
 
@@ -217,9 +217,9 @@ internal sealed class GithubActionWriterJobTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            Env = new Dictionary<string, TextExpression>
+            Env = new Dictionary<string, Template>
             {
-                ["NODE_ENV"] = new RawExpression("production"),
+                ["NODE_ENV"] = "production",
             },
         };
 
@@ -233,7 +233,7 @@ internal sealed class GithubActionWriterJobTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            TimeoutMinutes = new NumberExpression(30),
+            TimeoutMinutes = 30,
         };
 
         var output = WriteJob(job);
@@ -249,9 +249,9 @@ internal sealed class GithubActionWriterJobTests
             {
                 Matrix = new()
                 {
-                    Map = new Dictionary<string, TextExpressionCollection>
+                    Map = new Dictionary<string, IReadOnlyList<Template>>
                     {
-                        ["os"] = new([new RawExpression("ubuntu-latest"), new RawExpression("windows-latest")]),
+                        ["os"] = ["ubuntu-latest", "windows-latest"],
                     },
                 },
             },
@@ -272,7 +272,7 @@ internal sealed class GithubActionWriterJobTests
         {
             Strategy = new()
             {
-                FailFast = new BooleanExpression(false),
+                FailFast = false,
                 Matrix = new(),
             },
         };
@@ -288,7 +288,7 @@ internal sealed class GithubActionWriterJobTests
         {
             Strategy = new()
             {
-                MaxParallel = new NumberExpression(2),
+                MaxParallel = 2,
                 Matrix = new(),
             },
         };
@@ -308,10 +308,10 @@ internal sealed class GithubActionWriterJobTests
                 {
                     Include =
                     [
-                        new Dictionary<string, TextExpression>
+                        new Dictionary<string, Template>
                         {
-                            ["os"] = new RawExpression("macos-latest"),
-                            ["version"] = new RawExpression("14"),
+                            ["os"] = "macos-latest",
+                            ["version"] = "14",
                         },
                     ],
                 },
@@ -330,7 +330,7 @@ internal sealed class GithubActionWriterJobTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            ContinueOnError = new BooleanExpression(true),
+            ContinueOnError = true,
         };
 
         var output = WriteJob(job);
@@ -344,7 +344,7 @@ internal sealed class GithubActionWriterJobTests
         {
             Container = new()
             {
-                Image = new RawExpression("node:18"),
+                Image = "node:18",
             },
         };
 
@@ -360,11 +360,11 @@ internal sealed class GithubActionWriterJobTests
         {
             Container = new()
             {
-                Image = new RawExpression("ghcr.io/my/image"),
+                Image = "ghcr.io/my/image",
                 Credentials = new()
                 {
-                    Username = new RawExpression("${{ github.actor }}"),
-                    Password = new RawExpression("${{ secrets.GITHUB_TOKEN }}"),
+                    Username = "${{ github.actor }}",
+                    Password = "${{ secrets.GITHUB_TOKEN }}",
                 },
             },
         };
@@ -382,8 +382,8 @@ internal sealed class GithubActionWriterJobTests
         {
             Container = new()
             {
-                Image = new RawExpression("redis"),
-                Ports = [new RawExpression("6379")],
+                Image = "redis",
+                Ports = ["6379"],
             },
         };
 
@@ -401,7 +401,7 @@ internal sealed class GithubActionWriterJobTests
             {
                 ["redis"] = new()
                 {
-                    Image = new RawExpression("redis:6"),
+                    Image = "redis:6",
                 },
             },
         };

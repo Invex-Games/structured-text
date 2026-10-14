@@ -1,4 +1,4 @@
-using Environment = System.Environment;
+﻿using Environment = System.Environment;
 
 namespace Invex.StructuredText.GithubActions.Tests;
 
@@ -22,7 +22,7 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
+            Uses = "actions/checkout@v4",
         };
 
         var output = WriteStep(step);
@@ -34,8 +34,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Name = new RawExpression("Checkout"),
-            Uses = new RawExpression("actions/checkout@v4"),
+            Name = "Checkout",
+            Uses = "actions/checkout@v4",
         };
 
         var output = WriteStep(step);
@@ -49,7 +49,7 @@ internal sealed class GithubActionWriterStepTests
         var step = new Step.UsesStep
         {
             Id = "my-step",
-            Uses = new RawExpression("actions/checkout@v4"),
+            Uses = "actions/checkout@v4",
         };
 
         var output = WriteStep(step);
@@ -61,8 +61,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            If = new RawExpression("github.event_name == 'push'"),
-            Uses = new RawExpression("actions/checkout@v4"),
+            If = BoolExpr.Raw("github.event_name == 'push'"),
+            Uses = "actions/checkout@v4",
         };
 
         var output = WriteStep(step);
@@ -74,11 +74,11 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/setup-node@v4"),
-            With = new Dictionary<string, TextExpressionCollection>
+            Uses = "actions/setup-node@v4",
+            With = new Dictionary<string, Template>
             {
-                ["node-version"] = new([new RawExpression("20")]),
-                ["cache"] = new([new RawExpression("npm")]),
+                ["node-version"] = "20",
+                ["cache"] = "npm",
             },
         };
 
@@ -93,10 +93,10 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("my/action@v1"),
-            With = new Dictionary<string, TextExpressionCollection>
+            Uses = "my/action@v1",
+            With = new Dictionary<string, Template>
             {
-                ["arg"] = new([new RawExpression("line1"), new RawExpression("line2")]),
+                ["arg"] = "line1\nline2",
             },
         };
 
@@ -110,10 +110,10 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            Env = new Dictionary<string, TextExpression>
+            Uses = "actions/checkout@v4",
+            Env = new Dictionary<string, Template>
             {
-                ["MY_TOKEN"] = new RawExpression("${{ secrets.TOKEN }}"),
+                ["MY_TOKEN"] = "${{ secrets.TOKEN }}",
             },
         };
 
@@ -127,8 +127,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            WorkingDirectory = new RawExpression("./src"),
+            Uses = "actions/checkout@v4",
+            WorkingDirectory = "./src",
         };
 
         var output = WriteStep(step);
@@ -140,8 +140,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            ContinueOnError = new BooleanExpression(true),
+            Uses = "actions/checkout@v4",
+            ContinueOnError = true,
         };
 
         var output = WriteStep(step);
@@ -153,8 +153,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            TimeoutMinutes = new NumberExpression(5),
+            Uses = "actions/checkout@v4",
+            TimeoutMinutes = 5,
         };
 
         var output = WriteStep(step);
@@ -166,7 +166,7 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("echo hello")],
+            Run = ["echo hello"],
         };
 
         var output = WriteStep(step);
@@ -178,7 +178,7 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("echo line1"), new RawExpression("echo line2")],
+            Run = ["echo line1", "echo line2"],
         };
 
         var output = WriteStep(step);
@@ -192,8 +192,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("echo hello")],
-            Shell = new RawExpression("pwsh"),
+            Run = ["echo hello"],
+            Shell = "pwsh",
         };
 
         var output = WriteStep(step);
@@ -205,8 +205,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Name = new RawExpression("Run tests"),
-            Run = [new RawExpression("dotnet test")],
+            Name = "Run tests",
+            Run = ["dotnet test"],
         };
 
         var output = WriteStep(step);
@@ -223,8 +223,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("npm install")],
-            WorkingDirectory = new RawExpression("./frontend"),
+            Run = ["npm install"],
+            WorkingDirectory = "./frontend",
         };
 
         var output = WriteStep(step);
@@ -236,10 +236,10 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("echo $MY_VAR")],
-            Env = new Dictionary<string, TextExpression>
+            Run = ["echo $MY_VAR"],
+            Env = new Dictionary<string, Template>
             {
-                ["MY_VAR"] = new RawExpression("hello"),
+                ["MY_VAR"] = "hello",
             },
         };
 
@@ -253,8 +253,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("exit 1")],
-            ContinueOnError = new BooleanExpression(true),
+            Run = ["exit 1"],
+            ContinueOnError = true,
         };
 
         var output = WriteStep(step);
@@ -266,8 +266,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("npm test")],
-            TimeoutMinutes = new NumberExpression(10),
+            Run = ["npm test"],
+            TimeoutMinutes = 10,
         };
 
         var output = WriteStep(step);
@@ -283,11 +283,11 @@ internal sealed class GithubActionWriterStepTests
             [
                 new Step.UsesStep
                 {
-                    Uses = new RawExpression("actions/checkout@v4"),
+                    Uses = "actions/checkout@v4",
                 },
                 new Step.RunStep
                 {
-                    Run = [new RawExpression("echo hello")],
+                    Run = ["echo hello"],
                 },
             ],
         };
@@ -310,10 +310,10 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            With = new Dictionary<string, TextExpressionCollection>
+            Uses = "actions/checkout@v4",
+            With = new Dictionary<string, Template>
             {
-                ["key"] = new([new RawExpression("value: with colon")]),
+                ["key"] = "value: with colon",
             },
         };
 
