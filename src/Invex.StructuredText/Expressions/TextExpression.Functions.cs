@@ -197,7 +197,7 @@ public sealed record CoalesceExpression(params TextExpression[] Source) : TextEx
 
         for (var i = 0; i < Source.Length; i++)
         {
-            if (i < Source.Length - 1)
+            if (i > 0)
                 builder.Append(", ");
 
             builder.Append(Source[i]);
@@ -259,7 +259,7 @@ public sealed record FormatExpression(TextExpression Source, params TextExpressi
 
         for (var i = 0; i < Arguments.Length; i++)
         {
-            if (i < Arguments.Length - 1)
+            if (i > 0)
                 builder.Append(", ");
 
             builder.Append(Arguments[i]);
