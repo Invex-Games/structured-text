@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
+    <PackageDescription>Strongly-typed C# models for generating Azure DevOps Pipelines YAML</PackageDescription>
   </PropertyGroup>
 
   <ItemGroup>

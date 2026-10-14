@@ -1,6 +1,13 @@
 <Project>
     <ItemGroup>
         <Using Include="Invex.StructuredText.AzureDevopsPipelines" Global="true"/>
-        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel" Global="true"/>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs" Global="true"/>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline" Global="true"/>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources" Global="true"/>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Stages" Global="true"/>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps" Global="true"/>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting" Global="true"/>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers" Global="true"/>
+        <Using Include="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables" Global="true"/>
     </ItemGroup>
 </Project>
