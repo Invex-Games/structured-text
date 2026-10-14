@@ -492,4 +492,37 @@ internal sealed class GithubActionWriterOnTests
         // push (P) comes before workflow_dispatch (W) alphabetically
         pushIdx.ShouldBeLessThan(wdIdx);
     }
+
+    [Test]
+    public void WriteOn_Issues_WithTypes_WritesTypesAsSequence()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.Issues([On.Issues.IssuesType.opened, On.Issues.IssuesType.closed]),
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain(GithubActionWriterHelper.JoinLines("  issues:", "    types: [ opened, closed ]"));
+    }
+
+    [Test]
+    public void WriteOn_IssueComment_WithTypes_WritesTypesAsSequence()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.IssueComment([On.IssueComment.IssueCommentType.created, On.IssueComment.IssueCommentType.edited]),
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain(GithubActionWriterHelper.JoinLines("  issue_comment:", "    types: [ created, edited ]"));
+    }
+
+    [Test]
+    public void WriteOn_Label_WithTypes_WritesTypesAsSequence()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.Label([On.Label.LabelType.created, On.Label.LabelType.edited]),
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain(GithubActionWriterHelper.JoinLines("  label:", "    types: [ created, edited ]"));
+    }
 }
