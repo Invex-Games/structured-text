@@ -740,7 +740,7 @@ public sealed class GithubActionWriter
                 switch (valueArray.Length)
                 {
                     case 0:
-                        WriteProperty(valueName, "''");
+                        WriteProperty(valueName, string.Empty);
 
                         break;
 
@@ -761,7 +761,7 @@ public sealed class GithubActionWriter
             switch (valueArray.Length)
             {
                 case 0:
-                    section = WriteSection($"- {valueName}", "''");
+                    section = WriteSection($"- {valueName}", string.Empty);
 
                     break;
 
@@ -771,11 +771,11 @@ public sealed class GithubActionWriter
                     break;
 
                 default:
-                    section = WriteSection($"- {valueName}", "|");
+                    section = TextWriter.WriteSection($"- {valueName}: |");
 
                     // Literal block lines are written as-is: quoting them would change the script.
                     using (TextWriter.WriteSection(string.Empty))
-                        foreach (var line in valueArray.SelectMany(x => x.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries)))
+                        foreach (var line in valueArray.SelectMany(SplitLines))
                             TextWriter.WriteLine(line);
 
                     break;
@@ -792,7 +792,7 @@ public sealed class GithubActionWriter
 
     private void WriteProperty(string key, string value)
     {
-        var lines = value.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries);
+        var lines = SplitLines(value);
 
         switch (lines.Length)
         {
@@ -830,7 +830,28 @@ public sealed class GithubActionWriter
                     TextWriter.WriteLine($"- {Format(value)}");
     }
 
+    // Splits on line breaks, keeping blank lines inside the text (they matter in scripts and here-documents) but
+    // dropping trailing ones.
+    private static string[] SplitLines(string value)
+    {
+        var lines = value
+            .Replace("\r\n", "\n", StringComparison.Ordinal)
+            .Replace('\r', '\n')
+            .Split('\n');
+
+        var count = lines.Length;
+
+        while (count > 0 && lines[count - 1].Length == 0)
+            count--;
+
+        return lines[..count];
+    }
+
     private static string Format(string value) =>
+
+        // A leading character YAML treats as syntax (tag, anchor, alias, quote, flow collection, block scalar, ...)
+        GithubExpressionPrinter.StartsWithYamlIndicator(value) ||
+        value != value.Trim() ||
 
         // Standalone disallowed tokens
         value.Contains(" #") ||

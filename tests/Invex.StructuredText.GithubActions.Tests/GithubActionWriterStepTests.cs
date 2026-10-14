@@ -204,6 +204,33 @@ internal sealed class GithubActionWriterStepTests
     }
 
     [Test]
+    public void WriteStep_RunStep_BlankLinesInScript_ArePreserved()
+    {
+        Template[] script = ["cat > notes.txt <<'EOF'", "first", "", "third", "EOF"];
+
+        var first = WriteStep(new Step.RunStep { Run = script });
+        var afterName = WriteStep(new Step.RunStep { Name = "Write notes", Run = script });
+
+        foreach (var output in new[] { first, afterName })
+        {
+            var lines = output.Replace("\r\n", "\n").Split('\n').Select(x => x.Trim()).ToList();
+            var start = lines.IndexOf("first");
+            lines[start + 1].ShouldBe(string.Empty);
+            lines[start + 2].ShouldBe("third");
+        }
+    }
+
+    [Test]
+    public void WriteStep_RunStep_SingleMultilineEntryAfterName_PreservesBlankLines()
+    {
+        var output = WriteStep(new Step.RunStep { Name = "Script", Run = ["echo a\n\necho b"] });
+
+        output.ShouldContain("run: |");
+        var lines = output.Replace("\r\n", "\n").Split('\n').Select(x => x.Trim()).ToList();
+        lines[lines.IndexOf("echo a") + 1].ShouldBe(string.Empty);
+    }
+
+    [Test]
     public void WriteStep_RunStep_WithShell_WritesShellProperty()
     {
         var step = new Step.RunStep

@@ -63,6 +63,11 @@ public class GithubExpressionPrinterTests
         Print(BoolExpr.Raw("a || b")).ShouldBe("a || b");
 
     [Test]
+    public void PrintCondition_LiteralFirst_WrapsInDelimiters() =>
+        GithubExpressionPrinter.Instance.PrintCondition(((StringExpr)"main").Eq(GitHubContexts.Ref))
+            .ShouldBe("${{ 'main' == github.ref }}");
+
+    [Test]
     public void PrintCondition_NoLeadingNot_StaysBare() =>
         GithubExpressionPrinter.Instance.PrintCondition(GitHubContexts.Ref.Contains("-"))
             .ShouldBe("contains(github.ref, '-')");

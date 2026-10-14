@@ -65,6 +65,18 @@ internal sealed class GithubActionWriterJobTests
     }
 
     [Test]
+    public void WriteJob_WithLiteralFirstIf_WritesValidYaml()
+    {
+        var job = GithubActionWriterHelper.MinimalJob() with
+        {
+            If = ((StringExpr)"main").Eq(GitHubContexts.Ref),
+        };
+
+        var output = WriteJob(job);
+        output.ShouldContain("if: ${{ 'main' == github.ref }}");
+    }
+
+    [Test]
     public void WriteJob_WithNoIf_DoesNotWriteIfProperty()
     {
         var output = WriteJob(GithubActionWriterHelper.MinimalJob());
