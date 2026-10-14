@@ -119,7 +119,7 @@ var config = new DependabotConfig
     [
         new DependabotUpdate
         {
-            PackageEcosystem = "nuget",
+            PackageEcosystem = PackageEcosystem.Nuget.ToYamlValue(),
             Directory = "/",
             Schedule = new() { Interval = ScheduleInterval.Weekly },
         },

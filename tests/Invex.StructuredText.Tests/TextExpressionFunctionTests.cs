@@ -279,4 +279,28 @@ internal sealed class TextExpressionFunctionTests
         result[4]
             .ShouldBe(new RawExpression("z"));
     }
+
+    [Test]
+    public void Coalesce_ToString_ListsOperandsWithoutStraySeparator()
+    {
+        var a = new RawExpression("a");
+        var b = new RawExpression("b");
+        var c = new RawExpression("c");
+
+        new CoalesceExpression(a, b, c)
+            .ToString()
+            .ShouldBe($"CoalesceExpression {{ [ {a}, {b}, {c} ] }}");
+    }
+
+    [Test]
+    public void Format_ToString_ListsArgumentsWithoutStraySeparator()
+    {
+        var source = new StringExpression("{0}-{1}");
+        var a = new RawExpression("a");
+        var b = new RawExpression("b");
+
+        new FormatExpression(source, a, b)
+            .ToString()
+            .ShouldBe($"FormatExpression {{ {source}, [ {a}, {b} ] }}");
+    }
 }

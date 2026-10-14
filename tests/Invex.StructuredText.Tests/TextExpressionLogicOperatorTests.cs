@@ -210,4 +210,24 @@ internal sealed class TextExpressionLogicOperatorTests
 
         expr.Right.ShouldBe(new StringExpression("str"));
     }
+
+    [Test]
+    public void And_ToString_ListsOperandsWithoutStraySeparator()
+    {
+        var expr = new AndExpression(A, B, C);
+
+        expr
+            .ToString()
+            .ShouldBe($"AndExpression {{ [ {A}, {B}, {C} ] }}");
+    }
+
+    [Test]
+    public void Or_ToString_ListsOperandsWithoutStraySeparator()
+    {
+        var expr = new OrExpression(A, B, C);
+
+        expr
+            .ToString()
+            .ShouldBe($"OrExpression {{ [ {A}, {B}, {C} ] }}");
+    }
 }

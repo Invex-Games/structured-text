@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
+    <PackageDescription>Strongly-typed C# models for generating GitHub Actions workflows and Dependabot configurations as YAML</PackageDescription>
   </PropertyGroup>
 
   <ItemGroup>

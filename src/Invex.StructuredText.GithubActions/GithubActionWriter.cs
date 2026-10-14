@@ -292,31 +292,31 @@ public sealed class GithubActionWriter
 
                 case On.IssueComment issueComment:
                     using (TextWriter.WriteSection("issue_comment:"))
-                        WriteProperty("types", string.Join(", ", issueComment.Types.Select(x => x.ToString())));
+                        WriteProperty("types", issueComment.Types.Select(x => x.ToString()));
 
                     break;
 
                 case On.Issues issues:
                     using (TextWriter.WriteSection("issues:"))
-                        WriteProperty("types", string.Join(", ", issues.Types.Select(x => x.ToString())));
+                        WriteProperty("types", issues.Types.Select(x => x.ToString()));
 
                     break;
 
                 case On.Label label:
                     using (TextWriter.WriteSection("label:"))
-                        WriteProperty("types", string.Join(", ", label.Types.Select(x => x.ToString())));
+                        WriteProperty("types", label.Types.Select(x => x.ToString()));
 
                     break;
 
                 case On.MergeGroup mergeGroup:
                     using (TextWriter.WriteSection("merge_group:"))
-                        WriteProperty("types", string.Join(", ", mergeGroup.Types.Select(x => x.ToString())));
+                        WriteProperty("types", mergeGroup.Types.Select(x => x.ToString()));
 
                     break;
 
                 case On.Milestone milestone:
                     using (TextWriter.WriteSection("milestone:"))
-                        WriteProperty("types", string.Join(", ", milestone.Types.Select(x => x.ToString())));
+                        WriteProperty("types", milestone.Types.Select(x => x.ToString()));
 
                     break;
 
@@ -333,13 +333,13 @@ public sealed class GithubActionWriter
 
                 case On.ProjectCard projectCard:
                     using (TextWriter.WriteSection("project_card:"))
-                        WriteProperty("types", string.Join(", ", projectCard.Types.Select(x => x.ToString())));
+                        WriteProperty("types", projectCard.Types.Select(x => x.ToString()));
 
                     break;
 
                 case On.ProjectColumn projectColumn:
                     using (TextWriter.WriteSection("project_column:"))
-                        WriteProperty("types", string.Join(", ", projectColumn.Types.Select(x => x.ToString())));
+                        WriteProperty("types", projectColumn.Types.Select(x => x.ToString()));
 
                     break;
 

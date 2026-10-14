@@ -1,7 +1,7 @@
 <Project>
     <ItemGroup>
         <Using Include="Invex.StructuredText.GithubActions" Global="true"/>
-        <Using Include="Invex.StructuredText.GithubActions.DependabotConfigModel" Global="true"/>
+        <Using Include="Invex.StructuredText.GithubActions.DependabotConfigModel.Model" Global="true"/>
         <Using Include="Invex.StructuredText.GithubActions.GithubActionModel" Global="true"/>
     </ItemGroup>
 </Project>

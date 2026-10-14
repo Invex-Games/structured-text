@@ -191,7 +191,7 @@ public sealed record AndExpression(params TextExpression[] Source) : TextExpress
 
         for (var i = 0; i < Source.Length; i++)
         {
-            if (i < Source.Length - 1)
+            if (i > 0)
                 builder.Append(", ");
 
             builder.Append(Source[i]);
@@ -226,7 +226,7 @@ public sealed record OrExpression(params TextExpression[] Source) : TextExpressi
 
         for (var i = 0; i < Source.Length; i++)
         {
-            if (i < Source.Length - 1)
+            if (i > 0)
                 builder.Append(", ");
 
             builder.Append(Source[i]);

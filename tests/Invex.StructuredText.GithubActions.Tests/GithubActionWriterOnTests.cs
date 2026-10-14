@@ -106,7 +106,7 @@ internal sealed class GithubActionWriterOnTests
     public void WriteOn_PullRequest_WithTypes_WritesTypes()
     {
         var action = GithubActionWriterHelper.MinimalAction([
-            new On.PullRequest([On.PullRequest.PullRequestType.opened, On.PullRequest.PullRequestType.synchronized])
+            new On.PullRequest([On.PullRequest.PullRequestType.opened, On.PullRequest.PullRequestType.synchronize])
             {
                 Branches = null,
                 BranchesIgnore = null,
@@ -121,7 +121,27 @@ internal sealed class GithubActionWriterOnTests
         output.ShouldContain("pull_request:");
         output.ShouldContain("types:");
         output.ShouldContain("opened");
-        output.ShouldContain("synchronized");
+        output.ShouldContain("synchronize");
+        output.ShouldNotContain("synchronized");
+    }
+
+    [Test]
+    public void WriteOn_CheckRun_WithDocumentedTypes_WritesTypes()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.CheckRun([
+                On.CheckRun.CheckRunType.created,
+                On.CheckRun.CheckRunType.rerequested,
+                On.CheckRun.CheckRunType.completed,
+                On.CheckRun.CheckRunType.requested_action,
+            ]),
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain("check_run:");
+        output.ShouldContain("rerequested");
+        output.ShouldContain("completed");
+        output.ShouldContain("requested_action");
     }
 
     [Test]
@@ -397,7 +417,7 @@ internal sealed class GithubActionWriterOnTests
         ]);
 
         var output = GithubActionWriterHelper.Write(action);
-        output.ShouldContain("merge_group:");
+        output.ShouldContain(GithubActionWriterHelper.JoinLines("  merge_group:", "    types: [ checks_requested ]"));
     }
 
     [Test]
@@ -471,5 +491,52 @@ internal sealed class GithubActionWriterOnTests
 
         // push (P) comes before workflow_dispatch (W) alphabetically
         pushIdx.ShouldBeLessThan(wdIdx);
+    }
+
+    [Test]
+    public void WriteOn_Issues_WithTypes_WritesTypesAsSequence()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.Issues([On.Issues.IssuesType.opened, On.Issues.IssuesType.closed]),
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain(GithubActionWriterHelper.JoinLines("  issues:", "    types: [ opened, closed ]"));
+    }
+
+    [Test]
+    public void WriteOn_IssueComment_WithTypes_WritesTypesAsSequence()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.IssueComment([On.IssueComment.IssueCommentType.created, On.IssueComment.IssueCommentType.edited]),
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain(GithubActionWriterHelper.JoinLines("  issue_comment:", "    types: [ created, edited ]"));
+    }
+
+    [Test]
+    public void WriteOn_Label_WithTypes_WritesTypesAsSequence()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.Label([On.Label.LabelType.created, On.Label.LabelType.edited, On.Label.LabelType.deleted]),
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain(GithubActionWriterHelper.JoinLines("  label:", "    types: [ created, edited, deleted ]"));
+    }
+
+    [Test]
+    public void WriteOn_PullRequestTarget_WithSynchronize_WritesTypesAsSequence()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.PullRequestTarget([
+                On.PullRequestTarget.PullRequestTargetType.opened,
+                On.PullRequestTarget.PullRequestTargetType.synchronize,
+            ]),
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain(GithubActionWriterHelper.JoinLines("  pull_request_target:", "    types: [ opened, synchronize ]"));
     }
 }

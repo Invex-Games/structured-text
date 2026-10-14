@@ -5,7 +5,8 @@ namespace Invex.StructuredText.GithubActions.DependabotConfigModel.Model;
 /// </summary>
 /// <remarks>
 ///     <see cref="DependabotUpdate.PackageEcosystem" /> takes the YAML string directly; each member's documentation
-///     gives the <c>package-ecosystem</c> value to use.
+///     gives the <c>package-ecosystem</c> value to use, and
+///     <see cref="PackageEcosystemExtensions.ToYamlValue" /> converts a member to that value.
 /// </remarks>
 [PublicAPI]
 [SuppressMessage("ReSharper", "InconsistentNaming")]

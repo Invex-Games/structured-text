@@ -1076,6 +1076,14 @@
     ]
   },
   {
+    Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.PackageEcosystemExtensions,
+    Members: [
+      {
+        Name: ToYamlValue
+      }
+    ]
+  },
+  {
     Name: Invex.StructuredText.GithubActions.DependabotConfigModel.Model.RebaseStrategy,
     Members: [
       {

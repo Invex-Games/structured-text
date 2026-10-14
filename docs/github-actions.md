@@ -48,7 +48,7 @@ On =
     },
 
     // Pull requests
-    new On.PullRequest([On.PullRequest.PullRequestType.opened, On.PullRequest.PullRequestType.synchronized])
+    new On.PullRequest([On.PullRequest.PullRequestType.opened, On.PullRequest.PullRequestType.synchronize])
     {
         Branches = ["main"],
         BranchesIgnore = null,
