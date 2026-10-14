@@ -801,7 +801,7 @@ public sealed class GithubActionWriter
 
                 break;
             case 1:
-                TextWriter.WriteLine($"{key}: {Format(value)}");
+                TextWriter.WriteLine($"{key}: {Format(lines[0])}");
 
                 break;
 

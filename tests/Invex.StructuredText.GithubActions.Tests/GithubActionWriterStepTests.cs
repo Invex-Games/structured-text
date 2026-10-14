@@ -231,6 +231,14 @@ internal sealed class GithubActionWriterStepTests
     }
 
     [Test]
+    public void WriteStep_RunStep_SingleLineWithTrailingNewlineAfterName_WritesOneLine()
+    {
+        var output = WriteStep(new Step.RunStep { Name = "Build", Run = ["echo hello\n"] });
+
+        output.ShouldContain("run: echo hello" + Environment.NewLine);
+    }
+
+    [Test]
     public void WriteStep_RunStep_WithShell_WritesShellProperty()
     {
         var step = new Step.RunStep
