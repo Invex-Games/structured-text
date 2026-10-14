@@ -28,5 +28,8 @@ public sealed record DependabotCommitMessage
 [PublicAPI]
 public enum CommitMessageInclude
 {
+    /// <summary>
+    ///     Appends the dependency type (<c>deps</c> or <c>deps-dev</c>) after the prefix (<c>scope</c>).
+    /// </summary>
     Scope,
 }

@@ -18,7 +18,18 @@ public sealed record DependabotPullRequestBranchName
 [PublicAPI]
 public enum BranchNameSeparator
 {
+    /// <summary>
+    ///     Separates branch name parts with a hyphen (<c>-</c>).
+    /// </summary>
     Hyphen,
+
+    /// <summary>
+    ///     Separates branch name parts with an underscore (<c>_</c>).
+    /// </summary>
     Underscore,
+
+    /// <summary>
+    ///     Separates branch name parts with a forward slash (<c>/</c>), the Dependabot default.
+    /// </summary>
     Slash,
 }

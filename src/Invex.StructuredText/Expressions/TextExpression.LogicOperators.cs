@@ -176,6 +176,12 @@ public sealed record NotExpression(TextExpression Source) : TextExpression, ITex
 [PublicAPI]
 public sealed record AndExpression(params TextExpression[] Source) : TextExpression, ITextExpression<bool>
 {
+    /// <summary>
+    ///     Appends the expression's operands to <paramref name="builder" /> so that <see cref="object.ToString" />
+    ///     lists the array elements instead of the array type name.
+    /// </summary>
+    /// <param name="builder">The builder that receives the record's members.</param>
+    /// <returns><see langword="true" />, because members are always appended.</returns>
     protected override bool PrintMembers(StringBuilder builder)
     {
         if (base.PrintMembers(builder))
@@ -205,6 +211,12 @@ public sealed record AndExpression(params TextExpression[] Source) : TextExpress
 [PublicAPI]
 public sealed record OrExpression(params TextExpression[] Source) : TextExpression, ITextExpression<bool>
 {
+    /// <summary>
+    ///     Appends the expression's operands to <paramref name="builder" /> so that <see cref="object.ToString" />
+    ///     lists the array elements instead of the array type name.
+    /// </summary>
+    /// <param name="builder">The builder that receives the record's members.</param>
+    /// <returns><see langword="true" />, because members are always appended.</returns>
     protected override bool PrintMembers(StringBuilder builder)
     {
         if (base.PrintMembers(builder))

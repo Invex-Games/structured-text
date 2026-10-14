@@ -24,8 +24,19 @@ public partial record On
         [PublicAPI]
         public enum BranchProtectionType
         {
+            /// <summary>
+            ///     Runs when a branch protection rule is created.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when a branch protection rule is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a branch protection rule is deleted.
+            /// </summary>
             deleted,
         }
     }
@@ -43,8 +54,23 @@ public partial record On
         [PublicAPI]
         public enum CheckRunType
         {
+            /// <summary>
+            ///     Runs when a new check run is created.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Emits the <c>edited</c> activity type. GitHub does not document <c>edited</c> for the
+            ///     <c>check_run</c> event (documented types: <c>created</c>, <c>rerequested</c>, <c>completed</c>,
+            ///     <c>requested_action</c>), so a workflow filtered on it may never run.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Emits the <c>deleted</c> activity type. GitHub does not document <c>deleted</c> for the
+            ///     <c>check_run</c> event (documented types: <c>created</c>, <c>rerequested</c>, <c>completed</c>,
+            ///     <c>requested_action</c>), so a workflow filtered on it may never run.
+            /// </summary>
             deleted,
         }
     }
@@ -62,6 +88,9 @@ public partial record On
         [PublicAPI]
         public enum CheckSuiteType
         {
+            /// <summary>
+            ///     Runs when all check runs in a check suite have completed.
+            /// </summary>
             completed,
         }
     }
@@ -103,18 +132,69 @@ public partial record On
         [PublicAPI]
         public enum DiscussionType
         {
+            /// <summary>
+            ///     Runs when a discussion is created.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when the title or body of a discussion is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a discussion is deleted.
+            /// </summary>
             deleted,
+
+            /// <summary>
+            ///     Runs when a discussion is transferred to another repository.
+            /// </summary>
             transferred,
+
+            /// <summary>
+            ///     Runs when a discussion is pinned.
+            /// </summary>
             pinned,
+
+            /// <summary>
+            ///     Runs when a discussion is unpinned.
+            /// </summary>
             unpinned,
+
+            /// <summary>
+            ///     Runs when a label is added to a discussion.
+            /// </summary>
             labeled,
+
+            /// <summary>
+            ///     Runs when a label is removed from a discussion.
+            /// </summary>
             unlabeled,
+
+            /// <summary>
+            ///     Runs when a discussion is locked.
+            /// </summary>
             locked,
+
+            /// <summary>
+            ///     Runs when a discussion is unlocked.
+            /// </summary>
             unlocked,
+
+            /// <summary>
+            ///     Runs when a discussion is moved to a different category.
+            /// </summary>
             category_changed,
+
+            /// <summary>
+            ///     Runs when a comment on a discussion is marked as the answer.
+            /// </summary>
             answered,
+
+            /// <summary>
+            ///     Runs when a comment is unmarked as the answer to a discussion.
+            /// </summary>
             unanswered,
         }
     }
@@ -132,8 +212,19 @@ public partial record On
         [PublicAPI]
         public enum DiscussionCommentType
         {
+            /// <summary>
+            ///     Runs when a comment on a discussion is created.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when a comment on a discussion is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a comment on a discussion is deleted.
+            /// </summary>
             deleted,
         }
     }
@@ -180,8 +271,19 @@ public partial record On
         [PublicAPI]
         public enum IssueCommentType
         {
+            /// <summary>
+            ///     Runs when a comment on an issue or pull request is created.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when a comment on an issue or pull request is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a comment on an issue or pull request is deleted.
+            /// </summary>
             deleted,
         }
     }
@@ -199,23 +301,94 @@ public partial record On
         [PublicAPI]
         public enum IssuesType
         {
+            /// <summary>
+            ///     Runs when an issue is opened.
+            /// </summary>
             opened,
+
+            /// <summary>
+            ///     Runs when the title or body of an issue is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when an issue is deleted.
+            /// </summary>
             deleted,
+
+            /// <summary>
+            ///     Runs when an issue is transferred to another repository.
+            /// </summary>
             transferred,
+
+            /// <summary>
+            ///     Runs when an issue is pinned.
+            /// </summary>
             pinned,
+
+            /// <summary>
+            ///     Runs when an issue is unpinned.
+            /// </summary>
             unpinned,
+
+            /// <summary>
+            ///     Runs when an issue is closed.
+            /// </summary>
             closed,
+
+            /// <summary>
+            ///     Runs when a closed issue is reopened.
+            /// </summary>
             reopened,
+
+            /// <summary>
+            ///     Runs when an issue is assigned to a user.
+            /// </summary>
             assigned,
+
+            /// <summary>
+            ///     Runs when a user is unassigned from an issue.
+            /// </summary>
             unassigned,
+
+            /// <summary>
+            ///     Runs when a label is added to an issue.
+            /// </summary>
             labeled,
+
+            /// <summary>
+            ///     Runs when a label is removed from an issue.
+            /// </summary>
             unlabeled,
+
+            /// <summary>
+            ///     Runs when conversation on an issue is locked.
+            /// </summary>
             locked,
+
+            /// <summary>
+            ///     Runs when conversation on an issue is unlocked.
+            /// </summary>
             unlocked,
+
+            /// <summary>
+            ///     Runs when an issue is added to a milestone.
+            /// </summary>
             milestoned,
+
+            /// <summary>
+            ///     Runs when an issue is removed from a milestone.
+            /// </summary>
             demilestoned,
+
+            /// <summary>
+            ///     Runs when an issue type is set on an issue.
+            /// </summary>
             typed,
+
+            /// <summary>
+            ///     Runs when the issue type is removed from an issue.
+            /// </summary>
             untyped,
         }
     }
@@ -233,7 +406,14 @@ public partial record On
         [PublicAPI]
         public enum LabelType
         {
+            /// <summary>
+            ///     Runs when a label is created in the repository.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when a label's name, description or color is edited.
+            /// </summary>
             edited,
         }
     }
@@ -251,6 +431,9 @@ public partial record On
         [PublicAPI]
         public enum MergeGroupType
         {
+            /// <summary>
+            ///     Runs when a merge group is created in a merge queue and its required checks are requested.
+            /// </summary>
             checks_requested,
         }
     }
@@ -268,10 +451,29 @@ public partial record On
         [PublicAPI]
         public enum MilestoneType
         {
+            /// <summary>
+            ///     Runs when a milestone is created.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when a milestone is closed.
+            /// </summary>
             closed,
+
+            /// <summary>
+            ///     Runs when a closed milestone is reopened.
+            /// </summary>
             opened,
+
+            /// <summary>
+            ///     Runs when a milestone is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a milestone is deleted.
+            /// </summary>
             deleted,
         }
     }
@@ -295,11 +497,36 @@ public partial record On
         [PublicAPI]
         public enum ProjectType
         {
+            /// <summary>
+            ///     Runs when a classic project is created.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Emits the <c>updated</c> activity type. GitHub does not document <c>updated</c> for the
+            ///     <c>project</c> event (documented types: <c>created</c>, <c>closed</c>, <c>reopened</c>,
+            ///     <c>edited</c>, <c>deleted</c>), so a workflow filtered on it may never run.
+            /// </summary>
             updated,
+
+            /// <summary>
+            ///     Runs when a classic project is closed.
+            /// </summary>
             closed,
+
+            /// <summary>
+            ///     Runs when a closed classic project is reopened.
+            /// </summary>
             reopened,
+
+            /// <summary>
+            ///     Runs when the name or description of a classic project is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a classic project is deleted.
+            /// </summary>
             deleted,
         }
     }
@@ -317,10 +544,29 @@ public partial record On
         [PublicAPI]
         public enum ProjectCardType
         {
+            /// <summary>
+            ///     Runs when a card is added to a classic project.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when a card is moved to another column or position.
+            /// </summary>
             moved,
+
+            /// <summary>
+            ///     Runs when a note card is converted to an issue.
+            /// </summary>
             converted,
+
+            /// <summary>
+            ///     Runs when the note on a card is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a card is deleted from a classic project.
+            /// </summary>
             deleted,
         }
     }
@@ -338,9 +584,24 @@ public partial record On
         [PublicAPI]
         public enum ProjectColumnType
         {
+            /// <summary>
+            ///     Runs when a column is added to a classic project.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when a column in a classic project is renamed.
+            /// </summary>
             updated,
+
+            /// <summary>
+            ///     Runs when a column is moved within a classic project.
+            /// </summary>
             moved,
+
+            /// <summary>
+            ///     Runs when a column is deleted from a classic project.
+            /// </summary>
             deleted,
         }
     }
@@ -364,26 +625,111 @@ public partial record On
         [PublicAPI]
         public enum PullRequestType
         {
+            /// <summary>
+            ///     Runs when a pull request is assigned to a user.
+            /// </summary>
             assigned,
+
+            /// <summary>
+            ///     Runs when a user is unassigned from a pull request.
+            /// </summary>
             unassigned,
+
+            /// <summary>
+            ///     Runs when a label is added to a pull request.
+            /// </summary>
             labeled,
+
+            /// <summary>
+            ///     Runs when a label is removed from a pull request.
+            /// </summary>
             unlabeled,
+
+            /// <summary>
+            ///     Runs when a pull request is opened.
+            /// </summary>
             opened,
+
+            /// <summary>
+            ///     Runs when the title, body or base branch of a pull request is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a pull request is closed, whether merged or not.
+            /// </summary>
             closed,
+
+            /// <summary>
+            ///     Runs when a closed pull request is reopened.
+            /// </summary>
             reopened,
+
+            /// <summary>
+            ///     Intended for new commits being pushed to the pull request's head branch (GitHub's <c>synchronize</c>
+            ///     activity type). Note that it is written to YAML as <c>synchronized</c>, which GitHub does not
+            ///     recognize.
+            /// </summary>
             synchronized,
+
+            /// <summary>
+            ///     Runs when a pull request is converted to a draft.
+            /// </summary>
             converted_to_draft,
+
+            /// <summary>
+            ///     Runs when a draft pull request is marked as ready for review.
+            /// </summary>
             ready_for_review,
+
+            /// <summary>
+            ///     Runs when conversation on a pull request is locked.
+            /// </summary>
             locked,
+
+            /// <summary>
+            ///     Runs when conversation on a pull request is unlocked.
+            /// </summary>
             unlocked,
+
+            /// <summary>
+            ///     Runs when a pull request is added to a milestone.
+            /// </summary>
             milestoned,
+
+            /// <summary>
+            ///     Runs when a pull request is removed from a milestone.
+            /// </summary>
             demilestoned,
+
+            /// <summary>
+            ///     Runs when a review is requested from a user or team.
+            /// </summary>
             review_requested,
+
+            /// <summary>
+            ///     Runs when a review request is removed.
+            /// </summary>
             review_request_removed,
+
+            /// <summary>
+            ///     Runs when auto-merge is enabled for a pull request.
+            /// </summary>
             auto_merge_enabled,
+
+            /// <summary>
+            ///     Runs when auto-merge is disabled for a pull request.
+            /// </summary>
             auto_merge_disabled,
+
+            /// <summary>
+            ///     Runs when a pull request is added to a merge queue.
+            /// </summary>
             enqueued,
+
+            /// <summary>
+            ///     Runs when a pull request is removed from a merge queue.
+            /// </summary>
             dequeued,
         }
 
@@ -431,8 +777,19 @@ public partial record On
         [PublicAPI]
         public enum PullRequestReviewType
         {
+            /// <summary>
+            ///     Runs when a pull request review is submitted.
+            /// </summary>
             submitted,
+
+            /// <summary>
+            ///     Runs when the body of a pull request review is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a pull request review is dismissed.
+            /// </summary>
             dismissed,
         }
     }
@@ -450,8 +807,19 @@ public partial record On
         [PublicAPI]
         public enum PullRequestReviewCommentType
         {
+            /// <summary>
+            ///     Runs when a comment on a pull request's diff is created.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when a comment on a pull request's diff is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a comment on a pull request's diff is deleted.
+            /// </summary>
             deleted,
         }
     }
@@ -470,26 +838,111 @@ public partial record On
         [PublicAPI]
         public enum PullRequestTargetType
         {
+            /// <summary>
+            ///     Runs when a pull request is assigned to a user.
+            /// </summary>
             assigned,
+
+            /// <summary>
+            ///     Runs when a user is unassigned from a pull request.
+            /// </summary>
             unassigned,
+
+            /// <summary>
+            ///     Runs when a label is added to a pull request.
+            /// </summary>
             labeled,
+
+            /// <summary>
+            ///     Runs when a label is removed from a pull request.
+            /// </summary>
             unlabeled,
+
+            /// <summary>
+            ///     Runs when a pull request is opened.
+            /// </summary>
             opened,
+
+            /// <summary>
+            ///     Runs when the title, body or base branch of a pull request is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a pull request is closed, whether merged or not.
+            /// </summary>
             closed,
+
+            /// <summary>
+            ///     Runs when a closed pull request is reopened.
+            /// </summary>
             reopened,
+
+            /// <summary>
+            ///     Intended for new commits being pushed to the pull request's head branch (GitHub's <c>synchronize</c>
+            ///     activity type). Note that it is written to YAML as <c>synchronized</c>, which GitHub does not
+            ///     recognize.
+            /// </summary>
             synchronized,
+
+            /// <summary>
+            ///     Runs when a pull request is converted to a draft.
+            /// </summary>
             converted_to_draft,
+
+            /// <summary>
+            ///     Runs when a draft pull request is marked as ready for review.
+            /// </summary>
             ready_for_review,
+
+            /// <summary>
+            ///     Runs when conversation on a pull request is locked.
+            /// </summary>
             locked,
+
+            /// <summary>
+            ///     Runs when conversation on a pull request is unlocked.
+            /// </summary>
             unlocked,
+
+            /// <summary>
+            ///     Runs when a pull request is added to a milestone.
+            /// </summary>
             milestoned,
+
+            /// <summary>
+            ///     Runs when a pull request is removed from a milestone.
+            /// </summary>
             demilestoned,
+
+            /// <summary>
+            ///     Runs when a review is requested from a user or team.
+            /// </summary>
             review_requested,
+
+            /// <summary>
+            ///     Runs when a review request is removed.
+            /// </summary>
             review_request_removed,
+
+            /// <summary>
+            ///     Runs when auto-merge is enabled for a pull request.
+            /// </summary>
             auto_merge_enabled,
+
+            /// <summary>
+            ///     Runs when auto-merge is disabled for a pull request.
+            /// </summary>
             auto_merge_disabled,
+
+            /// <summary>
+            ///     Runs when a pull request is added to a merge queue.
+            /// </summary>
             enqueued,
+
+            /// <summary>
+            ///     Runs when a pull request is removed from a merge queue.
+            /// </summary>
             dequeued,
         }
     }
@@ -546,7 +999,14 @@ public partial record On
         [PublicAPI]
         public enum RegistryPackageType
         {
+            /// <summary>
+            ///     Runs when a package is published to GitHub Packages.
+            /// </summary>
             published,
+
+            /// <summary>
+            ///     Runs when an existing package in GitHub Packages is updated.
+            /// </summary>
             updated,
         }
     }
@@ -564,12 +1024,40 @@ public partial record On
         [PublicAPI]
         public enum ReleaseType
         {
+            /// <summary>
+            ///     Runs when a release, pre-release or draft is published.
+            /// </summary>
             published,
+
+            /// <summary>
+            ///     Runs when a published release or pre-release is unpublished.
+            /// </summary>
             unpublished,
+
+            /// <summary>
+            ///     Runs when a draft is saved or a release or pre-release is published without first being saved as a
+            ///     draft.
+            /// </summary>
             created,
+
+            /// <summary>
+            ///     Runs when a release, pre-release or draft is edited.
+            /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a release, pre-release or draft is deleted.
+            /// </summary>
             deleted,
+
+            /// <summary>
+            ///     Runs when a pre-release is published or a release is changed to a pre-release.
+            /// </summary>
             prereleased,
+
+            /// <summary>
+            ///     Runs when a release is published or a pre-release is changed to a full release.
+            /// </summary>
             released,
         }
     }
@@ -607,6 +1095,9 @@ public partial record On
         [PublicAPI]
         public enum WatchType
         {
+            /// <summary>
+            ///     Runs when someone stars the repository.
+            /// </summary>
             started,
         }
     }
@@ -637,8 +1128,19 @@ public partial record On
         [PublicAPI]
         public enum WorkflowDispatchTypes
         {
+            /// <summary>
+            ///     Runs when the watched workflow run is requested.
+            /// </summary>
             requested,
+
+            /// <summary>
+            ///     Runs when the watched workflow run completes, whatever its conclusion.
+            /// </summary>
             completed,
+
+            /// <summary>
+            ///     Runs when the watched workflow run starts executing.
+            /// </summary>
             in_progress,
         }
 

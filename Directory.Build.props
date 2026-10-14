@@ -1,12 +1,13 @@
 <Project>
   <PropertyGroup>
-    <Product>Atom</Product>
+    <Product>Structured Text</Product>
     <Authors>Declan Smith</Authors>
 
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageDescription>An opinionated task and build automation framework</PackageDescription>
+    <PackageDescription>Strongly-typed C# libraries for generating GitHub Actions workflows, Dependabot configurations and Azure DevOps Pipelines YAML</PackageDescription>
+    <PackageProjectUrl>https://invex-games.github.io/structured-text/</PackageProjectUrl>
     <EnablePackageValidation>true</EnablePackageValidation>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
 
@@ -14,7 +15,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <NoWarn>$(NoWarn);CA1873;CS1591;NU5104;RCS1001;RCS1003;RCS1123;</NoWarn>
+    <NoWarn>$(NoWarn);CA1873;NU5104;RCS1001;RCS1003;RCS1123;</NoWarn>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
