@@ -432,6 +432,11 @@ public partial record On
             ///     Runs when a label's name, description or color is edited.
             /// </summary>
             edited,
+
+            /// <summary>
+            ///     Runs when a label is deleted from the repository.
+            /// </summary>
+            deleted,
         }
     }
 
