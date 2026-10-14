@@ -106,7 +106,7 @@ internal sealed class GithubActionWriterOnTests
     public void WriteOn_PullRequest_WithTypes_WritesTypes()
     {
         var action = GithubActionWriterHelper.MinimalAction([
-            new On.PullRequest([On.PullRequest.PullRequestType.opened, On.PullRequest.PullRequestType.synchronized])
+            new On.PullRequest([On.PullRequest.PullRequestType.opened, On.PullRequest.PullRequestType.synchronize])
             {
                 Branches = null,
                 BranchesIgnore = null,
@@ -121,7 +121,27 @@ internal sealed class GithubActionWriterOnTests
         output.ShouldContain("pull_request:");
         output.ShouldContain("types:");
         output.ShouldContain("opened");
-        output.ShouldContain("synchronized");
+        output.ShouldContain("synchronize");
+        output.ShouldNotContain("synchronized");
+    }
+
+    [Test]
+    public void WriteOn_CheckRun_WithDocumentedTypes_WritesTypes()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.CheckRun([
+                On.CheckRun.CheckRunType.created,
+                On.CheckRun.CheckRunType.rerequested,
+                On.CheckRun.CheckRunType.completed,
+                On.CheckRun.CheckRunType.requested_action,
+            ]),
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain("check_run:");
+        output.ShouldContain("rerequested");
+        output.ShouldContain("completed");
+        output.ShouldContain("requested_action");
     }
 
     [Test]

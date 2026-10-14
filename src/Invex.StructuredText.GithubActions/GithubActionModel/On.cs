@@ -62,16 +62,33 @@ public partial record On
             /// <summary>
             ///     Emits the <c>edited</c> activity type. GitHub does not document <c>edited</c> for the
             ///     <c>check_run</c> event (documented types: <c>created</c>, <c>rerequested</c>, <c>completed</c>,
-            ///     <c>requested_action</c>), so a workflow filtered on it may never run.
+            ///     <c>requested_action</c>), so a workflow filtered on it never runs.
             /// </summary>
+            [Obsolete("GitHub never sends the 'edited' activity type for check_run, so a workflow filtered on it never runs. Use created, rerequested, completed or requested_action instead.")]
             edited,
 
             /// <summary>
             ///     Emits the <c>deleted</c> activity type. GitHub does not document <c>deleted</c> for the
             ///     <c>check_run</c> event (documented types: <c>created</c>, <c>rerequested</c>, <c>completed</c>,
-            ///     <c>requested_action</c>), so a workflow filtered on it may never run.
+            ///     <c>requested_action</c>), so a workflow filtered on it never runs.
             /// </summary>
+            [Obsolete("GitHub never sends the 'deleted' activity type for check_run, so a workflow filtered on it never runs. Use created, rerequested, completed or requested_action instead.")]
             deleted,
+
+            /// <summary>
+            ///     Runs when someone requests a check run to be re-run.
+            /// </summary>
+            rerequested,
+
+            /// <summary>
+            ///     Runs when a check run has completed.
+            /// </summary>
+            completed,
+
+            /// <summary>
+            ///     Runs when someone requests an action provided by a check run.
+            /// </summary>
+            requested_action,
         }
     }
 
@@ -505,8 +522,9 @@ public partial record On
             /// <summary>
             ///     Emits the <c>updated</c> activity type. GitHub does not document <c>updated</c> for the
             ///     <c>project</c> event (documented types: <c>created</c>, <c>closed</c>, <c>reopened</c>,
-            ///     <c>edited</c>, <c>deleted</c>), so a workflow filtered on it may never run.
+            ///     <c>edited</c>, <c>deleted</c>), so a workflow filtered on it never runs.
             /// </summary>
+            [Obsolete("GitHub never sends the 'updated' activity type for project, so a workflow filtered on it never runs. Use edited instead.")]
             updated,
 
             /// <summary>
@@ -668,8 +686,9 @@ public partial record On
             /// <summary>
             ///     Intended for new commits being pushed to the pull request's head branch (GitHub's <c>synchronize</c>
             ///     activity type). Note that it is written to YAML as <c>synchronized</c>, which GitHub does not
-            ///     recognize.
+            ///     recognize, so a workflow filtered on it never runs. Use <see cref="synchronize" /> instead.
             /// </summary>
+            [Obsolete("GitHub never sends 'synchronized'; this member is written to YAML as 'synchronized' and never matches. Use synchronize instead.")]
             synchronized,
 
             /// <summary>
@@ -731,6 +750,12 @@ public partial record On
             ///     Runs when a pull request is removed from a merge queue.
             /// </summary>
             dequeued,
+
+            /// <summary>
+            ///     Runs when new commits are pushed to the pull request's head branch (GitHub's <c>synchronize</c>
+            ///     activity type).
+            /// </summary>
+            synchronize,
         }
 
         /// <summary>
@@ -881,8 +906,9 @@ public partial record On
             /// <summary>
             ///     Intended for new commits being pushed to the pull request's head branch (GitHub's <c>synchronize</c>
             ///     activity type). Note that it is written to YAML as <c>synchronized</c>, which GitHub does not
-            ///     recognize.
+            ///     recognize, so a workflow filtered on it never runs. Use <see cref="synchronize" /> instead.
             /// </summary>
+            [Obsolete("GitHub never sends 'synchronized'; this member is written to YAML as 'synchronized' and never matches. Use synchronize instead.")]
             synchronized,
 
             /// <summary>
@@ -944,6 +970,12 @@ public partial record On
             ///     Runs when a pull request is removed from a merge queue.
             /// </summary>
             dequeued,
+
+            /// <summary>
+            ///     Runs when new commits are pushed to the pull request's head branch (GitHub's <c>synchronize</c>
+            ///     activity type).
+            /// </summary>
+            synchronize,
         }
     }
 
