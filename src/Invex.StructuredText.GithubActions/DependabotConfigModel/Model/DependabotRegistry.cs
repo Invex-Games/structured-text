@@ -124,19 +124,78 @@ public sealed record DependabotRegistry
 [PublicAPI]
 public enum RegistryType
 {
+    /// <summary>
+    ///     A private Cargo registry (<c>cargo-registry</c>).
+    /// </summary>
     CargoRegistry,
+
+    /// <summary>
+    ///     A private Composer repository (<c>composer-repository</c>).
+    /// </summary>
     ComposerRepository,
+
+    /// <summary>
+    ///     A Docker container registry (<c>docker-registry</c>).
+    /// </summary>
     DockerRegistry,
+
+    /// <summary>
+    ///     A Git server, for dependencies fetched over Git (<c>git</c>).
+    /// </summary>
     Git,
+
+    /// <summary>
+    ///     A Go module proxy server (<c>goproxy-server</c>).
+    /// </summary>
     GoproxyServer,
+
+    /// <summary>
+    ///     A Hex organization (<c>hex-organization</c>).
+    /// </summary>
     HexOrganization,
+
+    /// <summary>
+    ///     A self-hosted Hex repository (<c>hex-repository</c>).
+    /// </summary>
     HexRepository,
+
+    /// <summary>
+    ///     A Helm chart registry (<c>helm-registry</c>).
+    /// </summary>
     HelmRegistry,
+
+    /// <summary>
+    ///     A Maven repository (also used by Gradle) (<c>maven-repository</c>).
+    /// </summary>
     MavenRepository,
+
+    /// <summary>
+    ///     An npm registry (<c>npm-registry</c>).
+    /// </summary>
     NpmRegistry,
+
+    /// <summary>
+    ///     A NuGet feed (<c>nuget-feed</c>).
+    /// </summary>
     NugetFeed,
+
+    /// <summary>
+    ///     A pub package repository (<c>pub-repository</c>).
+    /// </summary>
     PubRepository,
+
+    /// <summary>
+    ///     A Python package index (<c>python-index</c>).
+    /// </summary>
     PythonIndex,
+
+    /// <summary>
+    ///     A RubyGems server (<c>rubygems-server</c>).
+    /// </summary>
     RubygemsServer,
+
+    /// <summary>
+    ///     A Terraform registry (<c>terraform-registry</c>).
+    /// </summary>
     TerraformRegistry,
 }

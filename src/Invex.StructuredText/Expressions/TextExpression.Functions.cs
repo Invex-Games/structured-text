@@ -182,6 +182,12 @@ public sealed record ContainsExpression(TextExpression Source, TextExpression Pa
 [PublicAPI]
 public sealed record CoalesceExpression(params TextExpression[] Source) : TextExpression
 {
+    /// <summary>
+    ///     Appends the expression's operands to <paramref name="builder" /> so that <see cref="object.ToString" />
+    ///     lists the array elements instead of the array type name.
+    /// </summary>
+    /// <param name="builder">The builder that receives the record's members.</param>
+    /// <returns><see langword="true" />, because members are always appended.</returns>
     protected override bool PrintMembers(StringBuilder builder)
     {
         if (base.PrintMembers(builder))
@@ -235,6 +241,12 @@ public sealed record EndsWithExpression(TextExpression Source, TextExpression Pa
 public sealed record FormatExpression(TextExpression Source, params TextExpression[] Arguments)
     : TextExpression, ITextExpression<string>
 {
+    /// <summary>
+    ///     Appends the expression's operands to <paramref name="builder" /> so that <see cref="object.ToString" />
+    ///     lists the array elements instead of the array type name.
+    /// </summary>
+    /// <param name="builder">The builder that receives the record's members.</param>
+    /// <returns><see langword="true" />, because members are always appended.</returns>
     protected override bool PrintMembers(StringBuilder builder)
     {
         if (base.PrintMembers(builder))

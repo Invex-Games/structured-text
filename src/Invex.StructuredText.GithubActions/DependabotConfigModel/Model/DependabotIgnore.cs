@@ -28,8 +28,19 @@ public sealed record DependabotIgnore
 [PublicAPI]
 public enum SemverUpdateType
 {
+    /// <summary>
+    ///     Ignores updates that change the major version (<c>version-update:semver-major</c>).
+    /// </summary>
     VersionUpdateSemverMajor,
+
+    /// <summary>
+    ///     Ignores updates that change the minor version (<c>version-update:semver-minor</c>).
+    /// </summary>
     VersionUpdateSemverMinor,
+
+    /// <summary>
+    ///     Ignores updates that change only the patch version (<c>version-update:semver-patch</c>).
+    /// </summary>
     VersionUpdateSemverPatch,
 }
 
@@ -40,7 +51,15 @@ public enum SemverUpdateType
 [Union]
 public partial record DependabotVersions
 {
+    /// <summary>
+    ///     A single version or version range to ignore, written as a one-item <c>versions</c> array.
+    /// </summary>
+    /// <param name="Version">The version or version range, in the package manager's own syntax.</param>
     public partial record Single(string Version);
 
+    /// <summary>
+    ///     A list of versions or version ranges to ignore, written as a <c>versions</c> array.
+    /// </summary>
+    /// <param name="Versions">The versions or version ranges, in the package manager's own syntax.</param>
     public partial record Multiple(IReadOnlyList<string> Versions);
 }

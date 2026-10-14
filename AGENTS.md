@@ -134,16 +134,33 @@ Each platform package contains:
 7. Register the new projects in `_atom/IBuild.cs` (`ProjectsToPack`, `ProjectsToTest`) and
    regenerate workflows with `atom gen`.
 
+## Documentation
+
+Docs follow the shared Invex documentation standard used by every Invex library:
+
+- **README.md** is also the NuGet readme. Keep the fixed section order (title, badges, pitch, Packages, Features,
+  Installation, Quick start, Usage, Documentation, Development, License) and use absolute links only
+  (`https://github.com/Invex-Games/structured-text/blob/main/...` or the docs site), so they work on nuget.org.
+- **DocFX site** (`docfx.json`, `toc.yml`, `index.md`, `docs/`, `api/index.md`), published to
+  https://invex-games.github.io/structured-text/. `docs/introduction.md` and `docs/getting-started.md` come first;
+  every page opens with one to three sentences on what it covers and ends with a "See also" or "Next steps" list.
+  Link API types with `<xref:Namespace.Type>`, not file paths.
+- **`api/index.md`** is the only hand-written file under `api/`; everything else there is generated. Put per-type
+  detail in XML docs, not in hand-written API pages.
+- **XML docs are enforced.** `CS1591` is not suppressed for shipped projects, so every public type and member needs
+  `<summary>`, plus `<param>`, `<typeparam>`, `<returns>` and `<exception>` where they apply, `<remarks>` for
+  non-obvious behaviour, and `<see cref>`/`<paramref>`/`<see langword>` for references.
+
 ## Defer to the docs
 
 For anything beyond the above, prefer these over duplicating detail:
 
-- [README.md](../README.md) — package overview and quick start.
-- [docs/introduction.md](../docs/introduction.md) — what the library is and why it exists.
-- [docs/getting-started.md](../docs/getting-started.md) — installation and first examples.
-- [docs/expressions.md](../docs/expressions.md) — the full expression system.
-- [docs/github-actions.md](../docs/github-actions.md) — GitHub Actions writer in depth.
-- [docs/dependabot.md](../docs/dependabot.md) — Dependabot config writer.
-- [docs/azure-devops-pipelines.md](../docs/azure-devops-pipelines.md) — Azure DevOps writer in depth.
-- [docs/architecture.md](../docs/architecture.md) — how the packages fit together.
+- [README.md](README.md) — package overview and quick start.
+- [docs/introduction.md](docs/introduction.md) — what the library is and why it exists.
+- [docs/getting-started.md](docs/getting-started.md) — installation and first examples.
+- [docs/expressions.md](docs/expressions.md) — the full expression system.
+- [docs/github-actions.md](docs/github-actions.md) — GitHub Actions writer in depth.
+- [docs/dependabot.md](docs/dependabot.md) — Dependabot config writer.
+- [docs/azure-devops-pipelines.md](docs/azure-devops-pipelines.md) — Azure DevOps writer in depth.
+- [docs/architecture.md](docs/architecture.md) — how the packages fit together.
 
