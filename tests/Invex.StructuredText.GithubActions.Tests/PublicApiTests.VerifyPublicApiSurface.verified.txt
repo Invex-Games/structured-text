@@ -3296,10 +3296,10 @@
         Name: Number
       },
       {
-        Name: Path
+        Name: PullRequest
       },
       {
-        Name: PullRequest
+        Name: WorkflowRun
       }
     ]
   },
@@ -3323,9 +3323,6 @@
       },
       {
         Name: GetHashCode
-      },
-      {
-        Name: Path
       },
       {
         Name: Ref
@@ -3364,9 +3361,6 @@
       },
       {
         Name: Number
-      },
-      {
-        Name: Path
       }
     ]
   },
@@ -3392,10 +3386,33 @@
         Name: GetHashCode
       },
       {
-        Name: Path
+        Name: Ref
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.GitHubContextsEventWorkflowRunContext,
+    Members: [
+      {
+        Name: <Clone>$
       },
       {
-        Name: Ref
+        Name: Children
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Path
       }
     ]
   },
@@ -3425,9 +3442,6 @@
       },
       {
         Name: Network
-      },
-      {
-        Name: Path
       }
     ]
   },
@@ -3457,9 +3471,6 @@
       },
       {
         Name: GetHashCode
-      },
-      {
-        Name: Path
       },
       {
         Name: Services
@@ -3506,9 +3517,6 @@
         Name: Os
       },
       {
-        Name: Path
-      },
-      {
         Name: Temp
       },
       {
@@ -3539,9 +3547,6 @@
       },
       {
         Name: GithubToken
-      },
-      {
-        Name: Path
       }
     ]
   },
@@ -3577,9 +3582,6 @@
       },
       {
         Name: MaxParallel
-      },
-      {
-        Name: Path
       }
     ]
   },

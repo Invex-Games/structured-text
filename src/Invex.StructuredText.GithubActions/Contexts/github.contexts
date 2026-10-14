@@ -18,6 +18,7 @@ github.event.pull_request.number | number | The pull request number.
 github.event.pull_request.draft | bool | Whether the pull request is a draft.
 github.event.pull_request.head.ref | string | The pull request's head branch.
 github.event.pull_request.base.ref | string | The pull request's base branch.
+github.event.workflow_run.path | string | The workflow file path of the run that triggered a workflow_run event.
 github.event_name | string | The name of the event that triggered the workflow run.
 github.event_path | string | The path to the file on the runner that contains the full event webhook payload.
 github.graphql_url | string | The URL of the GitHub GraphQL API.

@@ -45,6 +45,22 @@ public class GithubExpressionPrinterTests
     }
 
     [Test]
+    public void Catalogue_MemberNamedPath_KeepsItsName() =>
+        Print(GitHubContexts.Event.WorkflowRun.Path).ShouldBe("github.event.workflow_run.path");
+
+    [Test]
+    public void Template_BoolHole_IsLiteralText()
+    {
+        Template on = $"flag={true}";
+        Template off = $"flag={false}";
+
+        Render(on).ShouldBe("flag=true");
+        Render(off).ShouldBe("flag=false");
+        on.Expressions.ShouldBeEmpty();
+        off.Expressions.ShouldBeEmpty();
+    }
+
+    [Test]
     public void Raw_ComparisonUnderNot_IsParenthesized() =>
         Print(!BoolExpr.Raw("github.ref == 'main'")).ShouldBe("!(github.ref == 'main')");
 

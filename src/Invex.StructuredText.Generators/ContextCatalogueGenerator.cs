@@ -142,8 +142,8 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
                 sb.AppendLine("[PublicAPI]");
                 sb.AppendLine($"public sealed record {recordName} : JsonExpr, IContextPath");
                 sb.AppendLine("{");
-                sb.AppendLine("    /// <inheritdoc />");
-                sb.AppendLine($"    public string Path => \"{node.Path}\";");
+                // Explicit, so a catalogue member called path (github.event.workflow_run.path) keeps its name.
+                sb.AppendLine($"    string IContextPath.Path => \"{node.Path}\";");
                 sb.AppendLine();
                 sb.AppendLine("    /// <inheritdoc />");
                 sb.AppendLine("    public override global::System.Collections.Generic.IEnumerable<Expr> Children => [];");

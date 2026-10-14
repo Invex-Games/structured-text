@@ -382,4 +382,21 @@ internal sealed class GithubActionWriterStepTests
         // "value: with colon" contains ": " which triggers quoting
         output.ShouldContain("'value: with colon'");
     }
+
+    [TestCase(null)]
+    [TestCase("Script")]
+    public void WriteStep_RunStep_IndentedFirstLine_WritesIndentationIndicator(string? name)
+    {
+        var output = WriteStep(new Step.RunStep { Name = name is null ? null : (Template)name, Run = ["  echo first", "echo second"] });
+
+        output.ShouldContain("run: |2");
+        var lines = output.Split(Environment.NewLine);
+        var first = lines.Single(x => x.EndsWith("echo first", StringComparison.Ordinal));
+        var second = lines.Single(x => x.EndsWith("echo second", StringComparison.Ordinal));
+        (first.Length - first.TrimStart().Length).ShouldBe(second.Length - second.TrimStart().Length + 2);
+    }
+
+    [Test]
+    public void WriteStep_RunStep_UnindentedFirstLine_HasNoIndentationIndicator() =>
+        WriteStep(new Step.RunStep { Run = ["echo first", "  echo second"] }).ShouldNotContain("|2");
 }

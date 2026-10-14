@@ -95,6 +95,16 @@ public sealed class Template : IEquatable<Template>
         AppendText(value ?? string.Empty);
 
     /// <summary>
+    ///     Appends a boolean hole as the literal text <c>true</c> or <c>false</c>. Called by the compiler for
+    ///     interpolated strings.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    public void AppendFormatted(bool value) =>
+        AppendText(value
+            ? "true"
+            : "false");
+
+    /// <summary>
     ///     Appends a value hole as literal text formatted with the invariant culture.
     ///     Called by the compiler for interpolated strings.
     /// </summary>
