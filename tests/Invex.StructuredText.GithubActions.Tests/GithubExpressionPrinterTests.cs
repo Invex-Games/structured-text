@@ -68,6 +68,14 @@ public class GithubExpressionPrinterTests
             .ShouldBe("${{ 'main' == github.ref }}");
 
     [Test]
+    public void PrimitiveArguments_ConvertWhereAnyExpressionIsAccepted()
+    {
+        Print(Fn.Format("{0}-{1}", "hello", 2)).ShouldBe("format('{0}-{1}', 'hello', 2)");
+        Print(Fn.FromJson("[1]").Contains(1)).ShouldBe("contains(fromJSON('[1]'), 1)");
+        Print(Fn.FromJson("[true]").Contains(true)).ShouldBe("contains(fromJSON('[true]'), true)");
+    }
+
+    [Test]
     public void PrintCondition_NoLeadingNot_StaysBare() =>
         GithubExpressionPrinter.Instance.PrintCondition(GitHubContexts.Ref.Contains("-"))
             .ShouldBe("contains(github.ref, '-')");

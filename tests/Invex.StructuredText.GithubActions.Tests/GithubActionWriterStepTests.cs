@@ -239,6 +239,16 @@ internal sealed class GithubActionWriterStepTests
     }
 
     [Test]
+    public void WriteStep_RunStep_CarriageReturnOnlyAsFirstProperty_WritesBlock()
+    {
+        var output = WriteStep(new Step.RunStep { Run = ["echo a\recho b"] });
+
+        output.ShouldContain("run: |");
+        output.ShouldNotContain("\r");
+        output.Split(Environment.NewLine).ShouldNotContain("echo b");
+    }
+
+    [Test]
     public void WriteStep_RunStep_WithShell_WritesShellProperty()
     {
         var step = new Step.RunStep

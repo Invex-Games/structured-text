@@ -17,6 +17,28 @@ public abstract record Expr
     public abstract IEnumerable<Expr> Children { get; }
 
     /// <summary>
+    ///     Converts a <see cref="string" /> to a string literal where any expression is accepted,
+    ///     e.g. <c>Fn.Format("{0}", "hello")</c>.
+    /// </summary>
+    /// <param name="value">The literal value, unquoted.</param>
+    public static implicit operator Expr(string value) =>
+        new StringLiteral(value);
+
+    /// <summary>
+    ///     Converts a <see cref="double" /> to a numeric literal where any expression is accepted.
+    /// </summary>
+    /// <param name="value">The literal value.</param>
+    public static implicit operator Expr(double value) =>
+        new NumberLiteral(value);
+
+    /// <summary>
+    ///     Converts a <see cref="bool" /> to a boolean literal where any expression is accepted.
+    /// </summary>
+    /// <param name="value">The literal value.</param>
+    public static implicit operator Expr(bool value) =>
+        new BoolLiteral(value);
+
+    /// <summary>
     ///     Enumerates this node and every node beneath it, depth first, in left-to-right order.
     /// </summary>
     /// <returns>This node followed by all of its descendants.</returns>

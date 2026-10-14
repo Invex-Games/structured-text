@@ -765,7 +765,7 @@ public sealed class GithubActionWriter
 
                     break;
 
-                case 1 when !valueArray[0].Contains('\n'):
+                case 1 when valueArray[0].IndexOfAny(['\r', '\n']) < 0:
                     section = WriteSection($"- {valueName}", valueArray[0]);
 
                     break;
