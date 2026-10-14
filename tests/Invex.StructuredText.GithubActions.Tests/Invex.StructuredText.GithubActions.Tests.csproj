@@ -46,6 +46,7 @@
   <ItemGroup>
     <ProjectReference
       Include="..\..\src\Invex.StructuredText.GithubActions\Invex.StructuredText.GithubActions.csproj" />
+    <ProjectReference Include="..\..\samples\Invex.StructuredText.Samples\Invex.StructuredText.Samples.csproj" />
   </ItemGroup>
 
 </Project>

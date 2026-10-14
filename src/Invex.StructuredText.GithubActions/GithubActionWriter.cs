@@ -81,7 +81,7 @@ public sealed class GithubActionWriter
 
         using (TextWriter.WriteSection("concurrency:"))
         {
-            TextWriter.WriteLine(Format(_printer.RenderOrNull(concurrency.Group)));
+            WriteProperty("group", _printer.Render(concurrency.Group));
 
             if (concurrency.CancelInProgress is { } cancelInProgress)
                 WriteProperty("cancel-in-progress", _printer.RenderOrNull(cancelInProgress));
@@ -695,18 +695,8 @@ public sealed class GithubActionWriter
         switch (step)
         {
             case Step.RunStep runStep:
-                switch (runStep.Run)
-                {
-                    case { Count: 1 } single:
-                        WriteSectionOrProperty("run", _printer.Render(single[0]));
-
-                        break;
-
-                    default:
-                        WriteSectionOrProperty("run", runStep.Run.Select(x => _printer.Render(x)));
-
-                        break;
-                }
+                // Several lines form one script, written as a literal block (run: |).
+                WriteSectionOrProperty("run", string.Join("\n", runStep.Run.Select(x => _printer.Render(x))));
 
                 if (runStep.Shell is { } shell)
                     WriteProperty("shell", _printer.RenderOrNull(shell));
@@ -775,7 +765,7 @@ public sealed class GithubActionWriter
 
                     break;
 
-                case 1:
+                case 1 when !valueArray[0].Contains('\n'):
                     section = WriteSection($"- {valueName}", valueArray[0]);
 
                     break;
@@ -783,9 +773,10 @@ public sealed class GithubActionWriter
                 default:
                     section = WriteSection($"- {valueName}", "|");
 
+                    // Literal block lines are written as-is: quoting them would change the script.
                     using (TextWriter.WriteSection(string.Empty))
-                        foreach (var line in valueArray)
-                            TextWriter.WriteLine(Format(line));
+                        foreach (var line in valueArray.SelectMany(x => x.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries)))
+                            TextWriter.WriteLine(line);
 
                     break;
             }

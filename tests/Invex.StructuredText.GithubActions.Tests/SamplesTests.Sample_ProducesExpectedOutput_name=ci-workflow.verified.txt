@@ -1,0 +1,68 @@
+﻿name: Build
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+permissions: read-all
+
+concurrency:
+  group: '${{ github.workflow }}-${{ github.ref }}'
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.semver }}
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Compute version
+        id: version
+        run: echo "semver=$(dotnet gitversion /showvariable SemVer)" >> "$GITHUB_OUTPUT"
+
+  test:
+    needs: [ setup ]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: 'Test on ${{ matrix.os }}'
+        run: 'dotnet test -p:Version=${{ needs.setup.outputs.version }}'
+
+  publish:
+    needs: [ setup, test ]
+    if: ${{ !contains(needs.setup.outputs.version, '-') && github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: 'Publish ${{ needs.setup.outputs.version }}'
+        run: |
+          dotnet pack -c Release -p:Version=${{ needs.setup.outputs.version }}
+          dotnet nuget push "**/*.nupkg" --api-key "$NUGET_API_KEY" --source nuget.org
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+
+  notify:
+    needs: [ test ]
+    if: always() && needs.test.result == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Report failure
+        run: 'echo "Tests failed on ${{ github.ref }} (${{ github.sha }})"'
+

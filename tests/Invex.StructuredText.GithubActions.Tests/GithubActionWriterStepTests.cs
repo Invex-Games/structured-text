@@ -188,6 +188,22 @@ internal sealed class GithubActionWriterStepTests
     }
 
     [Test]
+    public void WriteStep_RunStep_MultipleLinesAfterName_WritesBlockNotList()
+    {
+        var step = new Step.RunStep
+        {
+            Name = "Build",
+            Run = ["echo 'line1'", "echo line2"],
+        };
+
+        var output = WriteStep(step);
+        output.ShouldContain("run: |");
+        output.ShouldContain("echo 'line1'");
+        output.ShouldNotContain("- 'echo");
+        output.ShouldNotContain("- echo");
+    }
+
+    [Test]
     public void WriteStep_RunStep_WithShell_WritesShellProperty()
     {
         var step = new Step.RunStep

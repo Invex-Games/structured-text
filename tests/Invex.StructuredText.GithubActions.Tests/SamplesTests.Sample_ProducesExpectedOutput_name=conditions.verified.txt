@@ -1,0 +1,9 @@
+﻿isPush && onMain             => github.event_name == 'push' && github.ref == 'refs/heads/main'
+(isPush || isTag) && !bot    => (github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')) && !(github.actor == 'dependabot[bot]')
+isPush || isTag && onMain    => github.event_name == 'push' || startsWith(github.ref, 'refs/tags/') && github.ref == 'refs/heads/main'
+!isDependabot                => ${{ !(github.actor == 'dependabot[bot]') }}
+Ref.Eq("it's")               => github.ref == 'it''s'
+PR number > 100              => github.event.pull_request.number > 100
+isPullRequest && !draft      => github.event_name == 'pull_request' && !github.event.pull_request.draft
+Always() && isPush           => always() && github.event_name == 'push'
+Fn.Any(...)                  => github.event_name == 'push' || startsWith(github.ref, 'refs/tags/') || github.actor == 'dependabot[bot]'

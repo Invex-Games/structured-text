@@ -1,6 +1,6 @@
-# GitHub Actions contexts, compiled into the GitHub catalogue by Invex.StructuredText.Generators.
+﻿# GitHub Actions contexts, compiled into the GitHubContexts catalogue by Invex.StructuredText.Generators.
 # Format: path | type (string, bool, number, json) | summary
-# Members of `github.*` appear directly on GitHub; other contexts appear as GitHub.<Context>.
+# Members of `github.*` appear directly on GitHubContexts; other contexts appear as GitHubContexts.<Context>.
 github | json | The whole <c>github</c> context: information about the workflow run and the event that triggered it.
 github.action | string | The name of the action currently running, or the id of a step.
 github.action_path | string | The path where an action is located (composite actions only).

@@ -192,7 +192,7 @@ internal sealed class GithubActionWriterPipelineTests
 
         var output = GithubActionWriterHelper.Write(action);
         output.ShouldContain("concurrency:");
-        output.ShouldContain("my-group");
+        output.ShouldContain("group: my-group");
     }
 
     [Test]

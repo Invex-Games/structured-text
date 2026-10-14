@@ -1,0 +1,5 @@
+﻿concurrency group            => ${{ github.workflow }}-${{ github.ref }}
+artifact path                => ${{ github.workspace }}/artifacts/${{ matrix.os }}
+step name                    => Setup .NET 10.0
+cache key                    => ${{ matrix.os }}-${{ matrix.framework }}-release
+env value                    => ${{ secrets.NUGET_API_KEY }}

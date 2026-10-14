@@ -1,0 +1,8 @@
+﻿Ref.Secret                   => ${{ secrets.NUGET_API_KEY }}
+Ref.Variable                 => ${{ vars.DEPLOY_REGION }}
+Ref.Input                    => ${{ inputs.dry-run }}
+Ref.Matrix                   => ${{ matrix.os }}
+Ref.StepOutput               => ${{ steps.version.outputs.semver }}
+Ref.JobOutput                => ${{ needs.setup.outputs.build-version }}
+JobResult == Success         => needs.test.result == 'success'
+prerelease version           => contains(needs.setup.outputs.build-version, '-')
