@@ -5,7 +5,9 @@
       "src": [
         {
           "files": [
-            "src/**/*.csproj"
+            "src/Invex.StructuredText/bin/Release/net10.0/Invex.StructuredText.dll",
+            "src/Invex.StructuredText.AzureDevopsPipelines/bin/Release/net10.0/Invex.StructuredText.AzureDevopsPipelines.dll",
+            "src/Invex.StructuredText.GithubActions/bin/Release/net10.0/Invex.StructuredText.GithubActions.dll"
           ]
         }
       ],
