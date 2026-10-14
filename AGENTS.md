@@ -1,4 +1,4 @@
-# Copilot Instructions
+# Agent Instructions
 
 Guidance for AI agents working in **Invex.StructuredText** — a family of strongly-typed C# libraries
 for generating YAML for GitHub Actions workflows, Dependabot configurations, and Azure DevOps
@@ -8,16 +8,16 @@ Pipelines. Keep changes focused and defer to the linked docs for detail.
 
 | Project | Role | Target frameworks |
 |---------|------|-------------------|
-| `Invex.StructuredText` | Core library: `StructuredTextWriter`, the `TextExpression` tree, `TextExpressionFormatter`, and collection types | `net8.0;net9.0;net10.0` |
-| `Invex.StructuredText.GithubActions` | GitHub Actions workflow and Dependabot config generation | `net8.0;net9.0;net10.0` |
-| `Invex.StructuredText.AzureDevopsPipelines` | Azure DevOps Pipelines YAML generation | `net8.0;net9.0;net10.0` |
+| `Invex.StructuredText` | Core library: `StructuredTextWriter`, the `TextExpression` tree, `TextExpressionFormatter`, and collection types | `net10.0` |
+| `Invex.StructuredText.GithubActions` | GitHub Actions workflow and Dependabot config generation | `net10.0` |
+| `Invex.StructuredText.AzureDevopsPipelines` | Azure DevOps Pipelines YAML generation | `net10.0` |
 
 Sources live under `src/`, tests under `tests/`, the Atom build definition under `_atom/`, and the
 DocFX documentation site under `docs/`.
 
 ## Build & language specifics
 
-- **.NET 10 SDK** is required. All library and test projects multi-target `net8.0;net9.0;net10.0`.
+- **.NET 10 SDK** is required. All library and test projects target `net10.0`.
 - C# `LangVersion 14`, `ImplicitUsings` and `Nullable` enabled, `TreatWarningsAsErrors` on.
 - Global usings live in each project's `_usings.cs` — add shared usings there, not per-file.
 - `GenerateDocumentationFile` is on, so **all public members need XML doc comments**.

@@ -34,7 +34,7 @@ dotnet add package Invex.StructuredText.AzureDevopsPipelines
 ```
 
 Both platform packages depend on `Invex.StructuredText` core, so it will be installed automatically. All three packages
-target `net8.0`, `net9.0`, and `net10.0`. The platform packages also depend on the
+target `net10.0`. The platform packages also depend on the
 [Dunet](https://github.com/domn1995/dunet) source generator, which provides their discriminated-union model types.
 
 ## Quick start
