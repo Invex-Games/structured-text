@@ -13,9 +13,11 @@ namespace Invex.StructuredText.AzureDevopsPipelines;
 ///         template expression (<c>${{ … }}</c>).
 ///     </para>
 ///     <para>
-///         Azure DevOps only evaluates a runtime expression that is the whole value, so a template that combines
-///         one with text or other expressions throws <see cref="NotSupportedException" />. Assign the runtime value
-///         to a variable and reference it with <see cref="Tex.Variable" /> instead.
+///         Combinations Azure DevOps can't evaluate throw <see cref="NotSupportedException" />: a runtime expression
+///         combined with text or other expressions (Azure DevOps only evaluates one that is the whole value), an
+///         input read in a runtime expression or condition (parameters only exist at compile time), and a secret,
+///         matrix value or step output inside a compound compile-time expression (they only exist at run time).
+///         Bind the value to a variable and reference it with <see cref="Tex.Variable" /> instead.
 ///     </para>
 ///     <para>
 ///         Inside an expression, secrets, variables and matrix values are <c>variables['name']</c>, inputs are
@@ -46,21 +48,72 @@ public sealed class DevopsExpressionPrinter : ExpressionPrinter
         return base.Render(template);
     }
 
+    /// <summary>
+    ///     Renders a <c>condition:</c> value. Azure DevOps evaluates conditions at run time, so they are written
+    ///     without delimiters.
+    /// </summary>
+    /// <param name="condition">The condition.</param>
+    /// <returns>The rendered condition.</returns>
+    /// <exception cref="NotSupportedException">Thrown when the condition reads an input (a parameter).</exception>
+    public string PrintCondition(BoolExpr condition)
+    {
+        RejectInputs(condition, "a condition");
+
+        return Print(condition);
+    }
+
     /// <inheritdoc />
-    protected override string RenderEmbedded(Expr expression) =>
-        expression switch
+    protected override string RenderEmbedded(Expr expression)
+    {
+        switch (expression)
         {
-            SecretRef x => $"$({x.Name})",
-            VariableRef x => $"$({x.Name})",
-            MatrixRef x => $"$({x.Name})",
-            StepOutputRef x => $"$({x.Step}.{x.Output})",
-            _ when IsRuntime(expression) => $"$[ {Print(expression)} ]",
-            _ => base.RenderEmbedded(expression),
-        };
+            case SecretRef x:
+                return $"$({x.Name})";
+            case VariableRef x:
+                return $"$({x.Name})";
+            case MatrixRef x:
+                return $"$({x.Name})";
+            case StepOutputRef x:
+                return $"$({x.Step}.{x.Output})";
+        }
+
+        if (IsRuntime(expression))
+        {
+            RejectInputs(expression, "a runtime expression ($[ … ])");
+
+            return $"$[ {Print(expression)} ]";
+        }
+
+        if (expression.DescendantsAndSelf().FirstOrDefault(x => x is SecretRef or MatrixRef or StepOutputRef) is { } runtimeValue)
+            throw new NotSupportedException(
+                $"'{runtimeValue}' only exists at run time, so it can't be read in a compile-time expression (${{{{ … }}}}): " +
+                $"'{expression}'. Interpolate it directly as a macro, or wrap the expression in Tex.DevOps.Runtime.");
+
+        return base.RenderEmbedded(expression);
+    }
+
+    /// <inheritdoc />
+    /// <remarks>
+    ///     Azure DevOps identifiers can't contain <c>-</c>, so names that aren't letters, digits and <c>_</c> use
+    ///     <c>['name']</c>.
+    /// </remarks>
+    protected override string PrintMember(string name) =>
+        name.Length > 0 && (char.IsAsciiLetter(name[0]) || name[0] is '_') && name.All(c => char.IsAsciiLetterOrDigit(c) || c is '_')
+            ? $".{name}"
+            : $"[{QuoteString(name)}]";
 
     // Job outputs and results only exist at run time, so anything that reads them can't be a template expression.
     private static bool IsRuntime(Expr expression) =>
         expression.DescendantsAndSelf().Any(x => x is JobOutputRef or JobResultRef or DevopsRuntimeExpr);
+
+    // Parameters are expanded at compile time and don't exist when runtime expressions and conditions are evaluated.
+    private static void RejectInputs(Expr expression, string where)
+    {
+        if (expression.DescendantsAndSelf().OfType<InputRef>().FirstOrDefault() is { } input)
+            throw new NotSupportedException(
+                $"Input '{input.Name}' is a parameter, which only exists at compile time, so it can't be read in {where}: " +
+                $"'{expression}'. Bind it to a variable (name: ${{{{ parameters.{input.Name} }}}}) and use Tex.Variable instead.");
+    }
 
     /// <inheritdoc />
     protected override string PrintReference(ReferenceExpr reference) =>

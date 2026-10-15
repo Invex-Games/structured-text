@@ -1146,7 +1146,7 @@ public sealed class DevopsPipelineWriter
         TextWriter.WriteLine($"{key}: {Resolve(value)}");
 
     private void WriteProperty(string key, BoolExpr condition) =>
-        TextWriter.WriteLine($"{key}: {DevopsExpressionPrinter.Instance.Print(condition)}");
+        TextWriter.WriteLine($"{key}: {DevopsExpressionPrinter.Instance.PrintCondition(condition)}");
 
     private static string Resolve(ExprTemplate value) =>
         DevopsExpressionPrinter.Instance.Render(value);

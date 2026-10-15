@@ -160,4 +160,51 @@ internal sealed class DevopsExpressionPrinterTests
     public void Template_MultipleRuntimeHoles_IsNotSupported() =>
         Should.Throw<NotSupportedException>(() =>
             Render($"{Tex.JobOutput("A", "x")}{Tex.JobOutput("B", "y")}"));
+
+    [Test]
+    public void Input_InARuntimeExpression_IsNotSupported()
+    {
+        Should.Throw<NotSupportedException>(() =>
+            Render(Tex.Format("{0}-{1}", Tex.Input("prefix"), Tex.JobOutput("Setup", "version", "Info"))));
+
+        Should.Throw<NotSupportedException>(() => Render(Tex.DevOps.Runtime(Tex.Input("prefix").Eq("x"))));
+    }
+
+    [Test]
+    public void Input_InACondition_IsNotSupported()
+    {
+        Should.Throw<NotSupportedException>(() => DevopsExpressionPrinter.Instance.PrintCondition(Tex.Input("environment").Eq("prod")));
+        Should.Throw<NotSupportedException>(() =>
+            DevopsExpressionPrinter.Instance.PrintCondition(Tex.Success() && Tex.Input("environment").Eq("prod")));
+    }
+
+    [Test]
+    public void Condition_WithVariablesAndStatus_IsPrinted() =>
+        DevopsExpressionPrinter.Instance.PrintCondition(Tex.Success() && Tex.Variable("environment").Eq("prod"))
+            .ShouldBe("and(succeeded(), eq(variables['environment'], 'prod'))");
+
+    [Test]
+    public void RuntimeOnlyValue_InACompoundCompileTimeExpression_IsNotSupported()
+    {
+        Should.Throw<NotSupportedException>(() => Render(Tex.Format("v{0}", Tex.StepOutput("Info", "version"))));
+        Should.Throw<NotSupportedException>(() => Render(Tex.Format("v{0}", Tex.Secret("TOKEN"))));
+        Should.Throw<NotSupportedException>(() => Render(Tex.Format("v{0}", Tex.Matrix("os"))));
+    }
+
+    [Test]
+    public void StepOutput_InterpolatedDirectly_IsAMacro() =>
+        Render($"v{Tex.StepOutput("Info", "version")}").ShouldBe("v$(Info.version)");
+
+    [Test]
+    public void StepOutput_InAnExplicitRuntimeExpression_IsRuntime() =>
+        Render(Tex.DevOps.Runtime(Tex.Format("v{0}", Tex.StepOutput("Info", "version"))))
+            .ShouldBe("$[ format('v{0}', variables['Info.version']) ]");
+
+    [Test]
+    public void HyphenatedNames_UseBracketSyntax()
+    {
+        Render(Tex.Input("dry-run")).ShouldBe("${{ parameters['dry-run'] }}");
+        Print(Tex.JobResult("build-linux")).ShouldBe("dependencies['build-linux'].result");
+        Print(Tex.Input("dryRun")).ShouldBe("parameters.dryRun");
+    }
 }

@@ -69,6 +69,9 @@
         Name: Instance
       },
       {
+        Name: PrintCondition
+      },
+      {
         Name: Render
       }
     ]

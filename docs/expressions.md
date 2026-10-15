@@ -117,7 +117,7 @@ Tex.Join("-", ["build", Tex.Matrix("os"), Tex.Matrix("framework")])
 |---|---|---|
 | `Tex.Secret("TOKEN")` | `secrets.TOKEN` | `$(TOKEN)` |
 | `Tex.Variable("REGION")` | `vars.REGION` | `$(REGION)` |
-| `Tex.Input("dry-run")` | `inputs.dry-run` | `${{ parameters.dry-run }}` |
+| `Tex.Input("dry-run")` | `inputs.dry-run` | `${{ parameters['dry-run'] }}` |
 | `Tex.Matrix("os")` | `matrix.os` | `$(os)` |
 | `Tex.StepOutput("version", "semver")` | `steps.version.outputs.semver` | `$(version.semver)` |
 | `Tex.JobOutput("setup", "version", "step")` | `needs.setup.outputs.version` | `$[ dependencies.setup.outputs['step.version'] ]` |

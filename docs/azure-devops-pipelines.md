@@ -338,9 +338,16 @@ Inside a template, each kind of value is embedded with the syntax Azure DevOps e
 | Any other expression | `${{ expression }}` (template expression) |
 
 > [!IMPORTANT]
-> Azure DevOps only evaluates a runtime expression that is the whole value, so a template such as
-> `$"v{Tex.JobOutput("Setup", "version", "Info")}"` throws `NotSupportedException`. Assign the runtime value to a
-> variable, then interpolate `Tex.Variable("name")`.
+> The printer throws `NotSupportedException` for combinations Azure DevOps can't evaluate, rather than writing YAML
+> that silently misbehaves:
+>
+> - A runtime expression combined with text, such as `$"v{Tex.JobOutput("Setup", "version", "Info")}"`. Azure DevOps
+>   only evaluates `$[ … ]` when it is the whole value.
+> - An input (`Tex.Input`) in a condition or a runtime expression. Parameters only exist at compile time.
+> - A secret, matrix value or step output inside a compound expression such as `Tex.Format(...)`, which would be a
+>   compile-time `${{ … }}`. Interpolate them directly as macros, or wrap the expression in `Tex.DevOps.Runtime`.
+>
+> In each case, bind the value to a variable and use `Tex.Variable("name")`.
 
 `Tex.DevOps` lists the common predefined variables, such as `Tex.DevOps.Build.SourceBranch`,
 `Tex.DevOps.Build.BuildId`, `Tex.DevOps.System.AccessToken`, `Tex.DevOps.Agent.Os` and
