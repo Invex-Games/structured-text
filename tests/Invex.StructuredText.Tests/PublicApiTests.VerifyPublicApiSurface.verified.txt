@@ -264,6 +264,9 @@
         Name: Contains
       },
       {
+        Name: ContainsValue
+      },
+      {
         Name: EndsWith
       },
       {

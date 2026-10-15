@@ -44,7 +44,11 @@ public abstract class ExpressionPrinter
     /// </summary>
     /// <param name="template">The template.</param>
     /// <returns>The rendered text.</returns>
-    public string Render(Template template) =>
+    /// <exception cref="NotSupportedException">
+    ///     Thrown when the template contains an expression, or a combination of expressions and text, the platform
+    ///     can't express.
+    /// </exception>
+    public virtual string Render(Template template) =>
         string.Concat(template.Parts.Select(part => part.Expression is { } expression
             ? RenderEmbedded(expression)
             : part.Text));
@@ -250,7 +254,14 @@ public abstract class ExpressionPrinter
     private static bool IsPlainPath(string text) =>
         text.Length > 0 && text.Split('.').All(IsDotAccessible);
 
-    private string PrintCall(string name, IReadOnlyList<Expr> arguments) =>
+    /// <summary>
+    ///     Renders a function call. Writes <see cref="FunctionName" /> followed by the arguments in order by default;
+    ///     platforms whose functions take arguments in a different order override this.
+    /// </summary>
+    /// <param name="name">The canonical function name (see <see cref="FunctionNames" />).</param>
+    /// <param name="arguments">The arguments, in canonical order.</param>
+    /// <returns>The rendered call.</returns>
+    protected virtual string PrintCall(string name, IReadOnlyList<Expr> arguments) =>
         $"{FunctionName(name)}({string.Join(", ", arguments.Select(x => Print(x)))})";
 }
 

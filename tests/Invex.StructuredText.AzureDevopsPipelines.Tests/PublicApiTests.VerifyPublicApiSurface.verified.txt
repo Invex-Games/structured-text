@@ -67,6 +67,9 @@
     Members: [
       {
         Name: Instance
+      },
+      {
+        Name: Render
       }
     ]
   },

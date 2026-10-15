@@ -8,8 +8,14 @@ namespace Invex.StructuredText.AzureDevopsPipelines;
 /// <remarks>
 ///     <para>
 ///         Inside a <see cref="Template" />, secrets, variables, matrix values and step outputs are written as
-///         macros (<c>$(name)</c>), job outputs and <see cref="DevopsRuntimeExpr" /> as runtime expressions
-///         (<c>$[ … ]</c>), and everything else as template expressions (<c>${{ … }}</c>).
+///         macros (<c>$(name)</c>). Expressions that depend on other jobs (job outputs, job results) or contain a
+///         <see cref="DevopsRuntimeExpr" /> are runtime expressions (<c>$[ … ]</c>), and everything else is a
+///         template expression (<c>${{ … }}</c>).
+///     </para>
+///     <para>
+///         Azure DevOps only evaluates a runtime expression that is the whole value, so a template that combines
+///         one with text or other expressions throws <see cref="NotSupportedException" />. Assign the runtime value
+///         to a variable and reference it with <see cref="Tex.Variable" /> instead.
 ///     </para>
 ///     <para>
 ///         Inside an expression, secrets, variables and matrix values are <c>variables['name']</c>, inputs are
@@ -30,6 +36,17 @@ public sealed class DevopsExpressionPrinter : ExpressionPrinter
         $"${{{{ {printedExpression} }}}}";
 
     /// <inheritdoc />
+    public override string Render(Template template)
+    {
+        if (template.Parts.Count > 1 && template.Expressions.FirstOrDefault(IsRuntime) is { } runtime)
+            throw new NotSupportedException(
+                $"Azure DevOps only evaluates a runtime expression ($[ … ]) that is the whole value, but '{runtime}' " +
+                "is combined with other text. Assign it to a variable and reference that with Tex.Variable instead.");
+
+        return base.Render(template);
+    }
+
+    /// <inheritdoc />
     protected override string RenderEmbedded(Expr expression) =>
         expression switch
         {
@@ -37,10 +54,13 @@ public sealed class DevopsExpressionPrinter : ExpressionPrinter
             VariableRef x => $"$({x.Name})",
             MatrixRef x => $"$({x.Name})",
             StepOutputRef x => $"$({x.Step}.{x.Output})",
-            JobOutputRef x => $"$[ {Print(x)} ]",
-            DevopsRuntimeExpr x => $"$[ {Print(x.Expression)} ]",
+            _ when IsRuntime(expression) => $"$[ {Print(expression)} ]",
             _ => base.RenderEmbedded(expression),
         };
+
+    // Job outputs and results only exist at run time, so anything that reads them can't be a template expression.
+    private static bool IsRuntime(Expr expression) =>
+        expression.DescendantsAndSelf().Any(x => x is JobOutputRef or JobResultRef or DevopsRuntimeExpr);
 
     /// <inheritdoc />
     protected override string PrintReference(ReferenceExpr reference) =>
@@ -80,6 +100,16 @@ public sealed class DevopsExpressionPrinter : ExpressionPrinter
         };
 
     /// <inheritdoc />
+    /// <remarks>
+    ///     Azure DevOps's <c>join</c> takes the separator first and requires it, so the arguments are swapped and a
+    ///     missing separator becomes <c>','</c>.
+    /// </remarks>
+    protected override string PrintCall(string name, IReadOnlyList<Expr> arguments) =>
+        name is FunctionNames.Join
+            ? base.PrintCall(name, [arguments.Count > 1 ? arguments[1] : new StringLiteral(","), arguments[0]])
+            : base.PrintCall(name, arguments);
+
+    /// <inheritdoc />
     protected override (string Text, int Precedence) PrintComparison(ComparisonExpr comparison)
     {
         var name = comparison.Operator switch
@@ -108,6 +138,6 @@ public sealed class DevopsExpressionPrinter : ExpressionPrinter
     /// <inheritdoc />
     protected override (string Text, int Precedence) PrintOther(Expr expression) =>
         expression is DevopsRuntimeExpr x
-            ? (Print(x.Expression, AtomPrecedence), AtomPrecedence)
+            ? (Print(x.Expression), AtomPrecedence)
             : base.PrintOther(expression);
 }

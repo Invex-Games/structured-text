@@ -196,7 +196,7 @@ public abstract record StringExpr : Expr
     /// </summary>
     /// <param name="collection">The array-valued expression to search.</param>
     public BoolExpr In(JsonExpr collection) =>
-        new BoolFunction(FunctionNames.Contains, collection, this);
+        new BoolFunction(FunctionNames.ContainsValue, collection, this);
 }
 
 /// <summary>
@@ -297,11 +297,12 @@ public abstract record JsonExpr : Expr
             : new NumberCast(this);
 
     /// <summary>
-    ///     Tests whether this array or string contains <paramref name="value" />.
+    ///     Tests whether this array contains the element <paramref name="value" />. To search text, convert with
+    ///     <see cref="AsString" /> and use <see cref="StringExpr.Contains" />.
     /// </summary>
-    /// <param name="value">The element or substring to search for.</param>
+    /// <param name="value">The element to search for.</param>
     public BoolExpr Contains(Expr value) =>
-        new BoolFunction(FunctionNames.Contains, this, value);
+        new BoolFunction(FunctionNames.ContainsValue, this, value);
 
     /// <summary>
     ///     Joins the elements of this array with <paramref name="separator" />.

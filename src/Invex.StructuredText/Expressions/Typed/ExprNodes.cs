@@ -305,8 +305,11 @@ public sealed record NotExpr(BoolExpr Operand) : BoolExpr
 [PublicAPI]
 public static class FunctionNames
 {
-    /// <summary>Tests whether a string or array contains a value.</summary>
+    /// <summary>Tests whether a string contains a substring.</summary>
     public const string Contains = "contains";
+
+    /// <summary>Tests whether an array contains an element. Arguments: the array, then the element.</summary>
+    public const string ContainsValue = "containsValue";
 
     /// <summary>Tests whether a string starts with a value.</summary>
     public const string StartsWith = "startsWith";
@@ -317,7 +320,7 @@ public static class FunctionNames
     /// <summary>Replaces <c>{n}</c> placeholders in a string.</summary>
     public const string Format = "format";
 
-    /// <summary>Joins array elements into a string.</summary>
+    /// <summary>Joins array elements into a string. Arguments: the array, then the optional separator.</summary>
     public const string Join = "join";
 
     /// <summary>Serializes a value to JSON.</summary>

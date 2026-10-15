@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.AzureDevopsPipelines.Tests;
+﻿namespace Invex.StructuredText.AzureDevopsPipelines.Tests;
 
 [TestFixture]
 internal sealed class DevopsExpressionPrinterTests
@@ -102,4 +102,62 @@ internal sealed class DevopsExpressionPrinterTests
     [Test]
     public void Runtime_NestedInAnExpression_PrintsItsOperand() =>
         Print(Tex.DevOps.Runtime(Tex.Raw("a")).AsBool() && Tex.Success()).ShouldBe("and(a, succeeded())");
+
+    [Test]
+    public void Runtime_RawFunctionCall_IsNotParenthesized()
+    {
+        Print(Tex.DevOps.Runtime(Tex.Raw("eq(variables['a'], 'b')")).AsBool())
+            .ShouldBe("eq(variables['a'], 'b')");
+
+        Print(Tex.DevOps.Runtime(Tex.Raw("eq(variables['a'], 'b')")).AsBool() && Tex.Success())
+            .ShouldBe("and(eq(variables['a'], 'b'), succeeded())");
+    }
+
+    [Test]
+    public void Join_PutsTheSeparatorFirst()
+    {
+        var items = (JsonExpr)Tex.Raw("parameters.items");
+
+        Print(items.Join("-")).ShouldBe("join('-', parameters.items)");
+        Print(items.Join()).ShouldBe("join(',', parameters.items)");
+    }
+
+    [Test]
+    public void CollectionMembership_UsesContainsValue()
+    {
+        var branches = (JsonExpr)Tex.Raw("parameters.branches");
+
+        Print(Tex.DevOps.Build.SourceBranch.In(branches))
+            .ShouldBe("containsValue(parameters.branches, variables['Build.SourceBranch'])");
+
+        Print(branches.Contains("main")).ShouldBe("containsValue(parameters.branches, 'main')");
+        Print(Tex.DevOps.Build.SourceBranch.Contains("main")).ShouldBe("contains(variables['Build.SourceBranch'], 'main')");
+    }
+
+    [Test]
+    public void Template_CompoundExpressionReadingAJobOutput_IsRuntime() =>
+        Render(Tex.Format("v{0}", Tex.JobOutput("Setup", "version", "Info")))
+            .ShouldBe("$[ format('v{0}', dependencies.Setup.outputs['Info.version']) ]");
+
+    [Test]
+    public void Template_JobResult_IsRuntime() =>
+        Render(Tex.JobResult("Build").Eq(Tex.Result(RunResult.Success)))
+            .ShouldBe("$[ eq(dependencies.Build.result, 'Succeeded') ]");
+
+    [Test]
+    public void Template_CastRuntimeExpression_StaysRuntime() =>
+        Render(Tex.DevOps.Runtime(Tex.Variable("a").Eq("b")).AsBool())
+            .ShouldBe("$[ eq(variables['a'], 'b') ]");
+
+    [Test]
+    public void Template_RuntimeExpressionWithSurroundingText_IsNotSupported()
+    {
+        Should.Throw<NotSupportedException>(() => Render($"v{Tex.JobOutput("Setup", "version", "Info")}"));
+        Should.Throw<NotSupportedException>(() => Render($"v{Tex.DevOps.Runtime(Tex.Raw("a"))}"));
+    }
+
+    [Test]
+    public void Template_MultipleRuntimeHoles_IsNotSupported() =>
+        Should.Throw<NotSupportedException>(() =>
+            Render($"{Tex.JobOutput("A", "x")}{Tex.JobOutput("B", "y")}"));
 }

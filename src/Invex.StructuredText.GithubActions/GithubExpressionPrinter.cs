@@ -77,4 +77,11 @@ public sealed class GithubExpressionPrinter : ExpressionPrinter
             RunResult.Skipped => "'skipped'",
             _ => throw new ArgumentOutOfRangeException(nameof(result)),
         };
+
+    /// <inheritdoc />
+    /// <remarks>GitHub's <c>contains</c> covers both substring and array membership tests.</remarks>
+    protected override string FunctionName(string name) =>
+        name is FunctionNames.ContainsValue
+            ? FunctionNames.Contains
+            : name;
 }

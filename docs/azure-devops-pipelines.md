@@ -334,7 +334,13 @@ Inside a template, each kind of value is embedded with the syntax Azure DevOps e
 | `Tex.Input("x")` | `${{ parameters.x }}` (template expression) |
 | `Tex.JobOutput("job", "out", "step")` | `$[ dependencies.job.outputs['step.out'] ]` (runtime expression) |
 | `Tex.DevOps.Runtime(expression)` | `$[ expression ]` (runtime expression) |
+| Any expression that reads a job output or job result | `$[ expression ]` (runtime expression) |
 | Any other expression | `${{ expression }}` (template expression) |
+
+> [!IMPORTANT]
+> Azure DevOps only evaluates a runtime expression that is the whole value, so a template such as
+> `$"v{Tex.JobOutput("Setup", "version", "Info")}"` throws `NotSupportedException`. Assign the runtime value to a
+> variable, then interpolate `Tex.Variable("name")`.
 
 `Tex.DevOps` lists the common predefined variables, such as `Tex.DevOps.Build.SourceBranch`,
 `Tex.DevOps.Build.BuildId`, `Tex.DevOps.System.AccessToken`, `Tex.DevOps.Agent.Os` and
@@ -353,7 +359,8 @@ Variables = new Variables.Dictionary
 
 > [!NOTE]
 > Azure DevOps has no `fromJSON`, so `Tex.FromJson` throws `NotSupportedException` here. `ToJson()` prints
-> `convertToJson(...)`.
+> `convertToJson(...)`, `Join` puts the separator first (`join(',', items)`), and array membership (`value.In(items)`,
+> `items.Contains(value)`) prints `containsValue(items, value)`.
 
 ## See also
 

@@ -45,7 +45,7 @@ Each expression has a result type, and the compiler only offers the operations t
 | `BoolExpr` | A condition | `&&`, `\|\|`, `!`, `Eq`, `Ne` |
 | `StringExpr` | A string value | `Eq`, `Ne`, `Contains`, `StartsWith`, `EndsWith`, `In(collection)` |
 | `NumberExpr` | A number | `Eq`, `Ne`, `Lt`, `Le`, `Gt`, `Ge` |
-| `JsonExpr` | An object or array | `["name"]`, `[index]`, `AsString()`, `AsBool()`, `AsNumber()`, `Contains`, `Join`, `ToJson` |
+| `JsonExpr` | An object or array | `["name"]`, `[index]`, `AsString()`, `AsBool()`, `AsNumber()`, `Contains(element)`, `Join`, `ToJson` |
 
 All four derive from `Expr`. C# literals convert implicitly: `"push"` becomes a quoted string literal, `100` a number
 literal and `true` a boolean literal, so `Tex.GitHub.EventName.Eq("push")` prints `github.event_name == 'push'`.

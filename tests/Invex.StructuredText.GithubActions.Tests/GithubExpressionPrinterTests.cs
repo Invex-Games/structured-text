@@ -209,4 +209,9 @@ public class GithubExpressionPrinterTests
     public void ToString_UsesNeutralSyntax() =>
         (Tex.GitHub.Ref.Eq("main") && Tex.Secret("X").Eq("y")).ToString()
         .ShouldBe("github.ref == 'main' && secret(X) == 'y'");
+
+    [Test]
+    public void CollectionMembership_UsesContains() =>
+        Print(Tex.GitHub.Ref.In(Tex.FromJson(Tex.Variable("BRANCHES"))))
+            .ShouldBe("contains(fromJSON(vars.BRANCHES), github.ref)");
 }
