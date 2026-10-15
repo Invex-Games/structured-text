@@ -431,4 +431,30 @@ internal sealed class GithubActionWriterStepTests
         header.ShouldEndWith("X: |4");
         (second.Length - second.TrimStart().Length).ShouldBe(header.IndexOf('X') + 4);
     }
+
+    [TestCase(1)]
+    [TestCase(6)]
+    public void WriteStep_RunStep_IndentedFirstLineWithUnsupportedIndent_Throws(int indentSize)
+    {
+        var writer = new GithubActionWriter { TextWriter = new StructuredTextWriter(indentSize) };
+
+        Should.Throw<NotSupportedException>(() => writer.Write(GithubActionWriterHelper.MinimalAction() with
+        {
+            Jobs = [GithubActionWriterHelper.MinimalJob() with { Steps = [new Step.RunStep { Run = ["  echo first", "echo second"] }] }],
+        }));
+    }
+
+    [TestCase(1)]
+    [TestCase(6)]
+    public void WriteStep_RunStep_UnindentedFirstLineWithUnusualIndent_DoesNotThrow(int indentSize)
+    {
+        var writer = new GithubActionWriter { TextWriter = new StructuredTextWriter(indentSize) };
+
+        writer.Write(GithubActionWriterHelper.MinimalAction() with
+        {
+            Jobs = [GithubActionWriterHelper.MinimalJob() with { Steps = [new Step.RunStep { Run = ["echo first", "  echo second"] }] }],
+        });
+
+        writer.TextWriter.ToString().ShouldContain("run: |");
+    }
 }

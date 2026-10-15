@@ -835,10 +835,15 @@ public sealed class GithubActionWriter
 
     // YAML takes a literal block's indentation from its first non-empty line, so a script whose first line is itself
     // indented needs an explicit indentation indicator: how far the content sits in from its key.
+    // YAML only allows 1 to 9, so writers with unusual indent sizes can't write such a block.
     private static string LiteralBlockHeader(string[] lines, int contentOffset) =>
-        lines.FirstOrDefault(x => x.Length > 0) is [' ', ..]
-            ? $"|{contentOffset}"
-            : "|";
+        lines.FirstOrDefault(x => x.Length > 0) is not [' ', ..]
+            ? "|"
+            : contentOffset is >= 1 and <= 9
+                ? $"|{contentOffset}"
+                : throw new NotSupportedException(
+                    $"A multi-line value whose first line is indented needs a YAML indentation indicator of {contentOffset}, " +
+                    $"but YAML only allows 1 to 9. Use an indent size from 2 to 5, or don't start the value with spaces.");
 
     // Splits on line breaks, keeping blank lines inside the text (they matter in scripts and here-documents) but
     // dropping trailing ones.
