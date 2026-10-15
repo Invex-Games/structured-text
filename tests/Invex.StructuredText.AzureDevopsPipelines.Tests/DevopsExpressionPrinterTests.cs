@@ -1,0 +1,105 @@
+namespace Invex.StructuredText.AzureDevopsPipelines.Tests;
+
+[TestFixture]
+internal sealed class DevopsExpressionPrinterTests
+{
+    private static string Print(Expr expression) =>
+        DevopsExpressionPrinter.Instance.Print(expression);
+
+    private static string Render(Template template) =>
+        DevopsExpressionPrinter.Instance.Render(template);
+
+    [Test]
+    public void Literals()
+    {
+        Print((StringExpr)"it's").ShouldBe("'it''s'");
+        Print((NumberExpr)3.14).ShouldBe("3.14");
+        Print((BoolExpr)true).ShouldBe("true");
+    }
+
+    [Test]
+    public void Comparisons_UseFunctions()
+    {
+        Print(Tex.Variable("a").Eq("x")).ShouldBe("eq(variables['a'], 'x')");
+        Print(Tex.Variable("a").Ne("x")).ShouldBe("ne(variables['a'], 'x')");
+        Print(((NumberExpr)Tex.Raw("n")).Lt(1)).ShouldBe("lt(n, 1)");
+        Print(((NumberExpr)Tex.Raw("n")).Ge(1)).ShouldBe("ge(n, 1)");
+    }
+
+    [Test]
+    public void Logic_UsesFunctions() =>
+        Print((Tex.Raw("a") || Tex.Raw("b")) && !Tex.Raw("c") && Tex.Success())
+            .ShouldBe("and(or(a, b), not(c), succeeded())");
+
+    [Test]
+    public void StatusChecks()
+    {
+        Print(Tex.Success()).ShouldBe("succeeded()");
+        Print(Tex.Failure()).ShouldBe("failed()");
+        Print(Tex.Cancelled()).ShouldBe("canceled()");
+        Print(Tex.Always()).ShouldBe("always()");
+    }
+
+    [Test]
+    public void Functions()
+    {
+        Print(Tex.Variable("Build.SourceBranch").StartsWith("refs/tags/"))
+            .ShouldBe("startsWith(variables['Build.SourceBranch'], 'refs/tags/')");
+
+        Print(Tex.Format("{0}-{1}", Tex.Variable("a"), 2)).ShouldBe("format('{0}-{1}', variables['a'], 2)");
+        Print(((JsonExpr)Tex.Raw("x")).ToJson()).ShouldBe("convertToJson(x)");
+    }
+
+    [Test]
+    public void FromJson_IsNotSupported() =>
+        Should.Throw<NotSupportedException>(() => Print(Tex.FromJson("{}")));
+
+    [Test]
+    public void References_InExpressions()
+    {
+        Print(Tex.Secret("TOKEN")).ShouldBe("variables['TOKEN']");
+        Print(Tex.Matrix("os")).ShouldBe("variables['os']");
+        Print(Tex.Input("dryRun")).ShouldBe("parameters.dryRun");
+        Print(Tex.JobOutput("Setup", "version")).ShouldBe("dependencies.Setup.outputs['Setup.version']");
+        Print(Tex.JobOutput("Setup", "version", "Info")).ShouldBe("dependencies.Setup.outputs['Info.version']");
+        Print(Tex.StepOutput("Info", "version")).ShouldBe("variables['Info.version']");
+        Print(Tex.JobResult("Build").Eq(Tex.Result(RunResult.Success))).ShouldBe("eq(dependencies.Build.result, 'Succeeded')");
+    }
+
+    [Test]
+    public void Results()
+    {
+        Print(Tex.Result(RunResult.Failure)).ShouldBe("'Failed'");
+        Print(Tex.Result(RunResult.Cancelled)).ShouldBe("'Canceled'");
+        Print(Tex.Result(RunResult.Skipped)).ShouldBe("'Skipped'");
+    }
+
+    [Test]
+    public void Template_MacroReferences() =>
+        Render($"{Tex.Secret("TOKEN")}/{Tex.Variable("Build.BuildId")}/{Tex.Matrix("os")}/{Tex.StepOutput("Info", "version")}")
+            .ShouldBe("$(TOKEN)/$(Build.BuildId)/$(os)/$(Info.version)");
+
+    [Test]
+    public void Template_JobOutput_IsRuntime() =>
+        Render(Tex.JobOutput("Setup", "version")).ShouldBe("$[ dependencies.Setup.outputs['Setup.version'] ]");
+
+    [Test]
+    public void Template_Runtime_IsRuntime() =>
+        Render(Tex.DevOps.Runtime(Tex.Variable("a").Eq("b"))).ShouldBe("$[ eq(variables['a'], 'b') ]");
+
+    [Test]
+    public void Template_OtherExpressions_AreCompileTime() =>
+        Render($"v{Tex.Input("version")}").ShouldBe("v${{ parameters.version }}");
+
+    [Test]
+    public void PredefinedVariables()
+    {
+        Render(Tex.DevOps.Build.SourceBranch).ShouldBe("$(Build.SourceBranch)");
+        Print(Tex.DevOps.System.AccessToken).ShouldBe("variables['System.AccessToken']");
+        Print(Tex.DevOps.Agent.Os.Eq("Linux")).ShouldBe("eq(variables['Agent.OS'], 'Linux')");
+    }
+
+    [Test]
+    public void Runtime_NestedInAnExpression_PrintsItsOperand() =>
+        Print(Tex.DevOps.Runtime(Tex.Raw("a")).AsBool() && Tex.Success()).ShouldBe("and(a, succeeded())");
+}

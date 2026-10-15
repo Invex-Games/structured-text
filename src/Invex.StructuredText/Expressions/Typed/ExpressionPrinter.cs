@@ -46,7 +46,7 @@ public abstract class ExpressionPrinter
     /// <returns>The rendered text.</returns>
     public string Render(Template template) =>
         string.Concat(template.Parts.Select(part => part.Expression is { } expression
-            ? WrapEmbedded(Print(expression))
+            ? RenderEmbedded(expression)
             : part.Text));
 
     /// <summary>
@@ -77,6 +77,15 @@ public abstract class ExpressionPrinter
     /// <param name="printedExpression">The rendered expression.</param>
     /// <returns>The wrapped text.</returns>
     protected abstract string WrapEmbedded(string printedExpression);
+
+    /// <summary>
+    ///     Renders an expression embedded in a <see cref="Template" />. By default it is printed and wrapped with
+    ///     <see cref="WrapEmbedded" />; platforms with several embedding syntaxes override this.
+    /// </summary>
+    /// <param name="expression">The embedded expression.</param>
+    /// <returns>The rendered text.</returns>
+    protected virtual string RenderEmbedded(Expr expression) =>
+        WrapEmbedded(Print(expression));
 
     /// <summary>
     ///     Renders a portable reference such as a secret or a job output.

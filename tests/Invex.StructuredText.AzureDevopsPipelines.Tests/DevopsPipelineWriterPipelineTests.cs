@@ -12,7 +12,7 @@ internal sealed class DevopsPipelineWriterPipelineTests
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hello"),
+                    ScriptContent = "echo hello",
                 },
             ],
         };
@@ -29,12 +29,12 @@ internal sealed class DevopsPipelineWriterPipelineTests
     {
         var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
         {
-            Name = new RawExpression("$(Build.DefinitionName)"),
+            Name = "$(Build.DefinitionName)",
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         };
@@ -51,12 +51,12 @@ internal sealed class DevopsPipelineWriterPipelineTests
     {
         var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
         {
-            AppendCommitMessageToRunName = new BooleanExpression(false),
+            AppendCommitMessageToRunName = false,
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         };
@@ -72,13 +72,13 @@ internal sealed class DevopsPipelineWriterPipelineTests
         {
             Pool = new Pool.PoolSpec
             {
-                VmImage = new RawExpression("ubuntu-latest"),
+                VmImage = "ubuntu-latest",
             },
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         };
@@ -94,15 +94,15 @@ internal sealed class DevopsPipelineWriterPipelineTests
     {
         var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
         {
-            Services = new Dictionary<string, TextExpression>
+            Services = new Dictionary<string, Template>
             {
-                ["redis"] = new RawExpression("redis:6"),
+                ["redis"] = "redis:6",
             },
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         };
@@ -119,13 +119,13 @@ internal sealed class DevopsPipelineWriterPipelineTests
         {
             Workspace = new()
             {
-                Clean = new BooleanExpression(true),
+                Clean = true,
             },
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         };
@@ -140,12 +140,12 @@ internal sealed class DevopsPipelineWriterPipelineTests
     {
         var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
         {
-            ContinueOnError = new BooleanExpression(true),
+            ContinueOnError = true,
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         };
@@ -163,7 +163,7 @@ internal sealed class DevopsPipelineWriterPipelineTests
             [
                 new Job.RegularJob
                 {
-                    JobId = new RawExpression("MyJob"),
+                    JobId = "MyJob",
                 },
             ],
         };
@@ -184,11 +184,11 @@ internal sealed class DevopsPipelineWriterPipelineTests
             [
                 new Job.RegularJob
                 {
-                    JobId = new RawExpression("Job1"),
+                    JobId = "Job1",
                 },
                 new Job.RegularJob
                 {
-                    JobId = new RawExpression("Job2"),
+                    JobId = "Job2",
                 },
             ],
         };
@@ -210,13 +210,13 @@ internal sealed class DevopsPipelineWriterPipelineTests
         {
             Pool = new Pool.PoolName
             {
-                Name = new RawExpression("my-pool"),
+                Name = "my-pool",
             },
             Jobs =
             [
                 new Job.RegularJob
                 {
-                    JobId = new RawExpression("MyJob"),
+                    JobId = "MyJob",
                 },
             ],
         };
@@ -234,7 +234,7 @@ internal sealed class DevopsPipelineWriterPipelineTests
             [
                 new Stage.StageDefinition
                 {
-                    StageId = new RawExpression("BuildStage"),
+                    StageId = "BuildStage",
                 },
             ],
         };
@@ -251,12 +251,12 @@ internal sealed class DevopsPipelineWriterPipelineTests
     {
         var pipeline = new DevopsPipeline.DevopsPipelineWithStages
         {
-            LockBehavior = new RawExpression("runLatest"),
+            LockBehavior = "runLatest",
             Stages =
             [
                 new Stage.StageDefinition
                 {
-                    StageId = new RawExpression("BuildStage"),
+                    StageId = "BuildStage",
                 },
             ],
         };
@@ -272,7 +272,7 @@ internal sealed class DevopsPipelineWriterPipelineTests
         {
             Extends = new()
             {
-                Template = new RawExpression("templates/base.yml"),
+                Template = "templates/base.yml",
             },
         };
 
@@ -290,11 +290,11 @@ internal sealed class DevopsPipelineWriterPipelineTests
         {
             Extends = new()
             {
-                Template = new RawExpression("templates/base.yml"),
-                Parameters = new Dictionary<string, TextExpression>
+                Template = "templates/base.yml",
+                Parameters = new Dictionary<string, Template>
                 {
-                    ["environment"] = new RawExpression("production"),
-                    ["runTests"] = new BooleanExpression(true),
+                    ["environment"] = "production",
+                    ["runTests"] = true,
                 },
             },
         };
@@ -314,10 +314,10 @@ internal sealed class DevopsPipelineWriterPipelineTests
         {
             Extends = new()
             {
-                Template = new RawExpression("templates/secure.yml"),
-                Parameters = new Dictionary<string, TextExpression>
+                Template = "templates/secure.yml",
+                Parameters = new Dictionary<string, Template>
                 {
-                    ["param1"] = new RawExpression("val1"),
+                    ["param1"] = "val1",
                 },
             },
         };
@@ -347,7 +347,7 @@ internal sealed class DevopsPipelineWriterPipelineTests
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         });

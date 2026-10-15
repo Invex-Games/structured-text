@@ -28,7 +28,7 @@ public partial record Trigger
         /// <summary>
         ///     Branch names that trigger a run.
         /// </summary>
-        public required WorkflowExpressionCollection<string> Branches { get; init; }
+        public required IReadOnlyList<ExprTemplate> Branches { get; init; }
     }
 
     /// <summary>
@@ -40,7 +40,7 @@ public partial record Trigger
         /// <summary>
         ///     Whether to batch changes per branch.
         /// </summary>
-        public WorkflowExpression<bool>? Batch { get; init; }
+        public ExprTemplate? Batch { get; init; }
 
         /// <summary>
         ///     Branch names to include or exclude for triggering a run.

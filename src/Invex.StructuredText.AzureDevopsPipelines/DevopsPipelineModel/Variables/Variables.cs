@@ -21,7 +21,7 @@ public partial record Variables
         /// <summary>
         ///     Name/value pairs for variables.
         /// </summary>
-        public required IReadOnlyDictionary<string, TextExpression> Values { get; init; }
+        public required IReadOnlyDictionary<string, ExprTemplate> Values { get; init; }
     }
 
     /// <summary>
@@ -59,17 +59,17 @@ public partial record Variable
         /// <summary>
         ///     Variable name.
         /// </summary>
-        public required WorkflowExpression<string> VariableName { get; init; }
+        public required ExprTemplate VariableName { get; init; }
 
         /// <summary>
         ///     Variable value.
         /// </summary>
-        public required WorkflowExpression<string> Value { get; init; }
+        public required ExprTemplate Value { get; init; }
 
         /// <summary>
         ///     Whether the variable is read-only.
         /// </summary>
-        public WorkflowExpression<bool>? ReadOnly { get; init; }
+        public ExprTemplate? ReadOnly { get; init; }
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ public partial record Variable
         /// <summary>
         ///     Name of the variable group.
         /// </summary>
-        public required WorkflowExpression<string> GroupName { get; init; }
+        public required ExprTemplate GroupName { get; init; }
     }
 
     /// <summary>
@@ -93,11 +93,11 @@ public partial record Variable
         /// <summary>
         ///     Path to the template file.
         /// </summary>
-        public required WorkflowExpression<string> TemplatePath { get; init; }
+        public required ExprTemplate TemplatePath { get; init; }
 
         /// <summary>
         ///     Parameters to pass to the template.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Parameters { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Parameters { get; init; }
     }
 }

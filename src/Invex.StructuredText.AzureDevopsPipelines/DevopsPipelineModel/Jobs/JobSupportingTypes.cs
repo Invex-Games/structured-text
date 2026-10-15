@@ -11,17 +11,17 @@ public sealed record JobStrategy
     ///     Each key is a combination name (e.g., "001_windows-latest"), and each value is a dictionary
     ///     of variable name to variable value for that combination.
     /// </summary>
-    public IReadOnlyDictionary<string, IReadOnlyDictionary<string, TextExpression>>? Matrix { get; init; }
+    public IReadOnlyDictionary<string, IReadOnlyDictionary<string, ExprTemplate>>? Matrix { get; init; }
 
     /// <summary>
     ///     Maximum number of jobs to run in parallel.
     /// </summary>
-    public WorkflowExpression<double>? MaxParallel { get; init; }
+    public ExprTemplate? MaxParallel { get; init; }
 
     /// <summary>
     ///     Specifies whether to run the job in parallel.
     /// </summary>
-    public WorkflowExpression<double>? Parallel { get; init; }
+    public ExprTemplate? Parallel { get; init; }
 }
 
 /// <summary>
@@ -45,7 +45,7 @@ public partial record JobContainer
         /// <summary>
         ///     Name of the container resource.
         /// </summary>
-        public required WorkflowExpression<string> Name { get; init; }
+        public required ExprTemplate Name { get; init; }
     }
 
     /// <summary>
@@ -57,37 +57,37 @@ public partial record JobContainer
         /// <summary>
         ///     Container image name.
         /// </summary>
-        public required WorkflowExpression<string> Image { get; init; }
+        public required ExprTemplate Image { get; init; }
 
         /// <summary>
         ///     Container options.
         /// </summary>
-        public WorkflowExpression<string>? Options { get; init; }
+        public ExprTemplate? Options { get; init; }
 
         /// <summary>
         ///     Service endpoint for the container registry.
         /// </summary>
-        public WorkflowExpression<string>? Endpoint { get; init; }
+        public ExprTemplate? Endpoint { get; init; }
 
         /// <summary>
         ///     Environment variables to set in the container.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     Ports to expose on the container.
         /// </summary>
-        public WorkflowExpressionCollection<string>? Ports { get; init; }
+        public IReadOnlyList<ExprTemplate>? Ports { get; init; }
 
         /// <summary>
         ///     Volumes to mount in the container.
         /// </summary>
-        public WorkflowExpressionCollection<string>? Volumes { get; init; }
+        public IReadOnlyList<ExprTemplate>? Volumes { get; init; }
 
         /// <summary>
         ///     Whether to mount the workspace as read-only.
         /// </summary>
-        public WorkflowExpression<bool>? MapDockerSocket { get; init; }
+        public ExprTemplate? MapDockerSocket { get; init; }
     }
 }
 
@@ -112,7 +112,7 @@ public partial record DeploymentEnvironment
         /// <summary>
         ///     Name of the environment.
         /// </summary>
-        public required WorkflowExpression<string> Name { get; init; }
+        public required ExprTemplate Name { get; init; }
     }
 
     /// <summary>
@@ -124,27 +124,27 @@ public partial record DeploymentEnvironment
         /// <summary>
         ///     Name of the environment.
         /// </summary>
-        public required WorkflowExpression<string> Name { get; init; }
+        public required ExprTemplate Name { get; init; }
 
         /// <summary>
         ///     Resource name within the environment.
         /// </summary>
-        public WorkflowExpression<string>? ResourceName { get; init; }
+        public ExprTemplate? ResourceName { get; init; }
 
         /// <summary>
         ///     Resource type within the environment.
         /// </summary>
-        public WorkflowExpression<string>? ResourceType { get; init; }
+        public ExprTemplate? ResourceType { get; init; }
 
         /// <summary>
         ///     Resource ID within the environment.
         /// </summary>
-        public WorkflowExpression<string>? ResourceId { get; init; }
+        public ExprTemplate? ResourceId { get; init; }
 
         /// <summary>
         ///     Tags for the environment.
         /// </summary>
-        public WorkflowExpressionCollection<string>? Tags { get; init; }
+        public IReadOnlyList<ExprTemplate>? Tags { get; init; }
     }
 }
 
@@ -207,7 +207,7 @@ public partial record DeploymentStrategy
         /// <summary>
         ///     Maximum percentage or number of targets to deploy to in parallel.
         /// </summary>
-        public WorkflowExpression<double>? MaxParallel { get; init; }
+        public ExprTemplate? MaxParallel { get; init; }
 
         /// <summary>
         ///     Pre-deployment steps.
@@ -249,7 +249,7 @@ public partial record DeploymentStrategy
         /// <summary>
         ///     Increments in which to roll out the canary deployment.
         /// </summary>
-        public required WorkflowExpressionCollection<double> Increments { get; init; }
+        public required IReadOnlyList<ExprTemplate> Increments { get; init; }
 
         /// <summary>
         ///     Pre-deployment steps.
@@ -309,10 +309,10 @@ public sealed record ExplicitResources
     /// <summary>
     ///     Repository references.
     /// </summary>
-    public WorkflowExpressionCollection<string>? Repositories { get; init; }
+    public IReadOnlyList<ExprTemplate>? Repositories { get; init; }
 
     /// <summary>
     ///     Pool references.
     /// </summary>
-    public WorkflowExpressionCollection<string>? Pools { get; init; }
+    public IReadOnlyList<ExprTemplate>? Pools { get; init; }
 }

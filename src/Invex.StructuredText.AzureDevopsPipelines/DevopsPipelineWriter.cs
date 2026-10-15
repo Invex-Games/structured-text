@@ -1,8 +1,8 @@
-namespace Invex.StructuredText.AzureDevopsPipelines;
+﻿namespace Invex.StructuredText.AzureDevopsPipelines;
 
 /// <summary>
 ///     Serializes a <see cref="DevopsPipeline" /> model to Azure Pipelines YAML.
-///     Expressions embedded in the model are rendered with <see cref="DevopsExpressionFormatter" />.
+///     Expressions embedded in the model are rendered with <see cref="DevopsExpressionPrinter" />.
 /// </summary>
 /// <remarks>
 ///     The writer accumulates output in <see cref="TextWriter" />; call
@@ -19,8 +19,6 @@ namespace Invex.StructuredText.AzureDevopsPipelines;
 [PublicAPI]
 public sealed class DevopsPipelineWriter
 {
-    private readonly DevopsExpressionFormatter _expressionFormatter = new();
-
     /// <summary>
     ///     The underlying text writer that accumulates the generated YAML.
     /// </summary>
@@ -130,7 +128,7 @@ public sealed class DevopsPipelineWriter
                 WriteStep(step);
     }
 
-    private void WritePipelineHeader(TextExpression? name, TextExpression? appendCommitMessage)
+    private void WritePipelineHeader(ExprTemplate? name, ExprTemplate? appendCommitMessage)
     {
         if (name is not null)
         {
@@ -431,7 +429,7 @@ public sealed class DevopsPipelineWriter
                 }
             });
 
-    private void WriteLockBehavior(TextExpression? lockBehavior)
+    private void WriteLockBehavior(ExprTemplate? lockBehavior)
     {
         if (lockBehavior is not null)
             WriteProperty("lockBehavior", lockBehavior);
@@ -1043,14 +1041,14 @@ public sealed class DevopsPipelineWriter
     }
 
     private void WriteCommonStepProperties(
-        TextExpression? displayName,
-        TextExpression? name,
-        TextExpression? condition,
-        TextExpression? continueOnError,
-        TextExpression? enabled,
-        TextExpression? timeoutInMinutes,
-        TextExpression? retryCountOnTaskFailure,
-        IReadOnlyDictionary<string, TextExpression>? env,
+        ExprTemplate? displayName,
+        ExprTemplate? name,
+        BoolExpr? condition,
+        ExprTemplate? continueOnError,
+        ExprTemplate? enabled,
+        ExprTemplate? timeoutInMinutes,
+        ExprTemplate? retryCountOnTaskFailure,
+        IReadOnlyDictionary<string, ExprTemplate>? env,
         StepTarget? target)
     {
         if (displayName is not null)
@@ -1121,7 +1119,7 @@ public sealed class DevopsPipelineWriter
             WriteExpressionList("exclude", exclude);
     }
 
-    private void WriteExpressionList(string key, TextExpressionCollection values)
+    private void WriteExpressionList(string key, IReadOnlyList<ExprTemplate> values)
     {
         // If the combined length of the expressions is less than 120 characters,
         // we can write the list as a single line e.g. [ item1, item2, item3 ]
@@ -1144,9 +1142,12 @@ public sealed class DevopsPipelineWriter
             TextWriter.WriteLine($"- {Resolve(value)}");
     }
 
-    private void WriteProperty(string key, TextExpression value) =>
+    private void WriteProperty(string key, ExprTemplate value) =>
         TextWriter.WriteLine($"{key}: {Resolve(value)}");
 
-    private string Resolve(TextExpression expression) =>
-        _expressionFormatter.Format(expression);
+    private void WriteProperty(string key, BoolExpr condition) =>
+        TextWriter.WriteLine($"{key}: {DevopsExpressionPrinter.Instance.Print(condition)}");
+
+    private static string Resolve(ExprTemplate value) =>
+        DevopsExpressionPrinter.Instance.Render(value);
 }

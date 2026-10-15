@@ -18,7 +18,7 @@ internal sealed class DevopsPipelineWriterTriggerTests
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         };
@@ -68,7 +68,7 @@ internal sealed class DevopsPipelineWriterTriggerTests
     {
         var output = PipelineWriterHelper.Write(SimplePipeline(new Trigger.Full
         {
-            Batch = new BooleanExpression(true),
+            Batch = true,
         }));
 
         output.ShouldContain("trigger:");
@@ -158,7 +158,7 @@ internal sealed class DevopsPipelineWriterTriggerTests
     {
         var output = PipelineWriterHelper.Write(SimplePipeline(pr: new Pr.Full
         {
-            AutoCancel = new BooleanExpression(false),
+            AutoCancel = false,
         }));
 
         output.ShouldContain("pr:");
@@ -170,7 +170,7 @@ internal sealed class DevopsPipelineWriterTriggerTests
     {
         var output = PipelineWriterHelper.Write(SimplePipeline(pr: new Pr.Full
         {
-            Drafts = new BooleanExpression(true),
+            Drafts = true,
         }));
 
         output.ShouldContain("drafts: true");
@@ -211,7 +211,7 @@ internal sealed class DevopsPipelineWriterTriggerTests
         [
             new()
             {
-                Name = new RawExpression("myParam"),
+                Name = "myParam",
             },
         ]));
 
@@ -226,10 +226,10 @@ internal sealed class DevopsPipelineWriterTriggerTests
         [
             new()
             {
-                Name = new RawExpression("env"),
-                DisplayName = new RawExpression("Environment"),
-                Type = new RawExpression("string"),
-                Default = new RawExpression("dev"),
+                Name = "env",
+                DisplayName = "Environment",
+                Type = "string",
+                Default = "dev",
                 Values = ["dev", "staging", "prod"],
             },
         ]));
@@ -264,7 +264,7 @@ internal sealed class DevopsPipelineWriterTriggerTests
         [
             new()
             {
-                Cron = new RawExpression("0 */6 * * *"),
+                Cron = "0 */6 * * *",
             },
         ]));
 
@@ -279,13 +279,13 @@ internal sealed class DevopsPipelineWriterTriggerTests
         [
             new()
             {
-                Cron = new RawExpression("0 0 * * 0"),
-                DisplayName = new RawExpression("Weekly Sunday"),
+                Cron = "0 0 * * 0",
+                DisplayName = "Weekly Sunday",
                 Branches = new()
                 {
-                    Include = "main",
+                    Include = ["main"],
                 },
-                Always = new BooleanExpression(true),
+                Always = true,
             },
         ]));
 

@@ -8,7 +8,7 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MyJob"),
+            JobId = "MyJob",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithJobs
@@ -24,8 +24,8 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MyJob"),
-            DisplayName = new RawExpression("My Build Job"),
+            JobId = "MyJob",
+            DisplayName = "My Build Job",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithJobs
@@ -41,7 +41,7 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("DeployJob"),
+            JobId = "DeployJob",
             DependsOn = ["BuildJob", "TestJob"],
         };
 
@@ -58,8 +58,8 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MyJob"),
-            Condition = new RawExpression("succeeded()"),
+            JobId = "MyJob",
+            Condition = Tex.Raw("succeeded()"),
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithJobs
@@ -75,9 +75,9 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MyJob"),
-            TimeoutInMinutes = new NumberExpression(60),
-            CancelTimeoutInMinutes = new NumberExpression(5),
+            JobId = "MyJob",
+            TimeoutInMinutes = 60,
+            CancelTimeoutInMinutes = 5,
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithJobs
@@ -94,12 +94,12 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MyJob"),
+            JobId = "MyJob",
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hello"),
+                    ScriptContent = "echo hello",
                 },
             ],
         };
@@ -118,10 +118,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MyJob"),
+            JobId = "MyJob",
             Pool = new Pool.PoolSpec
             {
-                VmImage = new RawExpression("windows-latest"),
+                VmImage = "windows-latest",
             },
         };
 
@@ -139,10 +139,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("IntegrationTestJob"),
-            Services = new Dictionary<string, TextExpression>
+            JobId = "IntegrationTestJob",
+            Services = new Dictionary<string, Template>
             {
-                ["postgres"] = new RawExpression("postgres:14"),
+                ["postgres"] = "postgres:14",
             },
         };
 
@@ -160,10 +160,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MyJob"),
+            JobId = "MyJob",
             Workspace = new()
             {
-                Clean = new BooleanExpression(true),
+                Clean = true,
             },
         };
 
@@ -181,10 +181,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MyJob"),
-            TemplateContext = new Dictionary<string, TextExpression>
+            JobId = "MyJob",
+            TemplateContext = new Dictionary<string, Template>
             {
-                ["key1"] = new RawExpression("val1"),
+                ["key1"] = "val1",
             },
         };
 
@@ -202,7 +202,7 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MyJob"),
+            JobId = "MyJob",
             Uses = new()
             {
                 Repositories = ["myRepo"],
@@ -225,21 +225,21 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("MatrixJob"),
+            JobId = "MatrixJob",
             Strategy = new()
             {
-                Matrix = new Dictionary<string, IReadOnlyDictionary<string, TextExpression>>
+                Matrix = new Dictionary<string, IReadOnlyDictionary<string, Template>>
                 {
-                    ["windows"] = new Dictionary<string, TextExpression>
+                    ["windows"] = new Dictionary<string, Template>
                     {
-                        ["os"] = new RawExpression("windows-latest"),
+                        ["os"] = "windows-latest",
                     },
-                    ["linux"] = new Dictionary<string, TextExpression>
+                    ["linux"] = new Dictionary<string, Template>
                     {
-                        ["os"] = new RawExpression("ubuntu-latest"),
+                        ["os"] = "ubuntu-latest",
                     },
                 },
-                MaxParallel = new NumberExpression(2),
+                MaxParallel = 2,
             },
         };
 
@@ -262,10 +262,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.RegularJob
         {
-            JobId = new RawExpression("ParallelJob"),
+            JobId = "ParallelJob",
             Strategy = new()
             {
-                Parallel = new NumberExpression(5),
+                Parallel = 5,
             },
         };
 
@@ -283,10 +283,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("MyDeploy"),
+            DeploymentId = "MyDeploy",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("production"),
+                Name = "production",
             },
             Strategy = new DeploymentStrategy.RunOnce(),
         };
@@ -305,13 +305,13 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("MyDeploy"),
+            DeploymentId = "MyDeploy",
             Environment = new DeploymentEnvironment.EnvironmentSpec
             {
-                Name = new RawExpression("production"),
-                ResourceName = new RawExpression("myVM"),
-                ResourceType = new RawExpression("VirtualMachine"),
-                ResourceId = new NumberExpression(12345),
+                Name = "production",
+                ResourceName = "myVM",
+                ResourceType = "VirtualMachine",
+                ResourceId = 12345,
                 Tags = ["primary"],
             },
             Strategy = new DeploymentStrategy.RunOnce(),
@@ -335,10 +335,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("DeployProd"),
+            DeploymentId = "DeployProd",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("prod"),
+                Name = "prod",
             },
             Strategy = new DeploymentStrategy.RunOnce
             {
@@ -348,7 +348,7 @@ internal sealed class DevopsPipelineWriterJobTests
                     [
                         new Step.Script
                         {
-                            ScriptContent = new RawExpression("echo deploying"),
+                            ScriptContent = "echo deploying",
                         },
                     ],
                 },
@@ -372,10 +372,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("DeployProd"),
+            DeploymentId = "DeployProd",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("prod"),
+                Name = "prod",
             },
             Strategy = new DeploymentStrategy.RunOnce
             {
@@ -385,7 +385,7 @@ internal sealed class DevopsPipelineWriterJobTests
                     [
                         new Step.Script
                         {
-                            ScriptContent = new RawExpression("echo success"),
+                            ScriptContent = "echo success",
                         },
                     ],
                 },
@@ -407,10 +407,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("DeployProd"),
+            DeploymentId = "DeployProd",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("prod"),
+                Name = "prod",
             },
             Strategy = new DeploymentStrategy.RunOnce
             {
@@ -420,7 +420,7 @@ internal sealed class DevopsPipelineWriterJobTests
                     [
                         new Step.Script
                         {
-                            ScriptContent = new RawExpression("echo failed"),
+                            ScriptContent = "echo failed",
                         },
                     ],
                 },
@@ -442,21 +442,21 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("DeployRolling"),
+            DeploymentId = "DeployRolling",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("prod"),
+                Name = "prod",
             },
             Strategy = new DeploymentStrategy.Rolling
             {
-                MaxParallel = new NumberExpression(25),
+                MaxParallel = 25,
                 Deploy = new()
                 {
                     Steps =
                     [
                         new Step.Script
                         {
-                            ScriptContent = new RawExpression("echo rolling"),
+                            ScriptContent = "echo rolling",
                         },
                     ],
                 },
@@ -479,21 +479,21 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("DeployCanary"),
+            DeploymentId = "DeployCanary",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("prod"),
+                Name = "prod",
             },
             Strategy = new DeploymentStrategy.Canary
             {
-                Increments = new TextExpression[] { new NumberExpression(10), new NumberExpression(50) },
+                Increments = new Template[] { 10, 50 },
                 Deploy = new()
                 {
                     Steps =
                     [
                         new Step.Script
                         {
-                            ScriptContent = new RawExpression("echo canary"),
+                            ScriptContent = "echo canary",
                         },
                     ],
                 },
@@ -515,10 +515,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("MyDeploy"),
+            DeploymentId = "MyDeploy",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("prod"),
+                Name = "prod",
             },
             Strategy = new DeploymentStrategy.RunOnce
             {
@@ -526,13 +526,13 @@ internal sealed class DevopsPipelineWriterJobTests
                 {
                     Pool = new Pool.PoolSpec
                     {
-                        VmImage = new RawExpression("ubuntu-latest"),
+                        VmImage = "ubuntu-latest",
                     },
                     Steps =
                     [
                         new Step.Script
                         {
-                            ScriptContent = new RawExpression("echo deploy"),
+                            ScriptContent = "echo deploy",
                         },
                     ],
                 },
@@ -556,17 +556,17 @@ internal sealed class DevopsPipelineWriterJobTests
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo step"),
+                    ScriptContent = "echo step",
                 },
             ],
         };
 
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("FullDeploy"),
+            DeploymentId = "FullDeploy",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("prod"),
+                Name = "prod",
             },
             Strategy = new DeploymentStrategy.RunOnce
             {
@@ -593,7 +593,7 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Template
         {
-            TemplatePath = new RawExpression("templates/build-job.yml"),
+            TemplatePath = "templates/build-job.yml",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithJobs
@@ -609,10 +609,10 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Template
         {
-            TemplatePath = new RawExpression("templates/build-job.yml"),
-            Parameters = new Dictionary<string, TextExpression>
+            TemplatePath = "templates/build-job.yml",
+            Parameters = new Dictionary<string, Template>
             {
-                ["buildType"] = new RawExpression("release"),
+                ["buildType"] = "release",
             },
         };
 
@@ -631,15 +631,15 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("MyDeploy"),
+            DeploymentId = "MyDeploy",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("prod"),
+                Name = "prod",
             },
             Strategy = new DeploymentStrategy.RunOnce(),
-            Services = new Dictionary<string, TextExpression>
+            Services = new Dictionary<string, Template>
             {
-                ["db"] = new RawExpression("postgres:14"),
+                ["db"] = "postgres:14",
             },
         };
 
@@ -657,15 +657,15 @@ internal sealed class DevopsPipelineWriterJobTests
     {
         Job job = new Job.Deployment
         {
-            DeploymentId = new RawExpression("MyDeploy"),
+            DeploymentId = "MyDeploy",
             Environment = new DeploymentEnvironment.EnvironmentName
             {
-                Name = new RawExpression("prod"),
+                Name = "prod",
             },
             Strategy = new DeploymentStrategy.RunOnce(),
-            TemplateContext = new Dictionary<string, TextExpression>
+            TemplateContext = new Dictionary<string, Template>
             {
-                ["region"] = new RawExpression("eastus"),
+                ["region"] = "eastus",
             },
         };
 

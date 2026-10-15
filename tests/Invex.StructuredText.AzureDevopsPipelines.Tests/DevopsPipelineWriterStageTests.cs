@@ -10,7 +10,7 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("BuildStage"),
+            StageId = "BuildStage",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithStages
@@ -26,8 +26,8 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("BuildStage"),
-            DisplayName = new RawExpression("Build Application"),
+            StageId = "BuildStage",
+            DisplayName = "Build Application",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithStages
@@ -43,8 +43,8 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("BuildStage"),
-            Group = new RawExpression("BuildGroup"),
+            StageId = "BuildStage",
+            Group = "BuildGroup",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithStages
@@ -60,7 +60,7 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("TestStage"),
+            StageId = "TestStage",
             DependsOn = ["BuildStage"],
         };
 
@@ -77,8 +77,8 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("DeployStage"),
-            Condition = new RawExpression("succeeded()"),
+            StageId = "DeployStage",
+            Condition = Tex.Raw("succeeded()"),
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithStages
@@ -94,10 +94,10 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("BuildStage"),
+            StageId = "BuildStage",
             Pool = new Pool.PoolSpec
             {
-                VmImage = new RawExpression("ubuntu-latest"),
+                VmImage = "ubuntu-latest",
             },
         };
 
@@ -115,8 +115,8 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("DeployStage"),
-            LockBehavior = new RawExpression("sequential"),
+            StageId = "DeployStage",
+            LockBehavior = "sequential",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithStages
@@ -132,8 +132,8 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("ManualStage"),
-            Trigger = new RawExpression("manual"),
+            StageId = "ManualStage",
+            Trigger = "manual",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithStages
@@ -149,8 +149,8 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("RequiredStage"),
-            IsSkippable = new BooleanExpression(false),
+            StageId = "RequiredStage",
+            IsSkippable = false,
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithStages
@@ -166,10 +166,10 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("BuildStage"),
-            TemplateContext = new Dictionary<string, TextExpression>
+            StageId = "BuildStage",
+            TemplateContext = new Dictionary<string, Template>
             {
-                ["region"] = new RawExpression("eastus"),
+                ["region"] = "eastus",
             },
         };
 
@@ -187,12 +187,12 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("BuildStage"),
+            StageId = "BuildStage",
             Variables = new Variables.Dictionary
             {
-                Values = new Dictionary<string, TextExpression>
+                Values = new Dictionary<string, Template>
                 {
-                    ["STAGE_VAR"] = new RawExpression("stage-value"),
+                    ["STAGE_VAR"] = "stage-value",
                 },
             },
         };
@@ -211,12 +211,12 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("BuildStage"),
+            StageId = "BuildStage",
             Jobs =
             [
                 new Job.RegularJob
                 {
-                    JobId = new RawExpression("CompileJob"),
+                    JobId = "CompileJob",
                 },
             ],
         };
@@ -236,16 +236,16 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.StageDefinition
         {
-            StageId = new RawExpression("TestStage"),
+            StageId = "TestStage",
             Jobs =
             [
                 new Job.RegularJob
                 {
-                    JobId = new RawExpression("UnitTests"),
+                    JobId = "UnitTests",
                 },
                 new Job.RegularJob
                 {
-                    JobId = new RawExpression("IntegrationTests"),
+                    JobId = "IntegrationTests",
                 },
             ],
         };
@@ -266,7 +266,7 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.Template
         {
-            TemplatePath = new RawExpression("templates/build-stage.yml"),
+            TemplatePath = "templates/build-stage.yml",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithStages
@@ -282,10 +282,10 @@ internal sealed class DevopsPipelineWriterStageTests
     {
         Stage stage = new Stage.Template
         {
-            TemplatePath = new RawExpression("templates/build-stage.yml"),
-            Parameters = new Dictionary<string, TextExpression>
+            TemplatePath = "templates/build-stage.yml",
+            Parameters = new Dictionary<string, Template>
             {
-                ["stageEnv"] = new RawExpression("production"),
+                ["stageEnv"] = "production",
             },
         };
 
@@ -310,15 +310,15 @@ internal sealed class DevopsPipelineWriterStageTests
             [
                 new Stage.StageDefinition
                 {
-                    StageId = new RawExpression("BuildStage"),
+                    StageId = "BuildStage",
                 },
                 new Stage.StageDefinition
                 {
-                    StageId = new RawExpression("TestStage"),
+                    StageId = "TestStage",
                 },
                 new Stage.StageDefinition
                 {
-                    StageId = new RawExpression("DeployStage"),
+                    StageId = "DeployStage",
                 },
             ],
         };
@@ -344,25 +344,25 @@ internal sealed class DevopsPipelineWriterStageTests
             [
                 new Stage.StageDefinition
                 {
-                    StageId = new RawExpression("CI"),
+                    StageId = "CI",
                     Jobs =
                     [
                         new Job.RegularJob
                         {
-                            JobId = new RawExpression("Build"),
+                            JobId = "Build",
                             Pool = new Pool.PoolSpec
                             {
-                                VmImage = new RawExpression("ubuntu-latest"),
+                                VmImage = "ubuntu-latest",
                             },
                             Steps =
                             [
                                 new Step.Checkout
                                 {
-                                    Repository = new RawExpression("self"),
+                                    Repository = "self",
                                 },
                                 new Step.Script
                                 {
-                                    ScriptContent = new RawExpression("dotnet build"),
+                                    ScriptContent = "dotnet build",
                                 },
                             ],
                         },
@@ -395,48 +395,48 @@ internal sealed class DevopsPipelineWriterStageTests
             },
             Variables = new Variables.Dictionary
             {
-                Values = new Dictionary<string, TextExpression>
+                Values = new Dictionary<string, Template>
                 {
-                    ["buildConfiguration"] = new RawExpression("Release"),
+                    ["buildConfiguration"] = "Release",
                 },
             },
             Stages =
             [
                 new Stage.StageDefinition
                 {
-                    StageId = new RawExpression("Build"),
+                    StageId = "Build",
                     Jobs =
                     [
                         new Job.RegularJob
                         {
-                            JobId = new RawExpression("BuildAndTest"),
+                            JobId = "BuildAndTest",
                             Pool = new Pool.PoolSpec
                             {
-                                VmImage = new RawExpression("ubuntu-latest"),
+                                VmImage = "ubuntu-latest",
                             },
                             Steps =
                             [
                                 new Step.Checkout
                                 {
-                                    Repository = new RawExpression("self"),
+                                    Repository = "self",
                                 },
                                 new Step.Task
                                 {
-                                    TaskName = new RawExpression("DotNetCoreCLI@2"),
-                                    DisplayName = new RawExpression("Restore"),
-                                    Inputs = new Dictionary<string, TextExpression>
+                                    TaskName = "DotNetCoreCLI@2",
+                                    DisplayName = "Restore",
+                                    Inputs = new Dictionary<string, Template>
                                     {
-                                        ["command"] = new RawExpression("restore"),
+                                        ["command"] = "restore",
                                     },
                                 },
                                 new Step.Task
                                 {
-                                    TaskName = new RawExpression("DotNetCoreCLI@2"),
-                                    DisplayName = new RawExpression("Build"),
-                                    Inputs = new Dictionary<string, TextExpression>
+                                    TaskName = "DotNetCoreCLI@2",
+                                    DisplayName = "Build",
+                                    Inputs = new Dictionary<string, Template>
                                     {
-                                        ["command"] = new RawExpression("build"),
-                                        ["arguments"] = new RawExpression("--configuration $(buildConfiguration)"),
+                                        ["command"] = "build",
+                                        ["arguments"] = "--configuration $(buildConfiguration)",
                                     },
                                 },
                             ],
