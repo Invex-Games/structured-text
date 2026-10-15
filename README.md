@@ -185,7 +185,7 @@ Full documentation: [https://invex-games.github.io/structured-text/](https://inv
 
 ## Development
 
-The repository requires the .NET 10 SDK selected by `global.json`:
+The repository requires the .NET 11 SDK selected by `global.json`:
 
 ```shell
 dotnet build Invex.StructuredText.slnx

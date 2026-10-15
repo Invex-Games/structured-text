@@ -17,8 +17,8 @@ DocFX documentation site under `docs/`.
 
 ## Build & language specifics
 
-- **.NET 10 SDK** is required. All library and test projects target `net10.0`.
-- C# `LangVersion 14`, `ImplicitUsings` and `Nullable` enabled, `TreatWarningsAsErrors` on.
+- **.NET 11 SDK** (currently RC2) is required. All library and test projects target `net10.0`.
+- C# `LangVersion 15`, `ImplicitUsings` and `Nullable` enabled, `TreatWarningsAsErrors` on.
 - Global usings live in each project's `_usings.cs` — add shared usings there, not per-file.
 - `GenerateDocumentationFile` is on, so **all public members need XML doc comments**.
 - Build and test the whole solution:
