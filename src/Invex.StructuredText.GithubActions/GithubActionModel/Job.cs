@@ -50,7 +50,7 @@ public sealed record Job
 
     /// <summary>
     ///     Values made available to downstream jobs that depend on this job (<c>outputs</c>).
-    ///     Typically populated from step outputs via <see cref="Ref.StepOutput" />.
+    ///     Typically populated from step outputs via <see cref="Tex.StepOutput" />.
     /// </summary>
     public IReadOnlyDictionary<string, Template>? Outputs { get; init; }
 

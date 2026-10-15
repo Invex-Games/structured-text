@@ -20,11 +20,11 @@ isPush && onMain             => github.event_name == 'push' && github.ref == 're
 (isPush || isTag) && !bot    => (github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')) && !(github.actor == 'dependabot[bot]')
 isPush || isTag && onMain    => github.event_name == 'push' || startsWith(github.ref, 'refs/tags/') && github.ref == 'refs/heads/main'
 !isDependabot                => ${{ !(github.actor == 'dependabot[bot]') }}
-Ref.Eq("it's")               => github.ref == 'it''s'
+GitHub.Ref.Eq("it's")        => github.ref == 'it''s'
 PR number > 100              => github.event.pull_request.number > 100
 isPullRequest && !draft      => github.event_name == 'pull_request' && !github.event.pull_request.draft
 Always() && isPush           => always() && github.event_name == 'push'
-Fn.Any(...)                  => github.event_name == 'push' || startsWith(github.ref, 'refs/tags/') || github.actor == 'dependabot[bot]'
+Tex.Any(...)                 => github.event_name == 'push' || startsWith(github.ref, 'refs/tags/') || github.actor == 'dependabot[bot]'
 ```
 
 ## Values
@@ -44,12 +44,12 @@ env value                    => ${{ secrets.NUGET_API_KEY }}
 Refer to secrets, variables, inputs, matrix values and other jobs. Source: [ReferencesSample.cs](Invex.StructuredText.Samples/ReferencesSample.cs) (`references`).
 
 ```text
-Ref.Secret                   => ${{ secrets.NUGET_API_KEY }}
-Ref.Variable                 => ${{ vars.DEPLOY_REGION }}
-Ref.Input                    => ${{ inputs.dry-run }}
-Ref.Matrix                   => ${{ matrix.os }}
-Ref.StepOutput               => ${{ steps.version.outputs.semver }}
-Ref.JobOutput                => ${{ needs.setup.outputs.build-version }}
+Tex.Secret                   => ${{ secrets.NUGET_API_KEY }}
+Tex.Variable                 => ${{ vars.DEPLOY_REGION }}
+Tex.Input                    => ${{ inputs.dry-run }}
+Tex.Matrix                   => ${{ matrix.os }}
+Tex.StepOutput               => ${{ steps.version.outputs.semver }}
+Tex.JobOutput                => ${{ needs.setup.outputs.build-version }}
 JobResult == Success         => needs.test.result == 'success'
 prerelease version           => contains(needs.setup.outputs.build-version, '-')
 ```
@@ -60,7 +60,7 @@ Reach anything the catalogue doesn't cover. Source: [EscapeHatchesSample.cs](Inv
 
 ```text
 indexer + AsString           => github.event.label.name == 'release'
-Fn.Format + HashFiles        => ${{ format('{0}-nuget-{1}', runner.os, hashFiles('**/*.csproj')) }}
+Tex.Format + HashFiles       => ${{ format('{0}-nuget-{1}', runner.os, hashFiles('**/*.csproj')) }}
 value In array               => contains(fromJSON(vars.RELEASE_LABELS), github.event.label.name)
 ToJson                       => ${{ toJSON(github.event) }}
 BoolExpr.Raw                 => github.event.forced && success()

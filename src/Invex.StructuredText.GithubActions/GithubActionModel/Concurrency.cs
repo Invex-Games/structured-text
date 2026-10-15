@@ -9,7 +9,7 @@ public sealed record Concurrency
 {
     /// <summary>
     ///     The concurrency group key. Runs with the same group are serialized.
-    ///     Often built from expressions, e.g. <c>$"ci-{GitHubContexts.Ref}"</c>.
+    ///     Often built from expressions, e.g. <c>$"ci-{Tex.GitHub.Ref}"</c>.
     /// </summary>
     public required Template Group { get; init; } = "";
 

@@ -61,7 +61,7 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            If = BoolExpr.Raw("github.event_name == 'push'"),
+            If = Tex.Raw("github.event_name == 'push'"),
             Uses = "actions/checkout@v4",
         };
 

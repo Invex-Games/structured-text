@@ -18,7 +18,7 @@ public abstract record Expr
 
     /// <summary>
     ///     Converts a <see cref="string" /> to a string literal where any expression is accepted,
-    ///     e.g. <c>Fn.Format("{0}", "hello")</c>.
+    ///     e.g. <c>Tex.Format("{0}", "hello")</c>.
     /// </summary>
     /// <param name="value">The literal value, unquoted.</param>
     public static implicit operator Expr(string value) =>
@@ -122,12 +122,6 @@ public abstract record BoolExpr : Expr
     public static bool operator false(BoolExpr operand) =>
         false;
 
-    /// <summary>
-    ///     Creates verbatim boolean expression text, written exactly as given. Prefer typed members where they exist.
-    /// </summary>
-    /// <param name="text">The expression text.</param>
-    public static BoolExpr Raw(string text) =>
-        new RawBool(text);
 
     /// <summary>
     ///     Tests this condition for equality with <paramref name="other" />.
@@ -149,7 +143,7 @@ public abstract record BoolExpr : Expr
 /// </summary>
 /// <remarks>
 ///     A plain <see cref="string" /> converts implicitly to a quoted, escaped string literal.
-///     Use <see cref="Raw" /> for verbatim expression text.
+///     Use <see cref="Tex.Raw" /> for verbatim expression text.
 /// </remarks>
 [PublicAPI]
 public abstract record StringExpr : Expr
@@ -161,12 +155,6 @@ public abstract record StringExpr : Expr
     public static implicit operator StringExpr(string value) =>
         new StringLiteral(value);
 
-    /// <summary>
-    ///     Creates verbatim string expression text, written exactly as given. Prefer typed members where they exist.
-    /// </summary>
-    /// <param name="text">The expression text.</param>
-    public static StringExpr Raw(string text) =>
-        new RawString(text);
 
     /// <summary>
     ///     Tests this value for equality with <paramref name="other" />.
@@ -224,12 +212,6 @@ public abstract record NumberExpr : Expr
     public static implicit operator NumberExpr(double value) =>
         new NumberLiteral(value);
 
-    /// <summary>
-    ///     Creates verbatim numeric expression text, written exactly as given. Prefer typed members where they exist.
-    /// </summary>
-    /// <param name="text">The expression text.</param>
-    public static NumberExpr Raw(string text) =>
-        new RawNumber(text);
 
     /// <summary>Tests this value for equality with <paramref name="other" />.</summary>
     /// <param name="other">The value to compare with.</param>
@@ -289,12 +271,6 @@ public abstract record JsonExpr : Expr
     public JsonExpr this[int index] =>
         new IndexAccessExpr(this, new NumberLiteral(index));
 
-    /// <summary>
-    ///     Creates verbatim expression text, written exactly as given. Prefer typed members where they exist.
-    /// </summary>
-    /// <param name="text">The expression text.</param>
-    public static JsonExpr Raw(string text) =>
-        new RawJson(text);
 
     /// <summary>
     ///     Treats this value as a string.

@@ -1,11 +1,21 @@
 namespace Invex.StructuredText.Expressions;
 
 /// <summary>
-///     Portable references to values every supported platform provides. Each platform renders them in its own syntax.
+///     The starting point for writing expressions. Everything that creates an expression from scratch lives here:
+///     references (<see cref="Secret" />, <see cref="JobOutput" />, …), status checks (<see cref="Success" />, …),
+///     functions (<see cref="All" />, <see cref="Format" />, …) and the escape hatch <see cref="Raw" />.
+///     Platform packages add their own members, such as <c>Tex.GitHub</c> for the GitHub Actions contexts.
 /// </summary>
+/// <remarks>
+///     Once you have an expression, its own members do the rest: <c>Eq</c>, <c>Contains</c>, <c>StartsWith</c>, the
+///     <c>&amp;&amp;</c>, <c>||</c> and <c>!</c> operators, and indexers for JSON values. Add
+///     <c>using static Invex.StructuredText.Expressions.Tex;</c> to drop the <c>Tex.</c> prefix.
+/// </remarks>
 [PublicAPI]
-public static class Ref
+public static class Tex
 {
+    // References
+
     /// <summary>A secret.</summary>
     /// <param name="name">The secret name.</param>
     public static StringExpr Secret(string name) =>
@@ -48,14 +58,9 @@ public static class Ref
     /// <param name="result">The result.</param>
     public static StringExpr Result(RunResult result) =>
         new ResultLiteral(result);
-}
 
-/// <summary>
-///     Status checks for conditions, such as "only if everything so far succeeded".
-/// </summary>
-[PublicAPI]
-public static class Status
-{
+    // Status checks
+
     /// <summary>True when all previous work succeeded. Usually the platform default.</summary>
     public static BoolExpr Success() =>
         new BoolFunction(FunctionNames.Success);
@@ -71,14 +76,9 @@ public static class Status
     /// <summary>True when the run was cancelled.</summary>
     public static BoolExpr Cancelled() =>
         new BoolFunction(FunctionNames.Cancelled);
-}
 
-/// <summary>
-///     General-purpose expression functions.
-/// </summary>
-[PublicAPI]
-public static class Fn
-{
+    // Functions
+
     /// <summary>True when every condition is true. Equivalent to chaining <c>&amp;&amp;</c>.</summary>
     /// <param name="conditions">One or more conditions.</param>
     public static BoolExpr All(params IEnumerable<BoolExpr> conditions) =>
@@ -107,4 +107,23 @@ public static class Fn
 
     /// <summary>The null literal.</summary>
     public static JsonExpr Null => new NullLiteral();
+
+    // Text
+
+    /// <summary>
+    ///     Joins templates with <paramref name="separator" /> between each.
+    /// </summary>
+    /// <param name="separator">The literal separator.</param>
+    /// <param name="templates">The templates to join.</param>
+    /// <returns>The joined template.</returns>
+    public static Template Join(string separator, IEnumerable<Template> templates) =>
+        Template.Join(separator, templates);
+
+    /// <summary>
+    ///     Verbatim expression text, written exactly as given. It works as a condition and converts implicitly to
+    ///     string, number and JSON expressions. Prefer typed members where they exist.
+    /// </summary>
+    /// <param name="text">The expression text.</param>
+    public static RawExpr Raw(string text) =>
+        new(text);
 }

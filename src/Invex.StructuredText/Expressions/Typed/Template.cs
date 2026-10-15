@@ -150,7 +150,7 @@ public sealed class Template : IEquatable<Template>
     /// <param name="separator">The literal separator.</param>
     /// <param name="templates">The templates to join.</param>
     /// <returns>The joined template.</returns>
-    public static Template Join(string separator, IEnumerable<Template> templates)
+    internal static Template Join(string separator, IEnumerable<Template> templates)
     {
         var result = new Template([]);
         var first = true;

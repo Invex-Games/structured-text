@@ -7,7 +7,7 @@ public static class CiWorkflowSample
 {
     public static string Run()
     {
-        var version = Ref.JobOutput("setup", "version");
+        var version = Tex.JobOutput("setup", "version");
         var isRelease = !version.Contains("-");
 
         return Render.Workflow(new()
@@ -37,8 +37,8 @@ public static class CiWorkflowSample
             Permissions = new Permissions.All(PermissionsLevel.Read),
             Concurrency = new()
             {
-                Group = $"{GitHubContexts.Workflow}-{GitHubContexts.Ref}",
-                CancelInProgress = GitHubContexts.EventName.Eq("pull_request"),
+                Group = $"{Tex.GitHub.Workflow}-{Tex.GitHub.Ref}",
+                CancelInProgress = Tex.GitHub.EventName.Eq("pull_request"),
             },
             Jobs =
             [
@@ -48,7 +48,7 @@ public static class CiWorkflowSample
                     RunsOn = new() { Labels = ["ubuntu-latest"] },
                     Outputs = new Dictionary<string, Template>
                     {
-                        ["version"] = Ref.StepOutput("version", "semver"),
+                        ["version"] = Tex.StepOutput("version", "semver"),
                     },
                     Steps =
                     [
@@ -77,7 +77,7 @@ public static class CiWorkflowSample
                 {
                     Name = "test",
                     Needs = ["setup"],
-                    RunsOn = new() { Labels = [Ref.Matrix("os")] },
+                    RunsOn = new() { Labels = [Tex.Matrix("os")] },
                     Strategy = new()
                     {
                         Matrix = new()
@@ -93,7 +93,7 @@ public static class CiWorkflowSample
                         new Step.UsesStep { Name = "Checkout", Uses = "actions/checkout@v6" },
                         new Step.RunStep
                         {
-                            Name = $"Test on {Ref.Matrix("os")}",
+                            Name = $"Test on {Tex.Matrix("os")}",
                             Run = [$"dotnet test -p:Version={version}"],
                         },
                     ],
@@ -103,7 +103,7 @@ public static class CiWorkflowSample
                     Name = "publish",
                     Needs = ["setup", "test"],
                     // Publish stable versions only, and never from a pull request.
-                    If = isRelease && GitHubContexts.EventName.Ne("pull_request"),
+                    If = isRelease && Tex.GitHub.EventName.Ne("pull_request"),
                     RunsOn = new() { Labels = ["ubuntu-latest"] },
                     Steps =
                     [
@@ -113,7 +113,7 @@ public static class CiWorkflowSample
                             Name = $"Publish {version}",
                             Env = new Dictionary<string, Template>
                             {
-                                ["NUGET_API_KEY"] = Ref.Secret("NUGET_API_KEY"),
+                                ["NUGET_API_KEY"] = Tex.Secret("NUGET_API_KEY"),
                             },
                             Run =
                             [
@@ -128,14 +128,14 @@ public static class CiWorkflowSample
                     Name = "notify",
                     Needs = ["test"],
                     // Runs even when tests fail, but only reports failures.
-                    If = Status.Always() && Ref.JobResult("test").Eq(Ref.Result(RunResult.Failure)),
+                    If = Tex.Always() && Tex.JobResult("test").Eq(Tex.Result(RunResult.Failure)),
                     RunsOn = new() { Labels = ["ubuntu-latest"] },
                     Steps =
                     [
                         new Step.RunStep
                         {
                             Name = "Report failure",
-                            Run = [$"echo \"Tests failed on {GitHubContexts.Ref} ({GitHubContexts.Sha})\""],
+                            Run = [$"echo \"Tests failed on {Tex.GitHub.Ref} ({Tex.GitHub.Sha})\""],
                         },
                     ],
                 },

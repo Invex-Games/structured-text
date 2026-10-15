@@ -11,7 +11,7 @@ public partial record Step
 {
     /// <summary>
     ///     A unique identifier for the step (<c>id</c>), used to reference its outputs and outcome
-    ///     via <see cref="Ref.StepOutput" />.
+    ///     via <see cref="Tex.StepOutput" />.
     /// </summary>
     public string? Id { get; init; }
 

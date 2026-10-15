@@ -138,9 +138,6 @@
       },
       {
         Name: Ne
-      },
-      {
-        Name: Raw
       }
     ]
   },
@@ -521,29 +518,6 @@
       },
       {
         Name: RenderOrNull
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.Fn,
-    Members: [
-      {
-        Name: All
-      },
-      {
-        Name: Any
-      },
-      {
-        Name: Format
-      },
-      {
-        Name: FromJson
-      },
-      {
-        Name: HashFiles
-      },
-      {
-        Name: Null
       }
     ]
   },
@@ -992,9 +966,6 @@
         Name: Join
       },
       {
-        Name: Raw
-      },
-      {
         Name: ToJson
       }
     ]
@@ -1431,9 +1402,6 @@
       },
       {
         Name: Ne
-      },
-      {
-        Name: Raw
       }
     ]
   },
@@ -1557,7 +1525,7 @@
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.RawBool,
+    Name: Invex.StructuredText.Expressions.RawExpr,
     Members: [
       {
         Name: <Clone>$
@@ -1702,35 +1670,6 @@
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.Ref,
-    Members: [
-      {
-        Name: Input
-      },
-      {
-        Name: JobOutput
-      },
-      {
-        Name: JobResult
-      },
-      {
-        Name: Matrix
-      },
-      {
-        Name: Result
-      },
-      {
-        Name: Secret
-      },
-      {
-        Name: StepOutput
-      },
-      {
-        Name: Variable
-      }
-    ]
-  },
-  {
     Name: Invex.StructuredText.Expressions.ReferenceExpr,
     Members: [
       {
@@ -1857,23 +1796,6 @@
       },
       {
         Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.Status,
-    Members: [
-      {
-        Name: Always
-      },
-      {
-        Name: Cancelled
-      },
-      {
-        Name: Failure
-      },
-      {
-        Name: Success
       }
     ]
   },
@@ -2077,9 +1999,6 @@
       },
       {
         Name: Ne
-      },
-      {
-        Name: Raw
       },
       {
         Name: StartsWith
@@ -2294,9 +2213,6 @@
         Name: IsSingleExpression
       },
       {
-        Name: Join
-      },
-      {
         Name: Parts
       },
       {
@@ -2327,6 +2243,71 @@
       },
       {
         Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.Tex,
+    Members: [
+      {
+        Name: All
+      },
+      {
+        Name: Always
+      },
+      {
+        Name: Any
+      },
+      {
+        Name: Cancelled
+      },
+      {
+        Name: Failure
+      },
+      {
+        Name: Format
+      },
+      {
+        Name: FromJson
+      },
+      {
+        Name: HashFiles
+      },
+      {
+        Name: Input
+      },
+      {
+        Name: JobOutput
+      },
+      {
+        Name: JobResult
+      },
+      {
+        Name: Join
+      },
+      {
+        Name: Matrix
+      },
+      {
+        Name: Null
+      },
+      {
+        Name: Raw
+      },
+      {
+        Name: Result
+      },
+      {
+        Name: Secret
+      },
+      {
+        Name: StepOutput
+      },
+      {
+        Name: Success
+      },
+      {
+        Name: Variable
       }
     ]
   },

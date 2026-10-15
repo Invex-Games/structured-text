@@ -3598,5 +3598,13 @@
         Name: StartsWithYamlIndicator
       }
     ]
+  },
+  {
+    Name: Invex.StructuredText.GithubActions.TexGitHubExtensions,
+    Members: [
+      {
+        Name: get_GitHub
+      }
+    ]
   }
 ]

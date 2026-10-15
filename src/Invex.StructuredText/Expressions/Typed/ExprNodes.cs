@@ -60,13 +60,31 @@ public sealed record RawString(string Text) : StringExpr, IRawExpr
     public override IEnumerable<Expr> Children => [];
 }
 
-/// <summary>Verbatim boolean-valued expression text.</summary>
+/// <summary>
+///     Verbatim expression text, created by <see cref="Tex.Raw" />. It is a condition, and converts implicitly to
+///     string, number and JSON expressions.
+/// </summary>
 /// <param name="Text">The text, written exactly as given.</param>
 [PublicAPI]
-public sealed record RawBool(string Text) : BoolExpr, IRawExpr
+public sealed record RawExpr(string Text) : BoolExpr, IRawExpr
 {
     /// <inheritdoc />
     public override IEnumerable<Expr> Children => [];
+
+    /// <summary>Treats the text as a string expression.</summary>
+    /// <param name="raw">The raw text.</param>
+    public static implicit operator StringExpr(RawExpr raw) =>
+        new RawString(raw.Text);
+
+    /// <summary>Treats the text as a number expression.</summary>
+    /// <param name="raw">The raw text.</param>
+    public static implicit operator NumberExpr(RawExpr raw) =>
+        new RawNumber(raw.Text);
+
+    /// <summary>Treats the text as a JSON expression.</summary>
+    /// <param name="raw">The raw text.</param>
+    public static implicit operator JsonExpr(RawExpr raw) =>
+        new RawJson(raw.Text);
 }
 
 /// <summary>Verbatim number-valued expression text.</summary>

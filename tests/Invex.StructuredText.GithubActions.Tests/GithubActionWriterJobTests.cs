@@ -57,7 +57,7 @@ internal sealed class GithubActionWriterJobTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            If = BoolExpr.Raw("github.event_name == 'push'"),
+            If = Tex.Raw("github.event_name == 'push'"),
         };
 
         var output = WriteJob(job);
@@ -69,7 +69,7 @@ internal sealed class GithubActionWriterJobTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            If = ((StringExpr)"main").Eq(GitHubContexts.Ref),
+            If = ((StringExpr)"main").Eq(Tex.GitHub.Ref),
         };
 
         var output = WriteJob(job);

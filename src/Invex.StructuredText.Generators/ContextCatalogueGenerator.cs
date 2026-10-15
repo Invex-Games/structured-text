@@ -98,11 +98,15 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
             sb.AppendLine($"///     Typed references to the <c>{rootContext}</c> context and the other contexts available to expressions.");
             sb.AppendLine("/// </summary>");
             sb.AppendLine("[PublicAPI]");
-            sb.AppendLine($"public static partial class {className}");
+            sb.AppendLine($"public sealed partial class {className}");
             sb.AppendLine("{");
+            sb.AppendLine($"    private {className}() {{ }}");
+            sb.AppendLine();
+            sb.AppendLine("    /// <summary>The shared instance, exposed through an extension property on <c>Tex</c>.</summary>");
+            sb.AppendLine($"    internal static {className} Instance {{ get; }} = new();");
 
             if (root.Type is not null)
-                EmitMember(sb, "    ", "Context", root, className, isStatic: true);
+                EmitMember(sb, "    ", "Context", root, className);
 
             var records = new List<(string Name, Node Node)>();
 
@@ -126,7 +130,7 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
                     continue;
                 }
 
-                EmitMember(sb, "    ", name, child, className, isStatic: true, records);
+                EmitMember(sb, "    ", name, child, className, records);
             }
 
             sb.AppendLine("}");
@@ -149,7 +153,7 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
                 sb.AppendLine("    public override global::System.Collections.Generic.IEnumerable<Expr> Children => [];");
 
                 foreach (var child in node.Children.Values)
-                    EmitMember(sb, "    ", Pascal(child.Key), child, recordName, isStatic: false, records);
+                    EmitMember(sb, "    ", Pascal(child.Key), child, recordName, records);
 
                 sb.AppendLine("}");
             }
@@ -158,10 +162,9 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
         });
     }
 
-    private static void EmitMember(StringBuilder sb, string indent, string name, Node node, string owner, bool isStatic,
+    private static void EmitMember(StringBuilder sb, string indent, string name, Node node, string owner,
         List<(string Name, Node Node)>? records = null)
     {
-        var modifier = isStatic ? "static " : "";
         sb.AppendLine();
         sb.AppendLine($"{indent}/// <summary>");
         sb.AppendLine($"{indent}///     <c>{node.Path}</c>: {node.Summary ?? "Container for the members below."}");
@@ -171,7 +174,7 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
         {
             var recordName = (owner.EndsWith("Context", StringComparison.Ordinal) ? owner.Substring(0, owner.Length - 7) : owner) + name + "Context";
             records.Add((recordName, node));
-            sb.AppendLine($"{indent}public {modifier}{recordName} {name} {{ get; }} = new();");
+            sb.AppendLine($"{indent}public {recordName} {name} {{ get; }} = new();");
 
             return;
         }
@@ -184,7 +187,7 @@ public sealed class ContextCatalogueGenerator : IIncrementalGenerator
             _ => ("JsonExpr", "JsonContext"),
         };
 
-        sb.AppendLine($"{indent}public {modifier}{type} {name} {{ get; }} = new {ctor}(\"{node.Path}\");");
+        sb.AppendLine($"{indent}public {type} {name} {{ get; }} = new {ctor}(\"{node.Path}\");");
     }
 
     private static string Pascal(string value) =>
