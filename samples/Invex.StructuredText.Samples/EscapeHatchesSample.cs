@@ -21,6 +21,6 @@ public static class EscapeHatchesSample
             ("ToJson", Render.Value(Tex.GitHub.Event.ToJson())),
 
             // Raw text is written exactly as given. Use it only when nothing typed exists.
-            ("BoolExpr.Raw", Render.Condition(Tex.Raw("github.event.forced") && Tex.Success())));
+            ("Tex.Raw", Render.Condition(Tex.Raw("github.event.forced") && Tex.Success())));
     }
 }

@@ -19,7 +19,7 @@ dotnet add package Invex.StructuredText.GithubActions
 # Azure DevOps Pipelines
 dotnet add package Invex.StructuredText.AzureDevopsPipelines
 
-# Just the core writer + expression system
+# Just the core writer and expression API
 dotnet add package Invex.StructuredText
 ```
 
@@ -67,19 +67,16 @@ var workflow = new GithubAction
     [
         new Job
         {
-            Name = new RawExpression("build"),
-            RunsOn = new() { Labels = [new RawExpression("ubuntu-latest")] },
+            Name = "build",
+            RunsOn = new() { Labels = ["ubuntu-latest"] },
             Steps =
             [
-                new Step.UsesStep
-                {
-                    Name = new RawExpression("Checkout"),
-                    Uses = new RawExpression("actions/checkout@v4"),
-                },
+                new Step.UsesStep { Name = "Checkout", Uses = "actions/checkout@v6" },
                 new Step.RunStep
                 {
-                    Name = new RawExpression("Build"),
-                    Run = [new RawExpression("dotnet build --configuration Release")],
+                    Name = "Build",
+                    If = Tex.GitHub.EventName.Eq("push"),
+                    Run = [$"dotnet build -c Release -p:Version=1.0.{Tex.GitHub.RunNumber}"],
                 },
             ],
         },
@@ -99,25 +96,25 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
 
   build:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build
-        run: dotnet build --configuration Release
+        if: github.event_name == 'push'
+        run: 'dotnet build -c Release -p:Version=1.0.${{ github.run_number }}'
 ```
 
-> [!TIP]
-> Many string-valued properties accept `TextExpression` and have implicit conversions from `string`, so you can often
-> write `Run = ["dotnet build"]` instead of building `RawExpression` instances by hand. See
-> [Expressions](expressions.md) for details.
+Plain strings are written as they are. `Tex.GitHub.EventName.Eq("push")` is a typed condition, and the interpolated
+`Run` line embeds `github.run_number` as an expression. Everything that creates an expression starts with `Tex.`, so
+IntelliSense on `Tex.` is the quickest way to find what you need. See [Expressions](expressions.md).
 
 ## Your first Azure DevOps pipeline
 
@@ -135,8 +132,8 @@ var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
     [
         new Step.Script
         {
-            ScriptContent = new RawExpression("echo Hello, world!"),
-            DisplayName = new RawExpression("Say hello"),
+            ScriptContent = $"echo Building {Tex.DevOps.Build.SourceBranchName}",
+            DisplayName = "Say hello",
         },
     ],
 };
@@ -152,12 +149,10 @@ Output:
 ```yaml
 trigger:
   branches:
-    include:
-      - main
-
+    include: [ main ]
 steps:
 
-  - script: echo Hello, world!
+  - script: echo Building $(Build.SourceBranchName)
     displayName: Say hello
 ```
 
@@ -209,10 +204,10 @@ File.WriteAllText("../.github/workflows/release.yml", writer.TextWriter.ToString
 
 ## Next steps
 
-- [Expressions](expressions.md) — conditions, interpolation, and platform-specific syntax
-- [GitHub Actions](github-actions.md) — the full workflow model
-- [Azure DevOps Pipelines](azure-devops-pipelines.md) — stages, jobs, deployment strategies, resources
-- [Dependabot Configuration](dependabot.md) — registries, groups, schedules
-- [FAQ](faq.md) — common questions and troubleshooting
+- [Expressions](expressions.md): conditions, references and interpolated values
+- [GitHub Actions Workflows](github-actions.md): the full workflow model
+- [Azure DevOps Pipelines](azure-devops-pipelines.md): stages, jobs, deployment strategies, resources
+- [Dependabot Configuration](dependabot.md): registries, groups, schedules
+- [FAQ](faq.md): common questions and troubleshooting
 - API: <xref:Invex.StructuredText.GithubActions.GithubActionWriter>, <xref:Invex.StructuredText.GithubActions.DependabotConfigWriter>,
   <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter>

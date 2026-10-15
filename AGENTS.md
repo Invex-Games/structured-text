@@ -8,7 +8,7 @@ Pipelines. Keep changes focused and defer to the linked docs for detail.
 
 | Project | Role | Target frameworks |
 |---------|------|-------------------|
-| `Invex.StructuredText` | Core library: `StructuredTextWriter`, the `TextExpression` tree, `TextExpressionFormatter`, and collection types | `net10.0` |
+| `Invex.StructuredText` | Core library: `StructuredTextWriter`, the typed expression API (`Tex`, `Expr`, `Template`) and `ExpressionPrinter` | `net10.0` |
 | `Invex.StructuredText.GithubActions` | GitHub Actions workflow and Dependabot config generation | `net10.0` |
 | `Invex.StructuredText.AzureDevopsPipelines` | Azure DevOps Pipelines YAML generation | `net10.0` |
 
@@ -34,25 +34,30 @@ DocFX documentation site under `docs/`.
 
 - **`StructuredTextWriter`** — an indentation-aware text writer. `WriteSection` returns an
   `IDisposable` scope that increments/decrements the indent, so C# nesting mirrors YAML nesting.
-- **`TextExpression` hierarchy** — a platform-agnostic expression tree (records). Compose
-  expressions with fluent methods (`Contains`, `EqualTo`, `And`, …) and operators (`&`, `|`, `!`).
-- **`TextExpressionFormatter`** — abstract base class for platform-specific formatters. The
-  `Format()` loop handles `RawExpression`, `ConcatExpression`, and `CastExpression<T>` centrally;
-  `Resolve()` is the only method platform formatters implement.
-- **`TextExpressionCollection` / `WorkflowExpressionCollection<T>`** — lists with implicit
-  conversions from `string`, `string[]`, and `TextExpression` so model properties accept them
-  naturally (e.g. `Branches = ["main"]`).
+- **`Tex`** — the single entry point for creating expressions (references, status checks,
+  functions, `Tex.Raw`). Platform packages and libraries add members with C# 14 `extension(Tex)`
+  blocks (`Tex.GitHub`, `Tex.DevOps`). Keep new factory methods on `Tex`, not on node types.
+- **`Expr` tree** (`Expressions/Typed/`) — platform-agnostic records under four typed roots:
+  `BoolExpr`, `StringExpr`, `NumberExpr`, `JsonExpr`. Conditions are `BoolExpr` and use the C#
+  operators `&&`, `||`, `!`; comparisons and functions are instance methods (`Eq`, `Contains`, …).
+- **`Template`** — an interpolated string handler holding literal text and embedded expressions.
+  Every expression-capable model property other than a condition is a `Template`.
+- **`ExpressionPrinter`** — abstract base class for platform printers. It handles precedence,
+  quoting, access, casts and raw text; platforms implement `WrapEmbedded`, `PrintReference` and
+  `PrintResult`, and override the virtual members where their syntax differs.
 
 ### Platform packages
 
 Each platform package contains:
 
-- **Model types** — records mirroring the platform's YAML schema; scalar properties are
-  `WorkflowExpression<T>` (a zero-overhead typed wrapper over `TextExpression`).
+- **Model types** — records mirroring the platform's YAML schema; conditions are `BoolExpr`,
+  other scalar properties are `Template`, and lists are `IReadOnlyList<Template>`.
 - **A writer** — walks the model and emits YAML via `StructuredTextWriter`, calling the platform
-  formatter for every expression value.
-- **An expression formatter** — a `TextExpressionFormatter` subclass for the platform's syntax
-  (`GithubExpressionFormatter`, `DevopsExpressionFormatter`).
+  printer for every expression value.
+- **An expression printer** — an `ExpressionPrinter` subclass for the platform's syntax
+  (`GithubExpressionPrinter`, `DevopsExpressionPrinter`).
+- **A context catalogue** — `Tex.GitHub` is generated from `Contexts/github.contexts` by
+  `Invex.StructuredText.Generators`; `Tex.DevOps` is hand-written in `Contexts/DevopsContexts.cs`.
 - **Discriminated unions** — schema "one of" shapes are modeled with
   [Dunet](https://github.com/domn1995/dunet) (`[Union]` on an abstract `partial record`, variants
   as nested `partial record`s). Construct the variant directly: `new Step.RunStep { … }`.
@@ -61,10 +66,10 @@ Each platform package contains:
 
 - The **core package must not reference any platform package**. Platform-specific knowledge (syntax,
   context paths, outcome strings) belongs entirely in the platform package's formatter and models.
-- `TextExpression` XML docs must stay **platform-neutral** — no mentions of GitHub Actions or Azure
+- Core expression XML docs must stay **platform-neutral** — no mentions of GitHub Actions or Azure
   DevOps in `Invex.StructuredText` source files.
-- `WorkflowExpression<T>` type parameters are **documentation only** — they have no effect on
-  formatting.
+- In the Azure DevOps package, `Template` is aliased as `ExprTemplate` (see `_usings.cs`) because
+  Dunet union cases named `Template` (`Step.Template`, `Stage.Template`, …) shadow it.
 
 ## Atom workflows
 
@@ -115,20 +120,23 @@ Each platform package contains:
   complete public API. An unexpected diff there signals an unintentional API change — treat it as
   such and double-check before accepting.
 
-## Adding a new expression type
+## Adding a new expression
 
-1. Add the record to the appropriate `TextExpression.*.cs` partial file in `Invex.StructuredText`.
-2. Add `Resolve` cases for it in each platform formatter that should support it.
-3. Add it to `TextExpressionUtils.Flatten` if it has sub-expressions.
+1. Prefer reusing an existing node: most functions are a `BoolFunction` / `StringFunction` /
+   `JsonFunction` with a name from `FunctionNames`, exposed as a `Tex` member or an instance method.
+2. For a new node, add a record in `Expressions/Typed/ExprNodes.cs` deriving from the right typed
+   root, with `Children` listing its sub-expressions so `DescendantsAndSelf()` sees them.
+3. Print it in `ExpressionPrinter` (or a platform printer's `PrintOther` if it is platform-only);
+   unsupported nodes must throw `NotSupportedException`.
 4. Add unit tests in the relevant test project.
-5. Update `PublicApiSurfaceTests.*.verified.txt` (see the Verify workflow above).
+5. Update `PublicApiTests.*.verified.txt` (see the Verify workflow above).
 
 ## Adding a new platform
 
 1. Add a new library project under `src/`.
 2. Reference `Invex.StructuredText`.
 3. Define model record types (use `[Union]` + Dunet for discriminated shapes).
-4. Implement a `TextExpressionFormatter` subclass.
+4. Implement an `ExpressionPrinter` subclass.
 5. Implement a writer over `StructuredTextWriter`.
 6. Add a test project under `tests/`, including a public API surface snapshot test.
 7. Register the new projects in `_atom/IBuild.cs` (`ProjectsToPack`, `ProjectsToTest`) and
@@ -158,7 +166,8 @@ For anything beyond the above, prefer these over duplicating detail:
 - [README.md](README.md) — package overview and quick start.
 - [docs/introduction.md](docs/introduction.md) — what the library is and why it exists.
 - [docs/getting-started.md](docs/getting-started.md) — installation and first examples.
-- [docs/expressions.md](docs/expressions.md) — the full expression system.
+- [docs/expressions.md](docs/expressions.md) — the expression API (`Tex`, conditions, templates).
+- [samples/README.md](samples/README.md) — runnable expression samples, checked by `SamplesTests`.
 - [docs/github-actions.md](docs/github-actions.md) — GitHub Actions writer in depth.
 - [docs/dependabot.md](docs/dependabot.md) — Dependabot config writer.
 - [docs/azure-devops-pipelines.md](docs/azure-devops-pipelines.md) — Azure DevOps writer in depth.

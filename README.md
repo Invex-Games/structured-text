@@ -6,20 +6,20 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4.svg)](https://dotnet.microsoft.com/)
 
 A strongly-typed C# library for generating structured YAML text files, specifically GitHub Actions workflows, Dependabot
-configurations, and Azure DevOps Pipelines, using a fluent, type-safe API with a powerful expression system.
+configurations, and Azure DevOps Pipelines, using a type-safe model and typed expressions.
 
 ## Packages
 
 | Package | What it does |
 | --- | --- |
-| [Invex.StructuredText](https://www.nuget.org/packages/Invex.StructuredText) | Core library with `StructuredTextWriter` and the expression system |
+| [Invex.StructuredText](https://www.nuget.org/packages/Invex.StructuredText) | Core library with `StructuredTextWriter` and the expression API |
 | [Invex.StructuredText.GithubActions](https://www.nuget.org/packages/Invex.StructuredText.GithubActions) | GitHub Actions workflow and Dependabot config generation |
 | [Invex.StructuredText.AzureDevopsPipelines](https://www.nuget.org/packages/Invex.StructuredText.AzureDevopsPipelines) | Azure DevOps Pipelines YAML generation |
 
 ## Features
 
 - **Type-safe workflow authoring.** Define CI/CD pipelines as C# objects with full IntelliSense and compile-time validation.
-- **Unified expression system.** Build conditions, string interpolation and function calls once and render them to each platform's syntax.
+- **Typed expressions.** Write conditions with C# operators and values as interpolated strings, starting from one entry point, `Tex`, and render them in each platform's syntax.
 - **GitHub Actions.** Generate workflows with triggers, jobs, steps, matrix strategies, permissions, concurrency, containers, and more.
 - **Dependabot.** Generate `dependabot.yml` configurations with registries, update rules, groups, and schedules.
 - **Azure DevOps Pipelines.** Generate pipelines with stages, jobs, deployment strategies (runOnce, rolling, canary), resources, templates, and parameters.
@@ -63,19 +63,16 @@ var workflow = new GithubAction
     [
         new Job
         {
-            Name = new RawExpression("build"),
-            RunsOn = new() { Labels = [new RawExpression("ubuntu-latest")] },
+            Name = "build",
+            RunsOn = new() { Labels = ["ubuntu-latest"] },
             Steps =
             [
-                new Step.UsesStep
-                {
-                    Name = new RawExpression("Checkout"),
-                    Uses = new RawExpression("actions/checkout@v4"),
-                },
+                new Step.UsesStep { Name = "Checkout", Uses = "actions/checkout@v6" },
                 new Step.RunStep
                 {
-                    Name = new RawExpression("Build"),
-                    Run = ["dotnet build --configuration Release"],
+                    Name = "Build",
+                    If = Tex.GitHub.EventName.Eq("push"),
+                    Run = [$"dotnet build -c Release -p:Version=1.0.{Tex.GitHub.RunNumber}"],
                 },
             ],
         },
@@ -90,6 +87,29 @@ File.WriteAllText(".github/workflows/ci.yml", writer.TextWriter.ToString());
 
 ## Usage
 
+### Expressions
+
+Everything that creates an expression starts with `Tex.`: references, status checks, functions and the platform
+contexts. Conditions use C# operators, and values are interpolated strings.
+
+```csharp
+// if: (github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')) && success()
+If = (Tex.GitHub.EventName.Eq("push") || Tex.GitHub.Ref.StartsWith("refs/tags/")) && Tex.Success(),
+
+// group: ${{ github.workflow }}-${{ github.ref }}
+Group = $"{Tex.GitHub.Workflow}-{Tex.GitHub.Ref}",
+
+// NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+["NUGET_API_KEY"] = Tex.Secret("NUGET_API_KEY"),
+
+// version: ${{ needs.setup.outputs.version }}
+["version"] = Tex.JobOutput("setup", "version"),
+```
+
+The same expressions print in Azure DevOps syntax when used in a pipeline. See
+[Expressions](https://github.com/Invex-Games/structured-text/blob/main/docs/expressions.md) and the
+[samples](https://github.com/Invex-Games/structured-text/blob/main/samples/README.md).
+
 ### Azure DevOps Pipelines
 
 ```csharp
@@ -98,7 +118,11 @@ var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
     Trigger = new Trigger.BranchList { Branches = ["main"] },
     Steps =
     [
-        new Step.Script { ScriptContent = new RawExpression("echo Hello, world!") },
+        new Step.Script
+        {
+            ScriptContent = $"echo Building {Tex.DevOps.Build.SourceBranchName}",
+            Condition = Tex.DevOps.Build.Reason.Ne("PullRequest"),
+        },
     ],
 };
 
@@ -134,32 +158,6 @@ var yaml = writer.TextWriter.ToString();
 
 See [Dependabot Configuration](https://github.com/Invex-Games/structured-text/blob/main/docs/dependabot.md).
 
-### Expressions
-
-The expression system provides a fluent API for building platform-specific expressions that are formatted differently
-depending on the target (GitHub Actions uses `${{ }}` syntax, Azure DevOps uses its own macro/runtime expression
-syntax).
-
-```csharp
-// Reference step outputs
-var output = new StepOutputExpression
-{
-    StepName = "build-step",
-    OutputName = "artifact-path",
-};
-
-// Use conditions
-var condition = output.Contains("release").Evaluate();
-
-// String interpolation with format expressions
-var formatted = TextExpressions.Format($"Release-{output}");
-
-// Logic operators
-var combined = output.Contains("main") & new BooleanExpression(true);
-```
-
-See [Expressions](https://github.com/Invex-Games/structured-text/blob/main/docs/expressions.md).
-
 ### Generating files as part of your build
 
 A small console project in your repository can regenerate every workflow file; commit the output and the diff shows
@@ -174,7 +172,7 @@ Full documentation: [https://invex-games.github.io/structured-text/](https://inv
 | --- | --- |
 | [Introduction](https://github.com/Invex-Games/structured-text/blob/main/docs/introduction.md) | What this library is, when to use it, and its key concepts |
 | [Getting Started](https://github.com/Invex-Games/structured-text/blob/main/docs/getting-started.md) | Install and generate your first file |
-| [Expressions](https://github.com/Invex-Games/structured-text/blob/main/docs/expressions.md) | The unified expression system |
+| [Expressions](https://github.com/Invex-Games/structured-text/blob/main/docs/expressions.md) | Conditions, references and interpolated values |
 | [StructuredTextWriter](https://github.com/Invex-Games/structured-text/blob/main/docs/structured-text-writer.md) | The indentation-aware writer behind every generator |
 | [GitHub Actions Workflows](https://github.com/Invex-Games/structured-text/blob/main/docs/github-actions.md) | Workflow generation in depth |
 | [Dependabot Configuration](https://github.com/Invex-Games/structured-text/blob/main/docs/dependabot.md) | `dependabot.yml` generation |
@@ -199,7 +197,7 @@ atom BuildDocs
 atom ServeDocs
 ```
 
-See [.github/copilot-instructions.md](https://github.com/Invex-Games/structured-text/blob/main/.github/copilot-instructions.md)
+See [AGENTS.md](https://github.com/Invex-Games/structured-text/blob/main/AGENTS.md)
 for repository structure, code conventions, and contributor guidance.
 
 ## License

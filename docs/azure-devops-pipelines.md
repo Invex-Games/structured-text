@@ -30,11 +30,11 @@ All four share the common pipeline-level properties: `Name` (run number format),
 ```csharp
 var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
 {
-    Pool = new Pool.PoolSpec { VmImage = new RawExpression("ubuntu-latest") },
+    Pool = new Pool.PoolSpec { VmImage = "ubuntu-latest" },
     Trigger = new Trigger.BranchList { Branches = ["main"] },
     Steps =
     [
-        new Step.Script { ScriptContent = new RawExpression("echo hello") },
+        new Step.Script { ScriptContent = "echo hello" },
     ],
 };
 ```
@@ -42,12 +42,9 @@ var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
 ```yaml
 trigger:
   branches:
-    include:
-      - main
-
+    include: [ main ]
 pool:
   vmImage: ubuntu-latest
-
 steps:
 
   - script: echo hello
@@ -62,22 +59,22 @@ var pipeline = new DevopsPipeline.DevopsPipelineWithJobs
     [
         new Job.RegularJob
         {
-            JobId = new RawExpression("build"),
-            DisplayName = new RawExpression("Build"),
-            Pool = new Pool.PoolSpec { VmImage = new RawExpression("ubuntu-latest") },
+            JobId = "build",
+            DisplayName = "Build",
+            Pool = new Pool.PoolSpec { VmImage = "ubuntu-latest" },
             Steps =
             [
-                new Step.Script { ScriptContent = new RawExpression("dotnet build") },
+                new Step.Script { ScriptContent = "dotnet build" },
             ],
         },
         new Job.RegularJob
         {
-            JobId = new RawExpression("test"),
+            JobId = "test",
             DependsOn = ["build"],
-            Condition = new RawExpression("succeeded()"),
+            Condition = Tex.Success(),
             Steps =
             [
-                new Step.Script { ScriptContent = new RawExpression("dotnet test") },
+                new Step.Script { ScriptContent = "dotnet test" },
             ],
         },
     ],
@@ -93,14 +90,14 @@ var pipeline = new DevopsPipeline.DevopsPipelineWithStages
     [
         new Stage.StageDefinition
         {
-            StageId = new RawExpression("Build"),
+            StageId = "Build",
             Jobs = [ /* Job.RegularJob ... */ ],
         },
         new Stage.StageDefinition
         {
-            StageId = new RawExpression("Deploy"),
+            StageId = "Deploy",
             DependsOn = ["Build"],
-            Condition = new RawExpression("succeeded()"),
+            Condition = Tex.Success(),
             Jobs = [ /* deployment jobs ... */ ],
         },
     ],
@@ -114,8 +111,8 @@ var pipeline = new DevopsPipeline.DevopsPipelineWithExtends
 {
     Extends = new Extends
     {
-        Template = new RawExpression("pipeline-template.yml@templates"),
-        Parameters = new Dictionary<string, TextExpression>
+        Template = "pipeline-template.yml@templates",
+        Parameters = new Dictionary<string, Template>
         {
             ["configuration"] = "Release",
         },
@@ -175,15 +172,15 @@ Steps =
 [
     new Step.Checkout
     {
-        Repository = new RawExpression("self"),
+        Repository = "self",
         FetchDepth = 0,
         Lfs = true,
     },
     new Step.Task
     {
-        TaskName = new RawExpression("UseDotNet@2"),
-        DisplayName = new RawExpression("Install .NET SDK"),
-        Inputs = new Dictionary<string, TextExpression>
+        TaskName = "UseDotNet@2",
+        DisplayName = "Install .NET SDK",
+        Inputs = new Dictionary<string, Template>
         {
             ["packageType"] = "sdk",
             ["version"] = "10.0.x",
@@ -191,18 +188,18 @@ Steps =
     },
     new Step.Script
     {
-        ScriptContent = new RawExpression("dotnet build -c Release"),
-        DisplayName = new RawExpression("Build"),
-        Env = new Dictionary<string, TextExpression>
+        ScriptContent = "dotnet build -c Release",
+        DisplayName = "Build",
+        Env = new Dictionary<string, Template>
         {
             ["DOTNET_NOLOGO"] = "true",
         },
     },
     new Step.Publish
     {
-        PublishPath = new RawExpression("$(Build.ArtifactStagingDirectory)"),
-        Artifact = new RawExpression("drop"),
-        Condition = new RawExpression("succeededOrFailed()"),
+        PublishPath = Tex.DevOps.Build.ArtifactStagingDirectory,
+        Artifact = "drop",
+        Condition = Tex.Always(),
     },
 ],
 ```
@@ -211,10 +208,10 @@ Steps =
 
 ```csharp
 // Microsoft-hosted image
-Pool = new Pool.PoolSpec { VmImage = new RawExpression("ubuntu-latest") },
+Pool = new Pool.PoolSpec { VmImage = "ubuntu-latest" },
 
 // Named (self-hosted) pool
-Pool = new Pool.PoolName { Name = new RawExpression("Default") },
+Pool = new Pool.PoolName { Name = "Default" },
 ```
 
 ## Variables
@@ -225,7 +222,7 @@ Pool = new Pool.PoolName { Name = new RawExpression("Default") },
 // Mapping syntax: name/value pairs
 Variables = new Variables.Dictionary
 {
-    Values = new Dictionary<string, TextExpression>
+    Values = new Dictionary<string, Template>
     {
         ["buildConfiguration"] = "Release",
     },
@@ -238,29 +235,22 @@ Variables = new Variables.VariableList
     [
         new Variable.Name
         {
-            VariableName = new RawExpression("buildConfiguration"),
-            Value = new RawExpression("Release"),
+            VariableName = "buildConfiguration",
+            Value = "Release",
             ReadOnly = true,
         },
-        new Variable.Group { GroupName = new RawExpression("shared-secrets") },
-        new Variable.Template { TemplatePath = new RawExpression("variables/common.yml") },
+        new Variable.Group { GroupName = "shared-secrets" },
+        new Variable.Template { TemplatePath = "variables/common.yml" },
     ],
 },
 ```
 
-Reference variables in steps via macro syntax:
+Reference variables in steps with `Tex.Variable`, which is written in macro syntax:
 
 ```csharp
-var configuration = new DevopsMacroExpression(new RawExpression("buildConfiguration"));
-// renders as $(buildConfiguration)
-
 new Step.Script
 {
-    ScriptContent = TextExpressions.Concat(
-    [
-        new RawExpression("dotnet build -c "),
-        configuration,
-    ]),
+    ScriptContent = $"dotnet build -c {Tex.Variable("buildConfiguration")}",   // dotnet build -c $(buildConfiguration)
 }
 ```
 
@@ -273,11 +263,11 @@ Deployment jobs (`Job.Deployment`) target an environment and require a `Deployme
 ```csharp
 new Job.Deployment
 {
-    DeploymentId = new RawExpression("deploy_prod"),
-    DisplayName = new RawExpression("Deploy to production"),
+    DeploymentId = "deploy_prod",
+    DisplayName = "Deploy to production",
     Environment = new DeploymentEnvironment.EnvironmentName
     {
-        Name = new RawExpression("production"),
+        Name = "production",
     },
     Strategy = new DeploymentStrategy.RunOnce
     {
@@ -285,14 +275,14 @@ new Job.Deployment
         {
             Steps =
             [
-                new Step.Script { ScriptContent = new RawExpression("./deploy.sh") },
+                new Step.Script { ScriptContent = "./deploy.sh" },
             ],
         },
         OnFailure = new DeploymentHook
         {
             Steps =
             [
-                new Step.Script { ScriptContent = new RawExpression("./rollback.sh") },
+                new Step.Script { ScriptContent = "./rollback.sh" },
             ],
         },
     },
@@ -316,28 +306,62 @@ Rolling deployments add `MaxParallel`; canary deployments require `Increments` (
 
 ## Expressions in Azure DevOps
 
-The `DevopsExpressionFormatter` renders the shared expression tree using Azure DevOps function-style syntax:
+Azure DevOps uses the same expression API as GitHub Actions (see [Expressions](expressions.md)), printed with
+`DevopsExpressionPrinter`. Conditions use the function-style syntax:
 
-| C#                                              | Output                          |
-|--------------------------------------------------|---------------------------------|
-| `a & b`                                          | `and(a, b)`                     |
-| `a \| b`                                         | `or(a, b)`                      |
-| `!a`                                             | `not(a)`                        |
-| `a.EqualToString("x")`                           | `eq(a, 'x')`                    |
-| `a.Contains("x")`                                | `contains(a, 'x')`              |
-| `expr.Evaluate()`                                | `${{ expr }}` (compile-time)    |
-| `new DevopsRuntimeExpression(expr)`              | `$[ expr ]` (runtime)           |
-| `new DevopsMacroExpression(variable)`            | `$(variable)` (macro)           |
+| C# | Output |
+|---|---|
+| `a && b` | `and(a, b)` |
+| `a \|\| b` | `or(a, b)` |
+| `!a` | `not(a)` |
+| `a.Eq("x")`, `a.Ne("x")` | `eq(a, 'x')`, `ne(a, 'x')` |
+| `n.Lt(1)`, `n.Le(1)`, `n.Gt(1)`, `n.Ge(1)` | `lt(n, 1)`, `le(n, 1)`, `gt(n, 1)`, `ge(n, 1)` |
+| `a.Contains("x")` | `contains(a, 'x')` |
+| `Tex.Success()`, `Tex.Failure()`, `Tex.Cancelled()`, `Tex.Always()` | `succeeded()`, `failed()`, `canceled()`, `always()` |
+| `Tex.JobResult("build").Eq(Tex.Result(RunResult.Success))` | `eq(dependencies.build.result, 'Succeeded')` |
 
-See [Expressions](expressions.md) for the full system.
+```csharp
+Condition = Tex.DevOps.Build.SourceBranch.Eq("refs/heads/main") && !Tex.DevOps.Build.Reason.Eq("PullRequest"),
+// condition: and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), not(eq(variables['Build.Reason'], 'PullRequest')))
+```
+
+Inside a template, each kind of value is embedded with the syntax Azure DevOps expects for it:
+
+| C# | Embedded as |
+|---|---|
+| `Tex.Variable("x")`, `Tex.Secret("x")`, `Tex.Matrix("x")` | `$(x)` (macro) |
+| `Tex.StepOutput("step", "out")` | `$(step.out)` (macro) |
+| `Tex.Input("x")` | `${{ parameters.x }}` (template expression) |
+| `Tex.JobOutput("job", "out", "step")` | `$[ dependencies.job.outputs['step.out'] ]` (runtime expression) |
+| `Tex.DevOps.Runtime(expression)` | `$[ expression ]` (runtime expression) |
+| Any other expression | `${{ expression }}` (template expression) |
+
+`Tex.DevOps` lists the common predefined variables, such as `Tex.DevOps.Build.SourceBranch`,
+`Tex.DevOps.Build.BuildId`, `Tex.DevOps.System.AccessToken`, `Tex.DevOps.Agent.Os` and
+`Tex.DevOps.PipelineWorkspace`. Use `Tex.Variable("Name")` for any other variable.
+
+```csharp
+Variables = new Variables.Dictionary
+{
+    Values = new Dictionary<string, Template>
+    {
+        // isMain: $[ eq(variables['Build.SourceBranch'], 'refs/heads/main') ]
+        ["isMain"] = Tex.DevOps.Runtime(Tex.DevOps.Build.SourceBranch.Eq("refs/heads/main")),
+    },
+},
+```
+
+> [!NOTE]
+> Azure DevOps has no `fromJSON`, so `Tex.FromJson` throws `NotSupportedException` here. `ToJson()` prints
+> `convertToJson(...)`.
 
 ## See also
 
-- [Getting Started](getting-started.md) — your first pipeline
-- [Expressions](expressions.md) — platform-agnostic expressions and the Azure DevOps wrappers
+- [Getting Started](getting-started.md): your first pipeline
+- [Expressions](expressions.md): the expression API shared with GitHub Actions
 - The model closely follows the
   [Azure Pipelines YAML schema](https://learn.microsoft.com/azure/devops/pipelines/yaml-schema/) — property names and
   XML docs mirror the official documentation.
 - <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline>,
   <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter>,
-  <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionFormatter>
+  <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter>

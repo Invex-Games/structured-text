@@ -63,7 +63,7 @@ indexer + AsString           => github.event.label.name == 'release'
 Tex.Format + HashFiles       => ${{ format('{0}-nuget-{1}', runner.os, hashFiles('**/*.csproj')) }}
 value In array               => contains(fromJSON(vars.RELEASE_LABELS), github.event.label.name)
 ToJson                       => ${{ toJSON(github.event) }}
-BoolExpr.Raw                 => github.event.forced && success()
+Tex.Raw                      => github.event.forced && success()
 ```
 
 ## A complete workflow
