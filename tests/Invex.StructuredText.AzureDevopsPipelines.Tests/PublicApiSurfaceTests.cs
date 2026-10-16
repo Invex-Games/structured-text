@@ -8,6 +8,6 @@ public class PublicApiTests
     [Test]
     public async Task VerifyPublicApiSurface()
     {
-        await VerifyJson(PublicApiSurfaceTestUtil.GetPublicApiSurface(typeof(DevopsExpressionFormatter).Assembly));
+        await VerifyJson(PublicApiSurfaceTestUtil.GetPublicApiSurface(typeof(DevopsExpressionPrinter).Assembly));
     }
 }

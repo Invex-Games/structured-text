@@ -11,7 +11,7 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new Stage.StageDefinition
                 {
-                    StageId = new RawExpression("Build"),
+                    StageId = "Build",
                 },
             ],
         };
@@ -25,7 +25,7 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Build = new RawExpression("myBuild"),
+                    Build = "myBuild",
                 },
             ],
         }));
@@ -44,13 +44,13 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Build = new RawExpression("myBuild"),
-                    Type = new RawExpression("Jenkins"),
-                    Connection = new RawExpression("myConnection"),
-                    Source = new RawExpression("myPipeline"),
-                    Version = new RawExpression("1.0"),
-                    Branch = new RawExpression("main"),
-                    Trigger = new RawExpression("true"),
+                    Build = "myBuild",
+                    Type = "Jenkins",
+                    Connection = "myConnection",
+                    Source = "myPipeline",
+                    Version = "1.0",
+                    Branch = "main",
+                    Trigger = "true",
                 },
             ],
         }));
@@ -73,8 +73,8 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Container = new RawExpression("myImage"),
-                    Image = new RawExpression("ubuntu:latest"),
+                    Container = "myImage",
+                    Image = "ubuntu:latest",
                 },
             ],
         }));
@@ -93,13 +93,13 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Container = new RawExpression("myImage"),
-                    Image = new RawExpression("node:18"),
-                    Endpoint = new RawExpression("dockerHub"),
-                    Options = new RawExpression("--memory 2g"),
-                    Env = new Dictionary<string, TextExpression>
+                    Container = "myImage",
+                    Image = "node:18",
+                    Endpoint = "dockerHub",
+                    Options = "--memory 2g",
+                    Env = new Dictionary<string, Template>
                     {
-                        ["NODE_ENV"] = new RawExpression("test"),
+                        ["NODE_ENV"] = "test",
                     },
                     Ports = ["8080:80"],
                     Volumes = ["/tmp:/tmp"],
@@ -126,11 +126,11 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Container = new RawExpression("myImage"),
-                    Image = new RawExpression("ubuntu:latest"),
+                    Container = "myImage",
+                    Image = "ubuntu:latest",
                     Trigger = new()
                     {
-                        Enabled = new BooleanExpression(true),
+                        Enabled = true,
                         Tags = new()
                         {
                             Include = ["v*"],
@@ -157,8 +157,8 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Pipeline = new RawExpression("myUpstream"),
-                    Source = new RawExpression("My Upstream Pipeline"),
+                    Pipeline = "myUpstream",
+                    Source = "My Upstream Pipeline",
                 },
             ],
         }));
@@ -177,14 +177,14 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Pipeline = new RawExpression("myUpstream"),
-                    Source = new RawExpression("upstream-pipeline"),
-                    Project = new RawExpression("MyProject"),
-                    Version = new RawExpression("latest"),
-                    Branch = new RawExpression("main"),
+                    Pipeline = "myUpstream",
+                    Source = "upstream-pipeline",
+                    Project = "MyProject",
+                    Version = "latest",
+                    Branch = "main",
                     Trigger = new()
                     {
-                        Enabled = new BooleanExpression(true),
+                        Enabled = true,
                         Branches = new()
                         {
                             Include = ["main"],
@@ -219,8 +219,8 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Repository = new RawExpression("myRepo"),
-                    Type = new RawExpression("git"),
+                    Repository = "myRepo",
+                    Type = "git",
                 },
             ],
         }));
@@ -239,11 +239,11 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Repository = new RawExpression("tools"),
-                    Type = new RawExpression("github"),
-                    Endpoint = new RawExpression("myGithubConnection"),
-                    Name = new RawExpression("myOrg/tools"),
-                    Ref = new RawExpression("refs/heads/main"),
+                    Repository = "tools",
+                    Type = "github",
+                    Endpoint = "myGithubConnection",
+                    Name = "myOrg/tools",
+                    Ref = "refs/heads/main",
                 },
             ],
         }));
@@ -266,8 +266,8 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Webhook = new RawExpression("myWebhook"),
-                    Connection = new RawExpression("IncomingWebhookConnection"),
+                    Webhook = "myWebhook",
+                    Connection = "IncomingWebhookConnection",
                 },
             ],
         }));
@@ -286,15 +286,15 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Webhook = new RawExpression("myWebhook"),
-                    Connection = new RawExpression("conn"),
-                    Type = new RawExpression("Incoming"),
+                    Webhook = "myWebhook",
+                    Connection = "conn",
+                    Type = "Incoming",
                     Filters =
                     [
                         new()
                         {
-                            Path = new RawExpression("$.action"),
-                            Value = new RawExpression("opened"),
+                            Path = "$.action",
+                            Value = "opened",
                         },
                     ],
                 },
@@ -318,8 +318,8 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Package = new RawExpression("myPkg"),
-                    Type = new RawExpression("NuGet"),
+                    Package = "myPkg",
+                    Type = "NuGet",
                 },
             ],
         }));
@@ -338,12 +338,12 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new()
                 {
-                    Package = new RawExpression("myPkg"),
-                    Type = new RawExpression("NuGet"),
-                    Connection = new RawExpression("myFeed"),
-                    Name = new RawExpression("My.Package"),
-                    Version = new RawExpression("1.*"),
-                    Tag = new RawExpression("latest"),
+                    Package = "myPkg",
+                    Type = "NuGet",
+                    Connection = "myFeed",
+                    Name = "My.Package",
+                    Version = "1.*",
+                    Tag = "latest",
                 },
             ],
         }));
@@ -368,7 +368,7 @@ internal sealed class DevopsPipelineWriterResourcesTests
             [
                 new Stage.StageDefinition
                 {
-                    StageId = new RawExpression("Build"),
+                    StageId = "Build",
                 },
             ],
         });

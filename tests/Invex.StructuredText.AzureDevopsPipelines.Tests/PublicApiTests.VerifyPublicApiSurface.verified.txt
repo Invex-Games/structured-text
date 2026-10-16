@@ -1,33 +1,78 @@
 ﻿[
   {
-    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionFormatter
-  },
-  {
-    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsMacroExpression,
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsAgentVariables,
     Members: [
       {
-        Name: <Clone>$
+        Name: Os
       },
       {
-        Name: Deconstruct
+        Name: TempDirectory
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsBuildVariables,
+    Members: [
+      {
+        Name: ArtifactStagingDirectory
       },
       {
-        Name: Equals
+        Name: BuildId
       },
       {
-        Name: Equals
+        Name: BuildNumber
       },
       {
-        Name: Equals
+        Name: Reason
       },
       {
-        Name: GetHashCode
+        Name: RepositoryName
       },
       {
-        Name: ToString
+        Name: SourceBranch
       },
       {
-        Name: Variable
+        Name: SourceBranchName
+      },
+      {
+        Name: SourcesDirectory
+      },
+      {
+        Name: SourceVersion
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsContexts,
+    Members: [
+      {
+        Name: Agent
+      },
+      {
+        Name: Build
+      },
+      {
+        Name: PipelineWorkspace
+      },
+      {
+        Name: Runtime
+      },
+      {
+        Name: System
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter,
+    Members: [
+      {
+        Name: Instance
+      },
+      {
+        Name: PrintCondition
+      },
+      {
+        Name: Render
       }
     ]
   },
@@ -2443,10 +2488,13 @@
     ]
   },
   {
-    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsRuntimeExpression,
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsRuntimeExpr,
     Members: [
       {
         Name: <Clone>$
+      },
+      {
+        Name: Children
       },
       {
         Name: Deconstruct
@@ -2465,9 +2513,34 @@
       },
       {
         Name: GetHashCode
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.DevopsSystemVariables,
+    Members: [
+      {
+        Name: AccessToken
       },
       {
-        Name: ToString
+        Name: DefaultWorkingDirectory
+      },
+      {
+        Name: PullRequestId
+      },
+      {
+        Name: PullRequestTargetBranch
+      },
+      {
+        Name: TeamProject
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.AzureDevopsPipelines.TexDevopsExtensions,
+    Members: [
+      {
+        Name: get_DevOps
       }
     ]
   }

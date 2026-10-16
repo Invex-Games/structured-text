@@ -21,8 +21,8 @@ Invex.StructuredText solves these problems by letting you define your pipelines 
 - Full IntelliSense and compile-time validation for every property
 - Models closely follow the official schemas (GitHub workflow schema, Dependabot v2 schema, Azure Pipelines YAML
   schema)
-- A single, platform-agnostic **expression system** that compiles down to GitHub's `${{ }}` syntax or Azure DevOps
-  macro/runtime expression syntax
+- **Typed expressions** written with C# operators and interpolated strings, printed as GitHub's `${{ }}` syntax or
+  Azure DevOps macro, template and runtime syntax
 - Deterministic, cleanly formatted YAML output that is easy to diff and review
 
 ## When to use it
@@ -52,8 +52,9 @@ It is not the right tool when:
 | Union variant | Schema "one of" shapes (a step is `run:` *or* `uses:`) are discriminated unions; construct the nested variant you need, such as `new Step.RunStep { ... }`. |
 | Writer | <xref:Invex.StructuredText.GithubActions.GithubActionWriter>, <xref:Invex.StructuredText.GithubActions.DependabotConfigWriter>, or <xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter> walks a model and emits YAML. |
 | `StructuredTextWriter` | The indentation-aware buffer every writer writes into; read the result with `writer.TextWriter.ToString()`. See [StructuredTextWriter](structured-text-writer.md). |
-| Expression | A <xref:Invex.StructuredText.Expressions.TextExpression> tree (values, functions, logic, step and job outputs) that a platform formatter renders to that platform's syntax. See [Expressions](expressions.md). |
-| `RawExpression` vs `StringExpression` | Verbatim text versus a quoted string literal inside an expression; plain `string` values convert to `RawExpression`. |
+| `Tex` | The single entry point for expressions: <xref:Invex.StructuredText.Expressions.Tex> holds references (`Tex.Secret`, `Tex.JobOutput`, …), status checks, functions, and the platform contexts `Tex.GitHub` and `Tex.DevOps`. See [Expressions](expressions.md). |
+| Expression | A typed tree (`BoolExpr`, `StringExpr`, `NumberExpr`, `JsonExpr`) that a platform printer writes in that platform's syntax. Conditions are `BoolExpr`. |
+| `Template` | Text with expressions embedded in it. Every other expression-capable property is a <xref:Invex.StructuredText.Expressions.Template>, created from a string or an interpolated string. |
 
 ## Design principles
 
@@ -61,8 +62,10 @@ It is not the right tool when:
   mechanically to YAML keys, so platform documentation applies directly.
 - **Invalid shapes do not compile.** Discriminated unions rule out combinations the schema forbids, and `required`
   properties force a decision on schema-significant values, even when that decision is `null`.
-- **Write once, render per platform.** Expressions are platform-agnostic trees; only the formatter knows the target
+- **Write once, render per platform.** Expressions are platform-agnostic trees; only the printer knows the target
   syntax.
+- **Typed where it matters.** Conditions must be `BoolExpr`, and each expression type offers only the operations that
+  make sense for it, so mistakes show up as compile errors.
 - **Deterministic and write-only.** The same model always produces the same text, so you can regenerate in CI and fail
   on `git diff --exit-code`.
 - **Small, composable layers.** Platform packages are built on a core writer and expression system that you can reuse
@@ -72,16 +75,16 @@ It is not the right tool when:
 
 | Package                                      | What it provides                                                                                        |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| `Invex.StructuredText`                       | The core: `StructuredTextWriter` (indentation-aware text writer) and the `TextExpression` system        |
-| `Invex.StructuredText.GithubActions`         | `GithubActionWriter`, `DependabotConfigWriter`, `GithubExpressionFormatter`, and full model types       |
-| `Invex.StructuredText.AzureDevopsPipelines`  | `DevopsPipelineWriter`, `DevopsExpressionFormatter`, and full model types                               |
+| `Invex.StructuredText`                       | The core: `StructuredTextWriter` (indentation-aware text writer) and the expression API (`Tex`)        |
+| `Invex.StructuredText.GithubActions`         | `GithubActionWriter`, `DependabotConfigWriter`, `GithubExpressionPrinter`, `Tex.GitHub`, and model types |
+| `Invex.StructuredText.AzureDevopsPipelines`  | `DevopsPipelineWriter`, `DevopsExpressionPrinter`, `Tex.DevOps`, and model types                         |
 
 Both platform packages depend on the core package, so installing either one gives you everything you need.
 
 ## Next steps
 
 - [Getting Started](getting-started.md) — install the packages and generate your first file
-- [Expressions](expressions.md) — learn the unified expression system
+- [Expressions](expressions.md) — conditions, references and interpolated values
 - [GitHub Actions Workflows](github-actions.md) — workflow generation in depth
 - [Dependabot Configuration](dependabot.md) — `dependabot.yml` generation
 - [Azure DevOps Pipelines](azure-devops-pipelines.md) — pipeline generation in depth

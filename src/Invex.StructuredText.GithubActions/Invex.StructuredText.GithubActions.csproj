@@ -27,6 +27,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Invex.StructuredText\Invex.StructuredText.csproj" />
+    <ProjectReference Include="..\Invex.StructuredText.Generators\Invex.StructuredText.Generators.csproj"
+                      OutputItemType="Analyzer" ReferenceOutputAssembly="false" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Contexts\github.contexts" />
   </ItemGroup>
 
   <ItemGroup>

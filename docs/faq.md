@@ -31,27 +31,37 @@ Model records deliberately force you to make a decision for schema-significant p
 `required ... { get; init; }` with a nullable type means "you must say *something*, even if that something is `null`".
 This keeps generated YAML intentional rather than accidentally omitting filters.
 
-### Why both `RawExpression` and `StringExpression`?
+### Where do I start when writing an expression?
 
-`RawExpression` is verbatim text — used for plain YAML values and references like `github.ref`. `StringExpression` is
-a quoted string *literal inside an expression* — `'release'` in `contains(github.ref, 'release')`. See
+Type `Tex.`. Every way to create an expression is a member of that one class: references such as `Tex.Secret` and
+`Tex.JobOutput`, status checks such as `Tex.Success()`, functions, and the platform contexts `Tex.GitHub` and
+`Tex.DevOps`. Add `using static Invex.StructuredText.Expressions.Tex;` to drop the prefix. See
 [Expressions](expressions.md).
 
 ### How do I write `${{ ... }}` into a value?
 
-Wrap the expression with `.Evaluate()`:
+Put the expression in the value, on its own or in an interpolated string. The writer adds the delimiters:
 
 ```csharp
-Env = new Dictionary<string, TextExpression>
+Env = new Dictionary<string, Template>
 {
-    ["SHA"] = new RawExpression("github.sha").Evaluate(), // ${{ github.sha }}
+    ["SHA"] = Tex.GitHub.Sha,                       // ${{ github.sha }}
+    ["TAG"] = $"v{Tex.JobOutput("setup", "version")}", // v${{ needs.setup.outputs.version }}
 };
 ```
 
-Condition properties (`If`, `Condition`) are already in expression context — no `Evaluate()` needed there.
+Condition properties (`If`, `Condition`) are written without delimiters, as the platforms expect.
 
-If you really just want literal text, plain strings pass through untouched: `Token = "${{ secrets.TOKEN }}"` works for
-Dependabot configs, which are string-based.
+### How do I compare against a string?
+
+Pass a C# string: `Tex.GitHub.EventName.Eq("push")` prints `github.event_name == 'push'`. Literals are always quoted
+and escaped, so there is no separate "string" variant of each comparison.
+
+### What if the API doesn't cover something?
+
+Index into a context (`Tex.GitHub.Event["label"]["name"]`), then call `AsString()`, `AsBool()` or `AsNumber()` to
+compare it. For anything else, `Tex.Raw("...")` inserts expression text verbatim and works wherever an expression is
+expected.
 
 ### Can I reuse one writer for several files?
 
@@ -64,7 +74,7 @@ That's the main payoff of generating from C#: use ordinary functions, constants,
 
 ```csharp
 static Step CheckoutStep() =>
-    new Step.UsesStep { Uses = new RawExpression("actions/checkout@v4") };
+    new Step.UsesStep { Uses = "actions/checkout@v6" };
 
 static Job WithDefaults(Job job) =>
     job with { TimeoutMinutes = 30 };
@@ -83,16 +93,22 @@ workflow files match the generator (regenerate and `git diff --exit-code`).
 
 ## Troubleshooting
 
-### `InvalidOperationException: No writer found to handle expression ...`
+### `NotSupportedException` when writing a model
 
-You used an expression node the target platform's formatter doesn't support (for example, a `DevopsMacroExpression` in
-a GitHub Actions workflow, or a custom `TextExpression` subclass). Use the expression types appropriate to the target,
-or extend the formatter.
+The platform printer met an expression it can't express, such as `Tex.FromJson` in Azure DevOps (which has no
+`fromJSON`), `Tex.DevOps.Runtime(...)` in a GitHub workflow, or a custom `Expr` subclass. Use an expression the target
+supports, or `Tex.Raw` with the platform's own syntax.
 
-### My condition rendered as plain text instead of being evaluated
+### My interpolated value lost its `${{ }}`
 
-Plain values are written verbatim. For value-position properties (env vars, names, inputs), wrap the expression in
-`.Evaluate()` to get `${{ ... }}`. Condition-position properties are evaluated automatically.
+A conditional like `isNightly ? $"Nightly {Tex.GitHub.RunNumber}" : "Release"` has the type `string`, so C# formats
+the expression as plain text before the writer sees it. Cast the interpolated branch:
+`isNightly ? (Template)$"Nightly {Tex.GitHub.RunNumber}" : "Release"`.
+
+### My condition is wrapped in `${{ }}` but the others aren't
+
+That's intended. A YAML value can't start with `!`, so the GitHub writer wraps conditions that start with a negation:
+`if: ${{ !contains(github.ref, '-') }}`.
 
 ### Where is the API reference?
 
@@ -100,7 +116,7 @@ See the [API Reference](../api/index.md), generated from the XML documentation c
 
 ## See also
 
-- [Expressions](expressions.md): `RawExpression`, `StringExpression`, and `Evaluate()`
+- [Expressions](expressions.md): `Tex`, conditions, templates and the `Tex.Raw` escape hatch
 - [Getting Started](getting-started.md): the build, write, save pattern
 - [Architecture](architecture.md): why the models are shaped the way they are
-- <xref:Invex.StructuredText.Expressions.TextExpressionFormatter>
+- <xref:Invex.StructuredText.Expressions.Tex>, <xref:Invex.StructuredText.Expressions.ExpressionPrinter>

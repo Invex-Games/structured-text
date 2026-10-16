@@ -1,4 +1,4 @@
-using Environment = System.Environment;
+﻿using Environment = System.Environment;
 
 namespace Invex.StructuredText.GithubActions.Tests;
 
@@ -22,7 +22,7 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
+            Uses = "actions/checkout@v4",
         };
 
         var output = WriteStep(step);
@@ -34,8 +34,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Name = new RawExpression("Checkout"),
-            Uses = new RawExpression("actions/checkout@v4"),
+            Name = "Checkout",
+            Uses = "actions/checkout@v4",
         };
 
         var output = WriteStep(step);
@@ -49,7 +49,7 @@ internal sealed class GithubActionWriterStepTests
         var step = new Step.UsesStep
         {
             Id = "my-step",
-            Uses = new RawExpression("actions/checkout@v4"),
+            Uses = "actions/checkout@v4",
         };
 
         var output = WriteStep(step);
@@ -61,8 +61,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            If = new RawExpression("github.event_name == 'push'"),
-            Uses = new RawExpression("actions/checkout@v4"),
+            If = Tex.Raw("github.event_name == 'push'"),
+            Uses = "actions/checkout@v4",
         };
 
         var output = WriteStep(step);
@@ -74,11 +74,11 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/setup-node@v4"),
-            With = new Dictionary<string, TextExpressionCollection>
+            Uses = "actions/setup-node@v4",
+            With = new Dictionary<string, Template>
             {
-                ["node-version"] = new([new RawExpression("20")]),
-                ["cache"] = new([new RawExpression("npm")]),
+                ["node-version"] = "20",
+                ["cache"] = "npm",
             },
         };
 
@@ -93,10 +93,10 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("my/action@v1"),
-            With = new Dictionary<string, TextExpressionCollection>
+            Uses = "my/action@v1",
+            With = new Dictionary<string, Template>
             {
-                ["arg"] = new([new RawExpression("line1"), new RawExpression("line2")]),
+                ["arg"] = "line1\nline2",
             },
         };
 
@@ -110,10 +110,10 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            Env = new Dictionary<string, TextExpression>
+            Uses = "actions/checkout@v4",
+            Env = new Dictionary<string, Template>
             {
-                ["MY_TOKEN"] = new RawExpression("${{ secrets.TOKEN }}"),
+                ["MY_TOKEN"] = "${{ secrets.TOKEN }}",
             },
         };
 
@@ -127,8 +127,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            WorkingDirectory = new RawExpression("./src"),
+            Uses = "actions/checkout@v4",
+            WorkingDirectory = "./src",
         };
 
         var output = WriteStep(step);
@@ -140,8 +140,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            ContinueOnError = new BooleanExpression(true),
+            Uses = "actions/checkout@v4",
+            ContinueOnError = true,
         };
 
         var output = WriteStep(step);
@@ -153,8 +153,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            TimeoutMinutes = new NumberExpression(5),
+            Uses = "actions/checkout@v4",
+            TimeoutMinutes = 5,
         };
 
         var output = WriteStep(step);
@@ -166,7 +166,7 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("echo hello")],
+            Run = ["echo hello"],
         };
 
         var output = WriteStep(step);
@@ -178,7 +178,7 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("echo line1"), new RawExpression("echo line2")],
+            Run = ["echo line1", "echo line2"],
         };
 
         var output = WriteStep(step);
@@ -188,12 +188,73 @@ internal sealed class GithubActionWriterStepTests
     }
 
     [Test]
+    public void WriteStep_RunStep_MultipleLinesAfterName_WritesBlockNotList()
+    {
+        var step = new Step.RunStep
+        {
+            Name = "Build",
+            Run = ["echo 'line1'", "echo line2"],
+        };
+
+        var output = WriteStep(step);
+        output.ShouldContain("run: |");
+        output.ShouldContain("echo 'line1'");
+        output.ShouldNotContain("- 'echo");
+        output.ShouldNotContain("- echo");
+    }
+
+    [Test]
+    public void WriteStep_RunStep_BlankLinesInScript_ArePreserved()
+    {
+        Template[] script = ["cat > notes.txt <<'EOF'", "first", "", "third", "EOF"];
+
+        var first = WriteStep(new Step.RunStep { Run = script });
+        var afterName = WriteStep(new Step.RunStep { Name = "Write notes", Run = script });
+
+        foreach (var output in new[] { first, afterName })
+        {
+            var lines = output.Replace("\r\n", "\n").Split('\n').Select(x => x.Trim()).ToList();
+            var start = lines.IndexOf("first");
+            lines[start + 1].ShouldBe(string.Empty);
+            lines[start + 2].ShouldBe("third");
+        }
+    }
+
+    [Test]
+    public void WriteStep_RunStep_SingleMultilineEntryAfterName_PreservesBlankLines()
+    {
+        var output = WriteStep(new Step.RunStep { Name = "Script", Run = ["echo a\n\necho b"] });
+
+        output.ShouldContain("run: |");
+        var lines = output.Replace("\r\n", "\n").Split('\n').Select(x => x.Trim()).ToList();
+        lines[lines.IndexOf("echo a") + 1].ShouldBe(string.Empty);
+    }
+
+    [Test]
+    public void WriteStep_RunStep_SingleLineWithTrailingNewlineAfterName_WritesOneLine()
+    {
+        var output = WriteStep(new Step.RunStep { Name = "Build", Run = ["echo hello\n"] });
+
+        output.ShouldContain("run: echo hello" + Environment.NewLine);
+    }
+
+    [Test]
+    public void WriteStep_RunStep_CarriageReturnOnlyAsFirstProperty_WritesBlock()
+    {
+        var output = WriteStep(new Step.RunStep { Run = ["echo a\recho b"] });
+
+        output.ShouldContain("run: |");
+        output.Replace(Environment.NewLine, "\n").ShouldNotContain("\r");
+        output.Split(Environment.NewLine).ShouldNotContain("echo b");
+    }
+
+    [Test]
     public void WriteStep_RunStep_WithShell_WritesShellProperty()
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("echo hello")],
-            Shell = new RawExpression("pwsh"),
+            Run = ["echo hello"],
+            Shell = "pwsh",
         };
 
         var output = WriteStep(step);
@@ -205,8 +266,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Name = new RawExpression("Run tests"),
-            Run = [new RawExpression("dotnet test")],
+            Name = "Run tests",
+            Run = ["dotnet test"],
         };
 
         var output = WriteStep(step);
@@ -223,8 +284,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("npm install")],
-            WorkingDirectory = new RawExpression("./frontend"),
+            Run = ["npm install"],
+            WorkingDirectory = "./frontend",
         };
 
         var output = WriteStep(step);
@@ -236,10 +297,10 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("echo $MY_VAR")],
-            Env = new Dictionary<string, TextExpression>
+            Run = ["echo $MY_VAR"],
+            Env = new Dictionary<string, Template>
             {
-                ["MY_VAR"] = new RawExpression("hello"),
+                ["MY_VAR"] = "hello",
             },
         };
 
@@ -253,8 +314,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("exit 1")],
-            ContinueOnError = new BooleanExpression(true),
+            Run = ["exit 1"],
+            ContinueOnError = true,
         };
 
         var output = WriteStep(step);
@@ -266,8 +327,8 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.RunStep
         {
-            Run = [new RawExpression("npm test")],
-            TimeoutMinutes = new NumberExpression(10),
+            Run = ["npm test"],
+            TimeoutMinutes = 10,
         };
 
         var output = WriteStep(step);
@@ -283,11 +344,11 @@ internal sealed class GithubActionWriterStepTests
             [
                 new Step.UsesStep
                 {
-                    Uses = new RawExpression("actions/checkout@v4"),
+                    Uses = "actions/checkout@v4",
                 },
                 new Step.RunStep
                 {
-                    Run = [new RawExpression("echo hello")],
+                    Run = ["echo hello"],
                 },
             ],
         };
@@ -310,15 +371,90 @@ internal sealed class GithubActionWriterStepTests
     {
         var step = new Step.UsesStep
         {
-            Uses = new RawExpression("actions/checkout@v4"),
-            With = new Dictionary<string, TextExpressionCollection>
+            Uses = "actions/checkout@v4",
+            With = new Dictionary<string, Template>
             {
-                ["key"] = new([new RawExpression("value: with colon")]),
+                ["key"] = "value: with colon",
             },
         };
 
         var output = WriteStep(step);
         // "value: with colon" contains ": " which triggers quoting
         output.ShouldContain("'value: with colon'");
+    }
+
+    [TestCase(null)]
+    [TestCase("Script")]
+    public void WriteStep_RunStep_IndentedFirstLine_WritesIndentationIndicator(string? name)
+    {
+        var output = WriteStep(new Step.RunStep { Name = name is null ? null : (Template)name, Run = ["  echo first", "echo second"] });
+
+        output.ShouldContain("run: |2");
+        var lines = output.Split(Environment.NewLine);
+        var first = lines.Single(x => x.EndsWith("echo first", StringComparison.Ordinal));
+        var second = lines.Single(x => x.EndsWith("echo second", StringComparison.Ordinal));
+        (first.Length - first.TrimStart().Length).ShouldBe(second.Length - second.TrimStart().Length + 2);
+    }
+
+    [Test]
+    public void WriteStep_RunStep_UnindentedFirstLine_HasNoIndentationIndicator() =>
+        WriteStep(new Step.RunStep { Run = ["echo first", "  echo second"] }).ShouldNotContain("|2");
+
+    [Test]
+    public void WriteStep_RunStep_IndentedFirstLineWithFourSpaceIndent_IndicatorMatchesContentOffset()
+    {
+        var writer = new GithubActionWriter { TextWriter = new StructuredTextWriter(4) };
+        writer.Write(GithubActionWriterHelper.MinimalAction() with
+        {
+            Jobs = [GithubActionWriterHelper.MinimalJob() with { Steps = [new Step.RunStep { Run = ["  echo first", "echo second"] }] }],
+        });
+
+        var lines = writer.TextWriter.ToString().Split(Environment.NewLine);
+        var header = lines.Single(x => x.TrimStart().StartsWith("- run:", StringComparison.Ordinal));
+        var second = lines.Single(x => x.EndsWith("echo second", StringComparison.Ordinal));
+        header.TrimEnd().ShouldEndWith("|6");
+        (second.Length - second.TrimStart().Length).ShouldBe(header.IndexOf("run", StringComparison.Ordinal) + 6);
+    }
+
+    [Test]
+    public void WriteEnv_IndentedFirstLineWithFourSpaceIndent_IndicatorMatchesContentOffset()
+    {
+        var writer = new GithubActionWriter { TextWriter = new StructuredTextWriter(4) };
+        writer.Write(GithubActionWriterHelper.MinimalAction() with
+        {
+            Env = new Dictionary<string, Template> { ["X"] = "  first\nsecond" },
+        });
+
+        var lines = writer.TextWriter.ToString().Split(Environment.NewLine);
+        var header = lines.Single(x => x.TrimStart().StartsWith("X:", StringComparison.Ordinal));
+        var second = lines.Single(x => x.EndsWith("second", StringComparison.Ordinal));
+        header.ShouldEndWith("X: |4");
+        (second.Length - second.TrimStart().Length).ShouldBe(header.IndexOf('X') + 4);
+    }
+
+    [TestCase(1)]
+    [TestCase(6)]
+    public void WriteStep_RunStep_IndentedFirstLineWithUnsupportedIndent_Throws(int indentSize)
+    {
+        var writer = new GithubActionWriter { TextWriter = new StructuredTextWriter(indentSize) };
+
+        Should.Throw<NotSupportedException>(() => writer.Write(GithubActionWriterHelper.MinimalAction() with
+        {
+            Jobs = [GithubActionWriterHelper.MinimalJob() with { Steps = [new Step.RunStep { Run = ["  echo first", "echo second"] }] }],
+        }));
+    }
+
+    [TestCase(1)]
+    [TestCase(6)]
+    public void WriteStep_RunStep_UnindentedFirstLineWithUnusualIndent_DoesNotThrow(int indentSize)
+    {
+        var writer = new GithubActionWriter { TextWriter = new StructuredTextWriter(indentSize) };
+
+        writer.Write(GithubActionWriterHelper.MinimalAction() with
+        {
+            Jobs = [GithubActionWriterHelper.MinimalJob() with { Steps = [new Step.RunStep { Run = ["echo first", "  echo second"] }] }],
+        });
+
+        writer.TextWriter.ToString().ShouldContain("run: |");
     }
 }

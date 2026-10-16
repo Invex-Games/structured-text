@@ -1,4 +1,4 @@
-using Environment = System.Environment;
+﻿using Environment = System.Environment;
 
 namespace Invex.StructuredText.GithubActions.Tests;
 
@@ -37,7 +37,7 @@ internal sealed class GithubActionWriterPipelineTests
     {
         var action = GithubActionWriterHelper.MinimalAction() with
         {
-            RunName = new RawExpression("Run ${{ github.run_number }}"),
+            RunName = "Run ${{ github.run_number }}",
         };
 
         var output = GithubActionWriterHelper.Write(action);
@@ -158,10 +158,10 @@ internal sealed class GithubActionWriterPipelineTests
     {
         var action = GithubActionWriterHelper.MinimalAction() with
         {
-            Env = new Dictionary<string, TextExpression>
+            Env = new Dictionary<string, Template>
             {
-                ["MY_VAR"] = new RawExpression("my-value"),
-                ["OTHER"] = new RawExpression("other-value"),
+                ["MY_VAR"] = "my-value",
+                ["OTHER"] = "other-value",
             },
         };
 
@@ -186,13 +186,13 @@ internal sealed class GithubActionWriterPipelineTests
         {
             Concurrency = new()
             {
-                Group = new RawExpression("my-group"),
+                Group = "my-group",
             },
         };
 
         var output = GithubActionWriterHelper.Write(action);
         output.ShouldContain("concurrency:");
-        output.ShouldContain("my-group");
+        output.ShouldContain("group: my-group");
     }
 
     [Test]
@@ -202,8 +202,8 @@ internal sealed class GithubActionWriterPipelineTests
         {
             Concurrency = new()
             {
-                Group = new RawExpression("group-${{ github.ref }}"),
-                CancelInProgress = new BooleanExpression(true),
+                Group = "group-${{ github.ref }}",
+                CancelInProgress = true,
             },
         };
 

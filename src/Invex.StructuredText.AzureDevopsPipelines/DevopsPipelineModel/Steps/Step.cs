@@ -31,27 +31,27 @@ public partial record Step
         /// <summary>
         ///     Name of the task to run.
         /// </summary>
-        public required WorkflowExpression<string> TaskName { get; init; }
+        public required ExprTemplate TaskName { get; init; }
 
         /// <summary>
         ///     Inputs for the task.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Inputs { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Inputs { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -61,27 +61,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -93,32 +93,32 @@ public partial record Step
         /// <summary>
         ///     An inline script.
         /// </summary>
-        public required WorkflowExpression<string> ScriptContent { get; init; }
+        public required ExprTemplate ScriptContent { get; init; }
 
         /// <summary>
         ///     Fail the task if output is sent to Stderr?
         /// </summary>
-        public WorkflowExpression<bool>? FailOnStderr { get; init; }
+        public ExprTemplate? FailOnStderr { get; init; }
 
         /// <summary>
         ///     Start the script with this working directory.
         /// </summary>
-        public WorkflowExpression<string>? WorkingDirectory { get; init; }
+        public ExprTemplate? WorkingDirectory { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -128,27 +128,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -160,42 +160,42 @@ public partial record Step
         /// <summary>
         ///     An inline PowerShell script.
         /// </summary>
-        public required WorkflowExpression<string> ScriptContent { get; init; }
+        public required ExprTemplate ScriptContent { get; init; }
 
         /// <summary>
         ///     Fail the task if output is sent to Stderr?
         /// </summary>
-        public WorkflowExpression<bool>? FailOnStderr { get; init; }
+        public ExprTemplate? FailOnStderr { get; init; }
 
         /// <summary>
         ///     Start the script with this working directory.
         /// </summary>
-        public WorkflowExpression<string>? WorkingDirectory { get; init; }
+        public ExprTemplate? WorkingDirectory { get; init; }
 
         /// <summary>
         ///     Prepend error output stream data to the PowerShell $Error variable.
         /// </summary>
-        public WorkflowExpression<string>? ErrorActionPreference { get; init; }
+        public ExprTemplate? ErrorActionPreference { get; init; }
 
         /// <summary>
         ///     Ignore last exit code returned from the PowerShell script.
         /// </summary>
-        public WorkflowExpression<bool>? IgnoreLastExitCode { get; init; }
+        public ExprTemplate? IgnoreLastExitCode { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -205,27 +205,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -237,42 +237,42 @@ public partial record Step
         /// <summary>
         ///     An inline PowerShell Core script.
         /// </summary>
-        public required WorkflowExpression<string> ScriptContent { get; init; }
+        public required ExprTemplate ScriptContent { get; init; }
 
         /// <summary>
         ///     Fail the task if output is sent to Stderr?
         /// </summary>
-        public WorkflowExpression<bool>? FailOnStderr { get; init; }
+        public ExprTemplate? FailOnStderr { get; init; }
 
         /// <summary>
         ///     Start the script with this working directory.
         /// </summary>
-        public WorkflowExpression<string>? WorkingDirectory { get; init; }
+        public ExprTemplate? WorkingDirectory { get; init; }
 
         /// <summary>
         ///     Prepend error output stream data to the PowerShell $Error variable.
         /// </summary>
-        public WorkflowExpression<string>? ErrorActionPreference { get; init; }
+        public ExprTemplate? ErrorActionPreference { get; init; }
 
         /// <summary>
         ///     Ignore last exit code returned from the PowerShell script.
         /// </summary>
-        public WorkflowExpression<bool>? IgnoreLastExitCode { get; init; }
+        public ExprTemplate? IgnoreLastExitCode { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -282,27 +282,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -314,32 +314,32 @@ public partial record Step
         /// <summary>
         ///     An inline Bash script.
         /// </summary>
-        public required WorkflowExpression<string> ScriptContent { get; init; }
+        public required ExprTemplate ScriptContent { get; init; }
 
         /// <summary>
         ///     Fail the task if output is sent to Stderr?
         /// </summary>
-        public WorkflowExpression<bool>? FailOnStderr { get; init; }
+        public ExprTemplate? FailOnStderr { get; init; }
 
         /// <summary>
         ///     Start the script with this working directory.
         /// </summary>
-        public WorkflowExpression<string>? WorkingDirectory { get; init; }
+        public ExprTemplate? WorkingDirectory { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -349,27 +349,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -381,52 +381,52 @@ public partial record Step
         /// <summary>
         ///     Repository to checkout. Valid values: "self" | "none" or repository resource name.
         /// </summary>
-        public required WorkflowExpression<string> Repository { get; init; }
+        public required ExprTemplate Repository { get; init; }
 
         /// <summary>
         ///     Whether to clean the repository before checkout.
         /// </summary>
-        public WorkflowExpression<bool>? Clean { get; init; }
+        public ExprTemplate? Clean { get; init; }
 
         /// <summary>
         ///     Number of commits to fetch (depth). 0 indicates all history.
         /// </summary>
-        public WorkflowExpression<double>? FetchDepth { get; init; }
+        public ExprTemplate? FetchDepth { get; init; }
 
         /// <summary>
         ///     Whether to download Git-LFS files.
         /// </summary>
-        public WorkflowExpression<bool>? Lfs { get; init; }
+        public ExprTemplate? Lfs { get; init; }
 
         /// <summary>
         ///     Whether to checkout submodules.
         /// </summary>
-        public WorkflowExpression<bool>? Submodules { get; init; }
+        public ExprTemplate? Submodules { get; init; }
 
         /// <summary>
         ///     Path to check out source code, relative to $(Agent.BuildDirectory).
         /// </summary>
-        public WorkflowExpression<string>? Path { get; init; }
+        public ExprTemplate? Path { get; init; }
 
         /// <summary>
         ///     Persist credentials for later use by the Git command-line tool.
         /// </summary>
-        public WorkflowExpression<bool>? PersistCredentials { get; init; }
+        public ExprTemplate? PersistCredentials { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -436,27 +436,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -468,37 +468,37 @@ public partial record Step
         /// <summary>
         ///     Pipeline resource identifier. Valid values: "current" | "specific" | pipeline resource name.
         /// </summary>
-        public required WorkflowExpression<string> Pipeline { get; init; }
+        public required ExprTemplate Pipeline { get; init; }
 
         /// <summary>
         ///     Artifact name to download. If not specified, all artifacts are downloaded.
         /// </summary>
-        public WorkflowExpression<string>? Artifact { get; init; }
+        public ExprTemplate? Artifact { get; init; }
 
         /// <summary>
         ///     Pattern to match against artifact names.
         /// </summary>
-        public WorkflowExpressionCollection<string>? Patterns { get; init; }
+        public IReadOnlyList<ExprTemplate>? Patterns { get; init; }
 
         /// <summary>
         ///     Download path.
         /// </summary>
-        public WorkflowExpression<string>? Path { get; init; }
+        public ExprTemplate? Path { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -508,27 +508,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -540,37 +540,37 @@ public partial record Step
         /// <summary>
         ///     Build resource identifier.
         /// </summary>
-        public required WorkflowExpression<string> Build { get; init; }
+        public required ExprTemplate Build { get; init; }
 
         /// <summary>
         ///     Artifact name to download.
         /// </summary>
-        public WorkflowExpression<string>? Artifact { get; init; }
+        public ExprTemplate? Artifact { get; init; }
 
         /// <summary>
         ///     Pattern to match against artifact names.
         /// </summary>
-        public WorkflowExpressionCollection<string>? Patterns { get; init; }
+        public IReadOnlyList<ExprTemplate>? Patterns { get; init; }
 
         /// <summary>
         ///     Download path.
         /// </summary>
-        public WorkflowExpression<string>? Path { get; init; }
+        public ExprTemplate? Path { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -580,27 +580,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -612,32 +612,32 @@ public partial record Step
         /// <summary>
         ///     Package resource identifier.
         /// </summary>
-        public required WorkflowExpression<string> Package { get; init; }
+        public required ExprTemplate Package { get; init; }
 
         /// <summary>
         ///     Package version to download.
         /// </summary>
-        public WorkflowExpression<string>? Version { get; init; }
+        public ExprTemplate? Version { get; init; }
 
         /// <summary>
         ///     Download path.
         /// </summary>
-        public WorkflowExpression<string>? Path { get; init; }
+        public ExprTemplate? Path { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -647,27 +647,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -679,27 +679,27 @@ public partial record Step
         /// <summary>
         ///     Path to the file or folder to publish.
         /// </summary>
-        public required WorkflowExpression<string> PublishPath { get; init; }
+        public required ExprTemplate PublishPath { get; init; }
 
         /// <summary>
         ///     Artifact name.
         /// </summary>
-        public WorkflowExpression<string>? Artifact { get; init; }
+        public ExprTemplate? Artifact { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -709,27 +709,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 
     /// <summary>
@@ -741,12 +741,12 @@ public partial record Step
         /// <summary>
         ///     Path to the template file.
         /// </summary>
-        public required WorkflowExpression<string> TemplatePath { get; init; }
+        public required ExprTemplate TemplatePath { get; init; }
 
         /// <summary>
         ///     Parameters to pass to the template.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Parameters { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Parameters { get; init; }
     }
 
     /// <summary>
@@ -758,22 +758,22 @@ public partial record Step
         /// <summary>
         ///     Review app type.
         /// </summary>
-        public required WorkflowExpression<string> ReviewAppType { get; init; }
+        public required ExprTemplate ReviewAppType { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this task.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Continue running even on failure?
         /// </summary>
-        public WorkflowExpression<bool>? ContinueOnError { get; init; }
+        public ExprTemplate? ContinueOnError { get; init; }
 
         /// <summary>
         ///     Human-readable name for the task.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Environment in which to run this task.
@@ -783,27 +783,27 @@ public partial record Step
         /// <summary>
         ///     Run this task when the job runs?
         /// </summary>
-        public WorkflowExpression<bool>? Enabled { get; init; }
+        public ExprTemplate? Enabled { get; init; }
 
         /// <summary>
         ///     Variables to map into the process's environment.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
         /// <summary>
         ///     ID of the step.
         /// </summary>
-        public WorkflowExpression<string>? Name { get; init; }
+        public ExprTemplate? Name { get; init; }
 
         /// <summary>
         ///     Time to wait for this task to complete before the server kills it.
         /// </summary>
-        public WorkflowExpression<double>? TimeoutInMinutes { get; init; }
+        public ExprTemplate? TimeoutInMinutes { get; init; }
 
         /// <summary>
         ///     Number of retries if the task fails.
         /// </summary>
-        public WorkflowExpression<double>? RetryCountOnTaskFailure { get; init; }
+        public ExprTemplate? RetryCountOnTaskFailure { get; init; }
     }
 }
 
@@ -828,7 +828,7 @@ public partial record StepTarget
         /// <summary>
         ///     Name of the target environment.
         /// </summary>
-        public required WorkflowExpression<string> Name { get; init; }
+        public required ExprTemplate Name { get; init; }
     }
 
     /// <summary>
@@ -840,12 +840,12 @@ public partial record StepTarget
         /// <summary>
         ///     Container resource name to target.
         /// </summary>
-        public WorkflowExpression<string>? Container { get; init; }
+        public ExprTemplate? Container { get; init; }
 
         /// <summary>
         ///     Commands to run in the target.
         /// </summary>
-        public WorkflowExpression<string>? Commands { get; init; }
+        public ExprTemplate? Commands { get; init; }
 
         /// <summary>
         ///     Restrictions on which variables can be set from this step.
@@ -863,10 +863,10 @@ public sealed record SettableVariables
     /// <summary>
     ///     Whether variables can be set.
     /// </summary>
-    public WorkflowExpression<bool>? Allowed { get; init; }
+    public ExprTemplate? Allowed { get; init; }
 
     /// <summary>
     ///     List of variable names that are allowed to be set.
     /// </summary>
-    public WorkflowExpressionCollection<string>? AllowedVariables { get; init; }
+    public IReadOnlyList<ExprTemplate>? AllowedVariables { get; init; }
 }

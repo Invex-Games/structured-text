@@ -96,26 +96,25 @@ its schema-accurate activity-type enum.
 ```csharp
 new Job
 {
-    Name = new RawExpression("test"),
-    RunsOn = new() { Labels = [new RawExpression("ubuntu-latest")] },
+    Name = "test",
+    RunsOn = new() { Labels = ["ubuntu-latest"] },
     Needs = ["build"],                                   // job dependencies
-    If = new RawExpression("github.event_name").EqualToString("push"),
+    If = Tex.GitHub.EventName.Eq("push"),
     TimeoutMinutes = 30,
-    Env = new Dictionary<string, TextExpression>
+    Env = new Dictionary<string, Template>
     {
         ["DOTNET_NOLOGO"] = "true",
     },
-    Outputs = new Dictionary<string, TextExpression>
+    Outputs = new Dictionary<string, Template>
     {
-        ["version"] = new StepOutputExpression
-        {
-            StepName = "gitversion",
-            OutputName = "semVer",
-        }.Evaluate(),
+        ["version"] = Tex.StepOutput("gitversion", "semVer"),
     },
     Steps = [ /* ... */ ],
 }
 ```
+
+`Name`, `TimeoutMinutes`, `Env` and `Outputs` values are templates, so they accept plain text, a number, an expression
+or an interpolated string. `If` is a `BoolExpr` condition. See [Expressions](expressions.md).
 
 ### Matrix strategies
 
@@ -124,25 +123,24 @@ Strategy = new Strategy
 {
     Matrix = new Matrix
     {
-        Map = new Dictionary<string, TextExpressionCollection>
+        Map = new Dictionary<string, IReadOnlyList<Template>>
         {
-            ["os"] = new[] { "ubuntu-latest", "windows-latest", "macos-latest" },
-            ["dotnet"] = new[] { "8.0.x", "9.0.x" },
+            ["os"] = ["ubuntu-latest", "windows-latest", "macos-latest"],
+            ["configuration"] = ["Debug", "Release"],
         },
-        Include = null,
         Exclude =
         [
-            new Dictionary<string, TextExpression>
+            new Dictionary<string, Template>
             {
                 ["os"] = "macos-latest",
-                ["dotnet"] = "8.0.x",
+                ["configuration"] = "Debug",
             },
         ],
     },
     FailFast = false,
     MaxParallel = 4,
 },
-RunsOn = new() { Labels = [new RawExpression("matrix.os").Evaluate()] },
+RunsOn = new() { Labels = [Tex.Matrix("os")] },          // ${{ matrix.os }}
 ```
 
 ### Permissions
@@ -164,22 +162,16 @@ Permissions = new Permissions.Exact(new PermissionsEvent
 ```csharp
 Concurrency = new Concurrency
 {
-    Group = TextExpressions.Format($"ci-{new RawExpression("github.ref")}"),
-    CancelInProgress = true,
+    Group = $"ci-{Tex.GitHub.Ref}",                     // ci-${{ github.ref }}
+    CancelInProgress = Tex.GitHub.EventName.Eq("pull_request"),
 },
 
-Environment = new Environment
-{
-    Name = new RawExpression("production"),
-},
+Environment = new Environment { Name = "production" },
 
-Container = new Container
-{
-    Image = new RawExpression("mcr.microsoft.com/dotnet/sdk:10.0"),
-},
+Container = new Container { Image = "mcr.microsoft.com/dotnet/sdk:10.0" },
 Services = new Dictionary<string, Container>
 {
-    ["postgres"] = new() { Image = new RawExpression("postgres:16") },
+    ["postgres"] = new() { Image = "postgres:16" },
 },
 ```
 
@@ -188,79 +180,90 @@ Services = new Dictionary<string, Container>
 `Step` is a union of two variants. Shared properties (`Id`, `Name`, `If`, `Env`, `With`, `WorkingDirectory`,
 `ContinueOnError`, `TimeoutMinutes`) live on the base record.
 
-### `UsesStep` — run an action
+### `UsesStep`: run an action
 
 ```csharp
 new Step.UsesStep
 {
-    Name = new RawExpression("Setup .NET"),
-    Uses = new RawExpression("actions/setup-dotnet@v4"),
-    With = new Dictionary<string, TextExpressionCollection>
+    Name = "Setup .NET",
+    Uses = "actions/setup-dotnet@v5",
+    With = new Dictionary<string, Template>
     {
-        ["dotnet-version"] = new[] { "8.0.x", "9.0.x" },
+        ["dotnet-version"] = "10.0.x",
     },
 }
 ```
 
-### `RunStep` — run shell commands
+### `RunStep`: run shell commands
 
-`Run` is a `TextExpressionCollection`; multiple entries produce a multi-line `run: |` block.
+`Run` is a list of templates; more than one entry produces a multi-line `run: |` block.
 
 ```csharp
 new Step.RunStep
 {
     Id = "pack",
-    Name = new RawExpression("Pack"),
+    Name = "Pack",
     Run =
     [
-        "dotnet pack --configuration Release",
-        "dotnet nuget push *.nupkg",
+        $"dotnet pack --configuration Release -p:Version={Tex.JobOutput("setup", "version")}",
+        "dotnet nuget push *.nupkg --api-key \"$NUGET_API_KEY\"",
     ],
-    Shell = new RawExpression("bash"),
-    Env = new Dictionary<string, TextExpression>
+    Shell = "bash",
+    Env = new Dictionary<string, Template>
     {
-        ["NUGET_API_KEY"] = new RawExpression("secrets.NUGET_API_KEY").Evaluate(),
+        ["NUGET_API_KEY"] = Tex.Secret("NUGET_API_KEY"),  // ${{ secrets.NUGET_API_KEY }}
     },
 }
 ```
+
+> [!TIP]
+> Pass secrets to commands through `Env` rather than interpolating them into `Run`, so they never appear in the
+> generated script text.
 
 ### Conditional steps
 
 ```csharp
 new Step.RunStep
 {
-    Name = new RawExpression("Publish (main only)"),
-    If = new RawExpression("github.ref").EqualToString("refs/heads/main")
-        & new RawExpression("success()"),
+    Name = "Publish (main only)",
+    If = Tex.GitHub.Ref.Eq("refs/heads/main") && Tex.Success(),
     Run = ["dotnet nuget push *.nupkg"],
 }
 ```
 
-`If` is rendered inside expression context, producing
-`if: github.ref == 'refs/heads/main' && success()`.
+This renders `if: github.ref == 'refs/heads/main' && success()`. Conditions are written without `${{ }}` unless they
+start with `!`, which YAML would read as a tag.
 
 ## Referencing outputs between steps and jobs
 
-```csharp
-// In job "release", consume the version produced by job "build":
-var version = new TargetOutputExpression
-{
-    TargetName = "build",
-    OutputName = "version",
-};
+A step output is published as a job output, and a later job reads it with `Tex.JobOutput`:
 
+```csharp
 new Job
 {
-    Name = new RawExpression("release"),
-    Needs = ["build"],
-    RunsOn = new() { Labels = [new RawExpression("ubuntu-latest")] },
-    Env = new Dictionary<string, TextExpression>
+    Name = "build",
+    RunsOn = new() { Labels = ["ubuntu-latest"] },
+    Outputs = new Dictionary<string, Template>
     {
-        ["VERSION"] = version.Evaluate(),   // ${{ needs.build.outputs.version }}
+        ["version"] = Tex.StepOutput("gitversion", "semVer"),   // ${{ steps.gitversion.outputs.semVer }}
+    },
+    Steps = [ /* a step with Id = "gitversion" that writes semVer to $GITHUB_OUTPUT */ ],
+},
+new Job
+{
+    Name = "release",
+    Needs = ["build"],
+    If = !Tex.JobOutput("build", "version").Contains("-"),     // stable versions only
+    RunsOn = new() { Labels = ["ubuntu-latest"] },
+    Env = new Dictionary<string, Template>
+    {
+        ["VERSION"] = Tex.JobOutput("build", "version"),      // ${{ needs.build.outputs.version }}
     },
     Steps = [ /* ... */ ],
 }
 ```
+
+The `release` job's condition becomes `if: ${{ !contains(needs.build.outputs.version, '-') }}`.
 
 ## Complete example
 
@@ -286,25 +289,22 @@ var workflow = new GithubAction
     }),
     Concurrency = new Concurrency
     {
-        Group = TextExpressions.Format($"ci-{new RawExpression("github.ref")}"),
+        Group = $"ci-{Tex.GitHub.Ref}",
         CancelInProgress = true,
     },
     Jobs =
     [
         new Job
         {
-            Name = new RawExpression("build"),
-            RunsOn = new() { Labels = [new RawExpression("ubuntu-latest")] },
+            Name = "build",
+            RunsOn = new() { Labels = ["ubuntu-latest"] },
             Steps =
             [
-                new Step.UsesStep { Uses = new RawExpression("actions/checkout@v4") },
+                new Step.UsesStep { Uses = "actions/checkout@v6" },
                 new Step.UsesStep
                 {
-                    Uses = new RawExpression("actions/setup-dotnet@v4"),
-                    With = new Dictionary<string, TextExpressionCollection>
-                    {
-                        ["dotnet-version"] = "10.0.x",
-                    },
+                    Uses = "actions/setup-dotnet@v5",
+                    With = new Dictionary<string, Template> { ["dotnet-version"] = "10.0.x" },
                 },
                 new Step.RunStep { Run = ["dotnet build -c Release"] },
                 new Step.RunStep { Run = ["dotnet test -c Release --no-build"] },
@@ -318,10 +318,13 @@ writer.Write(workflow);
 File.WriteAllText(".github/workflows/ci.yml", writer.TextWriter.ToString());
 ```
 
+The [samples](https://github.com/Invex-Games/structured-text/blob/main/samples/README.md) include a larger workflow
+with a version job, a test matrix, a stable-only publish job and failure reporting, together with its output.
+
 ## See also
 
-- [Expressions](expressions.md) — the expression system used throughout the model
-- [Dependabot Configuration](dependabot.md) — generating `dependabot.yml` with the same package
-- [StructuredTextWriter](structured-text-writer.md) — the writer behind `GithubActionWriter.TextWriter`
+- [Expressions](expressions.md): the expression system used throughout the model
+- [Dependabot Configuration](dependabot.md): generating `dependabot.yml` with the same package
+- [StructuredTextWriter](structured-text-writer.md): the writer behind `GithubActionWriter.TextWriter`
 - <xref:Invex.StructuredText.GithubActions.GithubActionModel.GithubAction>, <xref:Invex.StructuredText.GithubActions.GithubActionWriter>,
-  <xref:Invex.StructuredText.GithubActions.GithubExpressionFormatter>
+  <xref:Invex.StructuredText.GithubActions.GithubExpressionPrinter>

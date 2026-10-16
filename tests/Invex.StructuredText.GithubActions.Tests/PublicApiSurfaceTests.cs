@@ -1,4 +1,4 @@
-using Invex.RepoUtils.TestUtils;
+﻿using Invex.RepoUtils.TestUtils;
 
 namespace Invex.StructuredText.GithubActions.Tests;
 
@@ -8,6 +8,6 @@ public class PublicApiTests
     [Test]
     public async Task VerifyPublicApiSurface()
     {
-        await VerifyJson(PublicApiSurfaceTestUtil.GetPublicApiSurface(typeof(GithubExpressionFormatter).Assembly));
+        await VerifyJson(PublicApiSurfaceTestUtil.GetPublicApiSurface(typeof(GithubExpressionPrinter).Assembly));
     }
 }

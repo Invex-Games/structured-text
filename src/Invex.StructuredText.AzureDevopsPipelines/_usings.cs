@@ -11,3 +11,4 @@ global using Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Varia
 global using Invex.StructuredText.Expressions;
 global using Dunet;
 global using JetBrains.Annotations;
+global using ExprTemplate = Invex.StructuredText.Expressions.Template;

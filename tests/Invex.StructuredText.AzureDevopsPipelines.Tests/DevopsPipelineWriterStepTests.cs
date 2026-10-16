@@ -8,7 +8,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Task
         {
-            TaskName = new RawExpression("DotNetCoreCLI@2"),
+            TaskName = "DotNetCoreCLI@2",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -24,11 +24,11 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Task
         {
-            TaskName = new RawExpression("DotNetCoreCLI@2"),
-            Inputs = new Dictionary<string, TextExpression>
+            TaskName = "DotNetCoreCLI@2",
+            Inputs = new Dictionary<string, Template>
             {
-                ["command"] = new RawExpression("build"),
-                ["projects"] = new RawExpression("**/*.csproj"),
+                ["command"] = "build",
+                ["projects"] = "**/*.csproj",
             },
         };
 
@@ -47,17 +47,17 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Task
         {
-            TaskName = new RawExpression("MyTask@1"),
-            DisplayName = new RawExpression("Run My Task"),
-            Name = new RawExpression("myStep"),
-            Condition = new RawExpression("succeeded()"),
-            ContinueOnError = new BooleanExpression(true),
-            Enabled = new BooleanExpression(false),
-            TimeoutInMinutes = new NumberExpression(30),
-            RetryCountOnTaskFailure = new NumberExpression(2),
-            Env = new Dictionary<string, TextExpression>
+            TaskName = "MyTask@1",
+            DisplayName = "Run My Task",
+            Name = "myStep",
+            Condition = Tex.Raw("succeeded()"),
+            ContinueOnError = true,
+            Enabled = false,
+            TimeoutInMinutes = 30,
+            RetryCountOnTaskFailure = 2,
+            Env = new Dictionary<string, Template>
             {
-                ["MY_TOKEN"] = new RawExpression("$(mySecret)"),
+                ["MY_TOKEN"] = "$(mySecret)",
             },
         };
 
@@ -82,7 +82,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Script
         {
-            ScriptContent = new RawExpression("echo hello"),
+            ScriptContent = "echo hello",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -98,8 +98,8 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Script
         {
-            ScriptContent = new RawExpression("echo hello"),
-            FailOnStderr = new BooleanExpression(true),
+            ScriptContent = "echo hello",
+            FailOnStderr = true,
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -115,8 +115,8 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Script
         {
-            ScriptContent = new RawExpression("npm install"),
-            WorkingDirectory = new RawExpression("$(Build.SourcesDirectory)/frontend"),
+            ScriptContent = "npm install",
+            WorkingDirectory = "$(Build.SourcesDirectory)/frontend",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -132,7 +132,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.PowerShell
         {
-            ScriptContent = new RawExpression("Write-Host 'hello'"),
+            ScriptContent = "Write-Host 'hello'",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -148,8 +148,8 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.PowerShell
         {
-            ScriptContent = new RawExpression("do-something"),
-            ErrorActionPreference = new RawExpression("continue"),
+            ScriptContent = "do-something",
+            ErrorActionPreference = "continue",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -165,8 +165,8 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.PowerShell
         {
-            ScriptContent = new RawExpression("do-something"),
-            IgnoreLastExitCode = new BooleanExpression(true),
+            ScriptContent = "do-something",
+            IgnoreLastExitCode = true,
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -184,7 +184,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Pwsh
         {
-            ScriptContent = new RawExpression("Write-Output 'hello'"),
+            ScriptContent = "Write-Output 'hello'",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -200,11 +200,11 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Pwsh
         {
-            ScriptContent = new RawExpression("do-something"),
-            FailOnStderr = new BooleanExpression(true),
-            WorkingDirectory = new RawExpression("/src"),
-            ErrorActionPreference = new RawExpression("stop"),
-            IgnoreLastExitCode = new BooleanExpression(false),
+            ScriptContent = "do-something",
+            FailOnStderr = true,
+            WorkingDirectory = "/src",
+            ErrorActionPreference = "stop",
+            IgnoreLastExitCode = false,
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -225,7 +225,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Bash
         {
-            ScriptContent = new RawExpression("echo hello"),
+            ScriptContent = "echo hello",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -241,9 +241,9 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Bash
         {
-            ScriptContent = new RawExpression("make build"),
-            FailOnStderr = new BooleanExpression(false),
-            WorkingDirectory = new RawExpression("$(Build.SourcesDirectory)"),
+            ScriptContent = "make build",
+            FailOnStderr = false,
+            WorkingDirectory = "$(Build.SourcesDirectory)",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -262,7 +262,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Checkout
         {
-            Repository = new RawExpression("self"),
+            Repository = "self",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -278,7 +278,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Checkout
         {
-            Repository = new RawExpression("none"),
+            Repository = "none",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -294,13 +294,13 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Checkout
         {
-            Repository = new RawExpression("self"),
-            Clean = new BooleanExpression(true),
-            FetchDepth = new NumberExpression(0),
-            Lfs = new BooleanExpression(true),
-            Submodules = new BooleanExpression(false),
-            Path = new RawExpression("$(Build.SourcesDirectory)/src"),
-            PersistCredentials = new BooleanExpression(true),
+            Repository = "self",
+            Clean = true,
+            FetchDepth = 0,
+            Lfs = true,
+            Submodules = false,
+            Path = "$(Build.SourcesDirectory)/src",
+            PersistCredentials = true,
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -323,7 +323,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Download
         {
-            Pipeline = new RawExpression("current"),
+            Pipeline = "current",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -339,10 +339,10 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Download
         {
-            Pipeline = new RawExpression("myUpstream"),
-            Artifact = new RawExpression("drop"),
+            Pipeline = "myUpstream",
+            Artifact = "drop",
             Patterns = ["**/*.zip"],
-            Path = new RawExpression("$(Pipeline.Workspace)/drop"),
+            Path = "$(Pipeline.Workspace)/drop",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -362,7 +362,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.DownloadBuild
         {
-            Build = new RawExpression("myBuild"),
+            Build = "myBuild",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -378,10 +378,10 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.DownloadBuild
         {
-            Build = new RawExpression("myBuild"),
-            Artifact = new RawExpression("logs"),
+            Build = "myBuild",
+            Artifact = "logs",
             Patterns = ["**/*.log"],
-            Path = new RawExpression("$(Build.StagingDirectory)"),
+            Path = "$(Build.StagingDirectory)",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -401,7 +401,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.GetPackage
         {
-            Package = new RawExpression("myPackage"),
+            Package = "myPackage",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -417,9 +417,9 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.GetPackage
         {
-            Package = new RawExpression("myNuGet"),
-            Version = new RawExpression("1.2.3"),
-            Path = new RawExpression("$(Build.ArtifactStagingDirectory)"),
+            Package = "myNuGet",
+            Version = "1.2.3",
+            Path = "$(Build.ArtifactStagingDirectory)",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -438,7 +438,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Publish
         {
-            PublishPath = new RawExpression("$(Build.ArtifactStagingDirectory)"),
+            PublishPath = "$(Build.ArtifactStagingDirectory)",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -454,8 +454,8 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Publish
         {
-            PublishPath = new RawExpression("$(Build.ArtifactStagingDirectory)"),
-            Artifact = new RawExpression("drop"),
+            PublishPath = "$(Build.ArtifactStagingDirectory)",
+            Artifact = "drop",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -473,7 +473,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Template
         {
-            TemplatePath = new RawExpression("templates/common-steps.yml"),
+            TemplatePath = "templates/common-steps.yml",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -489,10 +489,10 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Template
         {
-            TemplatePath = new RawExpression("templates/deploy.yml"),
-            Parameters = new Dictionary<string, TextExpression>
+            TemplatePath = "templates/deploy.yml",
+            Parameters = new Dictionary<string, Template>
             {
-                ["environment"] = new RawExpression("prod"),
+                ["environment"] = "prod",
             },
         };
 
@@ -513,7 +513,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.ReviewApp
         {
-            ReviewAppType = new RawExpression("kubernetes"),
+            ReviewAppType = "kubernetes",
         };
 
         var output = PipelineWriterHelper.Write(new DevopsPipeline.DevopsPipelineWithSteps
@@ -531,10 +531,10 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Task
         {
-            TaskName = new RawExpression("MyTask@1"),
+            TaskName = "MyTask@1",
             Target = new StepTarget.TargetName
             {
-                Name = new RawExpression("myContainer"),
+                Name = "myContainer",
             },
         };
 
@@ -551,10 +551,10 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Task
         {
-            TaskName = new RawExpression("MyTask@1"),
+            TaskName = "MyTask@1",
             Target = new StepTarget.TargetSpec
             {
-                Container = new RawExpression("myContainer"),
+                Container = "myContainer",
             },
         };
 
@@ -572,10 +572,10 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Task
         {
-            TaskName = new RawExpression("MyTask@1"),
+            TaskName = "MyTask@1",
             Target = new StepTarget.TargetSpec
             {
-                Commands = new RawExpression("restricted"),
+                Commands = "restricted",
             },
         };
 
@@ -593,12 +593,12 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Task
         {
-            TaskName = new RawExpression("MyTask@1"),
+            TaskName = "MyTask@1",
             Target = new StepTarget.TargetSpec
             {
                 SettableVariables = new()
                 {
-                    Allowed = new BooleanExpression(false),
+                    Allowed = false,
                 },
             },
         };
@@ -616,7 +616,7 @@ internal sealed class DevopsPipelineWriterStepTests
     {
         Step step = new Step.Task
         {
-            TaskName = new RawExpression("MyTask@1"),
+            TaskName = "MyTask@1",
             Target = new StepTarget.TargetSpec
             {
                 SettableVariables = new()
@@ -643,13 +643,13 @@ internal sealed class DevopsPipelineWriterStepTests
         {
             Container = new JobContainer.ContainerName
             {
-                Name = new RawExpression("myContainer"),
+                Name = "myContainer",
             },
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         });
@@ -664,22 +664,22 @@ internal sealed class DevopsPipelineWriterStepTests
         {
             Container = new JobContainer.ContainerSpec
             {
-                Image = new RawExpression("ubuntu:22.04"),
-                Options = new RawExpression("--user root"),
-                Endpoint = new RawExpression("myRegistry"),
-                Env = new Dictionary<string, TextExpression>
+                Image = "ubuntu:22.04",
+                Options = "--user root",
+                Endpoint = "myRegistry",
+                Env = new Dictionary<string, Template>
                 {
-                    ["ENV_VAR"] = new RawExpression("val"),
+                    ["ENV_VAR"] = "val",
                 },
                 Ports = ["8080:80"],
                 Volumes = ["/opt:/opt"],
-                MapDockerSocket = new BooleanExpression(true),
+                MapDockerSocket = true,
             },
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         });
@@ -705,15 +705,15 @@ internal sealed class DevopsPipelineWriterStepTests
             [
                 new Step.Checkout
                 {
-                    Repository = new RawExpression("self"),
+                    Repository = "self",
                 },
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo build"),
+                    ScriptContent = "echo build",
                 },
                 new Step.Publish
                 {
-                    PublishPath = new RawExpression("drop"),
+                    PublishPath = "drop",
                 },
             ],
         };

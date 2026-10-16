@@ -1,9 +1,12 @@
 ﻿[
   {
-    Name: Invex.StructuredText.Expressions.AndExpression,
+    Name: Invex.StructuredText.Expressions.BoolCast,
     Members: [
       {
         Name: <Clone>$
+      },
+      {
+        Name: Children
       },
       {
         Name: Deconstruct
@@ -21,18 +24,18 @@
         Name: GetHashCode
       },
       {
-        Name: Source
-      },
-      {
-        Name: ToString
+        Name: Operand
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.BooleanExpression,
+    Name: Invex.StructuredText.Expressions.BoolContext,
     Members: [
       {
         Name: <Clone>$
+      },
+      {
+        Name: Children
       },
       {
         Name: Deconstruct
@@ -50,21 +53,18 @@
         Name: GetHashCode
       },
       {
-        Name: ToString
-      },
-      {
-        Name: Value
+        Name: Path
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.CastExpression`1,
+    Name: Invex.StructuredText.Expressions.BoolExpr,
     Members: [
       {
         Name: <Clone>$
       },
       {
-        Name: Deconstruct
+        Name: Eq
       },
       {
         Name: Equals
@@ -79,198 +79,12 @@
         Name: GetHashCode
       },
       {
-        Name: Inner
-      },
-      {
-        Name: ToString
+        Name: Ne
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.CoalesceExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Source
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.ConcatExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: ToString
-      },
-      {
-        Name: Values
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.ContainsExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Pattern
-      },
-      {
-        Name: Source
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.EndsWithExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Pattern
-      },
-      {
-        Name: Source
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.EqualExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Left
-      },
-      {
-        Name: Right
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.EvaluateExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Expression
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.FormatExpression,
+    Name: Invex.StructuredText.Expressions.BoolFunction,
     Members: [
       {
         Name: <Clone>$
@@ -279,6 +93,9 @@
         Name: Arguments
       },
       {
+        Name: Children
+      },
+      {
         Name: Deconstruct
       },
       {
@@ -294,18 +111,47 @@
         Name: GetHashCode
       },
       {
-        Name: Source
-      },
-      {
-        Name: ToString
+        Name: Name
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.GreaterThanExpression,
+    Name: Invex.StructuredText.Expressions.BoolLiteral,
     Members: [
       {
         Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Value
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.ComparisonExpr,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
       },
       {
         Name: Deconstruct
@@ -326,24 +172,50 @@
         Name: Left
       },
       {
-        Name: Right
+        Name: Operator
       },
       {
-        Name: ToString
+        Name: Right
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.GreaterThanOrEqualToExpression,
+    Name: Invex.StructuredText.Expressions.ComparisonOperator,
+    Members: [
+      {
+        Name: Equal
+      },
+      {
+        Name: GreaterThan
+      },
+      {
+        Name: GreaterThanOrEqual
+      },
+      {
+        Name: LessThan
+      },
+      {
+        Name: LessThanOrEqual
+      },
+      {
+        Name: NotEqual
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.Expr,
     Members: [
       {
         Name: <Clone>$
       },
       {
-        Name: Deconstruct
+        Name: Children
       },
       {
-        Name: Equals
+        Name: DescendantsAndSelf
       },
       {
         Name: Equals
@@ -355,53 +227,90 @@
         Name: GetHashCode
       },
       {
-        Name: Left
-      },
-      {
-        Name: Right
-      },
-      {
         Name: ToString
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.HashFilesExpression,
+    Name: Invex.StructuredText.Expressions.ExpressionPrinter,
     Members: [
       {
-        Name: <Clone>$
+        Name: IsDotAccessible
       },
       {
-        Name: Deconstruct
+        Name: Print
       },
       {
-        Name: Equals
+        Name: PrintOrNull
       },
       {
-        Name: Equals
+        Name: Render
       },
       {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Source
-      },
-      {
-        Name: ToString
+        Name: RenderOrNull
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.IndexAccessExpression,
+    Name: Invex.StructuredText.Expressions.FunctionNames,
+    Members: [
+      {
+        Name: Always
+      },
+      {
+        Name: Cancelled
+      },
+      {
+        Name: Contains
+      },
+      {
+        Name: ContainsValue
+      },
+      {
+        Name: EndsWith
+      },
+      {
+        Name: Failure
+      },
+      {
+        Name: Format
+      },
+      {
+        Name: FromJson
+      },
+      {
+        Name: HashFiles
+      },
+      {
+        Name: Join
+      },
+      {
+        Name: StartsWith
+      },
+      {
+        Name: Success
+      },
+      {
+        Name: ToJson
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.IContextPath,
+    Members: [
+      {
+        Name: Path
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.IndexAccessExpr,
     Members: [
       {
         Name: <Clone>$
       },
       {
-        Name: Array
+        Name: Children
       },
       {
         Name: Deconstruct
@@ -422,496 +331,18 @@
         Name: Index
       },
       {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.ITextExpression`1
-  },
-  {
-    Name: Invex.StructuredText.Expressions.ITextExpressionFormatter,
-    Members: [
-      {
-        Name: Format
-      },
-      {
-        Name: Format
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.JoinExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: OptionalSeparator
-      },
-      {
-        Name: Source
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.LessThanExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Left
-      },
-      {
-        Name: Right
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.LessThanOrEqualToExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Left
-      },
-      {
-        Name: Right
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.NotEqualExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Left
-      },
-      {
-        Name: Right
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.NotExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Source
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.NullExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.NumberExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: ToString
-      },
-      {
-        Name: Value
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.OrExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Source
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.PropertyAccessExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Object
-      },
-      {
-        Name: Property
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.RawExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: ToString
-      },
-      {
-        Name: Value
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.StartsWithExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: Pattern
-      },
-      {
-        Name: Source
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.StepOutcomeExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: StepName
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.StepOutcomeTypeExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: ToString
-      },
-      {
-        Name: Type
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.StepOutputExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: OutputName
-      },
-      {
-        Name: StepName
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.StringExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: ToString
-      },
-      {
-        Name: Value
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.TargetOutcomeExpression,
-    Members: [
-      {
-        Name: <Clone>$
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
         Name: Target
-      },
-      {
-        Name: ToString
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.TargetOutcomeTypeExpression,
+    Name: Invex.StructuredText.Expressions.InputRef,
     Members: [
       {
         Name: <Clone>$
+      },
+      {
+        Name: Deconstruct
       },
       {
         Name: Equals
@@ -926,18 +357,26 @@
         Name: GetHashCode
       },
       {
-        Name: ToString
-      },
-      {
-        Name: Type
+        Name: Name
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.TargetOutputExpression,
+    Name: Invex.StructuredText.Expressions.IRawExpr,
+    Members: [
+      {
+        Name: Text
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.JobOutputRef,
     Members: [
       {
         Name: <Clone>$
+      },
+      {
+        Name: Deconstruct
       },
       {
         Name: Equals
@@ -952,111 +391,100 @@
         Name: GetHashCode
       },
       {
-        Name: OutputName
+        Name: Job
       },
       {
-        Name: TargetName
+        Name: Output
       },
       {
-        Name: ToString
+        Name: Step
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.TextExpression,
+    Name: Invex.StructuredText.Expressions.JobResultRef,
     Members: [
       {
         Name: <Clone>$
       },
       {
-        Name: And
+        Name: Deconstruct
       },
       {
-        Name: Cast
+        Name: Equals
       },
       {
-        Name: Coalesce
+        Name: Equals
       },
       {
-        Name: Coalesce
+        Name: Equals
       },
       {
-        Name: ContainedIn
+        Name: GetHashCode
       },
       {
-        Name: ContainedIn
+        Name: Job
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.JsonContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Path
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.JsonExpr,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: AsBool
+      },
+      {
+        Name: AsNumber
+      },
+      {
+        Name: AsString
       },
       {
         Name: Contains
       },
       {
-        Name: Contains
-      },
-      {
-        Name: EndsWith
-      },
-      {
-        Name: EndsWith
-      },
-      {
         Name: Equals
       },
       {
         Name: Equals
       },
       {
-        Name: EqualTo
-      },
-      {
-        Name: EqualTo
-      },
-      {
-        Name: EqualToString
-      },
-      {
-        Name: Evaluate
-      },
-      {
-        Name: Format
-      },
-      {
-        Name: FormatString
+        Name: Equals
       },
       {
         Name: GetHashCode
-      },
-      {
-        Name: GreaterThan
-      },
-      {
-        Name: GreaterThan
-      },
-      {
-        Name: GreaterThanOrEqualTo
-      },
-      {
-        Name: GreaterThanOrEqualTo
-      },
-      {
-        Name: GreaterThanOrEqualToString
-      },
-      {
-        Name: GreaterThanString
-      },
-      {
-        Name: HashFiles
-      },
-      {
-        Name: IsEndOf
-      },
-      {
-        Name: IsEndOfString
-      },
-      {
-        Name: IsStartOf
-      },
-      {
-        Name: IsStartOf
       },
       {
         Name: Item
@@ -1068,86 +496,732 @@
         Name: Join
       },
       {
-        Name: JoinString
+        Name: ToJson
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.JsonFunction,
+    Members: [
+      {
+        Name: <Clone>$
       },
       {
-        Name: LessThan
+        Name: Arguments
       },
       {
-        Name: LessThan
+        Name: Children
       },
       {
-        Name: LessThanOrEqualTo
+        Name: Deconstruct
       },
       {
-        Name: LessThanOrEqualTo
+        Name: Equals
       },
       {
-        Name: LessThanOrEqualToString
+        Name: Equals
       },
       {
-        Name: LessThanString
+        Name: Equals
       },
       {
-        Name: Not
+        Name: GetHashCode
       },
       {
-        Name: NotEqualTo
+        Name: Name
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.LogicalExpr,
+    Members: [
+      {
+        Name: <Clone>$
       },
       {
-        Name: NotEqualTo
+        Name: Children
       },
       {
-        Name: NotEqualToString
+        Name: Combine
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Operands
+      },
+      {
+        Name: Operator
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.LogicalOperator,
+    Members: [
+      {
+        Name: And
       },
       {
         Name: Or
       },
       {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.MatrixRef,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Name
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.MemberAccessExpr,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Property
+      },
+      {
+        Name: Target
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.NotExpr,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Operand
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.NullLiteral,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.NumberCast,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Operand
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.NumberContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Path
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.NumberExpr,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Eq
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Ge
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Gt
+      },
+      {
+        Name: Le
+      },
+      {
+        Name: Lt
+      },
+      {
+        Name: Ne
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.NumberLiteral,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Value
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.RawExpr,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Text
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.RawJson,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Text
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.RawNumber,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Text
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.RawString,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Text
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.ReferenceExpr,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.ResultLiteral,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Result
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.RunResult,
+    Members: [
+      {
+        Name: Cancelled
+      },
+      {
+        Name: Failure
+      },
+      {
+        Name: Skipped
+      },
+      {
+        Name: Success
+      },
+      {
+        Name: value__
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.SecretRef,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Name
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.StepOutputRef,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Output
+      },
+      {
+        Name: Step
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.StringCast,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Operand
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.StringContext,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Path
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.StringExpr,
+    Members: [
+      {
+        Name: <Clone>$
+      },
+      {
+        Name: Contains
+      },
+      {
+        Name: EndsWith
+      },
+      {
+        Name: Eq
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: In
+      },
+      {
+        Name: Ne
+      },
+      {
         Name: StartsWith
-      },
-      {
-        Name: StartsWith
-      },
-      {
-        Name: ToJson
-      },
-      {
-        Name: ToString
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.TextExpressionCollection,
+    Name: Invex.StructuredText.Expressions.StringFunction,
     Members: [
       {
-        Name: Add
+        Name: <Clone>$
       },
       {
-        Name: Capacity
+        Name: Arguments
       },
       {
-        Name: Count
+        Name: Children
       },
       {
-        Name: GetEnumerator
+        Name: Deconstruct
       },
       {
-        Name: Item
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Name
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.TextExpressionFormatter,
+    Name: Invex.StructuredText.Expressions.StringLiteral,
     Members: [
       {
-        Name: Format
+        Name: <Clone>$
+      },
+      {
+        Name: Children
+      },
+      {
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Value
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.TextExpressionInterpolatedStringHandler,
+    Name: Invex.StructuredText.Expressions.Template,
     Members: [
+      {
+        Name: AppendFormatted
+      },
       {
         Name: AppendFormatted
       },
@@ -1164,26 +1238,121 @@
         Name: AppendLiteral
       },
       {
-        Name: ToFormatExpression
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Expressions
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: IsSingleExpression
+      },
+      {
+        Name: Parts
+      },
+      {
+        Name: ToString
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.TextExpressions
-  },
-  {
-    Name: Invex.StructuredText.Expressions.TextExpressionUtils,
+    Name: Invex.StructuredText.Expressions.TemplatePart,
     Members: [
       {
-        Name: Flatten
+        Name: Deconstruct
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Equals
+      },
+      {
+        Name: Expression
+      },
+      {
+        Name: GetHashCode
+      },
+      {
+        Name: Text
+      },
+      {
+        Name: ToString
+      }
+    ]
+  },
+  {
+    Name: Invex.StructuredText.Expressions.Tex,
+    Members: [
+      {
+        Name: All
+      },
+      {
+        Name: Always
+      },
+      {
+        Name: Any
+      },
+      {
+        Name: Cancelled
+      },
+      {
+        Name: Failure
+      },
+      {
+        Name: Format
+      },
+      {
+        Name: FromJson
+      },
+      {
+        Name: HashFiles
+      },
+      {
+        Name: Input
+      },
+      {
+        Name: JobOutput
+      },
+      {
+        Name: JobResult
       },
       {
         Name: Join
+      },
+      {
+        Name: Matrix
+      },
+      {
+        Name: Null
+      },
+      {
+        Name: Raw
+      },
+      {
+        Name: Result
+      },
+      {
+        Name: Secret
+      },
+      {
+        Name: StepOutput
+      },
+      {
+        Name: Success
+      },
+      {
+        Name: Variable
       }
     ]
   },
   {
-    Name: Invex.StructuredText.Expressions.ToJsonExpression,
+    Name: Invex.StructuredText.Expressions.VariableRef,
     Members: [
       {
         Name: <Clone>$
@@ -1204,91 +1373,7 @@
         Name: GetHashCode
       },
       {
-        Name: Source
-      },
-      {
-        Name: ToString
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.WorkflowExpression`1,
-    Members: [
-      {
-        Name: Deconstruct
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: Equals
-      },
-      {
-        Name: GetHashCode
-      },
-      {
-        Name: ToString
-      },
-      {
-        Name: Value
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.WorkflowExpressionCollection`1,
-    Members: [
-      {
-        Name: Add
-      },
-      {
-        Name: Capacity
-      },
-      {
-        Name: Count
-      },
-      {
-        Name: GetEnumerator
-      },
-      {
-        Name: Item
-      }
-    ]
-  },
-  {
-    Name: Invex.StructuredText.Expressions.WorkflowExpressionExtensions,
-    Members: [
-      {
-        Name: Concat
-      },
-      {
-        Name: ConcatWithSeparator
-      },
-      {
-        Name: Format
-      },
-      {
-        Name: Format
-      },
-      {
-        Name: From
-      },
-      {
-        Name: From
-      },
-      {
-        Name: From
-      },
-      {
-        Name: get_False
-      },
-      {
-        Name: get_Null
-      },
-      {
-        Name: get_True
-      },
-      {
-        Name: Raw
+        Name: Name
       }
     ]
   },

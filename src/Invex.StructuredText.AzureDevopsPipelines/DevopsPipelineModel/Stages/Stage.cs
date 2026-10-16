@@ -21,17 +21,17 @@ public partial record Stage
         /// <summary>
         ///     ID of the stage.
         /// </summary>
-        public required WorkflowExpression<string> StageId { get; init; }
+        public required ExprTemplate StageId { get; init; }
 
         /// <summary>
         ///     Path to the group which the stage belongs to.
         /// </summary>
-        public WorkflowExpression<string>? Group { get; init; }
+        public ExprTemplate? Group { get; init; }
 
         /// <summary>
         ///     Human-readable name for the stage.
         /// </summary>
-        public WorkflowExpression<string>? DisplayName { get; init; }
+        public ExprTemplate? DisplayName { get; init; }
 
         /// <summary>
         ///     Pool where jobs in this stage will run unless otherwise specified.
@@ -41,12 +41,12 @@ public partial record Stage
         /// <summary>
         ///     Any stages which must complete before this one.
         /// </summary>
-        public WorkflowExpressionCollection<string>? DependsOn { get; init; }
+        public IReadOnlyList<ExprTemplate>? DependsOn { get; init; }
 
         /// <summary>
         ///     Evaluate this condition expression to determine whether to run this stage.
         /// </summary>
-        public WorkflowExpression<bool>? Condition { get; init; }
+        public BoolExpr? Condition { get; init; }
 
         /// <summary>
         ///     Stage-specific variables.
@@ -62,23 +62,23 @@ public partial record Stage
         ///     Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
         ///     Valid values: "sequential" | "runLatest"
         /// </summary>
-        public WorkflowExpression<string>? LockBehavior { get; init; }
+        public ExprTemplate? LockBehavior { get; init; }
 
         /// <summary>
         ///     Stage trigger manual or automatic (default).
         ///     Valid values: "manual" | "automatic"
         /// </summary>
-        public WorkflowExpression<string>? Trigger { get; init; }
+        public ExprTemplate? Trigger { get; init; }
 
         /// <summary>
         ///     Setting false prevents the stage from being skipped. By default it's always true.
         /// </summary>
-        public WorkflowExpression<bool>? IsSkippable { get; init; }
+        public ExprTemplate? IsSkippable { get; init; }
 
         /// <summary>
         ///     Stage related information passed from a pipeline when extending a template.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? TemplateContext { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? TemplateContext { get; init; }
     }
 
     /// <summary>
@@ -90,11 +90,11 @@ public partial record Stage
         /// <summary>
         ///     Path to the template file.
         /// </summary>
-        public required WorkflowExpression<string> TemplatePath { get; init; }
+        public required ExprTemplate TemplatePath { get; init; }
 
         /// <summary>
         ///     Parameters to pass to the template.
         /// </summary>
-        public IReadOnlyDictionary<string, TextExpression>? Parameters { get; init; }
+        public IReadOnlyDictionary<string, ExprTemplate>? Parameters { get; init; }
     }
 }

@@ -11,7 +11,7 @@ internal sealed class DevopsPipelineWriterVariablesTests
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         };
@@ -21,10 +21,10 @@ internal sealed class DevopsPipelineWriterVariablesTests
     {
         var output = PipelineWriterHelper.Write(PipelineWithStepAndVariables(new Variables.Dictionary
         {
-            Values = new Dictionary<string, TextExpression>
+            Values = new Dictionary<string, Template>
             {
-                ["VAR1"] = new RawExpression("value1"),
-                ["VAR2"] = new RawExpression("value2"),
+                ["VAR1"] = "value1",
+                ["VAR2"] = "value2",
             },
         }));
 
@@ -38,9 +38,9 @@ internal sealed class DevopsPipelineWriterVariablesTests
     {
         var output = PipelineWriterHelper.Write(PipelineWithStepAndVariables(new Variables.Dictionary
         {
-            Values = new Dictionary<string, TextExpression>
+            Values = new Dictionary<string, Template>
             {
-                ["MY_VAR"] = new StringExpression("hello world"),
+                ["MY_VAR"] = "'hello world'",
             },
         }));
 
@@ -56,8 +56,8 @@ internal sealed class DevopsPipelineWriterVariablesTests
             [
                 new Variable.Name
                 {
-                    VariableName = new RawExpression("MY_VAR"),
-                    Value = new RawExpression("my-value"),
+                    VariableName = "MY_VAR",
+                    Value = "my-value",
                 },
             ],
         }));
@@ -76,9 +76,9 @@ internal sealed class DevopsPipelineWriterVariablesTests
             [
                 new Variable.Name
                 {
-                    VariableName = new RawExpression("READONLY_VAR"),
-                    Value = new RawExpression("locked"),
-                    ReadOnly = new BooleanExpression(true),
+                    VariableName = "READONLY_VAR",
+                    Value = "locked",
+                    ReadOnly = true,
                 },
             ],
         }));
@@ -95,8 +95,8 @@ internal sealed class DevopsPipelineWriterVariablesTests
             [
                 new Variable.Name
                 {
-                    VariableName = new RawExpression("MY_VAR"),
-                    Value = new RawExpression("value"),
+                    VariableName = "MY_VAR",
+                    Value = "value",
                 },
             ],
         }));
@@ -113,7 +113,7 @@ internal sealed class DevopsPipelineWriterVariablesTests
             [
                 new Variable.Group
                 {
-                    GroupName = new RawExpression("my-variable-group"),
+                    GroupName = "my-variable-group",
                 },
             ],
         }));
@@ -131,7 +131,7 @@ internal sealed class DevopsPipelineWriterVariablesTests
             [
                 new Variable.Template
                 {
-                    TemplatePath = new RawExpression("templates/vars.yml"),
+                    TemplatePath = "templates/vars.yml",
                 },
             ],
         }));
@@ -149,10 +149,10 @@ internal sealed class DevopsPipelineWriterVariablesTests
             [
                 new Variable.Template
                 {
-                    TemplatePath = new RawExpression("templates/vars.yml"),
-                    Parameters = new Dictionary<string, TextExpression>
+                    TemplatePath = "templates/vars.yml",
+                    Parameters = new Dictionary<string, Template>
                     {
-                        ["env"] = new RawExpression("production"),
+                        ["env"] = "production",
                     },
                 },
             ],
@@ -172,16 +172,16 @@ internal sealed class DevopsPipelineWriterVariablesTests
             [
                 new Variable.Name
                 {
-                    VariableName = new RawExpression("MY_VAR"),
-                    Value = new RawExpression("val"),
+                    VariableName = "MY_VAR",
+                    Value = "val",
                 },
                 new Variable.Group
                 {
-                    GroupName = new RawExpression("shared-group"),
+                    GroupName = "shared-group",
                 },
                 new Variable.Template
                 {
-                    TemplatePath = new RawExpression("templates/vars.yml"),
+                    TemplatePath = "templates/vars.yml",
                 },
             ],
         }));
@@ -207,13 +207,13 @@ internal sealed class DevopsPipelineWriterVariablesTests
         {
             Pool = new Pool.PoolName
             {
-                Name = new RawExpression("my-private-pool"),
+                Name = "my-private-pool",
             },
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         });
@@ -228,13 +228,13 @@ internal sealed class DevopsPipelineWriterVariablesTests
         {
             Pool = new Pool.PoolSpec
             {
-                VmImage = new RawExpression("ubuntu-latest"),
+                VmImage = "ubuntu-latest",
             },
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         });
@@ -250,13 +250,13 @@ internal sealed class DevopsPipelineWriterVariablesTests
         {
             Pool = new Pool.PoolSpec
             {
-                Name = new RawExpression("my-pool"),
+                Name = "my-pool",
             },
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         });
@@ -272,14 +272,14 @@ internal sealed class DevopsPipelineWriterVariablesTests
         {
             Pool = new Pool.PoolSpec
             {
-                Name = new RawExpression("my-pool"),
+                Name = "my-pool",
                 Demands = ["agent.os -equals Windows_NT", "vstest"],
             },
             Steps =
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         });
@@ -297,7 +297,7 @@ internal sealed class DevopsPipelineWriterVariablesTests
             [
                 new Step.Script
                 {
-                    ScriptContent = new RawExpression("echo hi"),
+                    ScriptContent = "echo hi",
                 },
             ],
         });

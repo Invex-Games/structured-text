@@ -7,7 +7,7 @@ records (for example `new Step.RunStep { ... }`).
 
 ## Invex.StructuredText
 
-[NuGet](https://www.nuget.org/packages/Invex.StructuredText). The core: `StructuredTextWriter` and the platform-agnostic expression system.
+[NuGet](https://www.nuget.org/packages/Invex.StructuredText). The core: `StructuredTextWriter` and the platform-agnostic expression API.
 
 ### Invex.StructuredText
 
@@ -17,52 +17,57 @@ records (for example `new Step.RunStep { ... }`).
 
 ### Invex.StructuredText.Expressions
 
+Start with `Tex`: every way to create an expression is one of its members. See [Expressions](../docs/expressions.md).
+
 | Type | Kind | Description |
 | --- | --- | --- |
-| [`AndExpression`](xref:Invex.StructuredText.Expressions.AndExpression) | Record | Logical AND over `Source`. |
-| [`BooleanExpression`](xref:Invex.StructuredText.Expressions.BooleanExpression) | Record | A boolean literal, rendered as `true` or `false`. |
-| [`CastExpression<TTo>`](xref:Invex.StructuredText.Expressions.CastExpression`1) | Record | Wraps an expression to reinterpret its result type at compile time. |
-| [`CoalesceExpression`](xref:Invex.StructuredText.Expressions.CoalesceExpression) | Record | Returns the first non-empty value of `Source`, rendered as `coalesce(...)`. |
-| [`ConcatExpression`](xref:Invex.StructuredText.Expressions.ConcatExpression) | Record | Concatenates the rendered text of `Values` with no separator. |
-| [`ContainsExpression`](xref:Invex.StructuredText.Expressions.ContainsExpression) | Record | Tests whether `Source` contains `Pattern`, rendered as `contains(source, pattern)`. |
-| [`EndsWithExpression`](xref:Invex.StructuredText.Expressions.EndsWithExpression) | Record | Tests whether `Source` ends with `Pattern`, rendered as `endsWith(source, pattern)`. |
-| [`EqualExpression`](xref:Invex.StructuredText.Expressions.EqualExpression) | Record | Equality comparison. |
-| [`EvaluateExpression`](xref:Invex.StructuredText.Expressions.EvaluateExpression) | Record | Marks `Expression` for evaluation in the target platform's expression context. |
-| [`FormatExpression`](xref:Invex.StructuredText.Expressions.FormatExpression) | Record | Replaces placeholders (`{0}`, `{1}`, …) in `Source` with `Arguments`, rendered as `format(source, args...)`. |
-| [`GreaterThanExpression`](xref:Invex.StructuredText.Expressions.GreaterThanExpression) | Record | Greater-than comparison. |
-| [`GreaterThanOrEqualToExpression`](xref:Invex.StructuredText.Expressions.GreaterThanOrEqualToExpression) | Record | Greater-than-or-equal comparison. |
-| [`HashFilesExpression`](xref:Invex.StructuredText.Expressions.HashFilesExpression) | Record | Returns a hash of the files matched by the glob pattern(s) in `Source`, rendered as `hashFiles(source)`. |
-| [`IndexAccessExpression`](xref:Invex.StructuredText.Expressions.IndexAccessExpression) | Record | Accesses an element of `Array` by `Index`, rendered as `array[index]`. |
-| [`ITextExpression<TResult>`](xref:Invex.StructuredText.Expressions.ITextExpression`1) | Interface | Marker interface that documents the result type an expression is expected to resolve to. |
-| [`ITextExpressionFormatter`](xref:Invex.StructuredText.Expressions.ITextExpressionFormatter) | Interface | Renders a `TextExpression` tree into platform-specific text. |
-| [`JoinExpression`](xref:Invex.StructuredText.Expressions.JoinExpression) | Record | Joins the elements of the array-valued `Source` with `OptionalSeparator` (comma when omitted), rendered as `join(source, separator)`. |
-| [`LessThanExpression`](xref:Invex.StructuredText.Expressions.LessThanExpression) | Record | Less-than comparison. |
-| [`LessThanOrEqualToExpression`](xref:Invex.StructuredText.Expressions.LessThanOrEqualToExpression) | Record | Less-than-or-equal comparison. |
-| [`NotEqualExpression`](xref:Invex.StructuredText.Expressions.NotEqualExpression) | Record | Inequality comparison. |
-| [`NotExpression`](xref:Invex.StructuredText.Expressions.NotExpression) | Record | Logical negation of `Source`. |
-| [`NullExpression`](xref:Invex.StructuredText.Expressions.NullExpression) | Record | The null literal, rendered as empty text. |
-| [`NumberExpression`](xref:Invex.StructuredText.Expressions.NumberExpression) | Record | A numeric literal, rendered using the invariant culture. |
-| [`OrExpression`](xref:Invex.StructuredText.Expressions.OrExpression) | Record | Logical OR over `Source`. |
-| [`PropertyAccessExpression`](xref:Invex.StructuredText.Expressions.PropertyAccessExpression) | Record | Accesses `Property` of `Object`, rendered as `object.property`. |
-| [`RawExpression`](xref:Invex.StructuredText.Expressions.RawExpression) | Record | Verbatim, uninterpreted text. |
-| [`StartsWithExpression`](xref:Invex.StructuredText.Expressions.StartsWithExpression) | Record | Tests whether `Source` starts with `Pattern`, rendered as `startsWith(source, pattern)`. |
-| [`StepOutcomeExpression`](xref:Invex.StructuredText.Expressions.StepOutcomeExpression) | Record | References the outcome of a step in the current job, rendered as `steps.<step>.outcome`. |
-| [`StepOutcomeTypeExpression`](xref:Invex.StructuredText.Expressions.StepOutcomeTypeExpression) | Record | A step outcome literal for comparison with `StepOutcomeExpression`. |
-| [`StepOutputExpression`](xref:Invex.StructuredText.Expressions.StepOutputExpression) | Record | References an output of a step in the current job. |
-| [`StringExpression`](xref:Invex.StructuredText.Expressions.StringExpression) | Record | A string literal inside an expression, rendered with quotes (e.g. `'value'`). |
-| [`TargetOutcomeExpression`](xref:Invex.StructuredText.Expressions.TargetOutcomeExpression) | Record | References the outcome (result/status) of another job or stage. |
-| [`TargetOutcomeTypeExpression`](xref:Invex.StructuredText.Expressions.TargetOutcomeTypeExpression) | Record | A job/stage outcome literal for comparison with `TargetOutcomeExpression`. |
-| [`TargetOutputExpression`](xref:Invex.StructuredText.Expressions.TargetOutputExpression) | Record | References an output of another job or stage. |
-| [`TextExpression`](xref:Invex.StructuredText.Expressions.TextExpression) | Abstract record | The base type of the platform-agnostic expression tree. |
-| [`TextExpressionCollection`](xref:Invex.StructuredText.Expressions.TextExpressionCollection) | Class | An ordered collection of `TextExpression` instances. |
-| [`TextExpressionFormatter`](xref:Invex.StructuredText.Expressions.TextExpressionFormatter) | Abstract class | Base class for platform-specific expression formatters. |
-| [`TextExpressionInterpolatedStringHandler`](xref:Invex.StructuredText.Expressions.TextExpressionInterpolatedStringHandler) | Ref struct | An interpolated string handler that creates a `FormatExpression` from an interpolated string. |
-| [`TextExpressions`](xref:Invex.StructuredText.Expressions.TextExpressions) | Static class | The entry point for creating `TextExpression` instances. |
-| [`TextExpressionUtils`](xref:Invex.StructuredText.Expressions.TextExpressionUtils) | Static class | Utility helpers for working with sequences and trees of `TextExpression`. |
-| [`ToJsonExpression`](xref:Invex.StructuredText.Expressions.ToJsonExpression) | Record | Converts `Source` to its JSON representation, rendered as the platform's JSON serialization function. |
-| [`WorkflowExpression<T>`](xref:Invex.StructuredText.Expressions.WorkflowExpression`1) | Record struct | A typed workflow expression that documents the expected result type of the expression. |
-| [`WorkflowExpressionCollection<T>`](xref:Invex.StructuredText.Expressions.WorkflowExpressionCollection`1) | Class | A typed workflow expression collection that documents the expected element result type. |
-| [`WorkflowExpressionExtensions`](xref:Invex.StructuredText.Expressions.WorkflowExpressionExtensions) | Static class | Extension members that augment `TextExpressions` and `TextExpression` with factory helpers for building expression trees. |
+| [`BoolCast`](xref:Invex.StructuredText.Expressions.BoolCast) | Record | Treats `Operand` as a boolean. Rendered transparently. |
+| [`BoolContext`](xref:Invex.StructuredText.Expressions.BoolContext) | Record | A boolean-valued context path. |
+| [`BoolExpr`](xref:Invex.StructuredText.Expressions.BoolExpr) | Abstract record | An expression that evaluates to a boolean. |
+| [`BoolFunction`](xref:Invex.StructuredText.Expressions.BoolFunction) | Record | A function call that returns a boolean. |
+| [`BoolLiteral`](xref:Invex.StructuredText.Expressions.BoolLiteral) | Record | A boolean literal. |
+| [`ComparisonExpr`](xref:Invex.StructuredText.Expressions.ComparisonExpr) | Record | A comparison between two values. |
+| [`ComparisonOperator`](xref:Invex.StructuredText.Expressions.ComparisonOperator) | Enum | The comparison operators. |
+| [`Expr`](xref:Invex.StructuredText.Expressions.Expr) | Abstract record | The base type of the typed expression tree. Every node derives from one of the four result-typed roots: `BoolExpr`, `StringExpr`, `NumberExpr` or `JsonExpr`. |
+| [`ExpressionPrinter`](xref:Invex.StructuredText.Expressions.ExpressionPrinter) | Abstract class | Renders typed expression trees (`Expr`) and `Template`s to platform syntax. |
+| [`FunctionNames`](xref:Invex.StructuredText.Expressions.FunctionNames) | Static class | Canonical names of the functions the core knows about. Printers map them to the platform's own names. |
+| [`IContextPath`](xref:Invex.StructuredText.Expressions.IContextPath) | Interface | Implemented by nodes that reference a dotted context path such as `a.b.c`. |
+| [`IndexAccessExpr`](xref:Invex.StructuredText.Expressions.IndexAccessExpr) | Record | Accesses element `Index` of `Target`. |
+| [`InputRef`](xref:Invex.StructuredText.Expressions.InputRef) | Record | An input (parameter) supplied when the run was started. |
+| [`IRawExpr`](xref:Invex.StructuredText.Expressions.IRawExpr) | Interface | Implemented by nodes that hold verbatim expression text. |
+| [`JobOutputRef`](xref:Invex.StructuredText.Expressions.JobOutputRef) | Record | An output of another job that the current job depends on. |
+| [`JobResultRef`](xref:Invex.StructuredText.Expressions.JobResultRef) | Record | The result of another job that the current job depends on. Compare with `ResultLiteral`. |
+| [`JsonContext`](xref:Invex.StructuredText.Expressions.JsonContext) | Record | A context path whose value is an object, an array or of unknown type. |
+| [`JsonExpr`](xref:Invex.StructuredText.Expressions.JsonExpr) | Abstract record | An expression whose value is an object, an array, or of a type not known statically. |
+| [`JsonFunction`](xref:Invex.StructuredText.Expressions.JsonFunction) | Record | A function call that returns an object, an array or a value of unknown type. |
+| [`LogicalExpr`](xref:Invex.StructuredText.Expressions.LogicalExpr) | Record | An AND or OR over two or more conditions. Nested nodes with the same operator are flattened. |
+| [`LogicalOperator`](xref:Invex.StructuredText.Expressions.LogicalOperator) | Enum | The logical operators. |
+| [`MatrixRef`](xref:Invex.StructuredText.Expressions.MatrixRef) | Record | The current value of a matrix dimension. |
+| [`MemberAccessExpr`](xref:Invex.StructuredText.Expressions.MemberAccessExpr) | Record | Accesses `Property` of `Target`. |
+| [`NotExpr`](xref:Invex.StructuredText.Expressions.NotExpr) | Record | The logical negation of `Operand`. |
+| [`NullLiteral`](xref:Invex.StructuredText.Expressions.NullLiteral) | Record | The null literal. |
+| [`NumberCast`](xref:Invex.StructuredText.Expressions.NumberCast) | Record | Treats `Operand` as a number. Rendered transparently. |
+| [`NumberContext`](xref:Invex.StructuredText.Expressions.NumberContext) | Record | A number-valued context path. |
+| [`NumberExpr`](xref:Invex.StructuredText.Expressions.NumberExpr) | Abstract record | An expression that evaluates to a number. |
+| [`NumberLiteral`](xref:Invex.StructuredText.Expressions.NumberLiteral) | Record | A numeric literal, rendered with the invariant culture. |
+| [`RawExpr`](xref:Invex.StructuredText.Expressions.RawExpr) | Record | Verbatim expression text, created by `Raw`. It is a condition, and converts implicitly to string, number and JSON expressions. |
+| [`RawJson`](xref:Invex.StructuredText.Expressions.RawJson) | Record | Verbatim expression text of an object, array or unknown type. |
+| [`RawNumber`](xref:Invex.StructuredText.Expressions.RawNumber) | Record | Verbatim number-valued expression text. |
+| [`RawString`](xref:Invex.StructuredText.Expressions.RawString) | Record | Verbatim string-valued expression text. |
+| [`ReferenceExpr`](xref:Invex.StructuredText.Expressions.ReferenceExpr) | Abstract record | A reference to a value every supported platform provides (a secret, variable, input, matrix value or output). Each platform's printer decides the syntax. |
+| [`ResultLiteral`](xref:Invex.StructuredText.Expressions.ResultLiteral) | Record | A result value, rendered with the platform's own spelling. |
+| [`RunResult`](xref:Invex.StructuredText.Expressions.RunResult) | Enum | The possible results of a job or step. |
+| [`SecretRef`](xref:Invex.StructuredText.Expressions.SecretRef) | Record | A secret. |
+| [`StepOutputRef`](xref:Invex.StructuredText.Expressions.StepOutputRef) | Record | An output of an earlier step in the current job. |
+| [`StringCast`](xref:Invex.StructuredText.Expressions.StringCast) | Record | Treats `Operand` as a string. Rendered transparently. |
+| [`StringContext`](xref:Invex.StructuredText.Expressions.StringContext) | Record | A string-valued context path. |
+| [`StringExpr`](xref:Invex.StructuredText.Expressions.StringExpr) | Abstract record | An expression that evaluates to a string. |
+| [`StringFunction`](xref:Invex.StructuredText.Expressions.StringFunction) | Record | A function call that returns a string. |
+| [`StringLiteral`](xref:Invex.StructuredText.Expressions.StringLiteral) | Record | A string literal, rendered quoted and escaped. |
+| [`Template`](xref:Invex.StructuredText.Expressions.Template) | Class | A text value made of literal text and embedded expressions, such as a YAML scalar. |
+| [`TemplatePart`](xref:Invex.StructuredText.Expressions.TemplatePart) | Record struct | One part of a `Template`: either literal text or an embedded expression. |
+| [`Tex`](xref:Invex.StructuredText.Expressions.Tex) | Static class | The starting point for writing expressions. Everything that creates an expression from scratch lives here: references (`Secret`, `JobOutput`, …), status checks (`Success`, …), functions (`All`, `Format`, …) and the escape hatch `Raw`. Platform packages add their own members, such as `Tex.GitHub` for the GitHub Actions contexts. |
+| [`VariableRef`](xref:Invex.StructuredText.Expressions.VariableRef) | Record | A configuration variable defined outside the workflow. |
 
 ## Invex.StructuredText.GithubActions
 
@@ -73,8 +78,10 @@ records (for example `new Step.RunStep { ... }`).
 | Type | Kind | Description |
 | --- | --- | --- |
 | [`DependabotConfigWriter`](xref:Invex.StructuredText.GithubActions.DependabotConfigWriter) | Class | Serializes a `DependabotConfig` model to Dependabot v2 configuration YAML (`.github/dependabot.yml`). |
-| [`GithubActionWriter`](xref:Invex.StructuredText.GithubActions.GithubActionWriter) | Class | Serializes a `GithubAction` model to GitHub Actions workflow YAML. |
-| [`GithubExpressionFormatter`](xref:Invex.StructuredText.GithubActions.GithubExpressionFormatter) | Class | Renders `TextExpression` trees using GitHub Actions expression syntax, such as `${{ ... }}`, `&&` and `||`. |
+| [`GithubActionWriter`](xref:Invex.StructuredText.GithubActions.GithubActionWriter) | Class | Serializes a `GithubAction` model to GitHub Actions workflow YAML. Expressions embedded in the model are rendered with `GithubExpressionPrinter`. |
+| [`GitHubContexts`](xref:Invex.StructuredText.GithubActions.GitHubContexts) | Class | The GitHub Actions contexts, reached through `Tex.GitHub`. Generated from `Contexts/github.contexts`; nested contexts such as `Tex.GitHub.Event.PullRequest` are `GitHubContexts…Context` classes. |
+| [`GithubExpressionPrinter`](xref:Invex.StructuredText.GithubActions.GithubExpressionPrinter) | Class | Renders typed expressions (`Expr`) and `Template`s to GitHub Actions expression syntax: infix operators (`==`, `&&`, `!`), single-quoted string literals, and `${{ … }}` around expressions embedded in text. |
+| [`TexGitHubExtensions`](xref:Invex.StructuredText.GithubActions.TexGitHubExtensions) | Static class | Adds the GitHub Actions contexts to `Tex`. |
 
 ### Invex.StructuredText.GithubActions.GithubActionModel
 
@@ -138,10 +145,14 @@ records (for example `new Step.RunStep { ... }`).
 
 | Type | Kind | Description |
 | --- | --- | --- |
-| [`DevopsExpressionFormatter`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionFormatter) | Class | Renders `TextExpression` trees using Azure DevOps expression syntax, such as `and(...)`, `eq(...)` and `${{ ... }}` template expressions. |
-| [`DevopsMacroExpression`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsMacroExpression) | Record | Wraps a variable name to be expanded using Azure DevOps macro syntax: `$(variableName)`. |
-| [`DevopsPipelineWriter`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter) | Class | Serializes a `DevopsPipeline` model to Azure Pipelines YAML. |
-| [`DevopsRuntimeExpression`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsRuntimeExpression) | Record | Wraps an expression to be evaluated at runtime using Azure DevOps runtime expression syntax: `$[ expression ]`. |
+| [`DevopsAgentVariables`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsAgentVariables) | Class | `Agent.*` predefined variables. |
+| [`DevopsBuildVariables`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsBuildVariables) | Class | `Build.*` predefined variables. |
+| [`DevopsContexts`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsContexts) | Class | Azure DevOps predefined variables and run-time expressions, reached through `Tex.DevOps`. Each variable is a `Variable` reference: `$(Build.BuildId)` in a template and `variables['Build.BuildId']` in a condition. |
+| [`DevopsExpressionPrinter`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter) | Class | Renders typed expressions (`Expr`) and `Template`s to Azure DevOps syntax. Operators are functions (`and(...)`, `or(...)`, `not(...)`, `eq(...)`, …) and status checks are `succeeded()`, `failed()`, `canceled()` and `always()`. |
+| [`DevopsPipelineWriter`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter) | Class | Serializes a `DevopsPipeline` model to Azure Pipelines YAML. Expressions embedded in the model are rendered with `DevopsExpressionPrinter`. |
+| [`DevopsRuntimeExpr`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsRuntimeExpr) | Record | Marks an expression to be evaluated at run time. Embedded in a `Template`, it renders as `$[ … ]` instead of the compile-time `${{ … }}`. Create one with `Tex.DevOps.Runtime(…)`. |
+| [`DevopsSystemVariables`](xref:Invex.StructuredText.AzureDevopsPipelines.DevopsSystemVariables) | Class | `System.*` predefined variables. |
+| [`TexDevopsExtensions`](xref:Invex.StructuredText.AzureDevopsPipelines.TexDevopsExtensions) | Static class | Adds the Azure DevOps predefined variables and run-time expressions to `Tex`. |
 
 ### Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs
 

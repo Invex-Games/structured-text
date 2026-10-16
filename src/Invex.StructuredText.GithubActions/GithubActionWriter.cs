@@ -1,8 +1,8 @@
-namespace Invex.StructuredText.GithubActions;
+﻿namespace Invex.StructuredText.GithubActions;
 
 /// <summary>
 ///     Serializes a <see cref="GithubAction" /> model to GitHub Actions workflow YAML.
-///     Expressions embedded in the model are rendered with <see cref="GithubExpressionFormatter" />.
+///     Expressions embedded in the model are rendered with <see cref="GithubExpressionPrinter" />.
 /// </summary>
 /// <remarks>
 ///     The writer accumulates output in <see cref="TextWriter" />; call
@@ -19,7 +19,7 @@ namespace Invex.StructuredText.GithubActions;
 [PublicAPI]
 public sealed class GithubActionWriter
 {
-    private readonly GithubExpressionFormatter _expressionFormatter = new();
+    private readonly GithubExpressionPrinter _printer = GithubExpressionPrinter.Instance;
 
     /// <summary>
     ///     The underlying text writer that accumulates the generated YAML.
@@ -36,7 +36,7 @@ public sealed class GithubActionWriter
         if (githubAction.Name is { Length: > 0 } name)
             WriteProperty("name", name);
 
-        var runName = _expressionFormatter.Format(githubAction.RunName);
+        var runName = _printer.RenderOrNull(githubAction.RunName);
 
         if (runName is { Length: > 0 })
             WriteProperty("run-name", runName);
@@ -81,14 +81,14 @@ public sealed class GithubActionWriter
 
         using (TextWriter.WriteSection("concurrency:"))
         {
-            TextWriter.WriteLine(Format(_expressionFormatter.Format(concurrency.Group)));
+            WriteProperty("group", _printer.Render(concurrency.Group));
 
             if (concurrency.CancelInProgress is { } cancelInProgress)
-                WriteProperty("cancel-in-progress", _expressionFormatter.Format(cancelInProgress));
+                WriteProperty("cancel-in-progress", _printer.RenderOrNull(cancelInProgress));
         }
     }
 
-    private void WriteEnv(IReadOnlyDictionary<string, TextExpression>? env)
+    private void WriteEnv(IReadOnlyDictionary<string, Template>? env)
     {
         if (env is not { Count: > 0 })
             return;
@@ -96,7 +96,7 @@ public sealed class GithubActionWriter
         using var _ = TextWriter.WriteSection("env:");
 
         foreach (var (key, value) in env)
-            WriteProperty(key, _expressionFormatter.Format(value));
+            WriteProperty(key, _printer.RenderOrNull(value));
     }
 
     private void WritePermissions(Permissions? permissions)
@@ -507,29 +507,29 @@ public sealed class GithubActionWriter
 
     private void WriteJob(GithubAction githubAction, Job job)
     {
-        using var _ = TextWriter.WriteSection($"{_expressionFormatter.Format(job.Name)}:");
+        using var _ = TextWriter.WriteSection($"{_printer.RenderOrNull(job.Name)}:");
 
         if (job.Permissions is { } permissions && permissions != githubAction.Permissions)
             WritePermissions(permissions);
 
         if (job.Needs is { Count: > 0 } needs)
-            WriteProperty("needs", needs.Select(x => _expressionFormatter.Format(x)));
+            WriteProperty("needs", needs);
 
-        if (_expressionFormatter.Format(job.If) is { Length: > 0 } condition)
+        if (_printer.PrintCondition(job.If) is { Length: > 0 } condition)
             WriteProperty("if", condition);
 
         if (job.RunsOn is { Group: null, Labels.Count: 1 })
         {
             var value = job.RunsOn.Labels[0];
-            WriteProperty("runs-on", _expressionFormatter.Format(value));
+            WriteProperty("runs-on", _printer.RenderOrNull(value));
         }
         else
         {
             using (TextWriter.WriteSection("runs-on:"))
-                if (_expressionFormatter.Format(job.RunsOn.Group) is { Length: > 0 } group)
+                if (_printer.RenderOrNull(job.RunsOn.Group) is { Length: > 0 } group)
                     WriteProperty("group", group);
                 else if (job.RunsOn.Labels.Count > 0)
-                    WriteProperty("labels", job.RunsOn.Labels.Select(x => _expressionFormatter.Format(x)));
+                    WriteProperty("labels", job.RunsOn.Labels.Select(x => _printer.Render(x)));
         }
 
         switch (job.Snapshot)
@@ -537,14 +537,14 @@ public sealed class GithubActionWriter
             case { Version: not null }:
                 using (TextWriter.WriteSection("snapshot:"))
                 {
-                    WriteProperty("image-name", _expressionFormatter.Format(job.Snapshot.ImageName));
-                    WriteProperty("version", _expressionFormatter.Format(job.Snapshot.Version));
+                    WriteProperty("image-name", _printer.RenderOrNull(job.Snapshot.ImageName));
+                    WriteProperty("version", _printer.RenderOrNull(job.Snapshot.Version));
                 }
 
                 break;
 
             case { Version: null }:
-                WriteProperty("snapshot", _expressionFormatter.Format(job.Snapshot.ImageName));
+                WriteProperty("snapshot", _printer.RenderOrNull(job.Snapshot.ImageName));
 
                 break;
         }
@@ -554,14 +554,14 @@ public sealed class GithubActionWriter
             case { UrlValue: not null }:
                 using (TextWriter.WriteSection("environment:"))
                 {
-                    WriteProperty("name", _expressionFormatter.Format(job.Environment.Name));
-                    WriteProperty("url", _expressionFormatter.Format(job.Environment.UrlValue));
+                    WriteProperty("name", _printer.RenderOrNull(job.Environment.Name));
+                    WriteProperty("url", _printer.RenderOrNull(job.Environment.UrlValue));
                 }
 
                 break;
 
             case { UrlValue: null }:
-                WriteProperty("environment", _expressionFormatter.Format(job.Environment.Name));
+                WriteProperty("environment", _printer.RenderOrNull(job.Environment.Name));
 
                 break;
         }
@@ -571,17 +571,17 @@ public sealed class GithubActionWriter
         if (job.Outputs is { Count: > 0 } outputs)
             using (TextWriter.WriteSection("outputs:"))
                 foreach (var (key, value) in outputs)
-                    WriteProperty(key, _expressionFormatter.Format(value));
+                    WriteProperty(key, _printer.RenderOrNull(value));
 
         WriteEnv(job.Env);
 
         if (job.TimeoutMinutes is { } timeout)
-            WriteProperty("timeout-minutes", _expressionFormatter.Format(timeout));
+            WriteProperty("timeout-minutes", _printer.RenderOrNull(timeout));
 
         WriteStrategy(job.Strategy);
 
         if (job.ContinueOnError is { } continueOnError)
-            WriteProperty("continue-on-error", _expressionFormatter.Format(continueOnError));
+            WriteProperty("continue-on-error", _printer.RenderOrNull(continueOnError));
 
         WriteContainer(job.Container);
 
@@ -608,29 +608,29 @@ public sealed class GithubActionWriter
 
         using var containerSection = TextWriter.WriteSection("container:");
 
-        WriteProperty("image", _expressionFormatter.Format(jobContainer.Image));
+        WriteProperty("image", _printer.RenderOrNull(jobContainer.Image));
 
         if (jobContainer.Credentials is { } credentials)
         {
             using var credentialsSection = TextWriter.WriteSection("credentials:");
 
             if (credentials.Username is { } username)
-                WriteProperty("username", _expressionFormatter.Format(username));
+                WriteProperty("username", _printer.RenderOrNull(username));
 
             if (credentials.Password is { } password)
-                WriteProperty("password", _expressionFormatter.Format(password));
+                WriteProperty("password", _printer.RenderOrNull(password));
         }
 
         WriteEnv(jobContainer.Env);
 
         if (jobContainer.Ports is { } ports)
-            WriteProperty("ports", ports.Select(x => _expressionFormatter.Format(x)));
+            WriteProperty("ports", ports.Select(x => _printer.Render(x)));
 
         if (jobContainer.Volumes is { } volumes)
-            WriteProperty("volumes", volumes.Select(x => _expressionFormatter.Format(x)));
+            WriteProperty("volumes", volumes.Select(x => _printer.Render(x)));
 
         if (jobContainer.Options is { } options)
-            WriteProperty("options", _expressionFormatter.Format(options));
+            WriteProperty("options", _printer.RenderOrNull(options));
     }
 
     private void WriteStrategy(Strategy? strategy)
@@ -641,16 +641,16 @@ public sealed class GithubActionWriter
         using var strategySection = TextWriter.WriteSection("strategy:");
 
         if (strategy.FailFast is { } failFast)
-            WriteProperty("fail-fast", _expressionFormatter.Format(failFast));
+            WriteProperty("fail-fast", _printer.RenderOrNull(failFast));
 
         if (strategy.MaxParallel is { } maxParallel)
-            WriteProperty("max-parallel", _expressionFormatter.Format(maxParallel));
+            WriteProperty("max-parallel", _printer.RenderOrNull(maxParallel));
 
         using var matrixSection = TextWriter.WriteSection("matrix:");
 
         if (strategy.Matrix.Map is { } map)
             foreach (var (key, value) in map.Where(x => x.Value.Count > 0))
-                WriteProperty(key, value.Select(x => _expressionFormatter.Format(x)));
+                WriteProperty(key, value.Select(x => _printer.Render(x)));
 
         if (strategy.Matrix.Include is { } include)
             foreach (var includeEntry in include)
@@ -660,9 +660,9 @@ public sealed class GithubActionWriter
 
                 var pairs = includeEntry.ToList();
 
-                using (TextWriter.WriteSection($"- {pairs[0].Key}: {pairs[0].Value}"))
+                using (TextWriter.WriteSection($"- {pairs[0].Key}: {_printer.Render(pairs[0].Value)}"))
                     foreach (var (key, value) in pairs.Skip(1))
-                        WriteProperty(key, _expressionFormatter.Format(value));
+                        WriteProperty(key, _printer.RenderOrNull(value));
             }
 
         if (strategy.Matrix.Exclude is { } exclude)
@@ -673,9 +673,9 @@ public sealed class GithubActionWriter
 
                 var pairs = excludeEntry.ToList();
 
-                using (TextWriter.WriteSection($"- {pairs[0].Key}: {pairs[0].Value}"))
+                using (TextWriter.WriteSection($"- {pairs[0].Key}: {_printer.Render(pairs[0].Value)}"))
                     foreach (var (key, value) in pairs.Skip(1))
-                        WriteProperty(key, _expressionFormatter.Format(value));
+                        WriteProperty(key, _printer.RenderOrNull(value));
             }
     }
 
@@ -683,67 +683,47 @@ public sealed class GithubActionWriter
     {
         IDisposable? section = null;
 
-        if (_expressionFormatter.Format(step.Name) is { Length: > 0 } name)
+        if (_printer.RenderOrNull(step.Name) is { Length: > 0 } name)
             WriteSectionOrProperty("name", name);
 
         if (step.Id is { Length: > 0 } id)
             WriteSectionOrProperty("id", id);
 
-        if (_expressionFormatter.Format(step.If) is { Length: > 0 } condition)
+        if (_printer.PrintCondition(step.If) is { Length: > 0 } condition)
             WriteSectionOrProperty("if", condition);
 
         switch (step)
         {
             case Step.RunStep runStep:
-                switch (runStep.Run)
-                {
-                    case { Count: 1 } single:
-                        WriteSectionOrProperty("run", _expressionFormatter.Format(single[0]));
-
-                        break;
-
-                    default:
-                        WriteSectionOrProperty("run", runStep.Run.Select(x => _expressionFormatter.Format(x)));
-
-                        break;
-                }
+                // Several lines form one script, written as a literal block (run: |).
+                WriteSectionOrProperty("run", string.Join("\n", runStep.Run.Select(x => _printer.Render(x))));
 
                 if (runStep.Shell is { } shell)
-                    WriteProperty("shell", _expressionFormatter.Format(shell));
+                    WriteProperty("shell", _printer.RenderOrNull(shell));
 
                 break;
 
             case Step.UsesStep usesStep:
-                WriteSectionOrProperty("uses", _expressionFormatter.Format(usesStep.Uses));
+                WriteSectionOrProperty("uses", _printer.RenderOrNull(usesStep.Uses));
 
                 break;
         }
 
         if (step.WorkingDirectory is { } workingDirectory)
-            WriteProperty("working-directory", _expressionFormatter.Format(workingDirectory));
+            WriteProperty("working-directory", _printer.RenderOrNull(workingDirectory));
 
         if (step.With is { Count: > 0 } with)
             using (TextWriter.WriteSection("with:"))
                 foreach (var (key, value) in with)
-                    switch (value)
-                    {
-                        case { Count: 1 }:
-                            WriteProperty(key, _expressionFormatter.Format(value[0]));
-
-                            break;
-                        default:
-                            WriteProperty(key, value.Select(x => _expressionFormatter.Format(x)));
-
-                            break;
-                    }
+                    WriteProperty(key, _printer.Render(value));
 
         WriteEnv(step.Env);
 
         if (step.ContinueOnError is { } continueOnError)
-            WriteProperty("continue-on-error", _expressionFormatter.Format(continueOnError));
+            WriteProperty("continue-on-error", _printer.RenderOrNull(continueOnError));
 
         if (step.TimeoutMinutes is { } timeout)
-            WriteProperty("timeout-minutes", _expressionFormatter.Format(timeout));
+            WriteProperty("timeout-minutes", _printer.RenderOrNull(timeout));
 
         section?.Dispose();
 
@@ -760,7 +740,7 @@ public sealed class GithubActionWriter
                 switch (valueArray.Length)
                 {
                     case 0:
-                        WriteProperty(valueName, "''");
+                        WriteProperty(valueName, string.Empty);
 
                         break;
 
@@ -781,21 +761,25 @@ public sealed class GithubActionWriter
             switch (valueArray.Length)
             {
                 case 0:
-                    section = WriteSection($"- {valueName}", "''");
+                    section = WriteSection($"- {valueName}", string.Empty);
 
                     break;
 
-                case 1:
+                case 1 when valueArray[0].IndexOfAny(['\r', '\n']) < 0:
                     section = WriteSection($"- {valueName}", valueArray[0]);
 
                     break;
 
                 default:
-                    section = WriteSection($"- {valueName}", "|");
+                    var blockLines = valueArray.SelectMany(SplitLines).ToArray();
+                    // Content sits two indent levels in from the dash, and the key two characters ("- ") after it.
+                    section = TextWriter.WriteSection(
+                        $"- {valueName}: {LiteralBlockHeader(blockLines, 2 * TextWriter.IndentSize - 2)}");
 
+                    // Literal block lines are written as-is: quoting them would change the script.
                     using (TextWriter.WriteSection(string.Empty))
-                        foreach (var line in valueArray)
-                            TextWriter.WriteLine(Format(line));
+                        foreach (var line in blockLines)
+                            TextWriter.WriteLine(line);
 
                     break;
             }
@@ -811,7 +795,7 @@ public sealed class GithubActionWriter
 
     private void WriteProperty(string key, string value)
     {
-        var lines = value.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries);
+        var lines = SplitLines(value);
 
         switch (lines.Length)
         {
@@ -820,13 +804,13 @@ public sealed class GithubActionWriter
 
                 break;
             case 1:
-                TextWriter.WriteLine($"{key}: {Format(value)}");
+                TextWriter.WriteLine($"{key}: {Format(lines[0])}");
 
                 break;
 
             default:
             {
-                using (TextWriter.WriteSection($"{key}: |"))
+                using (TextWriter.WriteSection($"{key}: {LiteralBlockHeader(lines, TextWriter.IndentSize)}"))
                     foreach (var line in lines)
                         TextWriter.WriteLine(line); // Don't format lines here
 
@@ -849,7 +833,40 @@ public sealed class GithubActionWriter
                     TextWriter.WriteLine($"- {Format(value)}");
     }
 
+    // YAML takes a literal block's indentation from its first non-empty line, so a script whose first line is itself
+    // indented needs an explicit indentation indicator: how far the content sits in from its key.
+    // YAML only allows 1 to 9, so writers with unusual indent sizes can't write such a block.
+    private static string LiteralBlockHeader(string[] lines, int contentOffset) =>
+        lines.FirstOrDefault(x => x.Length > 0) is not [' ', ..]
+            ? "|"
+            : contentOffset is >= 1 and <= 9
+                ? $"|{contentOffset}"
+                : throw new NotSupportedException(
+                    $"A multi-line value whose first line is indented needs a YAML indentation indicator of {contentOffset}, " +
+                    $"but YAML only allows 1 to 9. Use an indent size from 2 to 5, or don't start the value with spaces.");
+
+    // Splits on line breaks, keeping blank lines inside the text (they matter in scripts and here-documents) but
+    // dropping trailing ones.
+    private static string[] SplitLines(string value)
+    {
+        var lines = value
+            .Replace("\r\n", "\n", StringComparison.Ordinal)
+            .Replace('\r', '\n')
+            .Split('\n');
+
+        var count = lines.Length;
+
+        while (count > 0 && lines[count - 1].Length == 0)
+            count--;
+
+        return lines[..count];
+    }
+
     private static string Format(string value) =>
+
+        // A leading character YAML treats as syntax (tag, anchor, alias, quote, flow collection, block scalar, ...)
+        GithubExpressionPrinter.StartsWithYamlIndicator(value) ||
+        value != value.Trim() ||
 
         // Standalone disallowed tokens
         value.Contains(" #") ||

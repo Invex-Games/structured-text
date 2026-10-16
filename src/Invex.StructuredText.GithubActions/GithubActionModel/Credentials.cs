@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.GithubActions.GithubActionModel;
+﻿namespace Invex.StructuredText.GithubActions.GithubActionModel;
 
 /// <summary>
 ///     Credentials for a private container registry (<c>credentials</c>), passed to <c>docker login</c>.
@@ -10,10 +10,10 @@ public sealed record Credentials
     /// <summary>
     ///     The registry username.
     /// </summary>
-    public TextExpression? Username { get; init; }
+    public Template? Username { get; init; }
 
     /// <summary>
     ///     The registry password or token.
     /// </summary>
-    public TextExpression? Password { get; init; }
+    public Template? Password { get; init; }
 }

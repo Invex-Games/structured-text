@@ -28,7 +28,7 @@ public partial record Pr
         /// <summary>
         ///     Branch names that trigger a run.
         /// </summary>
-        public required WorkflowExpressionCollection<string> Branches { get; init; }
+        public required IReadOnlyList<ExprTemplate> Branches { get; init; }
     }
 
     /// <summary>
@@ -40,7 +40,7 @@ public partial record Pr
         /// <summary>
         ///     Whether to cancel running PR builds when a new commit lands in the branch.
         /// </summary>
-        public WorkflowExpression<bool>? AutoCancel { get; init; }
+        public ExprTemplate? AutoCancel { get; init; }
 
         /// <summary>
         ///     Branch names to include or exclude for triggering a run.
@@ -55,6 +55,6 @@ public partial record Pr
         /// <summary>
         ///     Whether to build pull requests from forks.
         /// </summary>
-        public WorkflowExpression<bool>? Drafts { get; init; }
+        public ExprTemplate? Drafts { get; init; }
     }
 }

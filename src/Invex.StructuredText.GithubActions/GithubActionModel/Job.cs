@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.GithubActions.GithubActionModel;
+﻿namespace Invex.StructuredText.GithubActions.GithubActionModel;
 
 /// <summary>
 ///     A job within a workflow: a set of steps that execute on the same runner.
@@ -10,7 +10,7 @@ public sealed record Job
     ///     The id of the job, used as the YAML key under <c>jobs:</c> and referenced by
     ///     <see cref="Needs" /> of other jobs.
     /// </summary>
-    public required TextExpression Name { get; init; }
+    public required Template Name { get; init; }
 
     /// <summary>
     ///     <c>GITHUB_TOKEN</c> permissions for this job, overriding the workflow-level default.
@@ -20,13 +20,13 @@ public sealed record Job
     /// <summary>
     ///     Ids of jobs that must complete successfully before this job runs (<c>needs</c>).
     /// </summary>
-    public TextExpressionCollection Needs { get; init; } = [];
+    public IReadOnlyList<string> Needs { get; init; } = [];
 
     /// <summary>
     ///     A condition that must evaluate to true for the job to run (<c>if</c>).
-    ///     Written in expression context, so no <c>Evaluate()</c> wrapper is needed.
+    ///     Written in expression context, so the expression is not wrapped in <c>${{ }}</c>.
     /// </summary>
-    public TextExpression? If { get; init; }
+    public BoolExpr? If { get; init; }
 
     /// <summary>
     ///     The runner(s) the job executes on (<c>runs-on</c>).
@@ -50,19 +50,19 @@ public sealed record Job
 
     /// <summary>
     ///     Values made available to downstream jobs that depend on this job (<c>outputs</c>).
-    ///     Typically populated from step outputs via <see cref="StepOutputExpression" />.
+    ///     Typically populated from step outputs via <see cref="Tex.StepOutput" />.
     /// </summary>
-    public IReadOnlyDictionary<string, TextExpression>? Outputs { get; init; }
+    public IReadOnlyDictionary<string, Template>? Outputs { get; init; }
 
     /// <summary>
     ///     Environment variables available to all steps in the job.
     /// </summary>
-    public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+    public IReadOnlyDictionary<string, Template>? Env { get; init; }
 
     /// <summary>
     ///     The maximum number of minutes the job may run before GitHub cancels it (<c>timeout-minutes</c>).
     /// </summary>
-    public TextExpression? TimeoutMinutes { get; init; }
+    public Template? TimeoutMinutes { get; init; }
 
     /// <summary>
     ///     The matrix strategy used to run multiple variations of the job (<c>strategy</c>).
@@ -72,7 +72,7 @@ public sealed record Job
     /// <summary>
     ///     Whether the workflow run passes when this job fails (<c>continue-on-error</c>).
     /// </summary>
-    public TextExpression? ContinueOnError { get; init; }
+    public Template? ContinueOnError { get; init; }
 
     /// <summary>
     ///     The container the job's steps run in (<c>container</c>).

@@ -7,7 +7,7 @@ configurations, and Azure DevOps Pipelines, using a fluent, type-safe API with a
 
 - [Introduction](docs/introduction.md): why generate YAML from C#, and the key concepts
 - [Getting Started](docs/getting-started.md): install and generate your first file
-- [Expressions](docs/expressions.md): the unified expression system
+- [Expressions](docs/expressions.md): conditions, references and interpolated values
 - [GitHub Actions Workflows](docs/github-actions.md): workflow generation in depth
 - [API Reference](api/index.md): generated reference for every public type
 
@@ -15,6 +15,6 @@ configurations, and Azure DevOps Pipelines, using a fluent, type-safe API with a
 
 | Package | What it does |
 | --- | --- |
-| [Invex.StructuredText](https://www.nuget.org/packages/Invex.StructuredText) | Core library with `StructuredTextWriter` and the expression system |
+| [Invex.StructuredText](https://www.nuget.org/packages/Invex.StructuredText) | Core library with `StructuredTextWriter` and the expression API |
 | [Invex.StructuredText.GithubActions](https://www.nuget.org/packages/Invex.StructuredText.GithubActions) | GitHub Actions workflow and Dependabot config generation |
 | [Invex.StructuredText.AzureDevopsPipelines](https://www.nuget.org/packages/Invex.StructuredText.AzureDevopsPipelines) | Azure DevOps Pipelines YAML generation |

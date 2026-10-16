@@ -7,27 +7,27 @@ extend the library, contribute, or build your own generator on top of the core.
 
 ```text
 ┌─────────────────────────────────┐  ┌──────────────────────────────────────┐
-│ Invex.StructuredText            │  │                                      │
-│ .GithubActions                  │  │ Invex.StructuredText                 │
-│                                 │  │ .AzureDevopsPipelines                │
-│ • GithubActionWriter            │  │                                      │
-│ • DependabotConfigWriter        │  │ • DevopsPipelineWriter               │
-│ • GithubExpressionFormatter     │  │ • DevopsExpressionFormatter          │
-│ • GithubActionModel/*           │  │ • DevopsMacroExpression              │
-│ • DependabotConfigModel/*       │  │ • DevopsRuntimeExpression            │
-│                                 │  │ • DevopsPipelineModel/*              │
+│ Invex.StructuredText            │  │ Invex.StructuredText                 │
+│ .GithubActions                  │  │ .AzureDevopsPipelines                │
+│                                 │  │                                      │
+│ • GithubActionWriter            │  │ • DevopsPipelineWriter               │
+│ • DependabotConfigWriter        │  │ • DevopsExpressionPrinter            │
+│ • GithubExpressionPrinter       │  │ • Tex.DevOps (DevopsContexts)        │
+│ • Tex.GitHub (GitHubContexts)   │  │ • DevopsRuntimeExpr                  │
+│ • GithubActionModel/*           │  │ • DevopsPipelineModel/*              │
+│ • DependabotConfigModel/*       │  │                                      │
 └───────────────┬─────────────────┘  └──────────────────┬───────────────────┘
                 │                                       │
                 └───────────────────┬───────────────────┘
                                     ▼
                   ┌─────────────────────────────────────┐
-                  │ Invex.StructuredText (core)          │
+                  │ Invex.StructuredText (core)         │
                   │                                     │
                   │ • StructuredTextWriter              │
-                  │ • TextExpression hierarchy          │
-                  │ • TextExpressionFormatter (base)    │
-                  │ • TextExpressionCollection          │
-                  │ • WorkflowExpression<T>             │
+                  │ • Tex (the expression entry point)  │
+                  │ • Expr, BoolExpr, StringExpr, …     │
+                  │ • Template                          │
+                  │ • ExpressionPrinter (base)          │
                   └─────────────────────────────────────┘
 ```
 
@@ -41,62 +41,73 @@ makes stale scopes harmless after `Reset()`. See [StructuredTextWriter](structur
 
 ### The expression tree
 
-`TextExpression` is an abstract record with a closed-ish set of derived records grouped by concern:
+`Expr` is an abstract record with four typed roots: `BoolExpr`, `StringExpr`, `NumberExpr` and `JsonExpr`. The result
+type decides which operations the compiler offers, so `If = Tex.GitHub.Ref` (a string) does not compile. The concrete
+nodes are grouped by concern:
 
-- **Values** — `RawExpression`, `StringExpression`, `NumberExpression`, `BooleanExpression`, `NullExpression`
-- **Accessors** — `PropertyAccessExpression`, `IndexAccessExpression`, `EvaluateExpression`
-- **Logic** — `AndExpression`, `OrExpression`, `NotExpression`, `EqualExpression`, `NotEqualExpression`,
-  comparison expressions
-- **Functions** — `ContainsExpression`, `StartsWithExpression`, `EndsWithExpression`, `CoalesceExpression`,
-  `FormatExpression`, `JoinExpression`, `ToJsonExpression`, `HashFilesExpression`, `ConcatExpression`
-- **Workflow-run** — `StepOutputExpression`, `StepOutcomeExpression`, `TargetOutputExpression`,
-  `TargetOutcomeExpression`, and outcome-type literals
-- **Typing helpers** — `CastExpression<T>`, `WorkflowExpression<T>`, `WorkflowExpressionCollection<T>`
+- **Literals**: `StringLiteral`, `NumberLiteral`, `BoolLiteral`, `NullLiteral`, created implicitly from C# literals
+- **Context paths**: `StringContext`, `BoolContext`, `NumberContext`, `JsonContext`, used by the generated catalogues
+  such as `Tex.GitHub`
+- **Access and casts**: `MemberAccessExpr`, `IndexAccessExpr`, `StringCast`, `BoolCast`, `NumberCast`
+- **Logic**: `ComparisonExpr`, `LogicalExpr` (flattened, so `a && b && c` is one node), `NotExpr`
+- **Functions**: `BoolFunction`, `StringFunction`, `JsonFunction`, named with the constants in `FunctionNames`
+- **References**: `SecretRef`, `VariableRef`, `InputRef`, `MatrixRef`, `StepOutputRef`, `JobOutputRef`,
+  `JobResultRef` and `ResultLiteral`, which each platform spells its own way
+- **Raw text**: `RawExpr` and its typed siblings, for the `Tex.Raw` escape hatch
 
-Because they are records, expressions have structural equality and readable `ToString()` output, which makes tests and
-debugging straightforward.
+Because they are records, expressions compare structurally, and `DescendantsAndSelf()` walks the tree. Atom uses that
+to find the jobs a condition depends on.
 
-Fluent builder methods (`Contains`, `EqualTo`, `And`, …), operators (`&`, `|`, `!`, `+`), implicit conversions from
-primitives, and an interpolated-string handler (`TextExpressions.Format($"...")`) make tree construction ergonomic.
+`Tex` is the single entry point that creates them. Platform packages and libraries add members to it with C# 14
+`extension(Tex)` blocks, which is how `Tex.GitHub`, `Tex.DevOps` and Atom's `Tex.ParamOutput` appear on the same type.
 
-### `TextExpressionFormatter`
+### `Template`
 
-The abstract base class implements `Format(TextExpression?)` as a **rewrite loop**:
+`Template` is a sequence of literal text and embedded expressions. It is an interpolated string handler, so
+`$"v{Tex.GitHub.RunNumber}"` builds one directly, and it converts implicitly from `string`, `Expr`, `bool` and numbers.
+Every model property that can hold an expression, other than conditions, is a `Template`.
 
-1. `null` → `null`; `RawExpression` → its value; `ConcatExpression` → concatenated formatted parts.
-2. `CastExpression<T>` is unwrapped transparently.
-3. Otherwise the platform-specific `Resolve(expression)` is called, which returns a *simpler* expression (often a
-   `RawExpression` containing rendered text). The loop repeats until everything bottoms out in raw text.
-4. If `Resolve` cannot handle a node, an `InvalidOperationException` names the offending expression.
+### `ExpressionPrinter`
 
-This design means platform formatters only describe *one rewrite step per node type* and get recursion, casting, and
-null-handling for free.
+The abstract printer renders an `Expr` (`Print`) or a `Template` (`Render`). The base class handles operator
+precedence (adding parentheses only where needed), literal quoting and escaping, member and index access, casts and
+raw text. A platform printer supplies what differs:
+
+1. `WrapEmbedded`: the delimiters around an expression inside a template, such as `${{ … }}`.
+2. `PrintReference` and `PrintResult`: how references and job results are spelled.
+3. Optional overrides: `FunctionName`, `PrintComparison`, `PrintLogical`, `PrintNot`, `RenderEmbedded` and others.
+   Azure DevOps overrides the logic members to print `and(…)`, `eq(…)`, and `RenderEmbedded` to choose between
+   `$(…)`, `${{ … }}` and `$[ … ]`.
+
+A node a printer can't express throws `NotSupportedException` rather than producing invalid YAML.
 
 ## Platform packages
 
 Each platform package contains:
 
-- **Model types** — records that mirror the official YAML schema for the platform. Almost every scalar property is a
-  `TextExpression` / `WorkflowExpression<T>` so any value can be an expression.
+- **Model types** — records that mirror the official YAML schema for the platform. Conditions are `BoolExpr`, and
+  almost every other scalar property is a `Template`, so any value can contain expressions.
 - **A writer** — walks the model and emits YAML through a `StructuredTextWriter`, calling the platform expression
-  formatter for every expression-valued property.
-- **An expression formatter** — `GithubExpressionFormatter` or `DevopsExpressionFormatter`, implementing `Resolve` for
-  the platform's syntax.
+  printer for every expression-valued property.
+- **An expression printer** — `GithubExpressionPrinter` or `DevopsExpressionPrinter`, an `ExpressionPrinter` for the
+  platform's syntax.
+- **A context catalogue** — `Tex.GitHub` or `Tex.DevOps`. The GitHub catalogue is generated at build time from
+  `Contexts/github.contexts` by `Invex.StructuredText.Generators`.
 
 ### GitHub Actions (`Invex.StructuredText.GithubActions`)
 
 - **`GithubActionWriter`** — serializes a `GithubAction` model to workflow YAML.
 - **`DependabotConfigWriter`** — serializes a `DependabotConfig` model to `dependabot.yml`.
-- **`GithubExpressionFormatter`** — formats expressions using GitHub's `${{ }}` syntax.
+- **`GithubExpressionPrinter`** — prints expressions using GitHub's syntax, and `${{ }}` inside templates.
 - **Model types** — strongly-typed records for all GitHub Actions concepts (triggers, jobs, steps, matrix, permissions,
   etc.) in `GithubActionModel`, and for Dependabot in `DependabotConfigModel.Model`.
 
 ### Azure DevOps Pipelines (`Invex.StructuredText.AzureDevopsPipelines`)
 
 - **`DevopsPipelineWriter`** — serializes a `DevopsPipeline` model to pipeline YAML.
-- **`DevopsExpressionFormatter`** — formats expressions using Azure DevOps syntax.
-- **`DevopsMacroExpression` / `DevopsRuntimeExpression`** — wrappers for the `$(...)` macro and `$[ ... ]` runtime
-  expression syntaxes.
+- **`DevopsExpressionPrinter`** — prints expressions using Azure DevOps syntax.
+- **`DevopsRuntimeExpr`** — created by `Tex.DevOps.Runtime(…)`, embeds an expression as a `$[ … ]` runtime
+  expression.
 - **Model types** — strongly-typed records and unions for pipelines, stages, jobs, steps, resources, triggers,
   variables, deployment strategies, and more, under `DevopsPipelineModel.*`.
 
@@ -127,14 +138,15 @@ The libraries use:
 
 | Goal                                 | How                                                                                      |
 |--------------------------------------|-------------------------------------------------------------------------------------------|
-| New target platform                  | Reference the core, define model records, write a `TextExpressionFormatter` subclass and a writer over `StructuredTextWriter` |
-| New expression node                  | Derive a record from `TextExpression`; handle it in each formatter's `Resolve`            |
-| Platform-specific expression syntax  | Follow the pattern of `DevopsMacroExpression` / `DevopsRuntimeExpression`: define the record in the platform package and resolve it in that platform's formatter |
+| New target platform                  | Reference the core, define model records, write an `ExpressionPrinter` subclass and a writer over `StructuredTextWriter` |
+| New `Tex` member                     | Add an `extension(Tex)` block in your package, returning existing node types where you can |
+| New context in the GitHub catalogue  | Add a line to `Contexts/github.contexts`; the generator adds the member and its XML docs  |
+| Platform-specific expression syntax  | Follow the pattern of `DevopsRuntimeExpr`: define the record in the platform package and print it in that platform's printer (`PrintOther` or `RenderEmbedded`) |
 
 ## See also
 
 - [StructuredTextWriter](structured-text-writer.md): the writer every generator is built on
-- [Expressions](expressions.md#writing-your-own-formatter): writing your own formatter
+- [Expressions](expressions.md#printing-expressions-yourself): writing your own printer
 - [FAQ](faq.md): common questions about the model design
-- <xref:Invex.StructuredText.StructuredTextWriter>, <xref:Invex.StructuredText.Expressions.TextExpression>,
-  <xref:Invex.StructuredText.Expressions.TextExpressionFormatter>
+- <xref:Invex.StructuredText.StructuredTextWriter>, <xref:Invex.StructuredText.Expressions.Tex>,
+  <xref:Invex.StructuredText.Expressions.Expr>, <xref:Invex.StructuredText.Expressions.ExpressionPrinter>

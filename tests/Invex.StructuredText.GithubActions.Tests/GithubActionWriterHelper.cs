@@ -1,4 +1,4 @@
-using Environment = System.Environment;
+﻿using Environment = System.Environment;
 
 namespace Invex.StructuredText.GithubActions.Tests;
 
@@ -30,16 +30,16 @@ internal static class GithubActionWriterHelper
     public static Job MinimalJob(string name = "build") =>
         new()
         {
-            Name = new RawExpression(name),
+            Name = name,
             RunsOn = new()
             {
-                Labels = [new RawExpression("ubuntu-latest")],
+                Labels = ["ubuntu-latest"],
             },
             Steps =
             [
                 new Step.RunStep
                 {
-                    Run = [new RawExpression("echo hello")],
+                    Run = ["echo hello"],
                 },
             ],
         };

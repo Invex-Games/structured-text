@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.GithubActions.GithubActionModel;
+﻿namespace Invex.StructuredText.GithubActions.GithubActionModel;
 
 /// <summary>
 ///     Concurrency settings (<c>concurrency</c>) that ensure only one run (or queued run) sharing the same
@@ -9,13 +9,13 @@ public sealed record Concurrency
 {
     /// <summary>
     ///     The concurrency group key. Runs with the same group are serialized.
-    ///     Often built from expressions, e.g. <c>TextExpressions.Format($"ci-{githubRef}")</c>.
+    ///     Often built from expressions, e.g. <c>$"ci-{Tex.GitHub.Ref}"</c>.
     /// </summary>
-    public required TextExpression Group { get; init; } = "";
+    public required Template Group { get; init; } = "";
 
     /// <summary>
     ///     Whether to cancel an in-progress run of the same group when a new run starts
     ///     (<c>cancel-in-progress</c>).
     /// </summary>
-    public TextExpression? CancelInProgress { get; init; }
+    public Template? CancelInProgress { get; init; }
 }

@@ -1,0 +1,8 @@
+﻿Tex.Secret                   => ${{ secrets.NUGET_API_KEY }}
+Tex.Variable                 => ${{ vars.DEPLOY_REGION }}
+Tex.Input                    => ${{ inputs.dry-run }}
+Tex.Matrix                   => ${{ matrix.os }}
+Tex.StepOutput               => ${{ steps.version.outputs.semver }}
+Tex.JobOutput                => ${{ needs.setup.outputs.build-version }}
+JobResult == Success         => needs.test.result == 'success'
+prerelease version           => contains(needs.setup.outputs.build-version, '-')

@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.GithubActions.Tests;
+﻿namespace Invex.StructuredText.GithubActions.Tests;
 
 /// <summary>
 ///     Tests for how scalar properties are written, in particular multiline values that must be
@@ -12,9 +12,9 @@ internal sealed class GithubActionWriterPropertyTests
     {
         var job = GithubActionWriterHelper.MinimalJob() with
         {
-            Env = new Dictionary<string, TextExpression>
+            Env = new Dictionary<string, Template>
             {
-                ["MY_VAR"] = new RawExpression(value),
+                ["MY_VAR"] = value,
             },
         };
 

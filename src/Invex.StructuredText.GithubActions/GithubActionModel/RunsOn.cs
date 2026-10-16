@@ -1,4 +1,4 @@
-namespace Invex.StructuredText.GithubActions.GithubActionModel;
+﻿namespace Invex.StructuredText.GithubActions.GithubActionModel;
 
 /// <summary>
 ///     The runner selection for a job (<c>runs-on</c>).
@@ -10,10 +10,10 @@ public sealed record RunsOn
     ///     The runner labels the job requires, e.g. <c>ubuntu-latest</c> or self-hosted runner labels.
     ///     A single label is written inline; multiple labels are written as a list.
     /// </summary>
-    public required TextExpressionCollection Labels { get; init; }
+    public required IReadOnlyList<Template> Labels { get; init; }
 
     /// <summary>
     ///     The runner group to select runners from (<c>group</c>), for organization-level runner groups.
     /// </summary>
-    public TextExpression? Group { get; init; }
+    public Template? Group { get; init; }
 }

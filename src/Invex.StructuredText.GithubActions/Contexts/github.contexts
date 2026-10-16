@@ -1,0 +1,77 @@
+﻿# GitHub Actions contexts, compiled into the GitHubContexts catalogue by Invex.StructuredText.Generators.
+# Format: path | type (string, bool, number, json) | summary
+# Members of `github.*` appear directly on GitHubContexts; other contexts appear as GitHubContexts.<Context>.
+github | json | The whole <c>github</c> context: information about the workflow run and the event that triggered it.
+github.action | string | The name of the action currently running, or the id of a step.
+github.action_path | string | The path where an action is located (composite actions only).
+github.action_ref | string | For a step executing an action, the ref of the action being executed.
+github.action_repository | string | For a step executing an action, the owner and repository name of the action.
+github.action_status | string | For a composite action, the current result of the composite action.
+github.actor | string | The username of the user that triggered the initial workflow run.
+github.actor_id | string | The account id of the user that triggered the initial workflow run.
+github.api_url | string | The URL of the GitHub REST API.
+github.base_ref | string | The base ref or target branch of the pull request (pull request events only).
+github.env | string | Path on the runner to the file that sets environment variables from workflow commands.
+github.event | json | The full event webhook payload.
+github.event.number | number | The pull request number (pull request events only).
+github.event.pull_request.number | number | The pull request number.
+github.event.pull_request.draft | bool | Whether the pull request is a draft.
+github.event.pull_request.head.ref | string | The pull request's head branch.
+github.event.pull_request.base.ref | string | The pull request's base branch.
+github.event.workflow_run.path | string | The workflow file path of the run that triggered a workflow_run event.
+github.event_name | string | The name of the event that triggered the workflow run.
+github.event_path | string | The path to the file on the runner that contains the full event webhook payload.
+github.graphql_url | string | The URL of the GitHub GraphQL API.
+github.head_ref | string | The head ref or source branch of the pull request (pull request events only).
+github.job | string | The job id of the current job.
+github.path | string | Path on the runner to the file that sets system PATH variables from workflow commands.
+github.ref | string | The fully-formed ref of the branch or tag that triggered the workflow run.
+github.ref_name | string | The short ref name of the branch or tag that triggered the workflow run.
+github.ref_protected | bool | Whether branch protections or rulesets are configured for the ref that triggered the run.
+github.ref_type | string | The type of ref that triggered the workflow run: <c>branch</c> or <c>tag</c>.
+github.repository | string | The owner and repository name, e.g. <c>octocat/Hello-World</c>.
+github.repository_id | string | The id of the repository.
+github.repository_owner | string | The repository owner's username.
+github.repository_owner_id | string | The repository owner's account id.
+github.repositoryUrl | string | The Git URL to the repository.
+github.retention_days | string | The number of days that workflow run logs and artifacts are kept.
+github.run_id | string | A unique number for each workflow run within a repository.
+github.run_number | string | A unique number for each run of a particular workflow in a repository.
+github.run_attempt | string | A unique number for each attempt of a particular workflow run.
+github.secret_source | string | The source of a secret used in a workflow: <c>None</c>, <c>Actions</c>, <c>Codespaces</c> or <c>Dependabot</c>.
+github.server_url | string | The URL of the GitHub server.
+github.sha | string | The commit SHA that triggered the workflow.
+github.token | string | A token to authenticate on behalf of the GitHub App installed on the repository.
+github.triggering_actor | string | The username of the user that initiated the workflow run.
+github.workflow | string | The name of the workflow.
+github.workflow_ref | string | The ref path to the workflow.
+github.workflow_sha | string | The commit SHA for the workflow file.
+github.workspace | string | The default working directory on the runner for steps.
+env | json | Variables set in the workflow, job or step. Index by name: <c>Env["NAME"]</c>.
+vars | json | Configuration variables set at the organization, repository or environment level. Index by name.
+job | json | Information about the currently running job.
+job.check_run_id | string | The check run id of the current job.
+job.container.id | string | The id of the job's service container.
+job.container.network | string | The id of the container network.
+job.services | json | The service containers created for a job. Index by service id.
+job.status | string | The current status of the job: <c>success</c>, <c>failure</c> or <c>cancelled</c>.
+jobs | json | Results and outputs of jobs in a reusable workflow. Index by job id.
+steps | json | Information about the steps that have run in the current job. Index by step id.
+runner | json | Information about the runner executing the current job.
+runner.name | string | The name of the runner executing the job.
+runner.os | string | The operating system of the runner: <c>Linux</c>, <c>Windows</c> or <c>macOS</c>.
+runner.arch | string | The architecture of the runner: <c>X86</c>, <c>X64</c>, <c>ARM</c> or <c>ARM64</c>.
+runner.temp | string | The path to a temporary directory on the runner.
+runner.tool_cache | string | The path to the directory containing preinstalled tools.
+runner.debug | string | Set to <c>1</c> when debug logging is enabled.
+runner.environment | string | The environment of the runner: <c>github-hosted</c> or <c>self-hosted</c>.
+secrets | json | The secrets available to the run. Index by name.
+secrets.GITHUB_TOKEN | string | The automatically created token for each workflow run.
+strategy | json | Information about the matrix execution strategy for the current job.
+strategy.fail-fast | bool | Whether all in-progress jobs are cancelled if any job in the matrix fails.
+strategy.job-index | number | The index of the current job in the matrix.
+strategy.job-total | number | The total number of jobs in the matrix.
+strategy.max-parallel | number | The maximum number of jobs that can run simultaneously.
+matrix | json | The matrix properties for the current job. Index by dimension name.
+needs | json | Outputs and results of the jobs the current job depends on. Index by job id.
+inputs | json | The inputs of a reusable or manually triggered workflow. Index by input name.

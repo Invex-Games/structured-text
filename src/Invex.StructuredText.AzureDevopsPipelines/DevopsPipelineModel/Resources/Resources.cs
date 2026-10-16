@@ -46,37 +46,37 @@ public sealed record BuildResource
     /// <summary>
     ///     Identifier for the build resource.
     /// </summary>
-    public required WorkflowExpression<string> Build { get; init; }
+    public required ExprTemplate Build { get; init; }
 
     /// <summary>
     ///     Type of build resource.
     /// </summary>
-    public WorkflowExpression<string>? Type { get; init; }
+    public ExprTemplate? Type { get; init; }
 
     /// <summary>
     ///     Connection to the build resource.
     /// </summary>
-    public WorkflowExpression<string>? Connection { get; init; }
+    public ExprTemplate? Connection { get; init; }
 
     /// <summary>
     ///     Source (pipeline) to consume as a build resource.
     /// </summary>
-    public WorkflowExpression<string>? Source { get; init; }
+    public ExprTemplate? Source { get; init; }
 
     /// <summary>
     ///     Version/tags to pick the build.
     /// </summary>
-    public WorkflowExpression<string>? Version { get; init; }
+    public ExprTemplate? Version { get; init; }
 
     /// <summary>
     ///     Branch to pick the default version.
     /// </summary>
-    public WorkflowExpression<string>? Branch { get; init; }
+    public ExprTemplate? Branch { get; init; }
 
     /// <summary>
     ///     Trigger for this build resource.
     /// </summary>
-    public WorkflowExpression<string>? Trigger { get; init; }
+    public ExprTemplate? Trigger { get; init; }
 }
 
 /// <summary>
@@ -88,37 +88,37 @@ public sealed record ContainerResource
     /// <summary>
     ///     Identifier for the container resource.
     /// </summary>
-    public required WorkflowExpression<string> Container { get; init; }
+    public required ExprTemplate Container { get; init; }
 
     /// <summary>
     ///     Container image tag.
     /// </summary>
-    public required WorkflowExpression<string> Image { get; init; }
+    public required ExprTemplate Image { get; init; }
 
     /// <summary>
     ///     Container registry service connection.
     /// </summary>
-    public WorkflowExpression<string>? Endpoint { get; init; }
+    public ExprTemplate? Endpoint { get; init; }
 
     /// <summary>
     ///     Environment variables to set in the container.
     /// </summary>
-    public IReadOnlyDictionary<string, TextExpression>? Env { get; init; }
+    public IReadOnlyDictionary<string, ExprTemplate>? Env { get; init; }
 
     /// <summary>
     ///     Options to pass to the container at startup.
     /// </summary>
-    public WorkflowExpression<string>? Options { get; init; }
+    public ExprTemplate? Options { get; init; }
 
     /// <summary>
     ///     Ports to expose on the container.
     /// </summary>
-    public WorkflowExpressionCollection<string>? Ports { get; init; }
+    public IReadOnlyList<ExprTemplate>? Ports { get; init; }
 
     /// <summary>
     ///     Volumes to mount in the container.
     /// </summary>
-    public WorkflowExpressionCollection<string>? Volumes { get; init; }
+    public IReadOnlyList<ExprTemplate>? Volumes { get; init; }
 
     /// <summary>
     ///     Trigger for this container resource.
@@ -135,7 +135,7 @@ public sealed record ContainerResourceTrigger
     /// <summary>
     ///     Enable or disable the container trigger.
     /// </summary>
-    public WorkflowExpression<bool>? Enabled { get; init; }
+    public ExprTemplate? Enabled { get; init; }
 
     /// <summary>
     ///     Tags to trigger on.
@@ -152,27 +152,27 @@ public sealed record PipelineResource
     /// <summary>
     ///     Identifier for the pipeline resource.
     /// </summary>
-    public required WorkflowExpression<string> Pipeline { get; init; }
+    public required ExprTemplate Pipeline { get; init; }
 
     /// <summary>
     ///     Project for the pipeline resource.
     /// </summary>
-    public WorkflowExpression<string>? Project { get; init; }
+    public ExprTemplate? Project { get; init; }
 
     /// <summary>
     ///     Source (pipeline) to consume as a pipeline resource.
     /// </summary>
-    public required WorkflowExpression<string> Source { get; init; }
+    public required ExprTemplate Source { get; init; }
 
     /// <summary>
     ///     Version/tags to pick the pipeline.
     /// </summary>
-    public WorkflowExpression<string>? Version { get; init; }
+    public ExprTemplate? Version { get; init; }
 
     /// <summary>
     ///     Branch to pick the default version.
     /// </summary>
-    public WorkflowExpression<string>? Branch { get; init; }
+    public ExprTemplate? Branch { get; init; }
 
     /// <summary>
     ///     Trigger for this pipeline resource.
@@ -189,7 +189,7 @@ public sealed record PipelineResourceTrigger
     /// <summary>
     ///     Enable or disable the pipeline trigger.
     /// </summary>
-    public WorkflowExpression<bool>? Enabled { get; init; }
+    public ExprTemplate? Enabled { get; init; }
 
     /// <summary>
     ///     Branches to trigger on.
@@ -204,7 +204,7 @@ public sealed record PipelineResourceTrigger
     /// <summary>
     ///     Stages to trigger on.
     /// </summary>
-    public WorkflowExpressionCollection<string>? Stages { get; init; }
+    public IReadOnlyList<ExprTemplate>? Stages { get; init; }
 }
 
 /// <summary>
@@ -216,27 +216,27 @@ public sealed record RepositoryResource
     /// <summary>
     ///     Identifier for the repository resource.
     /// </summary>
-    public required WorkflowExpression<string> Repository { get; init; }
+    public required ExprTemplate Repository { get; init; }
 
     /// <summary>
     ///     Repository type (e.g., git, github, bitbucket).
     /// </summary>
-    public required WorkflowExpression<string> Type { get; init; }
+    public required ExprTemplate Type { get; init; }
 
     /// <summary>
     ///     Service connection for the repository.
     /// </summary>
-    public WorkflowExpression<string>? Endpoint { get; init; }
+    public ExprTemplate? Endpoint { get; init; }
 
     /// <summary>
     ///     Repository name.
     /// </summary>
-    public WorkflowExpression<string>? Name { get; init; }
+    public ExprTemplate? Name { get; init; }
 
     /// <summary>
     ///     Repository reference (branch, tag, or commit).
     /// </summary>
-    public WorkflowExpression<string>? Ref { get; init; }
+    public ExprTemplate? Ref { get; init; }
 
     /// <summary>
     ///     Trigger for this repository resource.
@@ -253,17 +253,17 @@ public sealed record WebhookResource
     /// <summary>
     ///     Identifier for the webhook resource.
     /// </summary>
-    public required WorkflowExpression<string> Webhook { get; init; }
+    public required ExprTemplate Webhook { get; init; }
 
     /// <summary>
     ///     Service connection for the webhook.
     /// </summary>
-    public required WorkflowExpression<string> Connection { get; init; }
+    public required ExprTemplate Connection { get; init; }
 
     /// <summary>
     ///     Type of webhook.
     /// </summary>
-    public WorkflowExpression<string>? Type { get; init; }
+    public ExprTemplate? Type { get; init; }
 
     /// <summary>
     ///     Filters for the webhook.
@@ -280,12 +280,12 @@ public sealed record WebhookFilter
     /// <summary>
     ///     JSON path to filter on.
     /// </summary>
-    public required WorkflowExpression<string> Path { get; init; }
+    public required ExprTemplate Path { get; init; }
 
     /// <summary>
     ///     Value to match.
     /// </summary>
-    public required WorkflowExpression<string> Value { get; init; }
+    public required ExprTemplate Value { get; init; }
 }
 
 /// <summary>
@@ -297,30 +297,30 @@ public sealed record PackageResource
     /// <summary>
     ///     Identifier for the package resource.
     /// </summary>
-    public required WorkflowExpression<string> Package { get; init; }
+    public required ExprTemplate Package { get; init; }
 
     /// <summary>
     ///     Package type (e.g., NuGet, npm, Maven).
     /// </summary>
-    public required WorkflowExpression<string> Type { get; init; }
+    public required ExprTemplate Type { get; init; }
 
     /// <summary>
     ///     Service connection for the package feed.
     /// </summary>
-    public WorkflowExpression<string>? Connection { get; init; }
+    public ExprTemplate? Connection { get; init; }
 
     /// <summary>
     ///     Package name.
     /// </summary>
-    public WorkflowExpression<string>? Name { get; init; }
+    public ExprTemplate? Name { get; init; }
 
     /// <summary>
     ///     Package version.
     /// </summary>
-    public WorkflowExpression<string>? Version { get; init; }
+    public ExprTemplate? Version { get; init; }
 
     /// <summary>
     ///     Tag for the package.
     /// </summary>
-    public WorkflowExpression<string>? Tag { get; init; }
+    public ExprTemplate? Tag { get; init; }
 }
