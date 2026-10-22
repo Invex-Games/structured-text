@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Tex | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Tex | Invex.StructuredText ">
+      
+      <meta name="description" content="The starting point for writing expressions. Everything that creates an expression from scratch lives here: references (, , …), status checks (, …), functions (, , …) and the escape hatch . Platform packages add their own members, such as Tex.GitHub for the GitHub Actions contexts.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.Expressions.Tex">
+
+
+
+  <h1 id="Invex_StructuredText_Expressions_Tex" data-uid="Invex.StructuredText.Expressions.Tex" class="text-break">
+Class Tex  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Invex</span>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.Expressions.html">Expressions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The starting point for writing expressions. Everything that creates an expression from scratch lives here:
+references (<a class="xref" href="Invex.StructuredText.Expressions.Tex.html#Invex_StructuredText_Expressions_Tex_Secret_System_String_">Secret(string)</a>, <a class="xref" href="Invex.StructuredText.Expressions.Tex.html#Invex_StructuredText_Expressions_Tex_JobOutput_System_String_System_String_System_String_">JobOutput(string, string, string?)</a>, …), status checks (<a class="xref" href="Invex.StructuredText.Expressions.Tex.html#Invex_StructuredText_Expressions_Tex_Success">Success()</a>, …),
+functions (<a class="xref" href="Invex.StructuredText.Expressions.Tex.html#Invex_StructuredText_Expressions_Tex_All_System_Collections_Generic_IEnumerable_Invex_StructuredText_Expressions_BoolExpr__">All(params IEnumerable&lt;BoolExpr&gt;)</a>, <a class="xref" href="Invex.StructuredText.Expressions.Tex.html#Invex_StructuredText_Expressions_Tex_Format_Invex_StructuredText_Expressions_StringExpr_System_Collections_Generic_IEnumerable_Invex_StructuredText_Expressions_Expr__">Format(StringExpr, params IEnumerable&lt;Expr&gt;)</a>, …) and the escape hatch <a class="xref" href="Invex.StructuredText.Expressions.Tex.html#Invex_StructuredText_Expressions_Tex_Raw_System_String_">Raw(string)</a>.
+Platform packages add their own members, such as <code>Tex.GitHub</code> for the GitHub Actions contexts.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Tex</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Tex</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="Invex_StructuredText_Expressions_Tex_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Once you have an expression, its own members do the rest: <code>Eq</code>, <code>Contains</code>, <code>StartsWith</code>, the
+<code>&amp;&amp;</code>, <code>||</code> and <code>!</code> operators, and indexers for JSON values. Add
+<code>using static Invex.StructuredText.Expressions.Tex;</code> to drop the <code>Tex.</code> prefix.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Null_" data-uid="Invex.StructuredText.Expressions.Tex.Null*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Null" data-uid="Invex.StructuredText.Expressions.Tex.Null">
+  Null
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The null literal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonExpr Null { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_All_" data-uid="Invex.StructuredText.Expressions.Tex.All*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_All_System_Collections_Generic_IEnumerable_Invex_StructuredText_Expressions_BoolExpr__" data-uid="Invex.StructuredText.Expressions.Tex.All(System.Collections.Generic.IEnumerable{Invex.StructuredText.Expressions.BoolExpr})">
+  All(params IEnumerable&lt;BoolExpr&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when every condition is true. Equivalent to chaining <code>&amp;&amp;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoolExpr All(params IEnumerable&lt;BoolExpr&gt; conditions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>conditions</code> <span class="xref">IEnumerable</span>&lt;<a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a>&gt;</dt>
+    <dd><p>One or more conditions.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Always_" data-uid="Invex.StructuredText.Expressions.Tex.Always*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Always" data-uid="Invex.StructuredText.Expressions.Tex.Always">
+  Always()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Always true, even after failures or cancellation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoolExpr Always()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Any_" data-uid="Invex.StructuredText.Expressions.Tex.Any*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Any_System_Collections_Generic_IEnumerable_Invex_StructuredText_Expressions_BoolExpr__" data-uid="Invex.StructuredText.Expressions.Tex.Any(System.Collections.Generic.IEnumerable{Invex.StructuredText.Expressions.BoolExpr})">
+  Any(params IEnumerable&lt;BoolExpr&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when any condition is true. Equivalent to chaining <code>||</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoolExpr Any(params IEnumerable&lt;BoolExpr&gt; conditions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>conditions</code> <span class="xref">IEnumerable</span>&lt;<a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a>&gt;</dt>
+    <dd><p>One or more conditions.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Cancelled_" data-uid="Invex.StructuredText.Expressions.Tex.Cancelled*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Cancelled" data-uid="Invex.StructuredText.Expressions.Tex.Cancelled">
+  Cancelled()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when the run was cancelled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoolExpr Cancelled()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Failure_" data-uid="Invex.StructuredText.Expressions.Tex.Failure*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Failure" data-uid="Invex.StructuredText.Expressions.Tex.Failure">
+  Failure()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when any previous work failed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoolExpr Failure()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Format_" data-uid="Invex.StructuredText.Expressions.Tex.Format*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Format_Invex_StructuredText_Expressions_StringExpr_System_Collections_Generic_IEnumerable_Invex_StructuredText_Expressions_Expr__" data-uid="Invex.StructuredText.Expressions.Tex.Format(Invex.StructuredText.Expressions.StringExpr,System.Collections.Generic.IEnumerable{Invex.StructuredText.Expressions.Expr})">
+  Format(StringExpr, params IEnumerable&lt;Expr&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Replaces <code>{0}</code>, <code>{1}</code>, … in <code class="paramref">format</code> with <code class="paramref">arguments</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr Format(StringExpr format, params IEnumerable&lt;Expr&gt; arguments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd><p>The format string.</p>
+</dd>
+    <dt><code>arguments</code> <span class="xref">IEnumerable</span>&lt;<a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a>&gt;</dt>
+    <dd><p>The replacement values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_FromJson_" data-uid="Invex.StructuredText.Expressions.Tex.FromJson*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_FromJson_Invex_StructuredText_Expressions_StringExpr_" data-uid="Invex.StructuredText.Expressions.Tex.FromJson(Invex.StructuredText.Expressions.StringExpr)">
+  FromJson(StringExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses JSON text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonExpr FromJson(StringExpr json)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd><p>The JSON text.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_HashFiles_" data-uid="Invex.StructuredText.Expressions.Tex.HashFiles*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_HashFiles_System_Collections_Generic_IEnumerable_Invex_StructuredText_Expressions_StringExpr__" data-uid="Invex.StructuredText.Expressions.Tex.HashFiles(System.Collections.Generic.IEnumerable{Invex.StructuredText.Expressions.StringExpr})">
+  HashFiles(params IEnumerable&lt;StringExpr&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hashes the files matching the glob <code class="paramref">patterns</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr HashFiles(params IEnumerable&lt;StringExpr&gt; patterns)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>patterns</code> <span class="xref">IEnumerable</span>&lt;<a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a>&gt;</dt>
+    <dd><p>One or more glob patterns.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Input_" data-uid="Invex.StructuredText.Expressions.Tex.Input*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Input_System_String_" data-uid="Invex.StructuredText.Expressions.Tex.Input(System.String)">
+  Input(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An input (parameter) supplied when the run was started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr Input(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The input name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_JobOutput_" data-uid="Invex.StructuredText.Expressions.Tex.JobOutput*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_JobOutput_System_String_System_String_System_String_" data-uid="Invex.StructuredText.Expressions.Tex.JobOutput(System.String,System.String,System.String)">
+  JobOutput(string, string, string?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An output of another job that the current job depends on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr JobOutput(string job, string output, string? step = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>job</code> <span class="xref">string</span></dt>
+    <dd><p>The producing job's id.</p>
+</dd>
+    <dt><code>output</code> <span class="xref">string</span></dt>
+    <dd><p>The output name.</p>
+</dd>
+    <dt><code>step</code> <span class="xref">string</span></dt>
+    <dd><p>The id of the step that set the output, for platforms that need it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_JobResult_" data-uid="Invex.StructuredText.Expressions.Tex.JobResult*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_JobResult_System_String_" data-uid="Invex.StructuredText.Expressions.Tex.JobResult(System.String)">
+  JobResult(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The result of another job that the current job depends on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr JobResult(string job)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>job</code> <span class="xref">string</span></dt>
+    <dd><p>The job id.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Join_" data-uid="Invex.StructuredText.Expressions.Tex.Join*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Join_System_String_System_Collections_Generic_IEnumerable_Invex_StructuredText_Expressions_Template__" data-uid="Invex.StructuredText.Expressions.Tex.Join(System.String,System.Collections.Generic.IEnumerable{Invex.StructuredText.Expressions.Template})">
+  Join(string, IEnumerable&lt;Template&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Joins templates with <code class="paramref">separator</code> between each.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Template Join(string separator, IEnumerable&lt;Template&gt; templates)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>separator</code> <span class="xref">string</span></dt>
+    <dd><p>The literal separator.</p>
+</dd>
+    <dt><code>templates</code> <span class="xref">IEnumerable</span>&lt;<a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a>&gt;</dt>
+    <dd><p>The templates to join.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd><p>The joined template.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Matrix_" data-uid="Invex.StructuredText.Expressions.Tex.Matrix*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Matrix_System_String_" data-uid="Invex.StructuredText.Expressions.Tex.Matrix(System.String)">
+  Matrix(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current value of a matrix dimension.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr Matrix(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The dimension name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Raw_" data-uid="Invex.StructuredText.Expressions.Tex.Raw*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Raw_System_String_" data-uid="Invex.StructuredText.Expressions.Tex.Raw(System.String)">
+  Raw(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Verbatim expression text, written exactly as given. It works as a condition and converts implicitly to
+string, number and JSON expressions. Prefer typed members where they exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RawExpr Raw(string text)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <span class="xref">string</span></dt>
+    <dd><p>The expression text.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.RawExpr.html">RawExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Result_" data-uid="Invex.StructuredText.Expressions.Tex.Result*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Result_Invex_StructuredText_Expressions_RunResult_" data-uid="Invex.StructuredText.Expressions.Tex.Result(Invex.StructuredText.Expressions.RunResult)">
+  Result(RunResult)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A result value to compare with <a class="xref" href="Invex.StructuredText.Expressions.Tex.html#Invex_StructuredText_Expressions_Tex_JobResult_System_String_">JobResult(string)</a>, spelled the platform's way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr Result(RunResult result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="Invex.StructuredText.Expressions.RunResult.html">RunResult</a></dt>
+    <dd><p>The result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Secret_" data-uid="Invex.StructuredText.Expressions.Tex.Secret*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Secret_System_String_" data-uid="Invex.StructuredText.Expressions.Tex.Secret(System.String)">
+  Secret(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A secret.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr Secret(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The secret name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_StepOutput_" data-uid="Invex.StructuredText.Expressions.Tex.StepOutput*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_StepOutput_System_String_System_String_" data-uid="Invex.StructuredText.Expressions.Tex.StepOutput(System.String,System.String)">
+  StepOutput(string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An output of an earlier step in the current job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr StepOutput(string step, string output)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>step</code> <span class="xref">string</span></dt>
+    <dd><p>The step id.</p>
+</dd>
+    <dt><code>output</code> <span class="xref">string</span></dt>
+    <dd><p>The output name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Success_" data-uid="Invex.StructuredText.Expressions.Tex.Success*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Success" data-uid="Invex.StructuredText.Expressions.Tex.Success">
+  Success()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when all previous work succeeded. Usually the platform default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoolExpr Success()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Tex_Variable_" data-uid="Invex.StructuredText.Expressions.Tex.Variable*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Tex_Variable_System_String_" data-uid="Invex.StructuredText.Expressions.Tex.Variable(System.String)">
+  Variable(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A configuration variable defined outside the workflow.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringExpr Variable(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The variable name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText · MIT License · Invex Games
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

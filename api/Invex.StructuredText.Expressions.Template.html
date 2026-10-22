@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Template | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Template | Invex.StructuredText ">
+      
+      <meta name="description" content="A text value made of literal text and embedded expressions, such as a YAML scalar.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.Expressions.Template">
+
+
+
+  <h1 id="Invex_StructuredText_Expressions_Template" data-uid="Invex.StructuredText.Expressions.Template" class="text-break">
+Class Template  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Invex</span>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.Expressions.html">Expressions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A text value made of literal text and embedded expressions, such as a YAML scalar.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Template</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Template</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="Invex_StructuredText_Expressions_Template_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+    Build one from a plain <span class="xref">string</span> (literal text), from any <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a> (an embedded
+    expression), or from an interpolated string whose holes are expressions:
+    <code>$"{workflow}-{branch}"</code>. A printer wraps each embedded expression in the platform's
+    expression delimiters, so no manual evaluate or concatenate step is needed.
+</p>
+<p>Templates are immutable once built.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_Template__ctor_" data-uid="Invex.StructuredText.Expressions.Template.#ctor*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template__ctor_System_Int32_System_Int32_" data-uid="Invex.StructuredText.Expressions.Template.#ctor(System.Int32,System.Int32)">
+  Template(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used by the compiler when an interpolated string is converted to a <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Template(int literalLength, int formattedCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>literalLength</code> <span class="xref">int</span></dt>
+    <dd><p>The total length of the literal parts.</p>
+</dd>
+    <dt><code>formattedCount</code> <span class="xref">int</span></dt>
+    <dd><p>The number of holes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_Template_Expressions_" data-uid="Invex.StructuredText.Expressions.Template.Expressions*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_Expressions" data-uid="Invex.StructuredText.Expressions.Template.Expressions">
+  Expressions
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expressions embedded in this template, in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Expr&gt; Expressions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_IsSingleExpression_" data-uid="Invex.StructuredText.Expressions.Template.IsSingleExpression*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_IsSingleExpression" data-uid="Invex.StructuredText.Expressions.Template.IsSingleExpression">
+  IsSingleExpression
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this template is a single embedded expression with no literal text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSingleExpression { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_Parts_" data-uid="Invex.StructuredText.Expressions.Template.Parts*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_Parts" data-uid="Invex.StructuredText.Expressions.Template.Parts">
+  Parts
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The parts of this template, in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;TemplatePart&gt; Parts { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="Invex.StructuredText.Expressions.TemplatePart.html">TemplatePart</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_Template_AppendFormatted_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_AppendFormatted_Invex_StructuredText_Expressions_Expr_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted(Invex.StructuredText.Expressions.Expr)">
+  AppendFormatted(Expr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends an embedded expression. Called by the compiler for interpolated strings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AppendFormatted(Expr expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a></dt>
+    <dd><p>The expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_AppendFormatted_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_AppendFormatted_Invex_StructuredText_Expressions_Template_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted(Invex.StructuredText.Expressions.Template)">
+  AppendFormatted(Template)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends another template's parts. Called by the compiler for interpolated strings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AppendFormatted(Template template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>template</code> <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd><p>The template to splice in.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_AppendFormatted_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_AppendFormatted_System_Boolean_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted(System.Boolean)">
+  AppendFormatted(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends a boolean hole as the literal text <code>true</code> or <code>false</code>. Called by the compiler for
+interpolated strings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AppendFormatted(bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">bool</span></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_AppendFormatted_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_AppendFormatted_System_String_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted(System.String)">
+  AppendFormatted(string?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends a string hole as literal text. Called by the compiler for interpolated strings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AppendFormatted(string? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">string</span></dt>
+    <dd><p>The text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_AppendFormatted_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_AppendFormatted__1___0_" data-uid="Invex.StructuredText.Expressions.Template.AppendFormatted``1(``0)">
+  AppendFormatted&lt;T&gt;(T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends a value hole as literal text formatted with the invariant culture.
+Called by the compiler for interpolated strings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AppendFormatted&lt;T&gt;(T value) where T : IFormattable</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The value type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_AppendLiteral_" data-uid="Invex.StructuredText.Expressions.Template.AppendLiteral*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_AppendLiteral_System_String_" data-uid="Invex.StructuredText.Expressions.Template.AppendLiteral(System.String)">
+  AppendLiteral(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends literal text. Called by the compiler for interpolated strings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AppendLiteral(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">string</span></dt>
+    <dd><p>The literal text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_Equals_" data-uid="Invex.StructuredText.Expressions.Template.Equals*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_Equals_Invex_StructuredText_Expressions_Template_" data-uid="Invex.StructuredText.Expressions.Template.Equals(Invex.StructuredText.Expressions.Template)">
+  Equals(Template?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Template? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_Equals_" data-uid="Invex.StructuredText.Expressions.Template.Equals*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_Equals_System_Object_" data-uid="Invex.StructuredText.Expressions.Template.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_GetHashCode_" data-uid="Invex.StructuredText.Expressions.Template.GetHashCode*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_GetHashCode" data-uid="Invex.StructuredText.Expressions.Template.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_ToString_" data-uid="Invex.StructuredText.Expressions.Template.ToString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_ToString" data-uid="Invex.StructuredText.Expressions.Template.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders this template using a neutral expression syntax, for debugging and test output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_Template_op_Implicit_" data-uid="Invex.StructuredText.Expressions.Template.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_op_Implicit_Invex_StructuredText_Expressions_Expr__Invex_StructuredText_Expressions_Template" data-uid="Invex.StructuredText.Expressions.Template.op_Implicit(Invex.StructuredText.Expressions.Expr)~Invex.StructuredText.Expressions.Template">
+  implicit operator Template(Expr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a template containing a single embedded expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Template(Expr expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a></dt>
+    <dd><p>The expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_op_Implicit_" data-uid="Invex.StructuredText.Expressions.Template.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_op_Implicit_System_Boolean__Invex_StructuredText_Expressions_Template" data-uid="Invex.StructuredText.Expressions.Template.op_Implicit(System.Boolean)~Invex.StructuredText.Expressions.Template">
+  implicit operator Template(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a template containing the literal text <code>true</code> or <code>false</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Template(bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">bool</span></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_op_Implicit_" data-uid="Invex.StructuredText.Expressions.Template.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_op_Implicit_System_Double__Invex_StructuredText_Expressions_Template" data-uid="Invex.StructuredText.Expressions.Template.op_Implicit(System.Double)~Invex.StructuredText.Expressions.Template">
+  implicit operator Template(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a template containing a number as literal text, formatted with the invariant culture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Template(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">double</span></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_Template_op_Implicit_" data-uid="Invex.StructuredText.Expressions.Template.op_Implicit*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_Template_op_Implicit_System_String__Invex_StructuredText_Expressions_Template" data-uid="Invex.StructuredText.Expressions.Template.op_Implicit(System.String)~Invex.StructuredText.Expressions.Template">
+  implicit operator Template(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a template containing only literal text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Template(string text)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <span class="xref">string</span></dt>
+    <dd><p>The text.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText · MIT License · Invex Games
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Azure DevOps Pipelines | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Azure DevOps Pipelines | Invex.StructuredText ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/blob/main/docs/azure-devops-pipelines.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="azure-devops-pipelines">Azure DevOps Pipelines</h1>
+
+<p>The <code>Invex.StructuredText.AzureDevopsPipelines</code> package generates Azure Pipelines YAML from a strongly-typed model
+rooted at <code>DevopsPipeline</code> (namespace <code>Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.*</code>). Read this
+page when you generate Azure Pipelines: pipeline shapes, triggers, steps, pools, variables, deployment jobs, and
+Azure DevOps expression syntax.</p>
+<pre><code class="lang-csharp">var writer = new DevopsPipelineWriter();
+writer.Write(pipeline);
+var yaml = writer.TextWriter.ToString();
+</code></pre>
+<h2 id="the-four-pipeline-shapes">The four pipeline shapes</h2>
+<p>Azure Pipelines YAML allows four top-level shapes, and <code>DevopsPipeline</code> is a union over exactly those four:</p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>YAML shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DevopsPipelineWithSteps</code></td>
+<td><code>steps:</code> at the root (implicit single job)</td>
+</tr>
+<tr>
+<td><code>DevopsPipelineWithJobs</code></td>
+<td><code>jobs:</code> at the root (implicit single stage)</td>
+</tr>
+<tr>
+<td><code>DevopsPipelineWithStages</code></td>
+<td><code>stages:</code> — the full multi-stage syntax</td>
+</tr>
+<tr>
+<td><code>DevopsPipelineWithExtends</code></td>
+<td><code>extends:</code> — extend a pipeline template</td>
+</tr>
+</tbody>
+</table>
+<p>All four share the common pipeline-level properties: <code>Name</code> (run number format), <code>Trigger</code>, <code>Pr</code>, <code>Schedules</code>,
+<code>Parameters</code>, <code>Pool</code>, <code>Variables</code>, resources, <code>LockBehavior</code>, and <code>AppendCommitMessageToRunName</code>.</p>
+<h3 id="steps-pipeline">Steps pipeline</h3>
+<pre><code class="lang-csharp">var pipeline = new DevopsPipeline.DevopsPipelineWithSteps
+{
+    Pool = new Pool.PoolSpec { VmImage = &quot;ubuntu-latest&quot; },
+    Trigger = new Trigger.BranchList { Branches = [&quot;main&quot;] },
+    Steps =
+    [
+        new Step.Script { ScriptContent = &quot;echo hello&quot; },
+    ],
+};
+</code></pre>
+<pre><code class="lang-yaml">trigger:
+  branches:
+    include: [ main ]
+pool:
+  vmImage: ubuntu-latest
+steps:
+
+  - script: echo hello
+</code></pre>
+<h3 id="jobs-pipeline">Jobs pipeline</h3>
+<pre><code class="lang-csharp">var pipeline = new DevopsPipeline.DevopsPipelineWithJobs
+{
+    Jobs =
+    [
+        new Job.RegularJob
+        {
+            JobId = &quot;build&quot;,
+            DisplayName = &quot;Build&quot;,
+            Pool = new Pool.PoolSpec { VmImage = &quot;ubuntu-latest&quot; },
+            Steps =
+            [
+                new Step.Script { ScriptContent = &quot;dotnet build&quot; },
+            ],
+        },
+        new Job.RegularJob
+        {
+            JobId = &quot;test&quot;,
+            DependsOn = [&quot;build&quot;],
+            Condition = Tex.Success(),
+            Steps =
+            [
+                new Step.Script { ScriptContent = &quot;dotnet test&quot; },
+            ],
+        },
+    ],
+};
+</code></pre>
+<h3 id="stages-pipeline">Stages pipeline</h3>
+<pre><code class="lang-csharp">var pipeline = new DevopsPipeline.DevopsPipelineWithStages
+{
+    Stages =
+    [
+        new Stage.StageDefinition
+        {
+            StageId = &quot;Build&quot;,
+            Jobs = [ /* Job.RegularJob ... */ ],
+        },
+        new Stage.StageDefinition
+        {
+            StageId = &quot;Deploy&quot;,
+            DependsOn = [&quot;Build&quot;],
+            Condition = Tex.Success(),
+            Jobs = [ /* deployment jobs ... */ ],
+        },
+    ],
+};
+</code></pre>
+<h3 id="extends-pipeline">Extends pipeline</h3>
+<pre><code class="lang-csharp">var pipeline = new DevopsPipeline.DevopsPipelineWithExtends
+{
+    Extends = new Extends
+    {
+        Template = &quot;pipeline-template.yml@templates&quot;,
+        Parameters = new Dictionary&lt;string, Template&gt;
+        {
+            [&quot;configuration&quot;] = &quot;Release&quot;,
+        },
+    },
+};
+</code></pre>
+<h2 id="triggers">Triggers</h2>
+<pre><code class="lang-csharp">// CI trigger: branch list
+Trigger = new Trigger.BranchList { Branches = [&quot;main&quot;, &quot;release/*&quot;] },
+
+// CI trigger: full control
+Trigger = new Trigger.Full
+{
+    Batch = true,
+    Branches = new IncludeExcludeFilters
+    {
+        Include = [&quot;main&quot;],
+        Exclude = [&quot;experimental/*&quot;],
+    },
+    Paths = new IncludeExcludeFilters { Include = [&quot;src/*&quot;] },
+},
+
+// Disable CI triggers entirely
+Trigger = new Trigger.None(),
+</code></pre>
+<p><code>Pr</code> (pull-request triggers) and <code>Schedules</code> (cron triggers) follow the same pattern with their own union/record
+types.</p>
+<h2 id="steps">Steps</h2>
+<p><code>Step</code> is a union over the twelve Azure Pipelines step kinds:</p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>YAML key</th>
+<th>Required property</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Task</code></td>
+<td><code>task:</code></td>
+<td><code>TaskName</code> (+ <code>Inputs</code>)</td>
+</tr>
+<tr>
+<td><code>Script</code></td>
+<td><code>script:</code></td>
+<td><code>ScriptContent</code></td>
+</tr>
+<tr>
+<td><code>Bash</code></td>
+<td><code>bash:</code></td>
+<td><code>ScriptContent</code></td>
+</tr>
+<tr>
+<td><code>PowerShell</code></td>
+<td><code>powershell:</code></td>
+<td><code>ScriptContent</code></td>
+</tr>
+<tr>
+<td><code>Pwsh</code></td>
+<td><code>pwsh:</code></td>
+<td><code>ScriptContent</code></td>
+</tr>
+<tr>
+<td><code>Checkout</code></td>
+<td><code>checkout:</code></td>
+<td><code>Repository</code></td>
+</tr>
+<tr>
+<td><code>Download</code></td>
+<td><code>download:</code></td>
+<td><code>Pipeline</code></td>
+</tr>
+<tr>
+<td><code>DownloadBuild</code></td>
+<td><code>downloadBuild:</code></td>
+<td><code>Build</code></td>
+</tr>
+<tr>
+<td><code>GetPackage</code></td>
+<td><code>getPackage:</code></td>
+<td><code>Package</code></td>
+</tr>
+<tr>
+<td><code>Publish</code></td>
+<td><code>publish:</code></td>
+<td><code>PublishPath</code></td>
+</tr>
+<tr>
+<td><code>Template</code></td>
+<td><code>template:</code></td>
+<td><code>TemplatePath</code></td>
+</tr>
+<tr>
+<td><code>ReviewApp</code></td>
+<td><code>reviewApp:</code></td>
+<td><code>ReviewAppType</code></td>
+</tr>
+</tbody>
+</table>
+<p>All script/task-like steps share the common properties <code>DisplayName</code>, <code>Name</code>, <code>Condition</code>, <code>ContinueOnError</code>,
+<code>Enabled</code>, <code>Env</code>, <code>Target</code>, <code>TimeoutInMinutes</code>, and <code>RetryCountOnTaskFailure</code>.</p>
+<pre><code class="lang-csharp">Steps =
+[
+    new Step.Checkout
+    {
+        Repository = &quot;self&quot;,
+        FetchDepth = 0,
+        Lfs = true,
+    },
+    new Step.Task
+    {
+        TaskName = &quot;UseDotNet@2&quot;,
+        DisplayName = &quot;Install .NET SDK&quot;,
+        Inputs = new Dictionary&lt;string, Template&gt;
+        {
+            [&quot;packageType&quot;] = &quot;sdk&quot;,
+            [&quot;version&quot;] = &quot;10.0.x&quot;,
+        },
+    },
+    new Step.Script
+    {
+        ScriptContent = &quot;dotnet build -c Release&quot;,
+        DisplayName = &quot;Build&quot;,
+        Env = new Dictionary&lt;string, Template&gt;
+        {
+            [&quot;DOTNET_NOLOGO&quot;] = &quot;true&quot;,
+        },
+    },
+    new Step.Publish
+    {
+        PublishPath = Tex.DevOps.Build.ArtifactStagingDirectory,
+        Artifact = &quot;drop&quot;,
+        Condition = Tex.Always(),
+    },
+],
+</code></pre>
+<h2 id="pools">Pools</h2>
+<pre><code class="lang-csharp">// Microsoft-hosted image
+Pool = new Pool.PoolSpec { VmImage = &quot;ubuntu-latest&quot; },
+
+// Named (self-hosted) pool
+Pool = new Pool.PoolName { Name = &quot;Default&quot; },
+</code></pre>
+<h2 id="variables">Variables</h2>
+<p><code>Variables</code> is a union supporting both YAML syntaxes:</p>
+<pre><code class="lang-csharp">// Mapping syntax: name/value pairs
+Variables = new Variables.Dictionary
+{
+    Values = new Dictionary&lt;string, Template&gt;
+    {
+        [&quot;buildConfiguration&quot;] = &quot;Release&quot;,
+    },
+},
+
+// List syntax: named variables, groups, and templates
+Variables = new Variables.VariableList
+{
+    Values =
+    [
+        new Variable.Name
+        {
+            VariableName = &quot;buildConfiguration&quot;,
+            Value = &quot;Release&quot;,
+            ReadOnly = true,
+        },
+        new Variable.Group { GroupName = &quot;shared-secrets&quot; },
+        new Variable.Template { TemplatePath = &quot;variables/common.yml&quot; },
+    ],
+},
+</code></pre>
+<p>Reference variables in steps with <code>Tex.Variable</code>, which is written in macro syntax:</p>
+<pre><code class="lang-csharp">new Step.Script
+{
+    ScriptContent = $&quot;dotnet build -c {Tex.Variable(&quot;buildConfiguration&quot;)}&quot;,   // dotnet build -c $(buildConfiguration)
+}
+</code></pre>
+<h2 id="deployment-jobs-and-strategies">Deployment jobs and strategies</h2>
+<p>Deployment jobs (<code>Job.Deployment</code>) target an environment and require a <code>DeploymentStrategy</code> — a union over <code>RunOnce</code>,
+<code>Rolling</code>, and <code>Canary</code>, each with lifecycle hooks (<code>PreDeploy</code>, <code>Deploy</code>, <code>RouteTraffic</code>, <code>PostRouteTraffic</code>,
+<code>OnSuccess</code>, <code>OnFailure</code>):</p>
+<pre><code class="lang-csharp">new Job.Deployment
+{
+    DeploymentId = &quot;deploy_prod&quot;,
+    DisplayName = &quot;Deploy to production&quot;,
+    Environment = new DeploymentEnvironment.EnvironmentName
+    {
+        Name = &quot;production&quot;,
+    },
+    Strategy = new DeploymentStrategy.RunOnce
+    {
+        Deploy = new DeploymentHook
+        {
+            Steps =
+            [
+                new Step.Script { ScriptContent = &quot;./deploy.sh&quot; },
+            ],
+        },
+        OnFailure = new DeploymentHook
+        {
+            Steps =
+            [
+                new Step.Script { ScriptContent = &quot;./rollback.sh&quot; },
+            ],
+        },
+    },
+}
+</code></pre>
+<p>Rolling deployments add <code>MaxParallel</code>; canary deployments require <code>Increments</code> (e.g. <code>[10, 20, 70]</code>).</p>
+<h2 id="resources">Resources</h2>
+<p><code>PipelineResources</code> / <code>Resources</code> lets you declare <code>repositories</code>, <code>pipelines</code>, <code>builds</code>, <code>containers</code>, <code>packages</code>, and
+<code>webhooks</code> used by the pipeline — each modeled with its own strongly-typed record under
+<code>DevopsPipelineModel.Resources</code>.</p>
+<h2 id="templates-and-parameters">Templates and parameters</h2>
+<ul>
+<li>Job, stage, step, and variable lists each have a <code>Template</code> variant for referencing template files with
+<code>Parameters</code>.</li>
+<li>Pipeline-level <code>Parameters</code> define runtime parameters for the pipeline (or template parameters when authoring
+templates).</li>
+</ul>
+<h2 id="expressions-in-azure-devops">Expressions in Azure DevOps</h2>
+<p>Azure DevOps uses the same expression API as GitHub Actions (see <a href="expressions.html">Expressions</a>), printed with
+<code>DevopsExpressionPrinter</code>. Conditions use the function-style syntax:</p>
+<table>
+<thead>
+<tr>
+<th>C#</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a &amp;&amp; b</code></td>
+<td><code>and(a, b)</code></td>
+</tr>
+<tr>
+<td><code>a \|\| b</code></td>
+<td><code>or(a, b)</code></td>
+</tr>
+<tr>
+<td><code>!a</code></td>
+<td><code>not(a)</code></td>
+</tr>
+<tr>
+<td><code>a.Eq(&quot;x&quot;)</code>, <code>a.Ne(&quot;x&quot;)</code></td>
+<td><code>eq(a, 'x')</code>, <code>ne(a, 'x')</code></td>
+</tr>
+<tr>
+<td><code>n.Lt(1)</code>, <code>n.Le(1)</code>, <code>n.Gt(1)</code>, <code>n.Ge(1)</code></td>
+<td><code>lt(n, 1)</code>, <code>le(n, 1)</code>, <code>gt(n, 1)</code>, <code>ge(n, 1)</code></td>
+</tr>
+<tr>
+<td><code>a.Contains(&quot;x&quot;)</code></td>
+<td><code>contains(a, 'x')</code></td>
+</tr>
+<tr>
+<td><code>Tex.Success()</code>, <code>Tex.Failure()</code>, <code>Tex.Cancelled()</code>, <code>Tex.Always()</code></td>
+<td><code>succeeded()</code>, <code>failed()</code>, <code>canceled()</code>, <code>always()</code></td>
+</tr>
+<tr>
+<td><code>Tex.JobResult(&quot;build&quot;).Eq(Tex.Result(RunResult.Success))</code></td>
+<td><code>eq(dependencies.build.result, 'Succeeded')</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-csharp">Condition = Tex.DevOps.Build.SourceBranch.Eq(&quot;refs/heads/main&quot;) &amp;&amp; !Tex.DevOps.Build.Reason.Eq(&quot;PullRequest&quot;),
+// condition: and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), not(eq(variables['Build.Reason'], 'PullRequest')))
+</code></pre>
+<p>Inside a template, each kind of value is embedded with the syntax Azure DevOps expects for it:</p>
+<table>
+<thead>
+<tr>
+<th>C#</th>
+<th>Embedded as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Tex.Variable(&quot;x&quot;)</code>, <code>Tex.Secret(&quot;x&quot;)</code>, <code>Tex.Matrix(&quot;x&quot;)</code></td>
+<td><code>$(x)</code> (macro)</td>
+</tr>
+<tr>
+<td><code>Tex.StepOutput(&quot;step&quot;, &quot;out&quot;)</code></td>
+<td><code>$(step.out)</code> (macro)</td>
+</tr>
+<tr>
+<td><code>Tex.Input(&quot;x&quot;)</code></td>
+<td><code>${{ parameters.x }}</code> (template expression)</td>
+</tr>
+<tr>
+<td><code>Tex.JobOutput(&quot;job&quot;, &quot;out&quot;, &quot;step&quot;)</code></td>
+<td><code>$[ dependencies.job.outputs['step.out'] ]</code> (runtime expression)</td>
+</tr>
+<tr>
+<td><code>Tex.DevOps.Runtime(expression)</code></td>
+<td><code>$[ expression ]</code> (runtime expression)</td>
+</tr>
+<tr>
+<td>Any expression that reads a job output or job result</td>
+<td><code>$[ expression ]</code> (runtime expression)</td>
+</tr>
+<tr>
+<td>Any other expression</td>
+<td><code>${{ expression }}</code> (template expression)</td>
+</tr>
+</tbody>
+</table>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The printer throws <code>NotSupportedException</code> for combinations Azure DevOps can't evaluate, rather than writing YAML
+that silently misbehaves:</p>
+<ul>
+<li>A runtime expression combined with text, such as <code>$&quot;v{Tex.JobOutput(&quot;Setup&quot;, &quot;version&quot;, &quot;Info&quot;)}&quot;</code>. Azure DevOps
+only evaluates <code>$[ … ]</code> when it is the whole value.</li>
+<li>An input (<code>Tex.Input</code>) in a condition or a runtime expression. Parameters only exist at compile time.</li>
+<li>A secret, matrix value or step output inside a compound expression such as <code>Tex.Format(...)</code>, which would be a
+compile-time <code>${{ … }}</code>. Interpolate them directly as macros, or wrap the expression in <code>Tex.DevOps.Runtime</code>.</li>
+</ul>
+<p>In each case, bind the value to a variable and use <code>Tex.Variable(&quot;name&quot;)</code>.</p>
+</div>
+<p><code>Tex.DevOps</code> lists the common predefined variables, such as <code>Tex.DevOps.Build.SourceBranch</code>,
+<code>Tex.DevOps.Build.BuildId</code>, <code>Tex.DevOps.System.AccessToken</code>, <code>Tex.DevOps.Agent.Os</code> and
+<code>Tex.DevOps.PipelineWorkspace</code>. Use <code>Tex.Variable(&quot;Name&quot;)</code> for any other variable.</p>
+<pre><code class="lang-csharp">Variables = new Variables.Dictionary
+{
+    Values = new Dictionary&lt;string, Template&gt;
+    {
+        // isMain: $[ eq(variables['Build.SourceBranch'], 'refs/heads/main') ]
+        [&quot;isMain&quot;] = Tex.DevOps.Runtime(Tex.DevOps.Build.SourceBranch.Eq(&quot;refs/heads/main&quot;)),
+    },
+},
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Azure DevOps has no <code>fromJSON</code>, so <code>Tex.FromJson</code> throws <code>NotSupportedException</code> here. <code>ToJson()</code> prints
+<code>convertToJson(...)</code>, <code>Join</code> puts the separator first (<code>join(',', items)</code>), and array membership (<code>value.In(items)</code>,
+<code>items.Contains(value)</code>) prints <code>containsValue(items, value)</code>.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="getting-started.html">Getting Started</a>: your first pipeline</li>
+<li><a href="expressions.html">Expressions</a>: the expression API shared with GitHub Actions</li>
+<li>The model closely follows the
+<a href="https://learn.microsoft.com/azure/devops/pipelines/yaml-schema/">Azure Pipelines YAML schema</a> — property names and
+XML docs mirror the official documentation.</li>
+<li><a class="xref" href="../api/Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html">DevopsPipeline</a>,
+<a class="xref" href="../api/Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter.html">DevopsPipelineWriter</a>,
+<a class="xref" href="../api/Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.html">DevopsExpressionPrinter</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/main/docs/azure-devops-pipelines.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText · MIT License · Invex Games
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
