@@ -210,6 +210,15 @@ public sealed class GithubActionWriter
 
     private void WriteOn(IReadOnlyList<On> workflowOn)
     {
+        // Each event is a key under 'on:', so a second trigger of the same type would emit a duplicate key
+        // (invalid YAML). The filters of two triggers can't be merged without changing what they match.
+        if (workflowOn
+                .GroupBy(x => x.GetType())
+                .FirstOrDefault(x => x.Count() > 1) is { } duplicate)
+            throw new ArgumentException(
+                $"Workflow has more than one '{duplicate.Key.Name}' trigger; GitHub Actions allows each event only once under 'on:'. Combine them into a single trigger.",
+                nameof(workflowOn));
+
         using var _ = TextWriter.WriteSection("on:");
 
         var orderedOn = workflowOn.OrderBy(x => x.GetType()
@@ -407,6 +416,12 @@ public sealed class GithubActionWriter
 
                         if (push.TagsIgnore is { Count: > 0 } tagsIgnore)
                             WriteProperty("tags-ignore", tagsIgnore);
+
+                        if (push.Paths is { Count: > 0 } paths)
+                            WriteProperty("paths", paths);
+
+                        if (push.PathsIgnore is { Count: > 0 } pathsIgnore)
+                            WriteProperty("paths-ignore", pathsIgnore);
                     }
 
                     break;
@@ -826,7 +841,7 @@ public sealed class GithubActionWriter
         var valuesTotalLength = valueList.Sum(x => x.Length);
 
         if (valuesTotalLength < 80)
-            TextWriter.WriteLine($"{key}: [ {string.Join(", ", valueList.Select(Format))} ]");
+            TextWriter.WriteLine($"{key}: [ {string.Join(", ", valueList.Select(FormatFlowItem))} ]");
         else
             using (TextWriter.WriteSection($"{key}:"))
                 foreach (var value in valueList)
@@ -861,6 +876,13 @@ public sealed class GithubActionWriter
 
         return lines[..count];
     }
+
+    // Inside a flow sequence ('[ a, b ]') a plain scalar can't contain flow indicators: 'src/[ab]/**' is invalid YAML
+    // and 'a,b' would be read as two items, so such values are always quoted there.
+    private static string FormatFlowItem(string value) =>
+        value.IndexOfAny([',', '[', ']', '{', '}']) >= 0
+            ? $"'{value.Replace("'", "''")}'"
+            : Format(value);
 
     private static string Format(string value) =>
 
