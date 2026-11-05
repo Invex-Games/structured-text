@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Architecture | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Architecture | Invex.StructuredText ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/blob/main/docs/architecture.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="architecture">Architecture</h1>
+
+<p>This page explains how the three packages fit together and the design decisions behind them. Useful if you want to
+extend the library, contribute, or build your own generator on top of the core.</p>
+<h2 id="package-layering">Package layering</h2>
+<pre><code class="lang-text">┌─────────────────────────────────┐  ┌──────────────────────────────────────┐
+│ Invex.StructuredText            │  │ Invex.StructuredText                 │
+│ .GithubActions                  │  │ .AzureDevopsPipelines                │
+│                                 │  │                                      │
+│ • GithubActionWriter            │  │ • DevopsPipelineWriter               │
+│ • DependabotConfigWriter        │  │ • DevopsExpressionPrinter            │
+│ • GithubExpressionPrinter       │  │ • Tex.DevOps (DevopsContexts)        │
+│ • Tex.GitHub (GitHubContexts)   │  │ • DevopsRuntimeExpr                  │
+│ • GithubActionModel/*           │  │ • DevopsPipelineModel/*              │
+│ • DependabotConfigModel/*       │  │                                      │
+└───────────────┬─────────────────┘  └──────────────────┬───────────────────┘
+                │                                       │
+                └───────────────────┬───────────────────┘
+                                    ▼
+                  ┌─────────────────────────────────────┐
+                  │ Invex.StructuredText (core)         │
+                  │                                     │
+                  │ • StructuredTextWriter              │
+                  │ • Tex (the expression entry point)  │
+                  │ • Expr, BoolExpr, StringExpr, …     │
+                  │ • Template                          │
+                  │ • ExpressionPrinter (base)          │
+                  └─────────────────────────────────────┘
+</code></pre>
+<h2 id="core-invexstructuredtext">Core (<code>Invex.StructuredText</code>)</h2>
+<h3 id="structuredtextwriter"><code>StructuredTextWriter</code></h3>
+<p>A minimal, indentation-aware text writer. <code>WriteSection</code> returns an <code>IDisposable</code> scope that decrements the indent on
+dispose, so the structure of the generating C# code mirrors the structure of the generated YAML. A version counter
+makes stale scopes harmless after <code>Reset()</code>. See <a href="structured-text-writer.html">StructuredTextWriter</a>.</p>
+<h3 id="the-expression-tree">The expression tree</h3>
+<p><code>Expr</code> is an abstract record with four typed roots: <code>BoolExpr</code>, <code>StringExpr</code>, <code>NumberExpr</code> and <code>JsonExpr</code>. The result
+type decides which operations the compiler offers, so <code>If = Tex.GitHub.Ref</code> (a string) does not compile. The concrete
+nodes are grouped by concern:</p>
+<ul>
+<li><strong>Literals</strong>: <code>StringLiteral</code>, <code>NumberLiteral</code>, <code>BoolLiteral</code>, <code>NullLiteral</code>, created implicitly from C# literals</li>
+<li><strong>Context paths</strong>: <code>StringContext</code>, <code>BoolContext</code>, <code>NumberContext</code>, <code>JsonContext</code>, used by the generated catalogues
+such as <code>Tex.GitHub</code></li>
+<li><strong>Access and casts</strong>: <code>MemberAccessExpr</code>, <code>IndexAccessExpr</code>, <code>StringCast</code>, <code>BoolCast</code>, <code>NumberCast</code></li>
+<li><strong>Logic</strong>: <code>ComparisonExpr</code>, <code>LogicalExpr</code> (flattened, so <code>a &amp;&amp; b &amp;&amp; c</code> is one node), <code>NotExpr</code></li>
+<li><strong>Functions</strong>: <code>BoolFunction</code>, <code>StringFunction</code>, <code>JsonFunction</code>, named with the constants in <code>FunctionNames</code></li>
+<li><strong>References</strong>: <code>SecretRef</code>, <code>VariableRef</code>, <code>InputRef</code>, <code>MatrixRef</code>, <code>StepOutputRef</code>, <code>JobOutputRef</code>,
+<code>JobResultRef</code> and <code>ResultLiteral</code>, which each platform spells its own way</li>
+<li><strong>Raw text</strong>: <code>RawExpr</code> and its typed siblings, for the <code>Tex.Raw</code> escape hatch</li>
+</ul>
+<p>Because they are records, expressions compare structurally, and <code>DescendantsAndSelf()</code> walks the tree. Atom uses that
+to find the jobs a condition depends on.</p>
+<p><code>Tex</code> is the single entry point that creates them. Platform packages and libraries add members to it with C# 14
+<code>extension(Tex)</code> blocks, which is how <code>Tex.GitHub</code>, <code>Tex.DevOps</code> and Atom's <code>Tex.ParamOutput</code> appear on the same type.</p>
+<h3 id="template"><code>Template</code></h3>
+<p><code>Template</code> is a sequence of literal text and embedded expressions. It is an interpolated string handler, so
+<code>$&quot;v{Tex.GitHub.RunNumber}&quot;</code> builds one directly, and it converts implicitly from <code>string</code>, <code>Expr</code>, <code>bool</code> and numbers.
+Every model property that can hold an expression, other than conditions, is a <code>Template</code>.</p>
+<h3 id="expressionprinter"><code>ExpressionPrinter</code></h3>
+<p>The abstract printer renders an <code>Expr</code> (<code>Print</code>) or a <code>Template</code> (<code>Render</code>). The base class handles operator
+precedence (adding parentheses only where needed), literal quoting and escaping, member and index access, casts and
+raw text. A platform printer supplies what differs:</p>
+<ol>
+<li><code>WrapEmbedded</code>: the delimiters around an expression inside a template, such as <code>${{ … }}</code>.</li>
+<li><code>PrintReference</code> and <code>PrintResult</code>: how references and job results are spelled.</li>
+<li>Optional overrides: <code>FunctionName</code>, <code>PrintComparison</code>, <code>PrintLogical</code>, <code>PrintNot</code>, <code>RenderEmbedded</code> and others.
+Azure DevOps overrides the logic members to print <code>and(…)</code>, <code>eq(…)</code>, and <code>RenderEmbedded</code> to choose between
+<code>$(…)</code>, <code>${{ … }}</code> and <code>$[ … ]</code>.</li>
+</ol>
+<p>A node a printer can't express throws <code>NotSupportedException</code> rather than producing invalid YAML.</p>
+<h2 id="platform-packages">Platform packages</h2>
+<p>Each platform package contains:</p>
+<ul>
+<li><strong>Model types</strong> — records that mirror the official YAML schema for the platform. Conditions are <code>BoolExpr</code>, and
+almost every other scalar property is a <code>Template</code>, so any value can contain expressions.</li>
+<li><strong>A writer</strong> — walks the model and emits YAML through a <code>StructuredTextWriter</code>, calling the platform expression
+printer for every expression-valued property.</li>
+<li><strong>An expression printer</strong> — <code>GithubExpressionPrinter</code> or <code>DevopsExpressionPrinter</code>, an <code>ExpressionPrinter</code> for the
+platform's syntax.</li>
+<li><strong>A context catalogue</strong> — <code>Tex.GitHub</code> or <code>Tex.DevOps</code>. The GitHub catalogue is generated at build time from
+<code>Contexts/github.contexts</code> by <code>Invex.StructuredText.Generators</code>.</li>
+</ul>
+<h3 id="github-actions-invexstructuredtextgithubactions">GitHub Actions (<code>Invex.StructuredText.GithubActions</code>)</h3>
+<ul>
+<li><strong><code>GithubActionWriter</code></strong> — serializes a <code>GithubAction</code> model to workflow YAML.</li>
+<li><strong><code>DependabotConfigWriter</code></strong> — serializes a <code>DependabotConfig</code> model to <code>dependabot.yml</code>.</li>
+<li><strong><code>GithubExpressionPrinter</code></strong> — prints expressions using GitHub's syntax, and <code>${{ }}</code> inside templates.</li>
+<li><strong>Model types</strong> — strongly-typed records for all GitHub Actions concepts (triggers, jobs, steps, matrix, permissions,
+etc.) in <code>GithubActionModel</code>, and for Dependabot in <code>DependabotConfigModel.Model</code>.</li>
+</ul>
+<h3 id="azure-devops-pipelines-invexstructuredtextazuredevopspipelines">Azure DevOps Pipelines (<code>Invex.StructuredText.AzureDevopsPipelines</code>)</h3>
+<ul>
+<li><strong><code>DevopsPipelineWriter</code></strong> — serializes a <code>DevopsPipeline</code> model to pipeline YAML.</li>
+<li><strong><code>DevopsExpressionPrinter</code></strong> — prints expressions using Azure DevOps syntax.</li>
+<li><strong><code>DevopsRuntimeExpr</code></strong> — created by <code>Tex.DevOps.Runtime(…)</code>, embeds an expression as a <code>$[ … ]</code> runtime
+expression.</li>
+<li><strong>Model types</strong> — strongly-typed records and unions for pipelines, stages, jobs, steps, resources, triggers,
+variables, deployment strategies, and more, under <code>DevopsPipelineModel.*</code>.</li>
+</ul>
+<h3 id="discriminated-unions">Discriminated unions</h3>
+<p>YAML schemas are full of &quot;one of&quot; shapes (a step is <code>run:</code> <em>or</em> <code>uses:</code>; a pool is a name <em>or</em> a spec). These are
+modeled as discriminated unions using the <a href="https://github.com/domn1995/dunet">Dunet</a> source generator: an abstract
+base record with nested variant records. You construct the variant you need (<code>new Step.RunStep { ... }</code>), and the
+writers pattern-match on the variant to emit the right YAML shape. This rules out invalid combinations at compile
+time.</p>
+<h3 id="schema-fidelity">Schema fidelity</h3>
+<p>The GitHub workflow JSON schema and Dependabot v2 JSON schema are checked into the source tree alongside the models,
+and the Azure DevOps models carry XML docs lifted from the official YAML schema reference. Property names map
+mechanically to YAML keys (PascalCase → kebab-case / camelCase as appropriate per platform).</p>
+<h2 id="public-api-discipline">Public API discipline</h2>
+<p>The libraries use:</p>
+<ul>
+<li><code>[PublicAPI]</code> annotations (JetBrains.Annotations) on all public surface</li>
+<li>Public API surface snapshot tests (<code>PublicApiSurfaceTests</code> with verified <code>.txt</code> baselines in each test project), so
+any accidental API change shows up as a test diff</li>
+<li>Targets .NET 10</li>
+</ul>
+<h2 id="extending-the-library">Extending the library</h2>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New target platform</td>
+<td>Reference the core, define model records, write an <code>ExpressionPrinter</code> subclass and a writer over <code>StructuredTextWriter</code></td>
+</tr>
+<tr>
+<td>New <code>Tex</code> member</td>
+<td>Add an <code>extension(Tex)</code> block in your package, returning existing node types where you can</td>
+</tr>
+<tr>
+<td>New context in the GitHub catalogue</td>
+<td>Add a line to <code>Contexts/github.contexts</code>; the generator adds the member and its XML docs</td>
+</tr>
+<tr>
+<td>Platform-specific expression syntax</td>
+<td>Follow the pattern of <code>DevopsRuntimeExpr</code>: define the record in the platform package and print it in that platform's printer (<code>PrintOther</code> or <code>RenderEmbedded</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="structured-text-writer.html">StructuredTextWriter</a>: the writer every generator is built on</li>
+<li><a href="expressions.html#printing-expressions-yourself">Expressions</a>: writing your own printer</li>
+<li><a href="faq.html">FAQ</a>: common questions about the model design</li>
+<li><a class="xref" href="../api/Invex.StructuredText.StructuredTextWriter.html">StructuredTextWriter</a>, <a class="xref" href="../api/Invex.StructuredText.Expressions.Tex.html">Tex</a>,
+<a class="xref" href="../api/Invex.StructuredText.Expressions.Expr.html">Expr</a>, <a class="xref" href="../api/Invex.StructuredText.Expressions.ExpressionPrinter.html">ExpressionPrinter</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/main/docs/architecture.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText · MIT License · Invex Games
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

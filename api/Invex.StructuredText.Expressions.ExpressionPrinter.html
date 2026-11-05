@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ExpressionPrinter | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExpressionPrinter | Invex.StructuredText ">
+      
+      <meta name="description" content="Renders typed expression trees () and s to platform syntax.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.Expressions.ExpressionPrinter">
+
+
+
+  <h1 id="Invex_StructuredText_Expressions_ExpressionPrinter" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter" class="text-break">
+Class ExpressionPrinter  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Invex</span>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.Expressions.html">Expressions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Renders typed expression trees (<a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a>) and <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a>s to platform syntax.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ExpressionPrinter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ExpressionPrinter</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.html">DevopsExpressionPrinter</a></div>
+      <div><a class="xref" href="Invex.StructuredText.GithubActions.GithubExpressionPrinter.html">GithubExpressionPrinter</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+  <h2 id="Invex_StructuredText_Expressions_ExpressionPrinter_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+    The base class handles operator precedence (adding parentheses only where needed), literal quoting and
+    escaping, casts, raw text and context paths. Platforms override the members that differ: how operators
+    and functions are spelled, how <a class="xref" href="Invex.StructuredText.Expressions.ReferenceExpr.html">ReferenceExpr</a> nodes and <a class="xref" href="Invex.StructuredText.Expressions.ResultLiteral.html">ResultLiteral</a>s are
+    written, and how an embedded expression is delimited inside a <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a>.
+</p>
+<p>Nodes the printer doesn't recognise cause a <span class="xref">System.NotSupportedException</span>.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter__ctor_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.#ctor*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter__ctor" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.#ctor">
+  ExpressionPrinter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ExpressionPrinter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_AndPrecedence" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.AndPrecedence">
+  AndPrecedence
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Precedence of AND.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const int AndPrecedence = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_AtomPrecedence" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.AtomPrecedence">
+  AtomPrecedence
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Precedence of atoms: literals, paths, calls and access.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const int AtomPrecedence = 5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_ComparisonPrecedence" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.ComparisonPrecedence">
+  ComparisonPrecedence
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Precedence of comparisons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const int ComparisonPrecedence = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_NotPrecedence" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.NotPrecedence">
+  NotPrecedence
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Precedence of unary NOT.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const int NotPrecedence = 4</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_OrPrecedence" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.OrPrecedence">
+  OrPrecedence
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Precedence of OR.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const int OrPrecedence = 1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_RawPrecedence" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.RawPrecedence">
+  RawPrecedence
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Precedence given to raw text that isn't a plain dotted path. It is the lowest, so raw text is
+parenthesized whenever it is nested inside an operator, and written verbatim when it stands alone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const int RawPrecedence = 0</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_FunctionName_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.FunctionName*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_FunctionName_System_String_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.FunctionName(System.String)">
+  FunctionName(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maps a canonical function name (see <a class="xref" href="Invex.StructuredText.Expressions.FunctionNames.html">FunctionNames</a>) to the platform's name.
+Returns the name unchanged by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string FunctionName(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The canonical name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The platform's name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_IsDotAccessible_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.IsDotAccessible*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_IsDotAccessible_System_String_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.IsDotAccessible(System.String)">
+  IsDotAccessible(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when <code class="paramref">name</code> can be written with property dereference
+(<code>.name</code>): letters, digits, <code>_</code> and <code>-</code>, not starting with a digit or <code>-</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDotAccessible(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The property name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>Whether dot syntax is valid for the name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_Print_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.Print*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_Print_Invex_StructuredText_Expressions_Expr_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.Print(Invex.StructuredText.Expressions.Expr)">
+  Print(Expr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders <code class="paramref">expression</code> as an expression (without template delimiters).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Print(Expr expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a></dt>
+    <dd><p>The expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_Print_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.Print*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_Print_Invex_StructuredText_Expressions_Expr_System_Int32_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.Print(Invex.StructuredText.Expressions.Expr,System.Int32)">
+  Print(Expr, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders <code class="paramref">expression</code>, adding parentheses when its precedence is below
+<code class="paramref">minimumPrecedence</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string Print(Expr expression, int minimumPrecedence)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a></dt>
+    <dd><p>The expression.</p>
+</dd>
+    <dt><code>minimumPrecedence</code> <span class="xref">int</span></dt>
+    <dd><p>The lowest precedence that may appear without parentheses.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintCall_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintCall*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintCall_System_String_System_Collections_Generic_IReadOnlyList_Invex_StructuredText_Expressions_Expr__" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintCall(System.String,System.Collections.Generic.IReadOnlyList{Invex.StructuredText.Expressions.Expr})">
+  PrintCall(string, IReadOnlyList&lt;Expr&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a function call. Writes <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_FunctionName_System_String_">FunctionName(string)</a> followed by the arguments in order by default;
+platforms whose functions take arguments in a different order override this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string PrintCall(string name, IReadOnlyList&lt;Expr&gt; arguments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The canonical function name (see <a class="xref" href="Invex.StructuredText.Expressions.FunctionNames.html">FunctionNames</a>).</p>
+</dd>
+    <dt><code>arguments</code> <span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a>&gt;</dt>
+    <dd><p>The arguments, in canonical order.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered call.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintComparison_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintComparison*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintComparison_Invex_StructuredText_Expressions_ComparisonExpr_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintComparison(Invex.StructuredText.Expressions.ComparisonExpr)">
+  PrintComparison(ComparisonExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a comparison. Uses infix operators (<code>==</code>, <code>!=</code>, <code>&lt;</code>, …) by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual (string Text, int Precedence) PrintComparison(ComparisonExpr comparison)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>comparison</code> <a class="xref" href="Invex.StructuredText.Expressions.ComparisonExpr.html">ComparisonExpr</a></dt>
+    <dd><p>The comparison.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<span class="xref">string</span> <span class="xref">Text</span>, <span class="xref">int</span> <span class="xref">Precedence</span>)</dt>
+    <dd><p>The rendered text and its precedence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintLogical_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintLogical*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintLogical_Invex_StructuredText_Expressions_LogicalExpr_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintLogical(Invex.StructuredText.Expressions.LogicalExpr)">
+  PrintLogical(LogicalExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders an AND or OR. Uses infix <code>&amp;&amp;</code> and <code>||</code> by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual (string Text, int Precedence) PrintLogical(LogicalExpr logical)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logical</code> <a class="xref" href="Invex.StructuredText.Expressions.LogicalExpr.html">LogicalExpr</a></dt>
+    <dd><p>The logical expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<span class="xref">string</span> <span class="xref">Text</span>, <span class="xref">int</span> <span class="xref">Precedence</span>)</dt>
+    <dd><p>The rendered text and its precedence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintMember_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintMember*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintMember_System_String_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintMember(System.String)">
+  PrintMember(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a property access suffix: <code>.name</code> where valid, otherwise <code>['name']</code> with quotes escaped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string PrintMember(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The property name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The suffix to append to the target.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintNot_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintNot*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintNot_Invex_StructuredText_Expressions_NotExpr_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintNot(Invex.StructuredText.Expressions.NotExpr)">
+  PrintNot(NotExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a negation. Uses prefix <code>!</code> by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual (string Text, int Precedence) PrintNot(NotExpr not)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>not</code> <a class="xref" href="Invex.StructuredText.Expressions.NotExpr.html">NotExpr</a></dt>
+    <dd><p>The negation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<span class="xref">string</span> <span class="xref">Text</span>, <span class="xref">int</span> <span class="xref">Precedence</span>)</dt>
+    <dd><p>The rendered text and its precedence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintOrNull_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintOrNull*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintOrNull_Invex_StructuredText_Expressions_Expr_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintOrNull(Invex.StructuredText.Expressions.Expr)">
+  PrintOrNull(Expr?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders <code class="paramref">expression</code>, or returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when it is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? PrintOrNull(Expr? expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a></dt>
+    <dd><p>The expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintOther_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintOther*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintOther_Invex_StructuredText_Expressions_Expr_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintOther(Invex.StructuredText.Expressions.Expr)">
+  PrintOther(Expr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a node the base class doesn't know, such as a platform-specific node.
+Throws <span class="xref">System.NotSupportedException</span> by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual (string Text, int Precedence) PrintOther(Expr expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a></dt>
+    <dd><p>The node.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<span class="xref">string</span> <span class="xref">Text</span>, <span class="xref">int</span> <span class="xref">Precedence</span>)</dt>
+    <dd><p>The rendered text and its precedence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintReference_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintReference*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintReference_Invex_StructuredText_Expressions_ReferenceExpr_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintReference(Invex.StructuredText.Expressions.ReferenceExpr)">
+  PrintReference(ReferenceExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a portable reference such as a secret or a job output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract string PrintReference(ReferenceExpr reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="Invex.StructuredText.Expressions.ReferenceExpr.html">ReferenceExpr</a></dt>
+    <dd><p>The reference.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintResult_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintResult*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_PrintResult_Invex_StructuredText_Expressions_RunResult_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.PrintResult(Invex.StructuredText.Expressions.RunResult)">
+  PrintResult(RunResult)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a run result literal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract string PrintResult(RunResult result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="Invex.StructuredText.Expressions.RunResult.html">RunResult</a></dt>
+    <dd><p>The result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_QuoteString_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.QuoteString*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_QuoteString_System_String_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.QuoteString(System.String)">
+  QuoteString(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Quotes and escapes a string literal. Uses single quotes, doubling embedded single quotes, by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string QuoteString(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">string</span></dt>
+    <dd><p>The unquoted value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The literal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_Render_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.Render*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_Render_Invex_StructuredText_Expressions_Template_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.Render(Invex.StructuredText.Expressions.Template)">
+  Render(Template)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders <code class="paramref">template</code>: literal text as-is, embedded expressions wrapped with
+<a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_WrapEmbedded_System_String_">WrapEmbedded(string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string Render(Template template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>template</code> <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd><p>The template.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">NotSupportedException</span></dt>
+    <dd><p>Thrown when the template contains an expression, or a combination of expressions and text, the platform
+can't express.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_RenderEmbedded_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.RenderEmbedded*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_RenderEmbedded_Invex_StructuredText_Expressions_Expr_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.RenderEmbedded(Invex.StructuredText.Expressions.Expr)">
+  RenderEmbedded(Expr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders an expression embedded in a <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a>. By default it is printed and wrapped with
+<a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_WrapEmbedded_System_String_">WrapEmbedded(string)</a>; platforms with several embedding syntaxes override this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string RenderEmbedded(Expr expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a></dt>
+    <dd><p>The embedded expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_RenderOrNull_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.RenderOrNull*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_RenderOrNull_Invex_StructuredText_Expressions_Template_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.RenderOrNull(Invex.StructuredText.Expressions.Template)">
+  RenderOrNull(Template?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders <code class="paramref">template</code>, or returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when it is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? RenderOrNull(Template? template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>template</code> <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd><p>The template.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_Expressions_ExpressionPrinter_WrapEmbedded_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.WrapEmbedded*"></a>
+
+  <h3 id="Invex_StructuredText_Expressions_ExpressionPrinter_WrapEmbedded_System_String_" data-uid="Invex.StructuredText.Expressions.ExpressionPrinter.WrapEmbedded(System.String)">
+  WrapEmbedded(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wraps a rendered expression that is embedded in literal text, e.g. in expression delimiters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract string WrapEmbedded(string printedExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>printedExpression</code> <span class="xref">string</span></dt>
+    <dd><p>The rendered expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The wrapped text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText · MIT License · Invex Games
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DevopsExpressionPrinter | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DevopsExpressionPrinter | Invex.StructuredText ">
+      
+      <meta name="description" content="Renders typed expressions () and s to Azure DevOps syntax. Operators are functions (and(...), or(...), not(...), eq(...), …) and status checks are succeeded(), failed(), canceled() and always().">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter">
+
+
+
+  <h1 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter" class="text-break">
+Class DevopsExpressionPrinter  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Invex</span>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.html">AzureDevopsPipelines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.AzureDevopsPipelines.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Renders typed expressions (<a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a>) and <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a>s to Azure DevOps syntax.
+Operators are functions (<code>and(...)</code>, <code>or(...)</code>, <code>not(...)</code>, <code>eq(...)</code>, …) and status
+checks are <code>succeeded()</code>, <code>failed()</code>, <code>canceled()</code> and <code>always()</code>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DevopsExpressionPrinter : ExpressionPrinter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html">ExpressionPrinter</a></div>
+      <div><span class="xref">DevopsExpressionPrinter</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_Print_Invex_StructuredText_Expressions_Expr_">ExpressionPrinter.Print(Expr)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_RenderOrNull_Invex_StructuredText_Expressions_Template_">ExpressionPrinter.RenderOrNull(Template)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_PrintOrNull_Invex_StructuredText_Expressions_Expr_">ExpressionPrinter.PrintOrNull(Expr)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_IsDotAccessible_System_String_">ExpressionPrinter.IsDotAccessible(string)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+    Inside a <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a>, secrets, variables, matrix values and step outputs are written as
+    macros (<code>$(name)</code>). Expressions that depend on other jobs (job outputs, job results) or contain a
+    <a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsRuntimeExpr.html">DevopsRuntimeExpr</a> are runtime expressions (<code>$[ … ]</code>), and everything else is a
+    template expression (<code>${{ … }}</code>).
+</p>
+<p>
+    Combinations Azure DevOps can't evaluate throw <span class="xref">System.NotSupportedException</span>: a runtime expression
+    combined with text or other expressions (Azure DevOps only evaluates one that is the whole value), an
+    input read in a runtime expression or condition (parameters only exist at compile time), and a secret,
+    matrix value or step output inside a compound compile-time expression (they only exist at run time).
+    Bind the value to a variable and reference it with <a class="xref" href="Invex.StructuredText.Expressions.Tex.html#Invex_StructuredText_Expressions_Tex_Variable_System_String_">Variable(string)</a> instead.
+</p>
+<p>
+    Inside an expression, secrets, variables and matrix values are <code>variables['name']</code>, inputs are
+    <code>parameters.name</code>, job outputs are <code>dependencies.JOB.outputs['STEP.NAME']</code> and job results are
+    <code>dependencies.JOB.result</code>.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter__ctor_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.#ctor*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter__ctor" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.#ctor">
+  DevopsExpressionPrinter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DevopsExpressionPrinter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_Instance_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.Instance*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_Instance" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.Instance">
+  Instance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A shared instance. The printer is stateless.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DevopsExpressionPrinter Instance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.html">DevopsExpressionPrinter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_FunctionName_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.FunctionName*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_FunctionName_System_String_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.FunctionName(System.String)">
+  FunctionName(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maps a canonical function name (see <a class="xref" href="Invex.StructuredText.Expressions.FunctionNames.html">FunctionNames</a>) to the platform's name.
+Returns the name unchanged by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string FunctionName(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The canonical name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The platform's name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintCall_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintCall*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintCall_System_String_System_Collections_Generic_IReadOnlyList_Invex_StructuredText_Expressions_Expr__" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintCall(System.String,System.Collections.Generic.IReadOnlyList{Invex.StructuredText.Expressions.Expr})">
+  PrintCall(string, IReadOnlyList&lt;Expr&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a function call. Writes <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_FunctionName_System_String_">FunctionName(string)</a> followed by the arguments in order by default;
+platforms whose functions take arguments in a different order override this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string PrintCall(string name, IReadOnlyList&lt;Expr&gt; arguments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The canonical function name (see <a class="xref" href="Invex.StructuredText.Expressions.FunctionNames.html">FunctionNames</a>).</p>
+</dd>
+    <dt><code>arguments</code> <span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a>&gt;</dt>
+    <dd><p>The arguments, in canonical order.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered call.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintCall_System_String_System_Collections_Generic_IReadOnlyList_Invex_StructuredText_Expressions_Expr___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Azure DevOps's <code>join</code> takes the separator first and requires it, so the arguments are swapped and a
+missing separator becomes <code>','</code>.</p>
+</div>
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintComparison_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintComparison*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintComparison_Invex_StructuredText_Expressions_ComparisonExpr_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintComparison(Invex.StructuredText.Expressions.ComparisonExpr)">
+  PrintComparison(ComparisonExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a comparison. Uses infix operators (<code>==</code>, <code>!=</code>, <code>&lt;</code>, …) by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override (string Text, int Precedence) PrintComparison(ComparisonExpr comparison)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>comparison</code> <a class="xref" href="Invex.StructuredText.Expressions.ComparisonExpr.html">ComparisonExpr</a></dt>
+    <dd><p>The comparison.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<span class="xref">string</span> <span class="xref">Text</span>, <span class="xref">int</span> <span class="xref">Precedence</span>)</dt>
+    <dd><p>The rendered text and its precedence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintCondition_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintCondition*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintCondition_Invex_StructuredText_Expressions_BoolExpr_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintCondition(Invex.StructuredText.Expressions.BoolExpr)">
+  PrintCondition(BoolExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a <code>condition:</code> value. Azure DevOps evaluates conditions at run time, so they are written
+without delimiters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PrintCondition(BoolExpr condition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>condition</code> <a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a></dt>
+    <dd><p>The condition.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered condition.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">NotSupportedException</span></dt>
+    <dd><p>Thrown when the condition reads an input (a parameter).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintLogical_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintLogical*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintLogical_Invex_StructuredText_Expressions_LogicalExpr_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintLogical(Invex.StructuredText.Expressions.LogicalExpr)">
+  PrintLogical(LogicalExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders an AND or OR. Uses infix <code>&amp;&amp;</code> and <code>||</code> by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override (string Text, int Precedence) PrintLogical(LogicalExpr logical)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logical</code> <a class="xref" href="Invex.StructuredText.Expressions.LogicalExpr.html">LogicalExpr</a></dt>
+    <dd><p>The logical expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<span class="xref">string</span> <span class="xref">Text</span>, <span class="xref">int</span> <span class="xref">Precedence</span>)</dt>
+    <dd><p>The rendered text and its precedence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintMember_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintMember*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintMember_System_String_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintMember(System.String)">
+  PrintMember(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a property access suffix: <code>.name</code> where valid, otherwise <code>['name']</code> with quotes escaped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string PrintMember(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The property name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The suffix to append to the target.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintMember_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Azure DevOps identifiers can't contain <code>-</code>, so names that aren't letters, digits and <code>_</code> use
+<code>['name']</code>.</p>
+</div>
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintNot_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintNot*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintNot_Invex_StructuredText_Expressions_NotExpr_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintNot(Invex.StructuredText.Expressions.NotExpr)">
+  PrintNot(NotExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a negation. Uses prefix <code>!</code> by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override (string Text, int Precedence) PrintNot(NotExpr not)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>not</code> <a class="xref" href="Invex.StructuredText.Expressions.NotExpr.html">NotExpr</a></dt>
+    <dd><p>The negation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<span class="xref">string</span> <span class="xref">Text</span>, <span class="xref">int</span> <span class="xref">Precedence</span>)</dt>
+    <dd><p>The rendered text and its precedence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintOther_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintOther*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintOther_Invex_StructuredText_Expressions_Expr_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintOther(Invex.StructuredText.Expressions.Expr)">
+  PrintOther(Expr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a node the base class doesn't know, such as a platform-specific node.
+Throws <span class="xref">System.NotSupportedException</span> by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override (string Text, int Precedence) PrintOther(Expr expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a></dt>
+    <dd><p>The node.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<span class="xref">string</span> <span class="xref">Text</span>, <span class="xref">int</span> <span class="xref">Precedence</span>)</dt>
+    <dd><p>The rendered text and its precedence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintReference_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintReference*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintReference_Invex_StructuredText_Expressions_ReferenceExpr_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintReference(Invex.StructuredText.Expressions.ReferenceExpr)">
+  PrintReference(ReferenceExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a portable reference such as a secret or a job output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string PrintReference(ReferenceExpr reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="Invex.StructuredText.Expressions.ReferenceExpr.html">ReferenceExpr</a></dt>
+    <dd><p>The reference.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintResult_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintResult*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_PrintResult_Invex_StructuredText_Expressions_RunResult_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.PrintResult(Invex.StructuredText.Expressions.RunResult)">
+  PrintResult(RunResult)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a run result literal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string PrintResult(RunResult result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="Invex.StructuredText.Expressions.RunResult.html">RunResult</a></dt>
+    <dd><p>The result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_Render_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.Render*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_Render_Invex_StructuredText_Expressions_Template_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.Render(Invex.StructuredText.Expressions.Template)">
+  Render(Template)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders <code class="paramref">template</code>: literal text as-is, embedded expressions wrapped with
+<a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_WrapEmbedded_System_String_">WrapEmbedded(string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Render(Template template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>template</code> <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a></dt>
+    <dd><p>The template.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">NotSupportedException</span></dt>
+    <dd><p>Thrown when the template contains an expression, or a combination of expressions and text, the platform
+can't express.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_RenderEmbedded_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.RenderEmbedded*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_RenderEmbedded_Invex_StructuredText_Expressions_Expr_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.RenderEmbedded(Invex.StructuredText.Expressions.Expr)">
+  RenderEmbedded(Expr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders an expression embedded in a <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a>. By default it is printed and wrapped with
+<a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_WrapEmbedded_System_String_">WrapEmbedded(string)</a>; platforms with several embedding syntaxes override this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string RenderEmbedded(Expr expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a></dt>
+    <dd><p>The embedded expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_WrapEmbedded_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.WrapEmbedded*"></a>
+
+  <h3 id="Invex_StructuredText_AzureDevopsPipelines_DevopsExpressionPrinter_WrapEmbedded_System_String_" data-uid="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.WrapEmbedded(System.String)">
+  WrapEmbedded(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wraps a rendered expression that is embedded in literal text, e.g. in expression delimiters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string WrapEmbedded(string printedExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>printedExpression</code> <span class="xref">string</span></dt>
+    <dd><p>The rendered expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The wrapped text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText · MIT License · Invex Games
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

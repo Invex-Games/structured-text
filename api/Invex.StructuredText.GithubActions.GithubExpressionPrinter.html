@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GithubExpressionPrinter | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GithubExpressionPrinter | Invex.StructuredText ">
+      
+      <meta name="description" content="Renders typed expressions () and s to GitHub Actions expression syntax: infix operators (==, &amp;amp;&amp;amp;, !), single-quoted string literals, and ${{ … }} around expressions embedded in text.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter">
+
+
+
+  <h1 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter" class="text-break">
+Class GithubExpressionPrinter  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Invex</span>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.GithubActions.html">GithubActions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.GithubActions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Renders typed expressions (<a class="xref" href="Invex.StructuredText.Expressions.Expr.html">Expr</a>) and <a class="xref" href="Invex.StructuredText.Expressions.Template.html">Template</a>s to GitHub Actions expression
+syntax: infix operators (<code>==</code>, <code>&amp;&amp;</code>, <code>!</code>), single-quoted string literals, and
+<code>${{ … }}</code> around expressions embedded in text.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class GithubExpressionPrinter : ExpressionPrinter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html">ExpressionPrinter</a></div>
+      <div><span class="xref">GithubExpressionPrinter</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_Print_Invex_StructuredText_Expressions_Expr_">ExpressionPrinter.Print(Expr)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_Render_Invex_StructuredText_Expressions_Template_">ExpressionPrinter.Render(Template)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_RenderOrNull_Invex_StructuredText_Expressions_Template_">ExpressionPrinter.RenderOrNull(Template)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_PrintOrNull_Invex_StructuredText_Expressions_Expr_">ExpressionPrinter.PrintOrNull(Expr)</a>
+    </div>
+    <div>
+      <a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html#Invex_StructuredText_Expressions_ExpressionPrinter_IsDotAccessible_System_String_">ExpressionPrinter.IsDotAccessible(string)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Portable references render as context paths: secrets as <code>secrets.NAME</code>, variables as <code>vars.NAME</code>,
+inputs as <code>inputs.NAME</code>, matrix values as <code>matrix.NAME</code>, job outputs as
+<code>needs.JOB.outputs.NAME</code>, step outputs as <code>steps.STEP.outputs.NAME</code> and job results as
+<code>needs.JOB.result</code>. Result literals render as <code>'success'</code>, <code>'failure'</code>, <code>'cancelled'</code> and
+<code>'skipped'</code>.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubExpressionPrinter__ctor_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.#ctor*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter__ctor" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.#ctor">
+  GithubExpressionPrinter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GithubExpressionPrinter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_Instance_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.Instance*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_Instance" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.Instance">
+  Instance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A shared instance. The printer is stateless.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GithubExpressionPrinter Instance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GithubExpressionPrinter.html">GithubExpressionPrinter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_FunctionName_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.FunctionName*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_FunctionName_System_String_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.FunctionName(System.String)">
+  FunctionName(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maps a canonical function name (see <a class="xref" href="Invex.StructuredText.Expressions.FunctionNames.html">FunctionNames</a>) to the platform's name.
+Returns the name unchanged by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string FunctionName(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The canonical name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The platform's name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_FunctionName_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>GitHub's <code>contains</code> covers both substring and array membership tests.</p>
+</div>
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_PrintCondition_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.PrintCondition*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_PrintCondition_Invex_StructuredText_Expressions_BoolExpr_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.PrintCondition(Invex.StructuredText.Expressions.BoolExpr)">
+  PrintCondition(BoolExpr?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders an <code>if:</code> condition. The bare expression is used where possible; a condition whose first
+non-whitespace character means something to YAML (<code>!</code> starts a tag, a quote starts a quoted scalar,
+and so on) is wrapped in <code>${{ }}</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? PrintCondition(BoolExpr? condition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>condition</code> <a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a></dt>
+    <dd><p>The condition.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered condition, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when <code class="paramref">condition</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_PrintReference_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.PrintReference*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_PrintReference_Invex_StructuredText_Expressions_ReferenceExpr_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.PrintReference(Invex.StructuredText.Expressions.ReferenceExpr)">
+  PrintReference(ReferenceExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a portable reference such as a secret or a job output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string PrintReference(ReferenceExpr reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="Invex.StructuredText.Expressions.ReferenceExpr.html">ReferenceExpr</a></dt>
+    <dd><p>The reference.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_PrintResult_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.PrintResult*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_PrintResult_Invex_StructuredText_Expressions_RunResult_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.PrintResult(Invex.StructuredText.Expressions.RunResult)">
+  PrintResult(RunResult)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders a run result literal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string PrintResult(RunResult result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="Invex.StructuredText.Expressions.RunResult.html">RunResult</a></dt>
+    <dd><p>The result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The rendered text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_StartsWithYamlIndicator_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.StartsWithYamlIndicator*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_StartsWithYamlIndicator_System_String_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.StartsWithYamlIndicator(System.String)">
+  StartsWithYamlIndicator(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when <code class="paramref">text</code>, after leading whitespace, starts with a character
+that YAML would not read as the start of a plain scalar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool StartsWithYamlIndicator(string text)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <span class="xref">string</span></dt>
+    <dd><p>The text to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>Whether the text needs quoting or wrapping before it can be written as a YAML value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_WrapEmbedded_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.WrapEmbedded*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GithubExpressionPrinter_WrapEmbedded_System_String_" data-uid="Invex.StructuredText.GithubActions.GithubExpressionPrinter.WrapEmbedded(System.String)">
+  WrapEmbedded(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wraps a rendered expression that is embedded in literal text, e.g. in expression delimiters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string WrapEmbedded(string printedExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>printedExpression</code> <span class="xref">string</span></dt>
+    <dd><p>The rendered expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The wrapped text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText · MIT License · Invex Games
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

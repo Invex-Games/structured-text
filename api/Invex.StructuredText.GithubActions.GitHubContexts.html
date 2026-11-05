@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GitHubContexts | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GitHubContexts | Invex.StructuredText ">
+      
+      <meta name="description" content="Typed references to the github context and the other contexts available to expressions.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Invex.StructuredText.GithubActions.GitHubContexts">
+
+
+
+  <h1 id="Invex_StructuredText_GithubActions_GitHubContexts" data-uid="Invex.StructuredText.GithubActions.GitHubContexts" class="text-break">
+Class GitHubContexts  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Invex</span>.<a class="xref" href="Invex.StructuredText.html">StructuredText</a>.<a class="xref" href="Invex.StructuredText.GithubActions.html">GithubActions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Invex.StructuredText.GithubActions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Typed references to the <code>github</code> context and the other contexts available to expressions.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class GitHubContexts</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">GitHubContexts</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Action_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Action*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Action" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Action">
+  Action
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.action</code>: The name of the action currently running, or the id of a step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr Action { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_ActionPath_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActionPath*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_ActionPath" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActionPath">
+  ActionPath
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.action_path</code>: The path where an action is located (composite actions only).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr ActionPath { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_ActionRef_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActionRef*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_ActionRef" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActionRef">
+  ActionRef
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.action_ref</code>: For a step executing an action, the ref of the action being executed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr ActionRef { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_ActionRepository_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActionRepository*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_ActionRepository" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActionRepository">
+  ActionRepository
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.action_repository</code>: For a step executing an action, the owner and repository name of the action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr ActionRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_ActionStatus_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActionStatus*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_ActionStatus" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActionStatus">
+  ActionStatus
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.action_status</code>: For a composite action, the current result of the composite action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr ActionStatus { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Actor_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Actor*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Actor" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Actor">
+  Actor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.actor</code>: The username of the user that triggered the initial workflow run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr Actor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_ActorId_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActorId*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_ActorId" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ActorId">
+  ActorId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.actor_id</code>: The account id of the user that triggered the initial workflow run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr ActorId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_ApiUrl_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ApiUrl*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_ApiUrl" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ApiUrl">
+  ApiUrl
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.api_url</code>: The URL of the GitHub REST API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr ApiUrl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_BaseRef_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.BaseRef*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_BaseRef" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.BaseRef">
+  BaseRef
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.base_ref</code>: The base ref or target branch of the pull request (pull request events only).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr BaseRef { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Context_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Context*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Context" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Context">
+  Context
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github</code>: The whole <code>github</code> context: information about the workflow run and the event that triggered it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonExpr Context { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Env_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Env*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Env" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Env">
+  Env
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>env</code>: Variables set in the workflow, job or step. Index by name: <code>Env[&quot;NAME&quot;]</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonExpr Env { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Event_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Event*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Event" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Event">
+  Event
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.event</code>: The full event webhook payload.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GitHubContextsEventContext Event { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GitHubContextsEventContext.html">GitHubContextsEventContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_EventName_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.EventName*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_EventName" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.EventName">
+  EventName
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.event_name</code>: The name of the event that triggered the workflow run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr EventName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_EventPath_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.EventPath*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_EventPath" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.EventPath">
+  EventPath
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.event_path</code>: The path to the file on the runner that contains the full event webhook payload.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr EventPath { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_GitHubEnv_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.GitHubEnv*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_GitHubEnv" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.GitHubEnv">
+  GitHubEnv
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.env</code>: Path on the runner to the file that sets environment variables from workflow commands.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr GitHubEnv { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_GitHubJob_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.GitHubJob*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_GitHubJob" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.GitHubJob">
+  GitHubJob
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.job</code>: The job id of the current job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr GitHubJob { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_GraphqlUrl_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.GraphqlUrl*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_GraphqlUrl" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.GraphqlUrl">
+  GraphqlUrl
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.graphql_url</code>: The URL of the GitHub GraphQL API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr GraphqlUrl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_HeadRef_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.HeadRef*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_HeadRef" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.HeadRef">
+  HeadRef
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.head_ref</code>: The head ref or source branch of the pull request (pull request events only).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr HeadRef { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Inputs_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Inputs*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Inputs" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Inputs">
+  Inputs
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>inputs</code>: The inputs of a reusable or manually triggered workflow. Index by input name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonExpr Inputs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Job_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Job*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Job" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Job">
+  Job
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>job</code>: Information about the currently running job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GitHubContextsJobContext Job { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GitHubContextsJobContext.html">GitHubContextsJobContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Jobs_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Jobs*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Jobs" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Jobs">
+  Jobs
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>jobs</code>: Results and outputs of jobs in a reusable workflow. Index by job id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonExpr Jobs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Matrix_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Matrix*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Matrix" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Matrix">
+  Matrix
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>matrix</code>: The matrix properties for the current job. Index by dimension name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonExpr Matrix { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Needs_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Needs*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Needs" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Needs">
+  Needs
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>needs</code>: Outputs and results of the jobs the current job depends on. Index by job id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonExpr Needs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Path_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Path*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Path" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Path">
+  Path
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.path</code>: Path on the runner to the file that sets system PATH variables from workflow commands.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr Path { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Ref_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Ref*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Ref" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Ref">
+  Ref
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.ref</code>: The fully-formed ref of the branch or tag that triggered the workflow run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr Ref { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RefName_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RefName*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RefName" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RefName">
+  RefName
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.ref_name</code>: The short ref name of the branch or tag that triggered the workflow run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RefName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RefProtected_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RefProtected*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RefProtected" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RefProtected">
+  RefProtected
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.ref_protected</code>: Whether branch protections or rulesets are configured for the ref that triggered the run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BoolExpr RefProtected { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html">BoolExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RefType_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RefType*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RefType" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RefType">
+  RefType
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.ref_type</code>: The type of ref that triggered the workflow run: <code>branch</code> or <code>tag</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RefType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Repository_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Repository*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Repository" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Repository">
+  Repository
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.repository</code>: The owner and repository name, e.g. <code>octocat/Hello-World</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr Repository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RepositoryId_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RepositoryId*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RepositoryId" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RepositoryId">
+  RepositoryId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.repository_id</code>: The id of the repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RepositoryId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RepositoryOwner_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RepositoryOwner*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RepositoryOwner" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RepositoryOwner">
+  RepositoryOwner
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.repository_owner</code>: The repository owner's username.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RepositoryOwner { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RepositoryOwnerId_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RepositoryOwnerId*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RepositoryOwnerId" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RepositoryOwnerId">
+  RepositoryOwnerId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.repository_owner_id</code>: The repository owner's account id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RepositoryOwnerId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RepositoryUrl_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RepositoryUrl*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RepositoryUrl" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RepositoryUrl">
+  RepositoryUrl
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.repositoryUrl</code>: The Git URL to the repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RepositoryUrl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RetentionDays_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RetentionDays*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RetentionDays" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RetentionDays">
+  RetentionDays
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.retention_days</code>: The number of days that workflow run logs and artifacts are kept.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RetentionDays { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RunAttempt_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RunAttempt*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RunAttempt" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RunAttempt">
+  RunAttempt
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.run_attempt</code>: A unique number for each attempt of a particular workflow run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RunAttempt { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RunId_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RunId*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RunId" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RunId">
+  RunId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.run_id</code>: A unique number for each workflow run within a repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RunId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_RunNumber_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RunNumber*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_RunNumber" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.RunNumber">
+  RunNumber
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.run_number</code>: A unique number for each run of a particular workflow in a repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr RunNumber { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Runner_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Runner*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Runner" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Runner">
+  Runner
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>runner</code>: Information about the runner executing the current job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GitHubContextsRunnerContext Runner { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GitHubContextsRunnerContext.html">GitHubContextsRunnerContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_SecretSource_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.SecretSource*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_SecretSource" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.SecretSource">
+  SecretSource
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.secret_source</code>: The source of a secret used in a workflow: <code>None</code>, <code>Actions</code>, <code>Codespaces</code> or <code>Dependabot</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr SecretSource { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Secrets_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Secrets*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Secrets" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Secrets">
+  Secrets
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>secrets</code>: The secrets available to the run. Index by name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GitHubContextsSecretsContext Secrets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GitHubContextsSecretsContext.html">GitHubContextsSecretsContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_ServerUrl_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ServerUrl*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_ServerUrl" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.ServerUrl">
+  ServerUrl
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.server_url</code>: The URL of the GitHub server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr ServerUrl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Sha_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Sha*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Sha" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Sha">
+  Sha
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.sha</code>: The commit SHA that triggered the workflow.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr Sha { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Steps_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Steps*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Steps" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Steps">
+  Steps
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>steps</code>: Information about the steps that have run in the current job. Index by step id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonExpr Steps { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Strategy_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Strategy*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Strategy" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Strategy">
+  Strategy
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>strategy</code>: Information about the matrix execution strategy for the current job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GitHubContextsStrategyContext Strategy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.GithubActions.GitHubContextsStrategyContext.html">GitHubContextsStrategyContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Token_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Token*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Token" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Token">
+  Token
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.token</code>: A token to authenticate on behalf of the GitHub App installed on the repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr Token { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_TriggeringActor_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.TriggeringActor*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_TriggeringActor" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.TriggeringActor">
+  TriggeringActor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.triggering_actor</code>: The username of the user that initiated the workflow run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr TriggeringActor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Vars_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Vars*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Vars" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Vars">
+  Vars
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>vars</code>: Configuration variables set at the organization, repository or environment level. Index by name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonExpr Vars { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html">JsonExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Workflow_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Workflow*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Workflow" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Workflow">
+  Workflow
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.workflow</code>: The name of the workflow.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr Workflow { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_WorkflowRef_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.WorkflowRef*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_WorkflowRef" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.WorkflowRef">
+  WorkflowRef
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.workflow_ref</code>: The ref path to the workflow.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr WorkflowRef { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_WorkflowSha_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.WorkflowSha*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_WorkflowSha" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.WorkflowSha">
+  WorkflowSha
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.workflow_sha</code>: The commit SHA for the workflow file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr WorkflowSha { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Invex_StructuredText_GithubActions_GitHubContexts_Workspace_" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Workspace*"></a>
+
+  <h3 id="Invex_StructuredText_GithubActions_GitHubContexts_Workspace" data-uid="Invex.StructuredText.GithubActions.GitHubContexts.Workspace">
+  Workspace
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>github.workspace</code>: The default working directory on the runner for steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringExpr Workspace { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html">StringExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText · MIT License · Invex Games
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
