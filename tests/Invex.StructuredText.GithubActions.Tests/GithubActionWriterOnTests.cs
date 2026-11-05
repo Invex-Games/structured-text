@@ -103,6 +103,75 @@ internal sealed class GithubActionWriterOnTests
     }
 
     [Test]
+    public void WriteOn_Push_WithPaths_WritesPaths()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.Push
+            {
+                Branches = ["main"],
+                BranchesIgnore = null,
+                Tags = null,
+                TagsIgnore = null,
+                Paths = ["src/AppA/**", "src/Shared/**"],
+                PathsIgnore = null,
+            },
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain("paths: [ src/AppA/**, src/Shared/** ]");
+        output.ShouldNotContain("paths-ignore:");
+    }
+
+    [Test]
+    public void WriteOn_Push_WithPathsIgnore_WritesPathsIgnore()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.Push
+            {
+                Branches = ["main"],
+                BranchesIgnore = null,
+                Tags = null,
+                TagsIgnore = null,
+                Paths = null,
+                PathsIgnore = ["docs/**"],
+            },
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain("paths-ignore: [ docs/** ]");
+    }
+
+    [Test]
+    public void WriteOn_DuplicateTriggerType_Throws()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.Push
+            {
+                Branches = ["main"],
+                BranchesIgnore = null,
+                Tags = null,
+                TagsIgnore = null,
+                Paths = null,
+                PathsIgnore = null,
+            },
+            new On.Push
+            {
+                Branches = null,
+                BranchesIgnore = null,
+                Tags = ["v*"],
+                TagsIgnore = null,
+                Paths = null,
+                PathsIgnore = null,
+            },
+        ]);
+
+        Should
+            .Throw<ArgumentException>(() => GithubActionWriterHelper.Write(action))
+            .Message
+            .ShouldContain("'Push'");
+    }
+
+    [Test]
     public void WriteOn_PullRequest_WithTypes_WritesTypes()
     {
         var action = GithubActionWriterHelper.MinimalAction([
