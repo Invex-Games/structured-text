@@ -142,6 +142,26 @@ internal sealed class GithubActionWriterOnTests
     }
 
     [Test]
+    public void WriteOn_Push_WithFlowIndicatorsInPaths_QuotesThem()
+    {
+        var action = GithubActionWriterHelper.MinimalAction([
+            new On.Push
+            {
+                Branches = null,
+                BranchesIgnore = null,
+                Tags = null,
+                TagsIgnore = null,
+                Paths = ["src/[ab]/**", "docs/a,b.md", "src/{x}/**", "src/AppA/**"],
+                PathsIgnore = ["it's/**"],
+            },
+        ]);
+
+        var output = GithubActionWriterHelper.Write(action);
+        output.ShouldContain("paths: [ 'src/[ab]/**', 'docs/a,b.md', 'src/{x}/**', src/AppA/** ]");
+        output.ShouldContain("paths-ignore: [ it's/** ]");
+    }
+
+    [Test]
     public void WriteOn_DuplicateTriggerType_Throws()
     {
         var action = GithubActionWriterHelper.MinimalAction([

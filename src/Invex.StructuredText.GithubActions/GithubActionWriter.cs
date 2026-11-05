@@ -841,7 +841,7 @@ public sealed class GithubActionWriter
         var valuesTotalLength = valueList.Sum(x => x.Length);
 
         if (valuesTotalLength < 80)
-            TextWriter.WriteLine($"{key}: [ {string.Join(", ", valueList.Select(Format))} ]");
+            TextWriter.WriteLine($"{key}: [ {string.Join(", ", valueList.Select(FormatFlowItem))} ]");
         else
             using (TextWriter.WriteSection($"{key}:"))
                 foreach (var value in valueList)
@@ -876,6 +876,13 @@ public sealed class GithubActionWriter
 
         return lines[..count];
     }
+
+    // Inside a flow sequence ('[ a, b ]') a plain scalar can't contain flow indicators: 'src/[ab]/**' is invalid YAML
+    // and 'a,b' would be read as two items, so such values are always quoted there.
+    private static string FormatFlowItem(string value) =>
+        value.IndexOfAny([',', '[', ']', '{', '}']) >= 0
+            ? $"'{value.Replace("'", "''")}'"
+            : Format(value);
 
     private static string Format(string value) =>
 
