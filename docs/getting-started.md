@@ -5,7 +5,7 @@ and Dependabot config. Start here if you have not used the library before.
 
 ## Requirements
 
-- .NET 10.0
+- .NET 10.0 or .NET 11.0
 
 ## Installation
 

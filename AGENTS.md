@@ -8,16 +8,16 @@ Pipelines. Keep changes focused and defer to the linked docs for detail.
 
 | Project | Role | Target frameworks |
 |---------|------|-------------------|
-| `Invex.StructuredText` | Core library: `StructuredTextWriter`, the typed expression API (`Tex`, `Expr`, `Template`) and `ExpressionPrinter` | `net10.0` |
-| `Invex.StructuredText.GithubActions` | GitHub Actions workflow and Dependabot config generation | `net10.0` |
-| `Invex.StructuredText.AzureDevopsPipelines` | Azure DevOps Pipelines YAML generation | `net10.0` |
+| `Invex.StructuredText` | Core library: `StructuredTextWriter`, the typed expression API (`Tex`, `Expr`, `Template`) and `ExpressionPrinter` | `net10.0`, `net11.0` |
+| `Invex.StructuredText.GithubActions` | GitHub Actions workflow and Dependabot config generation | `net10.0`, `net11.0` |
+| `Invex.StructuredText.AzureDevopsPipelines` | Azure DevOps Pipelines YAML generation | `net10.0`, `net11.0` |
 
 Sources live under `src/`, tests under `tests/`, the Atom build definition under `_atom/`, and the
 DocFX documentation site under `docs/`.
 
 ## Build & language specifics
 
-- **.NET 11 SDK** is required, plus the .NET 10 runtime (or SDK): all library and test projects target `net10.0`.
+- **.NET 11 SDK** is required, plus the .NET 10 runtime (or SDK): all library and test projects target `net10.0` and `net11.0`.
 - C# `LangVersion 15`, `ImplicitUsings` and `Nullable` enabled, `TreatWarningsAsErrors` on.
 - Global usings live in each project's `_usings.cs` — add shared usings there, not per-file.
 - `GenerateDocumentationFile` is on, so **all public members need XML doc comments**.

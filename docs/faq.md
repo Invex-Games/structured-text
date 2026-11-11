@@ -21,7 +21,7 @@ No. It only produces the configuration files. GitHub/Azure DevOps execute them a
 
 ### Which platforms and frameworks are supported?
 
-.NET 10.0. Generators are typically run as small console apps on any OS.
+.NET 10.0 and .NET 11.0. Generators are typically run as small console apps on any OS.
 
 ## Usage
 
