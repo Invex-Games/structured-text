@@ -34,7 +34,7 @@ dotnet add package Invex.StructuredText.AzureDevopsPipelines
 ```
 
 Both platform packages depend on `Invex.StructuredText` core, so it will be installed automatically. All three packages
-target `net10.0`. The platform packages also depend on the
+target `net10.0` and `net11.0`. The platform packages also depend on the
 [Dunet](https://github.com/domn1995/dunet) source generator, which provides their discriminated-union model types.
 
 ## Quick start
@@ -183,7 +183,7 @@ Full documentation: [https://invex-games.github.io/structured-text/](https://inv
 
 ## Development
 
-The repository requires the .NET 11 SDK selected by `global.json`, plus the .NET 10 runtime (or SDK) for the `net10.0` projects:
+The repository requires the .NET 11 SDK selected by `global.json`, plus the .NET 10 runtime (or SDK) for the `net10.0` builds:
 
 ```shell
 dotnet build Invex.StructuredText.slnx

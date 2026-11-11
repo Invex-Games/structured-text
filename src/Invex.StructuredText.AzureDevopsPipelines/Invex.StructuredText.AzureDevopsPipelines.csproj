@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFrameworks>net10.0;net11.0</TargetFrameworks>
     <PackageDescription>Strongly-typed C# models for generating Azure DevOps Pipelines YAML</PackageDescription>
   </PropertyGroup>
 
