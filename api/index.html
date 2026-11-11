@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>API Reference | Invex.StructuredText </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="API Reference | Invex.StructuredText ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Invex-Games/structured-text/blob/main/api/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="Invex.StructuredText">
+            Invex.StructuredText
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="api-reference">API Reference</h1>
+
+<p>This section is the generated reference for every public type in the three Invex.StructuredText packages, built from
+the XML documentation comments in the source code; the tables below list each type by package and namespace. Union
+records are <a href="https://github.com/domn1995/dunet">Dunet</a> discriminated unions: construct one of their nested variant
+records (for example <code>new Step.RunStep { ... }</code>).</p>
+<h2 id="invexstructuredtext">Invex.StructuredText</h2>
+<p><a href="https://www.nuget.org/packages/Invex.StructuredText">NuGet</a>. The core: <code>StructuredTextWriter</code> and the platform-agnostic expression API.</p>
+<h3 id="invexstructuredtext-1">Invex.StructuredText</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.StructuredTextWriter.html"><code>StructuredTextWriter</code></a></td>
+<td>Class</td>
+<td>An indentation-aware text writer for producing structured text such as YAML.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextexpressions">Invex.StructuredText.Expressions</h3>
+<p>Start with <code>Tex</code>: every way to create an expression is one of its members. See <a href="../docs/expressions.html">Expressions</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.BoolCast.html"><code>BoolCast</code></a></td>
+<td>Record</td>
+<td>Treats <code>Operand</code> as a boolean. Rendered transparently.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.BoolContext.html"><code>BoolContext</code></a></td>
+<td>Record</td>
+<td>A boolean-valued context path.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.BoolExpr.html"><code>BoolExpr</code></a></td>
+<td>Abstract record</td>
+<td>An expression that evaluates to a boolean.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.BoolFunction.html"><code>BoolFunction</code></a></td>
+<td>Record</td>
+<td>A function call that returns a boolean.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.BoolLiteral.html"><code>BoolLiteral</code></a></td>
+<td>Record</td>
+<td>A boolean literal.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.ComparisonExpr.html"><code>ComparisonExpr</code></a></td>
+<td>Record</td>
+<td>A comparison between two values.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.ComparisonOperator.html"><code>ComparisonOperator</code></a></td>
+<td>Enum</td>
+<td>The comparison operators.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.Expr.html"><code>Expr</code></a></td>
+<td>Abstract record</td>
+<td>The base type of the typed expression tree. Every node derives from one of the four result-typed roots: <code>BoolExpr</code>, <code>StringExpr</code>, <code>NumberExpr</code> or <code>JsonExpr</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.ExpressionPrinter.html"><code>ExpressionPrinter</code></a></td>
+<td>Abstract class</td>
+<td>Renders typed expression trees (<code>Expr</code>) and <code>Template</code>s to platform syntax.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.FunctionNames.html"><code>FunctionNames</code></a></td>
+<td>Static class</td>
+<td>Canonical names of the functions the core knows about. Printers map them to the platform's own names.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.IContextPath.html"><code>IContextPath</code></a></td>
+<td>Interface</td>
+<td>Implemented by nodes that reference a dotted context path such as <code>a.b.c</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.IndexAccessExpr.html"><code>IndexAccessExpr</code></a></td>
+<td>Record</td>
+<td>Accesses element <code>Index</code> of <code>Target</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.InputRef.html"><code>InputRef</code></a></td>
+<td>Record</td>
+<td>An input (parameter) supplied when the run was started.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.IRawExpr.html"><code>IRawExpr</code></a></td>
+<td>Interface</td>
+<td>Implemented by nodes that hold verbatim expression text.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.JobOutputRef.html"><code>JobOutputRef</code></a></td>
+<td>Record</td>
+<td>An output of another job that the current job depends on.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.JobResultRef.html"><code>JobResultRef</code></a></td>
+<td>Record</td>
+<td>The result of another job that the current job depends on. Compare with <code>ResultLiteral</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.JsonContext.html"><code>JsonContext</code></a></td>
+<td>Record</td>
+<td>A context path whose value is an object, an array or of unknown type.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.JsonExpr.html"><code>JsonExpr</code></a></td>
+<td>Abstract record</td>
+<td>An expression whose value is an object, an array, or of a type not known statically.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.JsonFunction.html"><code>JsonFunction</code></a></td>
+<td>Record</td>
+<td>A function call that returns an object, an array or a value of unknown type.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.LogicalExpr.html"><code>LogicalExpr</code></a></td>
+<td>Record</td>
+<td>An AND or OR over two or more conditions. Nested nodes with the same operator are flattened.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.LogicalOperator.html"><code>LogicalOperator</code></a></td>
+<td>Enum</td>
+<td>The logical operators.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.MatrixRef.html"><code>MatrixRef</code></a></td>
+<td>Record</td>
+<td>The current value of a matrix dimension.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.MemberAccessExpr.html"><code>MemberAccessExpr</code></a></td>
+<td>Record</td>
+<td>Accesses <code>Property</code> of <code>Target</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.NotExpr.html"><code>NotExpr</code></a></td>
+<td>Record</td>
+<td>The logical negation of <code>Operand</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.NullLiteral.html"><code>NullLiteral</code></a></td>
+<td>Record</td>
+<td>The null literal.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.NumberCast.html"><code>NumberCast</code></a></td>
+<td>Record</td>
+<td>Treats <code>Operand</code> as a number. Rendered transparently.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.NumberContext.html"><code>NumberContext</code></a></td>
+<td>Record</td>
+<td>A number-valued context path.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.NumberExpr.html"><code>NumberExpr</code></a></td>
+<td>Abstract record</td>
+<td>An expression that evaluates to a number.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.NumberLiteral.html"><code>NumberLiteral</code></a></td>
+<td>Record</td>
+<td>A numeric literal, rendered with the invariant culture.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.RawExpr.html"><code>RawExpr</code></a></td>
+<td>Record</td>
+<td>Verbatim expression text, created by <code>Raw</code>. It is a condition, and converts implicitly to string, number and JSON expressions.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.RawJson.html"><code>RawJson</code></a></td>
+<td>Record</td>
+<td>Verbatim expression text of an object, array or unknown type.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.RawNumber.html"><code>RawNumber</code></a></td>
+<td>Record</td>
+<td>Verbatim number-valued expression text.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.RawString.html"><code>RawString</code></a></td>
+<td>Record</td>
+<td>Verbatim string-valued expression text.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.ReferenceExpr.html"><code>ReferenceExpr</code></a></td>
+<td>Abstract record</td>
+<td>A reference to a value every supported platform provides (a secret, variable, input, matrix value or output). Each platform's printer decides the syntax.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.ResultLiteral.html"><code>ResultLiteral</code></a></td>
+<td>Record</td>
+<td>A result value, rendered with the platform's own spelling.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.RunResult.html"><code>RunResult</code></a></td>
+<td>Enum</td>
+<td>The possible results of a job or step.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.SecretRef.html"><code>SecretRef</code></a></td>
+<td>Record</td>
+<td>A secret.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.StepOutputRef.html"><code>StepOutputRef</code></a></td>
+<td>Record</td>
+<td>An output of an earlier step in the current job.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.StringCast.html"><code>StringCast</code></a></td>
+<td>Record</td>
+<td>Treats <code>Operand</code> as a string. Rendered transparently.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.StringContext.html"><code>StringContext</code></a></td>
+<td>Record</td>
+<td>A string-valued context path.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.StringExpr.html"><code>StringExpr</code></a></td>
+<td>Abstract record</td>
+<td>An expression that evaluates to a string.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.StringFunction.html"><code>StringFunction</code></a></td>
+<td>Record</td>
+<td>A function call that returns a string.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.StringLiteral.html"><code>StringLiteral</code></a></td>
+<td>Record</td>
+<td>A string literal, rendered quoted and escaped.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.Template.html"><code>Template</code></a></td>
+<td>Class</td>
+<td>A text value made of literal text and embedded expressions, such as a YAML scalar.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.TemplatePart.html"><code>TemplatePart</code></a></td>
+<td>Record struct</td>
+<td>One part of a <code>Template</code>: either literal text or an embedded expression.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.Tex.html"><code>Tex</code></a></td>
+<td>Static class</td>
+<td>The starting point for writing expressions. Everything that creates an expression from scratch lives here: references (<code>Secret</code>, <code>JobOutput</code>, …), status checks (<code>Success</code>, …), functions (<code>All</code>, <code>Format</code>, …) and the escape hatch <code>Raw</code>. Platform packages add their own members, such as <code>Tex.GitHub</code> for the GitHub Actions contexts.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.Expressions.VariableRef.html"><code>VariableRef</code></a></td>
+<td>Record</td>
+<td>A configuration variable defined outside the workflow.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="invexstructuredtextgithubactions">Invex.StructuredText.GithubActions</h2>
+<p><a href="https://www.nuget.org/packages/Invex.StructuredText.GithubActions">NuGet</a>. GitHub Actions workflow and Dependabot configuration generation.</p>
+<h3 id="invexstructuredtextgithubactions-1">Invex.StructuredText.GithubActions</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigWriter.html"><code>DependabotConfigWriter</code></a></td>
+<td>Class</td>
+<td>Serializes a <code>DependabotConfig</code> model to Dependabot v2 configuration YAML (<code>.github/dependabot.yml</code>).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionWriter.html"><code>GithubActionWriter</code></a></td>
+<td>Class</td>
+<td>Serializes a <code>GithubAction</code> model to GitHub Actions workflow YAML. Expressions embedded in the model are rendered with <code>GithubExpressionPrinter</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GitHubContexts.html"><code>GitHubContexts</code></a></td>
+<td>Class</td>
+<td>The GitHub Actions contexts, reached through <code>Tex.GitHub</code>. Generated from <code>Contexts/github.contexts</code>; nested contexts such as <code>Tex.GitHub.Event.PullRequest</code> are <code>GitHubContexts…Context</code> classes.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubExpressionPrinter.html"><code>GithubExpressionPrinter</code></a></td>
+<td>Class</td>
+<td>Renders typed expressions (<code>Expr</code>) and <code>Template</code>s to GitHub Actions expression syntax: infix operators (<code>==</code>, <code>&amp;&amp;</code>, <code>!</code>), single-quoted string literals, and <code>${{ … }}</code> around expressions embedded in text.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.TexGitHubExtensions.html"><code>TexGitHubExtensions</code></a></td>
+<td>Static class</td>
+<td>Adds the GitHub Actions contexts to <code>Tex</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextgithubactionsgithubactionmodel">Invex.StructuredText.GithubActions.GithubActionModel</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Concurrency.html"><code>Concurrency</code></a></td>
+<td>Record</td>
+<td>Concurrency settings (<code>concurrency</code>) that ensure only one run (or queued run) sharing the same group executes at a time, at either workflow or job level.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Container.html"><code>Container</code></a></td>
+<td>Record</td>
+<td>A Docker container that a job runs in (<code>container</code>) or that hosts a service (<code>services</code>).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Credentials.html"><code>Credentials</code></a></td>
+<td>Record</td>
+<td>Credentials for a private container registry (<code>credentials</code>), passed to <code>docker login</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Environment.html"><code>Environment</code></a></td>
+<td>Record</td>
+<td>The deployment environment a job targets (<code>environment</code>).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.GithubAction.html"><code>GithubAction</code></a></td>
+<td>Record</td>
+<td>The root model of a GitHub Actions workflow file (<code>.github/workflows/*.yml</code>).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Job.html"><code>Job</code></a></td>
+<td>Record</td>
+<td>A job within a workflow: a set of steps that execute on the same runner.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Matrix.html"><code>Matrix</code></a></td>
+<td>Record</td>
+<td>A matrix of variable combinations to run a job with (<code>strategy.matrix</code>).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.On.html"><code>On</code></a></td>
+<td>Union record</td>
+<td>A workflow trigger event (<code>on</code>).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Permissions.html"><code>Permissions</code></a></td>
+<td>Union record</td>
+<td><code>GITHUB_TOKEN</code> permissions at workflow or job level (<code>permissions</code>).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.PermissionsEvent.html"><code>PermissionsEvent</code></a></td>
+<td>Record</td>
+<td>Per-scope <code>GITHUB_TOKEN</code> permission levels.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.PermissionsLevel.html"><code>PermissionsLevel</code></a></td>
+<td>Enum</td>
+<td>The access level granted to a <code>GITHUB_TOKEN</code> permission scope.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.RunsOn.html"><code>RunsOn</code></a></td>
+<td>Record</td>
+<td>The runner selection for a job (<code>runs-on</code>).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Snapshot.html"><code>Snapshot</code></a></td>
+<td>Record</td>
+<td>Runner image snapshot settings for a job (<code>snapshot</code>), used to capture the runner state as a custom image after the job completes.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Step.html"><code>Step</code></a></td>
+<td>Union record</td>
+<td>A single step within a job.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.Strategy.html"><code>Strategy</code></a></td>
+<td>Record</td>
+<td>The execution strategy for a job (<code>strategy</code>), defining a matrix of variations to run.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.GithubActionModel.WorkflowDispatchInput.html"><code>WorkflowDispatchInput</code></a></td>
+<td>Union record</td>
+<td>A typed input for the <code>workflow_dispatch</code> trigger.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextgithubactionsdependabotconfigmodelmodel">Invex.StructuredText.GithubActions.DependabotConfigModel.Model</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.BranchNameSeparator.html"><code>BranchNameSeparator</code></a></td>
+<td>Enum</td>
+<td>Branch name separator.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.CommitMessageInclude.html"><code>CommitMessageInclude</code></a></td>
+<td>Enum</td>
+<td>Commit message include option.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotAllow.html"><code>DependabotAllow</code></a></td>
+<td>Record</td>
+<td>Allow rule for Dependabot updates.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotCommitMessage.html"><code>DependabotCommitMessage</code></a></td>
+<td>Record</td>
+<td>Commit message preferences for Dependabot.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotConfig.html"><code>DependabotConfig</code></a></td>
+<td>Record</td>
+<td>GitHub Dependabot v2 configuration.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotCooldown.html"><code>DependabotCooldown</code></a></td>
+<td>Record</td>
+<td>Cooldown configuration for dependency updates.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotGroup.html"><code>DependabotGroup</code></a></td>
+<td>Union record</td>
+<td>Group configuration for dependencies.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotIgnore.html"><code>DependabotIgnore</code></a></td>
+<td>Record</td>
+<td>Ignore rule for Dependabot updates.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotMultiEcosystemGroup.html"><code>DependabotMultiEcosystemGroup</code></a></td>
+<td>Record</td>
+<td>Multi-ecosystem group configuration that spans multiple package ecosystems.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotPullRequestBranchName.html"><code>DependabotPullRequestBranchName</code></a></td>
+<td>Record</td>
+<td>Pull request branch name preferences.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotRegistries.html"><code>DependabotRegistries</code></a></td>
+<td>Union record</td>
+<td>Registries to use for an update configuration: a list of registry names or <code>*</code> for all.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotRegistry.html"><code>DependabotRegistry</code></a></td>
+<td>Record</td>
+<td>Private package registry configuration.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotSchedule.html"><code>DependabotSchedule</code></a></td>
+<td>Record</td>
+<td>Schedule preferences for Dependabot updates.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotUpdate.html"><code>DependabotUpdate</code></a></td>
+<td>Record</td>
+<td>Package ecosystem configuration for Dependabot updates.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependabotVersions.html"><code>DependabotVersions</code></a></td>
+<td>Union record</td>
+<td>Versions to ignore: a single version string or a list of version strings.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.DependencyType.html"><code>DependencyType</code></a></td>
+<td>Enum</td>
+<td>Dependency type for allow/ignore rules.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.GroupAppliesTo.html"><code>GroupAppliesTo</code></a></td>
+<td>Enum</td>
+<td>Specifies whether the rules in the group apply to version updates or security updates.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.GroupBy.html"><code>GroupBy</code></a></td>
+<td>Enum</td>
+<td>Configure how dependencies are grouped.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.GroupDependencyType.html"><code>GroupDependencyType</code></a></td>
+<td>Enum</td>
+<td>Dependency type for groups.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.GroupUpdateType.html"><code>GroupUpdateType</code></a></td>
+<td>Enum</td>
+<td>Semantic versioning update type.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.InsecureExternalCodeExecution.html"><code>InsecureExternalCodeExecution</code></a></td>
+<td>Enum</td>
+<td>Allow or deny code execution in manifest files.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.PackageEcosystem.html"><code>PackageEcosystem</code></a></td>
+<td>Enum</td>
+<td>Package ecosystem values for Dependabot.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.RebaseStrategy.html"><code>RebaseStrategy</code></a></td>
+<td>Enum</td>
+<td>Rebase strategy for Dependabot.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.RegistryType.html"><code>RegistryType</code></a></td>
+<td>Enum</td>
+<td>Registry type for Dependabot.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.ScheduleDay.html"><code>ScheduleDay</code></a></td>
+<td>Enum</td>
+<td>Schedule day for Dependabot updates.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.ScheduleInterval.html"><code>ScheduleInterval</code></a></td>
+<td>Enum</td>
+<td>Schedule interval for Dependabot updates.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.SemverUpdateType.html"><code>SemverUpdateType</code></a></td>
+<td>Enum</td>
+<td>Semantic version update type.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.GithubActions.DependabotConfigModel.Model.VersioningStrategy.html"><code>VersioningStrategy</code></a></td>
+<td>Enum</td>
+<td>How to update manifest version requirements.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="invexstructuredtextazuredevopspipelines">Invex.StructuredText.AzureDevopsPipelines</h2>
+<p><a href="https://www.nuget.org/packages/Invex.StructuredText.AzureDevopsPipelines">NuGet</a>. Azure DevOps Pipelines YAML generation.</p>
+<h3 id="invexstructuredtextazuredevopspipelines-1">Invex.StructuredText.AzureDevopsPipelines</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsAgentVariables.html"><code>DevopsAgentVariables</code></a></td>
+<td>Class</td>
+<td><code>Agent.*</code> predefined variables.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsBuildVariables.html"><code>DevopsBuildVariables</code></a></td>
+<td>Class</td>
+<td><code>Build.*</code> predefined variables.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsContexts.html"><code>DevopsContexts</code></a></td>
+<td>Class</td>
+<td>Azure DevOps predefined variables and run-time expressions, reached through <code>Tex.DevOps</code>. Each variable is a <code>Variable</code> reference: <code>$(Build.BuildId)</code> in a template and <code>variables['Build.BuildId']</code> in a condition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsExpressionPrinter.html"><code>DevopsExpressionPrinter</code></a></td>
+<td>Class</td>
+<td>Renders typed expressions (<code>Expr</code>) and <code>Template</code>s to Azure DevOps syntax. Operators are functions (<code>and(...)</code>, <code>or(...)</code>, <code>not(...)</code>, <code>eq(...)</code>, …) and status checks are <code>succeeded()</code>, <code>failed()</code>, <code>canceled()</code> and <code>always()</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineWriter.html"><code>DevopsPipelineWriter</code></a></td>
+<td>Class</td>
+<td>Serializes a <code>DevopsPipeline</code> model to Azure Pipelines YAML. Expressions embedded in the model are rendered with <code>DevopsExpressionPrinter</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsRuntimeExpr.html"><code>DevopsRuntimeExpr</code></a></td>
+<td>Record</td>
+<td>Marks an expression to be evaluated at run time. Embedded in a <code>Template</code>, it renders as <code>$[ … ]</code> instead of the compile-time <code>${{ … }}</code>. Create one with <code>Tex.DevOps.Runtime(…)</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsSystemVariables.html"><code>DevopsSystemVariables</code></a></td>
+<td>Class</td>
+<td><code>System.*</code> predefined variables.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.TexDevopsExtensions.html"><code>TexDevopsExtensions</code></a></td>
+<td>Static class</td>
+<td>Adds the Azure DevOps predefined variables and run-time expressions to <code>Tex</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextazuredevopspipelinesdevopspipelinemodeljobs">Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentEnvironment.html"><code>DeploymentEnvironment</code></a></td>
+<td>Union record</td>
+<td>Deployment environment specification.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentHook.html"><code>DeploymentHook</code></a></td>
+<td>Record</td>
+<td>Deployment lifecycle hook containing steps.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.DeploymentStrategy.html"><code>DeploymentStrategy</code></a></td>
+<td>Union record</td>
+<td>Deployment strategy for a deployment job.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.ExplicitResources.html"><code>ExplicitResources</code></a></td>
+<td>Record</td>
+<td>Explicit resource references for a job.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.Job.html"><code>Job</code></a></td>
+<td>Union record</td>
+<td>A job represents a unit of work which can be assigned to a single agent or server.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.JobContainer.html"><code>JobContainer</code></a></td>
+<td>Union record</td>
+<td>Container resource for a job.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Jobs.JobStrategy.html"><code>JobStrategy</code></a></td>
+<td>Record</td>
+<td>Execution strategy for a job.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextazuredevopspipelinesdevopspipelinemodelpipeline">Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Pipeline.DevopsPipeline.html"><code>DevopsPipeline</code></a></td>
+<td>Union record</td>
+<td>A pipeline is one or more stages that describe a CI/CD process.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextazuredevopspipelinesdevopspipelinemodelresources">Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.BuildResource.html"><code>BuildResource</code></a></td>
+<td>Record</td>
+<td>Build resource definition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.ContainerResource.html"><code>ContainerResource</code></a></td>
+<td>Record</td>
+<td>Container image resource definition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.ContainerResourceTrigger.html"><code>ContainerResourceTrigger</code></a></td>
+<td>Record</td>
+<td>Container resource trigger definition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.PackageResource.html"><code>PackageResource</code></a></td>
+<td>Record</td>
+<td>Package resource definition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.PipelineResource.html"><code>PipelineResource</code></a></td>
+<td>Record</td>
+<td>Pipeline resource definition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.PipelineResourceTrigger.html"><code>PipelineResourceTrigger</code></a></td>
+<td>Record</td>
+<td>Pipeline resource trigger definition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.RepositoryResource.html"><code>RepositoryResource</code></a></td>
+<td>Record</td>
+<td>Repository resource definition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.Resources.html"><code>Resources</code></a></td>
+<td>Record</td>
+<td>Resources specifies builds, repositories, pipelines, and other resources used by the pipeline.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.WebhookFilter.html"><code>WebhookFilter</code></a></td>
+<td>Record</td>
+<td>Webhook filter definition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Resources.WebhookResource.html"><code>WebhookResource</code></a></td>
+<td>Record</td>
+<td>Webhook resource definition.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextazuredevopspipelinesdevopspipelinemodelstages">Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Stages</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Stages.Stage.html"><code>Stage</code></a></td>
+<td>Union record</td>
+<td>A stage is a collection of related jobs.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextazuredevopspipelinesdevopspipelinemodelsteps">Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps.SettableVariables.html"><code>SettableVariables</code></a></td>
+<td>Record</td>
+<td>Restrictions on which variables can be set from a step.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps.Step.html"><code>Step</code></a></td>
+<td>Union record</td>
+<td>Steps are a linear sequence of operations that make up a job.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Steps.StepTarget.html"><code>StepTarget</code></a></td>
+<td>Union record</td>
+<td>Environment in which to run a step.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextazuredevopspipelinesdevopspipelinemodelsupporting">Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Extends.html"><code>Extends</code></a></td>
+<td>Record</td>
+<td>Extends a template.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.IncludeExcludeFilters.html"><code>IncludeExcludeFilters</code></a></td>
+<td>Record</td>
+<td>Include and exclude filters for branches, paths, or tags.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Parameter.html"><code>Parameter</code></a></td>
+<td>Record</td>
+<td>Pipeline template parameter definition.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Pool.html"><code>Pool</code></a></td>
+<td>Union record</td>
+<td>Specifies which pool to use for a job of the pipeline.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Schedule.html"><code>Schedule</code></a></td>
+<td>Record</td>
+<td>Scheduled trigger (cron).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Supporting.Workspace.html"><code>Workspace</code></a></td>
+<td>Record</td>
+<td>Workspace options on the agent.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextazuredevopspipelinesdevopspipelinemodeltriggers">Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers.Pr.html"><code>Pr</code></a></td>
+<td>Union record</td>
+<td>A pull request trigger specifies which branches cause a pull request build to run.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Triggers.Trigger.html"><code>Trigger</code></a></td>
+<td>Union record</td>
+<td>A push trigger specifies which branches cause a continuous integration build to run.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="invexstructuredtextazuredevopspipelinesdevopspipelinemodelvariables">Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables.Variable.html"><code>Variable</code></a></td>
+<td>Union record</td>
+<td>A variable definition that can be a named variable, variable group, or template reference.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Invex.StructuredText.AzureDevopsPipelines.DevopsPipelineModel.Variables.Variables.html"><code>Variables</code></a></td>
+<td>Union record</td>
+<td>Define variables using name/value pairs or variable lists.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="typical-flow">Typical flow</h2>
+<p>Build a model, write it with the platform writer, then read the text from the writer's <code>StructuredTextWriter</code>:</p>
+<pre><code class="lang-csharp">var writer = new GithubActionWriter();           // or DependabotConfigWriter / DevopsPipelineWriter
+writer.Write(workflow);                          // DependabotConfigWriter uses WriteConfig(config)
+
+File.WriteAllText(&quot;.github/workflows/ci.yml&quot;, writer.TextWriter.ToString());
+</code></pre>
+<p>For concepts and guides, start with the <a href="../docs/introduction.html">Introduction</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Invex-Games/structured-text/blob/main/api/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Invex.StructuredText · MIT License · Invex Games
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
