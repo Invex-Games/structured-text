@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net10.0;net11.0</TargetFrameworks>
+    <TargetFramework>net10.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <!-- Samples are illustrative code, not a public API. -->
     <NoWarn>$(NoWarn);CS1591</NoWarn>
